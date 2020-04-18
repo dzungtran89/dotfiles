@@ -1,0 +1,88 @@
+# common
+alias goto='cd ~/code/projects && cd'
+alias pins='pip install -q'
+alias cl='clear'
+
+# vim
+alias vno='vim --noplugin $@'
+
+# yabai
+alias ycf='yabai -m config $@'
+
+# byobu
+alias bb='byobu'
+
+# git
+# using the aliases by zsh
+
+# alias gitco='git checkout'
+# alias gitcm='git commit'
+# alias gitrs='git reset'
+# alias gitcp='git cherry-pick'
+# alias gitm='git merge'
+# alias gitmt='git mergetool'
+# alias gitl='git log'
+# alias gits='git stash'
+# alias gitpl='git pull --rebase'
+# alias gitps='git push'
+# alias gitf='git fetch'
+# alias gitb='git branch'
+# alias gitd='git diff'
+# alias gitst='git status'
+
+# docker
+alias dkls='docker container ls'
+alias dki='docker images'
+alias dkrmi='docker rmi'
+alias dks='docker container start $@'
+alias dksp='docker container stop $@'
+alias dke='docker exec -it $@'
+alias psp='ps aux | grep $@ | grep -Ev grep'
+alias dklog='docker login docker-hub.trobz.com:443'
+
+# icloud
+alias icloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
+
+# ctags
+alias ctags="`brew --prefix`/bin/ctags"
+
+# emacs
+alias em='emacs'
+alias emt='emacsclient -t'
+alias ec='emt ~/.emacs.d/init.el'
+alias emd='em --daemon'
+alias emk='emacsclient -e "(kill-emacs)"'
+alias emc='emacsclient -c'
+
+# pipenv
+alias pe='pipenv'
+
+# trobz internal tools
+alias roi='remoteoi'
+alias eoi='emoi'
+alias aoi='anhoi'
+alias es='emoi start'
+alias eu='emoi upgrade'
+
+# yabai, skhd
+alias ybrestart='launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"'
+alias skhdrestart='launchctl kickstart -k "gui/${UID}/homebrew.mxcl.skhd"'
+
+# brew
+alias brrestart='brew services restart'
+alias brstop='brew services stop'
+alias brlink='brew link'
+alias brunlink='brew unlink'
+
+# postgres
+alias brupsql='brew postgresql-upgrade-database'
+
+# screen
+alias scls='screen -ls'
+alias scnew='screen -S'
+alias sca='screen -r'
+
+# tmux
+alias tmn='tmux new -s'
+alias tma='tmux attach -t'
+alias tmls='tmux ls'

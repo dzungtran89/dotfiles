@@ -1,0 +1,13 @@
+set easymotion
+set surround
+set multiple-cursors
+set commentary
+set nonu
+
+imap jj <Esc>
+imap kk <Esc>
+
+if has('unnamedplus')
+  set clipboard=unnamed,unnamedplus
+endif
+
