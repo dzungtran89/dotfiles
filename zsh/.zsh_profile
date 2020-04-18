@@ -1,0 +1,84 @@
+# Remove duplicated PATH
+typeset -U PATH
+
+export EDITOR=vim
+
+# byobu
+export BYOBU_PREFIX=/usr/local
+
+# if type nvim > /dev/null 2>&1; then
+#     alias vim='nvim'
+# fi
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# export CPPFLAGS="-I/usr/local/opt/openssl/include"
+# export LDFLAGS="-L/usr/local/opt/openssl/lib"
+# export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
+
+# For compilers to find openssl@1.1 you may need to set:
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+
+# For pkg-config to find openssl@1.1 you may need to set:
+export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
+
+export GOPATH=$HOME/go-workspace
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=/usr/local/opt/grep/libexec/gnubin:/usr/local/sbin:$PATH:$HOME/Library/Python/2.7/bin
+export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+
+if [ -z "$XDG_CONFIG_HOME" ]; then
+    export XDG_CONFIG_HOME=$HOME/.config
+fi
+
+# For GO
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+
+export PGDATA=/usr/local/var/postgres
+export PGHOST=localhost
+
+
+# For flutter
+export PATH=$PATH:$HOME/sdk/flutter/bin
+
+# added by Pew
+source $(pew shell_config)
+
+# pipenv
+# eval "$(pipenv --completion)"
+
+# shopt -s promptvars
+
+# For compilers to find zlib you may need to set:
+export LDFLAGS="${LDFLAGS} -L/usr/local/opt/zlib/lib"
+export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/zlib/include"
+
+# For pkg-config to find zlib you may need to set:
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
+
+# For jekyll
+export PATH=$HOME/.gem/ruby/2.7.0/bin:$PATH
+
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
+
+export PATH="/usr/local/opt/texinfo/bin:$PATH"
+
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
+if [ -f ~/.zsh_aliases ]; then
+  . ~/.zsh_aliases
+fi
+
+# cod, autocompletion tool, lean completion by `<cmd> --help`
+# export PATH=$HOME/opt/cod:$PATH
+# source <(cod init $$ zsh)
+
+# ssh to host by hostname :)
+# ie: ssh corona
+zstyle ':completion:*:(ssh|scp|ftp|sftp):*' hosts $hosts
+zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
