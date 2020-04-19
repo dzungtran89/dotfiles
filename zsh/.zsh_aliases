@@ -1,9 +1,11 @@
 # common
+
 alias goto='cd ~/code/projects && cd'
 alias pins='pip install -q'
 alias cl='clear'
 
 # vim
+alias vim='nvim'
 alias vno='vim --noplugin $@'
 
 # yabai
