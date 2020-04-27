@@ -4,8 +4,7 @@ set multiple-cursors
 set commentary
 set nonu
 
-imap jj <Esc>
-imap kk <Esc>
+imap jk <Esc>
 
 if has('unnamedplus')
   set clipboard=unnamed,unnamedplus

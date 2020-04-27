@@ -37,6 +37,9 @@ fi
 # For GO
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 
+# doom-emacs
+export PATH=$HOME/.emacs.d/bin:$PATH
+
 export PGDATA=/usr/local/var/postgres
 export PGHOST=localhost
 

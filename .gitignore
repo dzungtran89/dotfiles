@@ -2,3 +2,5 @@ autoload
 plugged
 session
 .net*
+
+plugins

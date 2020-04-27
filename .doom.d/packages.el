@@ -47,3 +47,9 @@
 ;(package! builtin-package :recipe (:branch "develop"))
 
 (package! gruvbox-theme)
+(package! editorconfig)
+(package! org-roam)
+(package! airline-themes)
+
+(package! docker-compose-mode)
+(package! dockerfile-mode)

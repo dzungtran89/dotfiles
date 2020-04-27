@@ -1,5 +1,7 @@
 # common
 
+alias diskusage='iostat -Id disk0'
+alias fa='alias | grep'
 alias goto='cd ~/code/projects && cd'
 alias pins='pip install -q'
 alias cl='clear'
@@ -33,14 +35,17 @@ alias bb='byobu'
 # alias gitst='git status'
 
 # docker
-alias dkls='docker container ls'
 alias dki='docker images'
+alias dkig='docker images | grep'
 alias dkrmi='docker rmi'
+alias dkls='docker container ls'
 alias dks='docker container start $@'
 alias dksp='docker container stop $@'
 alias dke='docker exec -it $@'
-alias psp='ps aux | grep $@ | grep -Ev grep'
+alias psp='ps aux | grep $1 | grep -Ev grep'
 alias dklog='docker login docker-hub.trobz.com:443'
+alias dkclean='docker volume rm $(docker volume ls -qf dangling=true)'
+alias dkpsex="docker ps -q -f 'status=exited'"
 
 # icloud
 alias icloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
@@ -65,6 +70,8 @@ alias eoi='emoi'
 alias aoi='anhoi'
 alias es='emoi start'
 alias eu='emoi upgrade'
+
+alias dois='demoi start'
 
 # yabai, skhd
 alias ybrestart='launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"'

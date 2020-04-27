@@ -58,7 +58,33 @@
 (modify-syntax-entry ?_ "w")
 
 ;; Key bindings
-(define-key evil-normal-state-map (kbd "<tab>") 'other-window)
-(define-key evil-normal-state-map (kbd "<backtab>") 'evil-next-buffer)
+;; (define-key evil-normal-state-map (kbd "<tab>") 'other-window)
+;; (define-key evil-normal-state-map (kbd "<backtab>") 'evil-next-buffer)
 
 (setq org-export-with-section-numbers nil)
+
+; Turn of line number as default
+;
+(global-display-line-numbers-mode -1)
+
+;; (add-hook 'prog-mode-hook (lambda() (global-display-line-numbers-mode -1)))
+
+(add-hook 'markdown-mode-hook
+          (lambda()
+            (hl-line-mode -1)
+            ))
+
+(add-hook 'python-mode-hook
+          (lambda()
+            (global-display-line-numbers-mode -1)
+            (hl-line-mode -1)
+            ))
+
+(add-hook 'emacs-lisp-mode-hook
+          (lambda()
+            (global-display-line-numbers-mode -1)
+            (hl-line-mode -1)
+            (rainbow-delimiters-mode -1)
+            ))
+;;
+;; (remove-hook 'prog-mode-hook #'global-display-line-numbers-mode)
