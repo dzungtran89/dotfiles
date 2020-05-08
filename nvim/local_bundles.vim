@@ -2,6 +2,8 @@
 " Colors
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
+
+" Plug 'fenetikm/falcon'
 " Plug 'ayu-theme/ayu-vim'
 " Plug 'chuling/vim-equinusocio-material'
 " Plug 'sainnhe/gruvbox-material'
@@ -10,7 +12,8 @@ Plug 'morhetz/gruvbox'
 
 " Editor
 Plug 'tpope/vim-surround'
-" Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'zxqfl/tabnine-vim'
 
 " nnn
 Plug 'mcchrish/nnn.vim'

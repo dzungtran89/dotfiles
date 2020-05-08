@@ -1,6 +1,6 @@
 " Editor
 "
-let w:airline_disable_statusline = 1
+let g:airline_disable_statusline = 1
 let g:airline_theme = 'onedark'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 0
@@ -8,6 +8,8 @@ let g:airline#extensions#ale#enabled = 0
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tagbar#enabled = 0
 let g:airline_skip_empty_sections = 1
+
+let g:jedi#auto_initialization = 0
 
 " IndentLine {{
 let g:indentLine_char = '.'
@@ -34,9 +36,7 @@ endif
 colorscheme gruvbox
 
 " this theme has a buildin lightline theme, you can turn it on
-let g:lightline = {
-  \ 'colorscheme': 'one',
-  \ }
+let g:lightline = { 'colorscheme': 'one', }
 
 imap jk <Esc>
 " imap kk <Esc>
@@ -53,6 +53,7 @@ set nonu
 nmap <leader>l :set invrelativenumber<CR>
 
 " search
+set noic
 nmap <C-N> :cn<CR>
 nmap <C-P> :cp<CR>
 
@@ -81,3 +82,6 @@ let g:closetag_filetypes = 'html,xml,phtml'
 
 " Git
 let g:fugitive_gitlab_domains = ['https://gitlab.trobz.com']
+
+" Kite
+let g:kite_supported_languages = ['python']
