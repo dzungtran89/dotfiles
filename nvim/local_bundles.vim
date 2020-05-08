@@ -3,13 +3,6 @@
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
 
-" Plug 'fenetikm/falcon'
-" Plug 'ayu-theme/ayu-vim'
-" Plug 'chuling/vim-equinusocio-material'
-" Plug 'sainnhe/gruvbox-material'
-" Plug 'cocopon/iceberg.vim'
-" Plug 'dracula/vim', { 'as': 'dracula' }
-
 " Editor
 Plug 'tpope/vim-surround'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
