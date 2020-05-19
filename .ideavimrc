@@ -2,9 +2,9 @@ set easymotion
 set surround
 set multiple-cursors
 set commentary
-set nonu
+" set nonu
 
-imap jk <Esc>
+" imap jk <Esc>
 
 if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
