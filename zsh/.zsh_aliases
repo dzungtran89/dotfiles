@@ -13,9 +13,8 @@ alias vno='vim --noplugin $@'
 # yabai
 alias ycf='yabai -m config $@'
 
-# byobu
-alias bb='byobu'
-
+alias b='buku --suggest'
+alias n3='nnn'
 # git
 # using the aliases by zsh
 

@@ -171,7 +171,7 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-" nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
 " xmap <leader>f  <Plug>(coc-format-selected)
@@ -226,6 +226,8 @@ command! -nargs=0 OR      :call     CocAction('runCommand', 'editor.action.organ
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings using CoCList:
+" Restart diagnostics.
+nnoremap <silent> <space>r  :<C-u>CocRestart<cr>
 " Show all diagnostics.
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
@@ -258,5 +260,13 @@ let g:lightline = {
       \   'currentfunction': 'CocCurrentFunction'
       \ },
       \ }
+
+let g:lightline.tabline = {
+  \   'left': [ ['tabs'] ],
+  \   'right': [ ['close'] ]
+  \ }
+set showtabline=2  " Show tabline
+set guioptions-=e  " Don't use GUI tabline
+
 "
 " }}}
