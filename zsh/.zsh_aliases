@@ -60,8 +60,9 @@ alias emd='em --daemon'
 alias emk='emacsclient -e "(kill-emacs)"'
 alias emc='emacsclient -c'
 
-# pipenv
-alias pe='pipenv'
+# pyenv
+alias pv='pyenv'
+alias pvs='pyenv shell'
 
 # trobz internal tools
 alias roi='remoteoi'

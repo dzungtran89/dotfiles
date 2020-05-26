@@ -1,22 +1,17 @@
 "
+" Game
+Plug 'ThePrimeagen/vim-be-good'
+
 " Colors
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
 
 " Editor
 Plug 'tpope/vim-surround'
-
-" if has('nvim')
-"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"   let g:deoplete#enable_at_startup = 1
-" else
-"   Plug 'Shougo/deoplete.nvim'
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-" endif
+" Plug 'preservim/nerdcommenter'
+" Plug 'lervag/vimtex'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'zxqfl/tabnine-vim'
 
 " nnn
 Plug 'mcchrish/nnn.vim'
@@ -25,7 +20,7 @@ Plug 'mcchrish/nnn.vim'
 Plug 'editorconfig/editorconfig-vim'
 
 " org mode
-Plug 'jceb/vim-orgmode'
+" Plug 'jceb/vim-orgmode'
 
 Plug 'tpope/vim-speeddating'
 

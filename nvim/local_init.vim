@@ -1,6 +1,6 @@
 " vim:fileencoding=utf-8:foldmethod=marker
 
-" {{{ Editor
+" Editor {{{
 "
 let g:airline_disable_statusline = 1
 let g:airline_theme = 'onedark'
@@ -12,11 +12,11 @@ let g:airline#extensions#tagbar#enabled = 0
 let g:airline_skip_empty_sections = 1
 let g:jedi#auto_initialization = 0
 
-let g:python3_host_prog = '/Users/tran/.pyenv/shims/python3'
+let g:python3_host_prog = '/Users/tran/.pyenv/shims/python'
 
 " }}}
 
-" {{{ IndentLine
+" IndentLine {{{
 let g:indentLine_char = '.'
 let g:indentLine_first_char = '.'
 " let g:indentLine_char = ''
@@ -43,6 +43,8 @@ colorscheme gruvbox
 " imap jk <Esc>
 " imap kk <Esc>
 
+noremap <leader>w <C-w>
+
 " Set working dir to the current file path
 nnoremap <leader>dd :cd %:p:h<CR>
 
@@ -64,6 +66,28 @@ nmap <C-P> :cp<CR>
 
 " Git
 noremap <Leader>gw :Gbrowse<CR>
+
+
+" n3 {{{
+
+let $NNN_TRASH=1
+
+" Disable default mappings
+let g:nnn#set_default_mappings = 0
+
+" Then set your own
+" nnoremap <silent> <leader>nn :NnnPicker<CR>
+
+" Or override
+" Start nnn in the current file's directory
+nnoremap <leader>n :NnnPicker '%:p:h'<CR>
+
+let g:nnn#action = {
+      \ '<c-t>': 'tab split',
+      \ '<c-x>': 'split',
+      \ '<c-v>': 'vsplit' }
+
+" }}}
 
 " {{{ markdown
 let g:vim_markdown_folding_disabled = 0
@@ -89,7 +113,8 @@ let g:tagbar_type_markdown = {
 " }}}
 
 " closetag
-let g:closetag_filetypes = 'html,xml,phtml'
+" replaced by coc-xml
+" let g:closetag_filetypes = 'html,xml,phtml'
 
 " Git
 let g:fugitive_gitlab_domains = ['https://gitlab.trobz.com']
@@ -123,6 +148,7 @@ set signcolumn=yes
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
+
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -246,8 +272,24 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 function! CocCurrentFunction()
-    return get(b:, 'coc_current_function', '')
+  return get(b:, 'coc_current_function', '')
 endfunction
+
+" coc-snippets
+" Use <C-l> for trigger snippet expand.
+" imap <C-l> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 let g:lightline = {
       \ 'colorscheme': 'one',

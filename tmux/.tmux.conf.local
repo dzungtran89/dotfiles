@@ -34,6 +34,8 @@ run '~/.tmux/plugins/tpm/tpm'
 # set -ga terminal-overrides "*:kUP3=\e[1;9A,*:kDN3=\e[1;9B,*:kRIT3=\e[1;9C,*:kLFT3=\e[1;9D"
 
 set -g default-terminal "xterm-256color"
+# set -g default-terminal "screen-256color"
+# set-option -sa terminal-overrides ',XXX:RGB'
 
 # -- windows & pane creation ---------------------------------------------------
 

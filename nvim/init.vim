@@ -61,8 +61,8 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 
 "" Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
 
 "" Color
 Plug 'tomasr/molokai'
@@ -179,8 +179,6 @@ else
 
 
 endif
-
-
 
 "" Disable the blinking cursor.
 set gcr=a:blinkon0
@@ -364,10 +362,11 @@ nnoremap <silent> <leader>e :FZF -m<CR>
 nmap <leader>y :History:<CR>
 
 " snippets
-let g:UltiSnipsExpandTrigger="<C-f>"
-let g:UltiSnipsJumpForwardTrigger="<C-f>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-let g:UltiSnipsEditSplit="vertical"
+" Replaced by coc-snippets
+" let g:UltiSnipsExpandTrigger="<C-f>"
+" let g:UltiSnipsJumpForwardTrigger="<C-f>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+" let g:UltiSnipsEditSplit="vertical"
 
 " ale
 let g:ale_linters = {}
@@ -474,7 +473,7 @@ let g:airline#extensions#virtualenv#enabled = 1
 
 " Syntax highlight
 " Default highlight is better than polyglot
-let g:polyglot_disabled = ['python']
+let g:polyglot_disabled = ['python', 'javascript']
 let python_highlight_all = 1
 
 
