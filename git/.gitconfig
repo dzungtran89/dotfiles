@@ -1,0 +1,29 @@
+[user]
+  name = Dũng (Trần Đình)
+  email = dungtd@trobz.com
+[core]
+  excludesfile = ~/.gitignore_global
+  pager = diff-so-fancy | less --tabs=4 -RFX
+[color]
+  ui = true
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
+[color "diff"]
+  meta = yellow
+  frag = magenta bold
+  commit = yellow bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
+[gc]
+  autoDetach = false
+[pull]
+  rebase = true
+[rebase]
+  autoStash = true
+[filesystem "Oracle Corporation|1.8.0_144|/dev/disk1s1"]
+  timestampResolution = 1001 milliseconds
+  minRacyThreshold = 0 nanoseconds

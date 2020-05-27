@@ -8,7 +8,9 @@ Plug 'morhetz/gruvbox'
 
 " Editor
 Plug 'tpope/vim-surround'
+Plug 'jesseleite/vim-agriculture'
 " Plug 'preservim/nerdcommenter'
+Plug 'ronakg/quickr-preview.vim'
 " Plug 'lervag/vimtex'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -31,7 +33,7 @@ Plug 'godlygeek/tabular'
 " Odoo snippets
 Plug 'dzungtran89/vim-odoo-snippets'
 
-Plug 'alvan/vim-closetag'
+" Plug 'alvan/vim-closetag'
 Plug 'easymotion/vim-easymotion'
 
 " js
