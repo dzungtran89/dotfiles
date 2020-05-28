@@ -43,10 +43,30 @@ colorscheme gruvbox
 " imap jk <Esc>
 " imap kk <Esc>
 
+" fzf cool stuff {{{
+
+nmap <Leader>B :BLines<CR>
+nmap <Leader>L :Lines<CR>
+nmap <Leader>' :Marks<CR>
+
+nmap <Leader>C :Commands<CR>
+nmap <Leader>: :History:<CR>
+nmap <Leader>S :Filetypes<CR>
+
+" }}}
+
+noremap <leader>c :bd!<CR>
 noremap <leader>w <C-w>
 
 " Set working dir to the current file path
 nnoremap <leader>dd :cd %:p:h<CR>
+
+" dirvish {{{
+
+" nnoremap <silent> <F2> :Dirvish<CR>
+" nnoremap <silent> <F3> :NERDTreeToggle<CR>
+
+" }}}
 
 " Fix slow: insert -> <esc> -> O
 " ref: https://github.com/vim/vim/issues/24

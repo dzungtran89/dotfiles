@@ -7,6 +7,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
 
 " Editor
+" Plug 'tpope/vim-vinegar'
+" Plug 'justinmk/vim-dirvish'
 Plug 'tpope/vim-surround'
 Plug 'jesseleite/vim-agriculture'
 " Plug 'preservim/nerdcommenter'
@@ -24,7 +26,7 @@ Plug 'editorconfig/editorconfig-vim'
 " org mode
 " Plug 'jceb/vim-orgmode'
 
-Plug 'tpope/vim-speeddating'
+" Plug 'tpope/vim-speeddating'
 
 " markdown
 Plug 'dhruvasagar/vim-table-mode'
@@ -37,7 +39,7 @@ Plug 'dzungtran89/vim-odoo-snippets'
 Plug 'easymotion/vim-easymotion'
 
 " js
-Plug 'ternjs/tern_for_vim'
+" Plug 'ternjs/tern_for_vim'
 
 " tmux
 Plug 'christoomey/vim-tmux-navigator'

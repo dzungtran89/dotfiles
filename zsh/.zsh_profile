@@ -3,61 +3,53 @@ typeset -U PATH
 
 export EDITOR=vim
 
-# For compilers to find openssl@1.1 you may need to set:
-export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
-
-# For pkg-config to find openssl@1.1 you may need to set:
-export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
-
-export GOPATH=$HOME/go-workspace
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=/usr/local/opt/grep/libexec/gnubin:/usr/local/sbin:$PATH:$HOME/Library/Python/2.7/bin
-export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
-
 if [ -z "$XDG_CONFIG_HOME" ]; then
-    export XDG_CONFIG_HOME=$HOME/.config
+  export XDG_CONFIG_HOME=$HOME/.config
 fi
 
-# For GO
+# openssl@1.1
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
+
+# go-lang
+export GOPATH=$HOME/go-workspace
+export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+
+export PATH=/usr/local/opt/grep/libexec/gnubin:/usr/local/sbin:$PATH
+export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 
 # doom-emacs
 export PATH=$HOME/.emacs.d/bin:$PATH
 
+# psql
 export PGDATA=/usr/local/var/postgres
 export PGHOST=localhost
 
-
-# For flutter
+# flutter
 export PATH=$PATH:$HOME/sdk/flutter/bin
-
 
 # shopt -s promptvars
 
-# For compilers to find zlib you may need to set:
+# zlib
 export LDFLAGS="${LDFLAGS} -L/usr/local/opt/zlib/lib"
 export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/zlib/include"
-
-# For pkg-config to find zlib you may need to set:
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
 
-# For compilers to find libffi you may need to set:
+# libffi
 export LDFLAGS="${LDFLAGS} -L/usr/local/opt/libffi/lib"
 export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/libffi/include"
-
-# For pkg-config to find zlib you may need to set:
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/libffi/lib/pkgconfig"
 
-# For jekyll
+# jekyll
 export PATH=$HOME/.gem/ruby/2.7.0/bin:$PATH
-
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
 
 export PATH="/usr/local/opt/texinfo/bin:$PATH"
 
-# Rust
+# rust-lang
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # ssh to host by hostname :)
@@ -65,12 +57,12 @@ export PATH="$HOME/.cargo/bin:$PATH"
 zstyle ':completion:*:(ssh|scp|ftp|sftp):*' hosts $hosts
 zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
 
-# Aliases
+# aliases
 if [ -f ~/.zsh_aliases ]; then
   . ~/.zsh_aliases
 fi
 
-# added by Pew
+# pew
 # source $(pew shell_config)
 
 # pyenv
