@@ -28,11 +28,10 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "" Plug install packages
 "*****************************************************************************
 Plug 'scrooloose/nerdtree'
-" Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/grep.vim'
 Plug 'vim-scripts/CSApprox'
@@ -60,23 +59,16 @@ Plug 'Shougo/vimproc.vim', {'do': g:make}
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 
-"" Snippets
-" Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
-
-"" Color
-Plug 'tomasr/molokai'
-
 "*****************************************************************************
 "" Custom bundles
 "*****************************************************************************
 
 " html
 "" HTML Bundle
-Plug 'hail2u/vim-css3-syntax'
-Plug 'gorodinskiy/vim-coloresque'
-Plug 'tpope/vim-haml'
-Plug 'mattn/emmet-vim'
+" Plug 'hail2u/vim-css3-syntax'
+" Plug 'gorodinskiy/vim-coloresque'
+" Plug 'tpope/vim-haml'
+" Plug 'mattn/emmet-vim'
 
 
 " javascript
@@ -207,12 +199,14 @@ if exists("*fugitive#statusline")
 endif
 
 " vim-airline
-let g:airline_theme = 'powerlineish'
-let g:airline#extensions#branch#enabled = 1
-" let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tagbar#enabled = 1
-let g:airline_skip_empty_sections = 1
+if has_key(plugs, 'vim-airline')
+  let g:airline_theme = 'powerlineish'
+  let g:airline#extensions#branch#enabled = 1
+  " let g:airline#extensions#ale#enabled = 1
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tagbar#enabled = 1
+  let g:airline_skip_empty_sections = 1
+endif
 
 "*****************************************************************************
 "" Abbreviations
@@ -361,16 +355,6 @@ nnoremap <silent> <leader>e :FZF -m<CR>
 "Recovery commands from history through FZF
 nmap <leader>y :History:<CR>
 
-" snippets
-" Replaced by coc-snippets
-" let g:UltiSnipsExpandTrigger="<C-f>"
-" let g:UltiSnipsJumpForwardTrigger="<C-f>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-" let g:UltiSnipsEditSplit="vertical"
-
-" ale
-" let g:ale_linters = {}
-
 " Tagbar
 nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
@@ -469,7 +453,9 @@ let g:jedi#smart_auto_mappings = 0
 "     \'python': [''], })
 
 " vim-airline
-let g:airline#extensions#virtualenv#enabled = 1
+if has_key(plugs, 'vim-airline')
+  let g:airline#extensions#virtualenv#enabled = 1
+endif
 
 " Syntax highlight
 " Default highlight is better than polyglot
@@ -491,37 +477,39 @@ endif
 "*****************************************************************************
 
 " vim-airline
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
+if has_key(plugs, 'vim-airline')
+  if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+  endif
 
-if !exists('g:airline_powerline_fonts')
-  let g:airline#extensions#tabline#left_sep = ' '
-  let g:airline#extensions#tabline#left_alt_sep = '|'
-  let g:airline_left_sep          = '▶'
-  let g:airline_left_alt_sep      = '»'
-  let g:airline_right_sep         = '◀'
-  let g:airline_right_alt_sep     = '«'
-  let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
-  let g:airline#extensions#readonly#symbol   = '⊘'
-  let g:airline#extensions#linecolumn#prefix = '¶'
-  let g:airline#extensions#paste#symbol      = 'ρ'
-  let g:airline_symbols.linenr    = '␊'
-  let g:airline_symbols.branch    = '⎇'
-  let g:airline_symbols.paste     = 'ρ'
-  let g:airline_symbols.paste     = 'Þ'
-  let g:airline_symbols.paste     = '∥'
-  let g:airline_symbols.whitespace = 'Ξ'
-else
-  let g:airline#extensions#tabline#left_sep = ''
-  let g:airline#extensions#tabline#left_alt_sep = ''
+  if !exists('g:airline_powerline_fonts')
+    let g:airline#extensions#tabline#left_sep = ' '
+    let g:airline#extensions#tabline#left_alt_sep = '|'
+    let g:airline_left_sep          = '▶'
+    let g:airline_left_alt_sep      = '»'
+    let g:airline_right_sep         = '◀'
+    let g:airline_right_alt_sep     = '«'
+    let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
+    let g:airline#extensions#readonly#symbol   = '⊘'
+    let g:airline#extensions#linecolumn#prefix = '¶'
+    let g:airline#extensions#paste#symbol      = 'ρ'
+    let g:airline_symbols.linenr    = '␊'
+    let g:airline_symbols.branch    = '⎇'
+    let g:airline_symbols.paste     = 'ρ'
+    let g:airline_symbols.paste     = 'Þ'
+    let g:airline_symbols.paste     = '∥'
+    let g:airline_symbols.whitespace = 'Ξ'
+  else
+    let g:airline#extensions#tabline#left_sep = ''
+    let g:airline#extensions#tabline#left_alt_sep = ''
 
-  " powerline symbols
-  let g:airline_left_sep = ''
-  let g:airline_left_alt_sep = ''
-  let g:airline_right_sep = ''
-  let g:airline_right_alt_sep = ''
-  let g:airline_symbols.branch = ''
-  let g:airline_symbols.readonly = ''
-  let g:airline_symbols.linenr = ''
+    " powerline symbols
+    let g:airline_left_sep = ''
+    let g:airline_left_alt_sep = ''
+    let g:airline_right_sep = ''
+    let g:airline_right_alt_sep = ''
+    let g:airline_symbols.branch = ''
+    let g:airline_symbols.readonly = ''
+    let g:airline_symbols.linenr = ''
+  endif
 endif

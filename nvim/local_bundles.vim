@@ -2,16 +2,16 @@
 " Game
 Plug 'ThePrimeagen/vim-be-good'
 
-" Colors
+" Themes
+Plug 'drewtempelmeyer/palenight.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 " Editor
-" Plug 'tpope/vim-vinegar'
-" Plug 'justinmk/vim-dirvish'
 Plug 'tpope/vim-surround'
 Plug 'jesseleite/vim-agriculture'
-" Plug 'preservim/nerdcommenter'
 Plug 'ronakg/quickr-preview.vim'
 " Plug 'lervag/vimtex'
 
@@ -32,10 +32,13 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'godlygeek/tabular'
 
-" Odoo snippets
+" snippets
+" replaced by coc-snippets
+" Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'dzungtran89/vim-odoo-snippets'
 
-" Plug 'alvan/vim-closetag'
+" motion
 Plug 'easymotion/vim-easymotion'
 
 " js

@@ -7,31 +7,17 @@ alias pins='pip install -q'
 alias cl='clear'
 
 # vim
-alias vim='nvim'
+alias vim='pyenv shell vip3 ; nvim'
 alias vno='vim --noplugin $@'
 
 # yabai
 alias ycf='yabai -m config $@'
 
+# hugo
+alias hs='hugo server'
+
 alias b='buku --suggest'
 alias n3='nnn'
-# git
-# using the aliases by zsh
-
-# alias gitco='git checkout'
-# alias gitcm='git commit'
-# alias gitrs='git reset'
-# alias gitcp='git cherry-pick'
-# alias gitm='git merge'
-# alias gitmt='git mergetool'
-# alias gitl='git log'
-# alias gits='git stash'
-# alias gitpl='git pull --rebase'
-# alias gitps='git push'
-# alias gitf='git fetch'
-# alias gitb='git branch'
-# alias gitd='git diff'
-# alias gitst='git status'
 
 # docker
 alias dki='docker images'
@@ -74,14 +60,14 @@ alias eu='emoi upgrade'
 alias dois='demoi start'
 
 # yabai, skhd
-alias ybrestart='launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"'
-alias skhdrestart='launchctl kickstart -k "gui/${UID}/homebrew.mxcl.skhd"'
+alias yres='launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"'
+alias sres='launchctl kickstart -k "gui/${UID}/homebrew.mxcl.skhd"'
 
 # brew
-alias brrestart='brew services restart'
-alias brstop='brew services stop'
-alias brlink='brew link'
-alias brunlink='brew unlink'
+alias brs='brew services restart'
+alias brst='brew services stop'
+alias brl='brew link'
+alias brul='brew unlink'
 
 # postgres
 alias brupsql='brew postgresql-upgrade-database'

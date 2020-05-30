@@ -49,6 +49,9 @@ export PATH="/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
 
 export PATH="/usr/local/opt/texinfo/bin:$PATH"
 
+# pip
+export PATH="$HOME/.local/bin":$PATH
+
 # rust-lang
 export PATH="$HOME/.cargo/bin:$PATH"
 
