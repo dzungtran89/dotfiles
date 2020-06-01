@@ -13,6 +13,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-surround'
 Plug 'jesseleite/vim-agriculture'
 Plug 'ronakg/quickr-preview.vim'
+" Plug 'mhinz/vim-startify'
 " Plug 'lervag/vimtex'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}

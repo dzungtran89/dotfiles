@@ -66,7 +66,7 @@ if [ -f ~/.zsh_aliases ]; then
 fi
 
 # pew
-# source $(pew shell_config)
+source $(pew shell_config)
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
