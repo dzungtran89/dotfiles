@@ -49,9 +49,6 @@ export PATH="/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
 
 export PATH="/usr/local/opt/texinfo/bin:$PATH"
 
-# pip
-export PATH="$HOME/.local/bin":$PATH
-
 # rust-lang
 export PATH="$HOME/.cargo/bin:$PATH"
 
@@ -60,13 +57,24 @@ export PATH="$HOME/.cargo/bin:$PATH"
 zstyle ':completion:*:(ssh|scp|ftp|sftp):*' hosts $hosts
 zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
 
+# explorer
+twf-widget() {
+  local selected=$(twf --height=0.5)
+  BUFFER="$BUFFER$selected"
+  zle reset-prompt
+  zle end-of-line
+  return $ret
+}
+zle -N twf-widget
+bindkey '^T' twf-widget
+
 # aliases
 if [ -f ~/.zsh_aliases ]; then
   . ~/.zsh_aliases
 fi
 
-# pew
-source $(pew shell_config)
+# pip
+export PATH="$HOME/.local/bin":$PATH
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -77,3 +85,5 @@ fi
 
 eval "$(pyenv virtualenv-init -)"
 
+# pew
+# source $(pew shell_config)

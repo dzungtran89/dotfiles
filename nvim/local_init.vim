@@ -1,4 +1,4 @@
-" vim:fileencoding=utf-8:foldmethod=marker
+" vim:fileencoding=utf-8
 
 " Editor {{{
 
@@ -66,8 +66,8 @@ noremap <leader>Q :qa!<CR>
 
 
 " Set working dir to the current file path
-nnoremap <leader>dd :cd %:p:h<CR>
-
+nnoremap <leader>dd :lcd %:p:h<CR>
+nnoremap <leader>. :CtrlPTag<cr>
 " dirvish {{{
 
 " nnoremap <silent> <F2> :Dirvish<CR>
@@ -78,6 +78,8 @@ nnoremap <leader>dd :cd %:p:h<CR>
 " Fix slow: insert -> <esc> -> O
 " ref: https://github.com/vim/vim/issues/24
 " set timeout timeoutlen=5000 ttimeoutlen=100
+
+set foldmethod=indent
 
 set nonu
 " set relativenumber
@@ -90,6 +92,24 @@ nmap <leader>l :set invrelativenumber<CR>
 set noic
 nmap <C-N> :cn<CR>
 nmap <C-P> :cp<CR>
+
+nmap <leader>vc @:
+
+" fold
+nmap <leader>fo zO
+nmap <leader>fc zC
+nmap <leader>fa za
+nmap <leader>fm zm
+
+" vmux (evolution of vim + tmux)
+" Prompt for a command to run
+map <leader>vp :VimuxPromptCommand<CR>
+" Run last command executed by VimuxRunCommand
+map <leader>vl :VimuxRunLastCommand<CR>
+" Zoom the tmux runner pane
+map <leader>vz :VimuxZoomRunner<CR>
+" Inspect runner pane
+map <leader>vi :VimuxInspectRunner<CR>
 
 " vim-agriculture
 nmap <leader>/ <plug>RgRawSearch
@@ -137,7 +157,9 @@ endif
 
 " }}}
 
-" n3 {{{
+" explorer {{{
+
+" nnn
 
 let $NNN_TRASH=1
 
@@ -156,9 +178,34 @@ let g:nnn#action = {
       \ '<c-x>': 'split',
       \ '<c-v>': 'vsplit' }
 
+" twf
+function! TwfExit(path)
+  function! TwfExitClosure(job_id, data, event) closure
+    bd!
+    try
+      let out = filereadable(a:path) ? readfile(a:path) : []
+    finally
+      silent! call delete(a:path)
+    endtry
+    if !empty(out)
+      execute 'edit! ' . out[0]
+    endif
+  endfunction
+  return funcref('TwfExitClosure')
+endfunction
+
+function! Twf()
+  let temp = tempname()
+  call termopen('twf ' . @% . ' > ' . temp, { 'on_exit': TwfExit(temp) })
+  startinsert
+endfunction
+
+nnoremap <silent> <Space>t :call Twf()<CR>
+
 " }}}
 
 " {{{ markdown
+"
 let g:vim_markdown_folding_disabled = 0
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
@@ -215,7 +262,6 @@ if has_key(plugs, 'vim-startify')
         \ { 'type': function('s:gitUntracked'), 'header': ['   git untracked']},
         \ { 'type': 'commands',  'header': ['   Commands']       },
         \ ]
-
 endif
 " }}}
 
@@ -225,6 +271,38 @@ endif
 " let g:UltiSnipsJumpForwardTrigger="<C-f>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 " let g:UltiSnipsEditSplit="vertical"
+
+" }}}
+
+" {{{ vista
+"
+if has_key(plugs, 'vista.vim')
+
+  " How each level is indented and what to prepend.
+  " This could make the display more compact or more spacious.
+  " e.g., more compact: ["▸ ", ""]
+  " Note: this option only works the LSP executives, doesn't work for `:Vista ctags`.
+  let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+
+  " Executive used when opening vista sidebar without specifying it.
+  " See all the avaliable executives via `:echo g:vista#executives`.
+  let g:vista_default_executive = 'ctags'
+
+  " To enable fzf's preview window set g:vista_fzf_preview.
+  " The elements of g:vista_fzf_preview will be passed as arguments to fzf#vim#with_preview()
+  " For example:
+  let g:vista_fzf_preview = ['right:50%']
+
+  " Ensure you have installed some decent font to show these pretty symbols, then you can enable icon for the kind.
+  let g:vista#renderer#enable_icon = 1
+
+  " The default icons can't be suitable for all the filetypes, you can extend it as you wish.
+  let g:vista#renderer#icons = {
+        \   "function": "\uf794",
+        \   "variable": "\uf71b",
+        \  }
+
+endif
 
 " }}}
 
@@ -302,7 +380,7 @@ if has_key(plugs, 'coc.nvim')
   endfunction
 
   " Highlight the symbol and its references when holding the cursor.
-  autocmd CursorHold * silent call CocActionAsync('highlight')
+  " autocmd CursorHold * silent call CocActionAsync('highlight')
 
   " Symbol renaming.
   nmap <leader>rn <Plug>(coc-rename)
@@ -383,15 +461,52 @@ if has_key(plugs, 'coc.nvim')
     return get(b:, 'coc_current_function', '')
   endfunction
 
+  " function! LightlineFilename()
+  "   let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+  "   let modified = &modified ? ' +' : ''
+  "   return filename . modified
+  " endfunction
+
+  if has_key(plugs, 'vista.vim')
+
+    function! NearestMethodOrFunction() abort
+      return get(b:, 'vista_nearest_method_or_function', '')
+    endfunction
+    " By default vista.vim never run if you don't call it explicitly.
+    "
+    " If you want to show the nearest function in your statusline automatically,
+    " you can add the following line to your vimrc
+    " autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+
+  endif
+
   let g:lightline = {
-        \ 'colorscheme': 'palenight',
+        \ 'colorscheme': 'one',
         \ 'active': {
         \   'left': [ [ 'mode', 'paste' ],
-        \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+        \             [ 'cocstatus', 'currentfunction', 'readonly', 'modified' ],
+        \             [ 'tagbar' ],
+        \ ]},
+        \ 'mode_map': {
+        \ 'n' : 'N',
+        \ 'i' : 'I',
+        \ 'R' : 'R',
+        \ 'v' : 'V',
+        \ 'V' : 'VL',
+        \ "\<C-v>": 'VB',
+        \ 'c' : 'C',
+        \ 's' : 'S',
+        \ 'S' : 'SL',
+        \ "\<C-s>": 'SB',
+        \ 't': 'T',
+        \ },
+        \ 'component': {
+        \   'lineinfo': '%3l:%-2v%<',
+        \   'tagbar': '%{tagbar#currenttag("%s", "", "f")}',
         \ },
         \ 'component_function': {
         \   'cocstatus': 'coc#status',
-        \   'currentfunction': 'CocCurrentFunction'
+        \   'currentfunction': 'CocCurrentFunction',
         \ },
         \ }
 
@@ -399,6 +514,12 @@ if has_key(plugs, 'coc.nvim')
         \   'left': [ ['tabs'] ],
         \   'right': [ ['close'] ]
         \ }
+
+  " let g:tagbar_status_func = 'TagbarStatusFunc'
+  " function! TagbarStatusFunc(current, sort, fname, ...) abort
+  "   let g:lightline.fname = a:fname
+  "   return lightline#statusline(0)
+  " endfunction
 
   set showtabline=2  " Show tabline
   set guioptions-=e  " Don't use GUI tabline
@@ -425,3 +546,124 @@ let g:coc_snippet_prev = '<c-h>'
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 " }}}
+
+if has_key(plugs, 'fzy.nvim')
+  nnoremap <leader>fu :Fzy<CR>
+endif
+
+if has_key(plugs, 'vim-picker')
+
+  nmap <unique> <leader>pe <Plug>(PickerEdit)
+  nmap <unique> <leader>ps <Plug>(PickerSplit)
+  nmap <unique> <leader>pt <Plug>(PickerTabedit)
+  nmap <unique> <leader>pv <Plug>(PickerVsplit)
+  nmap <unique> <leader>pb <Plug>(PickerBuffer)
+  nmap <unique> <leader>p] <Plug>(PickerTag)
+  nmap <unique> <leader>pw <Plug>(PickerStag)
+  nmap <unique> <leader>po <Plug>(PickerBufferTag)
+  nmap <unique> <leader>ph <Plug>(PickerHelp)
+
+  "" This is the default g:fzy_command_command
+  " let g:fzy_default_command = {
+  "       \ 'path': 'rg',
+  "       \ 'ignores': ['*.git'],
+  "       \ 'options': [
+  "       \ '--files', '--hidden', '--smart-case',
+  "       \ '--color=never', '--fixed-strings'
+  "       \ ] }
+
+  "" Default options can be ovirride by new ones just doing this:
+  " let g:fzy_default_command = {
+  "       \ 'options': '--files --hidden'
+  "       \ }
+
+  "" Or define the source to ignores nothing:
+  " let g:fzy_default_command = { 'ignores': [] }
+
+  "" Or you can override the entiry source to uses ag:
+  " let g:fzy_default_command = {
+  "       \ 'path': 'ag',
+  "       \ 'ignores': ['.git', 'node_modules'],
+  "       \ 'options': '--hidden --smart-case'
+  "       \ }
+
+  "" Default fzy layout
+  "" - Just above / below
+  let g:fzy_layout = { 'below': '~40%' }
+
+endif
+
+if has_key(plugs, 'vim-gutentags')
+
+  set tags+=./.git/tags
+  let g:gutentags_add_default_project_roots = 0
+  let g:gutentags_project_root = ['.root', 'package.json', '.git']
+  let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
+
+  command! -nargs=0 GutentagsClearCache call system('rm ' . g:gutentags_cache_dir . '/*')
+
+  let g:gutentags_generate_on_new = 1
+  let g:gutentags_generate_on_missing = 1
+  let g:gutentags_generate_on_write = 1
+  let g:gutentags_generate_on_empty_buffer = 0
+
+  let g:gutentags_ctags_extra_args = [
+      \ '--tag-relative=yes',
+      \ '--fields=+ailmnS',
+      \ ]
+
+  let g:gutentags_ctags_exclude = [
+        \ '*.git', '*.svg', '*.hg',
+        \ '*/tests/*',
+        \ 'build',
+        \ 'dist',
+        \ '*sites/*/files/*',
+        \ 'bin',
+        \ 'node_modules',
+        \ 'bower_components',
+        \ 'cache',
+        \ 'compiled',
+        \ 'docs',
+        \ 'example',
+        \ 'bundle',
+        \ 'vendor',
+        \ '*.md',
+        \ '*-lock.json',
+        \ '*.lock',
+        \ '*bundle*.js',
+        \ '*build*.js',
+        \ '.*rc*',
+        \ '*.json',
+        \ '*.min.*',
+        \ '*.map',
+        \ '*.bak',
+        \ '*.zip',
+        \ '*.pyc',
+        \ '*.class',
+        \ '*.sln',
+        \ '*.Master',
+        \ '*.csproj',
+        \ '*.tmp',
+        \ '*.csproj.user',
+        \ '*.cache',
+        \ '*.pdb',
+        \ 'tags*',
+        \ 'cscope.*',
+        \ '*.css',
+        \ '*.less',
+        \ '*.scss',
+        \ '*.exe', '*.dll',
+        \ '*.mp3', '*.ogg', '*.flac',
+        \ '*.swp', '*.swo',
+        \ '*.bmp', '*.gif', '*.ico', '*.jpg', '*.png',
+        \ '*.rar', '*.zip', '*.tar', '*.tar.gz', '*.tar.xz', '*.tar.bz2',
+        \ '*.pdf', '*.doc', '*.docx', '*.ppt', '*.pptx',
+        \ 'log',
+        \ ]
+
+  if has_key(plugs, 'gutentags_plus')
+    " change focus to quickfix window after search (optional).
+    let g:gutentags_plus_switch = 1
+  endif
+
+endif

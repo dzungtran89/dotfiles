@@ -1,8 +1,7 @@
 {
   "python.jediEnabled": false,
-  "python.linting.enabled": false,
-  "python.linting.pylintPath": "/usr/local/bin/pylint",
-  "python.jediPath": "/Users/tran/.pyenv/versions/3.7.4/lib/python3.7/site-packages/jedi",
+  "python.linting.enabled": true,
+  "python.linting.pylintPath": "pylint",
   "xml.java.home": "/Library/Java/JavaVirtualMachines/openjdk-14.0.1.jdk/Contents/Home",
   "xml.completion.autoCloseTags": true
 }
