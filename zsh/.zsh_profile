@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+#
 # Remove duplicated PATH
 typeset -U PATH
 
@@ -6,6 +8,8 @@ export EDITOR=vim
 if [ -z "$XDG_CONFIG_HOME" ]; then
   export XDG_CONFIG_HOME=$HOME/.config
 fi
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # openssl@1.1
 export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
@@ -53,20 +57,9 @@ export PATH="/usr/local/opt/texinfo/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # ssh to host by hostname :)
-# ie: ssh corona
+# TODO: check $SHELL
 zstyle ':completion:*:(ssh|scp|ftp|sftp):*' hosts $hosts
 zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
-
-# explorer
-twf-widget() {
-  local selected=$(twf --height=0.5)
-  BUFFER="$BUFFER$selected"
-  zle reset-prompt
-  zle end-of-line
-  return $ret
-}
-zle -N twf-widget
-bindkey '^T' twf-widget
 
 # aliases
 if [ -f ~/.zsh_aliases ]; then

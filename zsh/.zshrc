@@ -107,3 +107,6 @@ source $ZSH/oh-my-zsh.sh
 #
 
 source ~/.zsh_profile
+
+# Keep this end of file
+# eval "$(starship init zsh)"

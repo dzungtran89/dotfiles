@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # common
 
 alias ez='clear; exec $SHELL'
@@ -7,6 +9,7 @@ alias goto='cd ~/code/projects && cd'
 alias pins='pip install -q'
 alias cl='clear'
 alias cls='clear; tmux clear-history; clear'
+alias cpath='pwd|pbcopy'
 
 # vim
 alias vim='pyenv activate vip3 ; nvim'

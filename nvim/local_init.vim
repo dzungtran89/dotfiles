@@ -67,20 +67,8 @@ noremap <leader>Q :qa!<CR>
 
 " Set working dir to the current file path
 nnoremap <leader>dd :lcd %:p:h<CR>
-nnoremap <leader>. :CtrlPTag<cr>
-" dirvish {{{
 
-" nnoremap <silent> <F2> :Dirvish<CR>
-" nnoremap <silent> <F3> :NERDTreeToggle<CR>
-
-" }}}
-
-" Fix slow: insert -> <esc> -> O
-" ref: https://github.com/vim/vim/issues/24
-" set timeout timeoutlen=5000 ttimeoutlen=100
-
-set foldmethod=indent
-
+set foldmethod=syntax
 set nonu
 " set relativenumber
 nmap <leader>l :set invrelativenumber<CR>
@@ -96,20 +84,20 @@ nmap <C-P> :cp<CR>
 nmap <leader>vc @:
 
 " fold
-nmap <leader>fo zO
-nmap <leader>fc zC
-nmap <leader>fa za
-nmap <leader>fm zm
+" nmap <leader>fo zO
+" nmap <leader>fc zC
+" nmap <leader>fa za
+" nmap <leader>fm zm
 
 " vmux (evolution of vim + tmux)
 " Prompt for a command to run
 map <leader>vp :VimuxPromptCommand<CR>
 " Run last command executed by VimuxRunCommand
 map <leader>vl :VimuxRunLastCommand<CR>
-" Zoom the tmux runner pane
-map <leader>vz :VimuxZoomRunner<CR>
-" Inspect runner pane
-map <leader>vi :VimuxInspectRunner<CR>
+" " Zoom the tmux runner pane
+" map <leader>vz :VimuxZoomRunner<CR>
+" " Inspect runner pane
+" map <leader>vi :VimuxInspectRunner<CR>
 
 " vim-agriculture
 nmap <leader>/ <plug>RgRawSearch
@@ -179,28 +167,30 @@ let g:nnn#action = {
       \ '<c-v>': 'vsplit' }
 
 " twf
-function! TwfExit(path)
-  function! TwfExitClosure(job_id, data, event) closure
-    bd!
-    try
-      let out = filereadable(a:path) ? readfile(a:path) : []
-    finally
-      silent! call delete(a:path)
-    endtry
-    if !empty(out)
-      execute 'edit! ' . out[0]
-    endif
+if has_key(plugs, 'twf')
+  function! TwfExit(path)
+    function! TwfExitClosure(job_id, data, event) closure
+      bd!
+      try
+        let out = filereadable(a:path) ? readfile(a:path) : []
+      finally
+        silent! call delete(a:path)
+      endtry
+      if !empty(out)
+        execute 'edit! ' . out[0]
+      endif
+    endfunction
+    return funcref('TwfExitClosure')
   endfunction
-  return funcref('TwfExitClosure')
-endfunction
 
-function! Twf()
-  let temp = tempname()
-  call termopen('twf ' . @% . ' > ' . temp, { 'on_exit': TwfExit(temp) })
-  startinsert
-endfunction
+  function! Twf()
+    let temp = tempname()
+    call termopen('twf ' . @% . ' > ' . temp, { 'on_exit': TwfExit(temp) })
+    startinsert
+  endfunction
 
-nnoremap <silent> <Space>t :call Twf()<CR>
+  nnoremap <silent> <Space>t :call Twf()<CR>
+endif
 
 " }}}
 
@@ -305,6 +295,10 @@ if has_key(plugs, 'vista.vim')
 endif
 
 " }}}
+
+if has_key(plugs, 'editorconfig-vim')
+  let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+endif
 
 " {{{ coc
 

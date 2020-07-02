@@ -7,12 +7,13 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/limelight.vim'
+" Plug 'NLKNguyen/papercolor-theme'
+Plug 'lifepillar/vim-gruvbox8'
 
 " Editor
 Plug 'tpope/vim-surround'
 Plug 'jesseleite/vim-agriculture'
 Plug 'ronakg/quickr-preview.vim'
-" Plug 'liuchengxu/vista.vim'
 '
 " Plug 'mhinz/vim-startify'
 " Plug 'lervag/vimtex'
@@ -20,10 +21,18 @@ Plug 'ronakg/quickr-preview.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " explorer
-Plug 'wvanlint/twf'
+" Plug 'wvanlint/twf'
 Plug 'mcchrish/nnn.vim'
 Plug 'sinetoami/fzy.nvim'
 Plug 'srstevenson/vim-picker'
+
+if has('nvim')
+  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/defx.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
 " editorconfig
 Plug 'editorconfig/editorconfig-vim'
@@ -38,6 +47,7 @@ Plug 'dzungtran89/vim-odoo-snippets'
 
 " motion
 Plug 'easymotion/vim-easymotion'
+" Plug 'justinmk/vim-sneak'
 
 " js
 " Plug 'ternjs/tern_for_vim'

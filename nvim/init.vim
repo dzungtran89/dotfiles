@@ -5,7 +5,7 @@
 "*****************************************************************************
 let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
 
-let g:vim_bootstrap_langs = "html,javascript,python"
+let g:vim_bootstrap_langs = "python"
 let g:vim_bootstrap_editor = "nvim"				" nvim or vim
 
 if !filereadable(vimplug_exists)
@@ -27,7 +27,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "*****************************************************************************
 "" Plug install packages
 "*****************************************************************************
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 " Plug 'vim-airline/vim-airline'
@@ -73,7 +73,7 @@ Plug 'xolox/vim-session'
 
 " javascript
 "" Javascript Bundle
-Plug 'jelera/vim-javascript-syntax'
+" Plug 'jelera/vim-javascript-syntax'
 
 
 " python
@@ -109,10 +109,11 @@ set fileencodings=utf-8
 set backspace=indent,eol,start
 
 "" Tabs. May be overridden by autocmd rules
-set tabstop=4
+" set tabstop=4
 set softtabstop=0
-set shiftwidth=4
+" set shiftwidth=4
 set expandtab
+set cc=79
 
 "" Map leader to ,
 let mapleader=','
@@ -224,16 +225,18 @@ cnoreabbrev Q q
 cnoreabbrev Qall qall
 
 "" NERDTree configuration
-let g:NERDTreeChDirMode=2
-let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
-let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
-let g:NERDTreeShowBookmarks=1
-let g:nerdtree_tabs_focus_on_files=1
-let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
-let g:NERDTreeWinSize = 50
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
-nnoremap <silent> <F2> :NERDTreeFind<CR>
-nnoremap <silent> <F3> :NERDTreeToggle<CR>
+if has_key(plugs, 'nerdtree')
+  let g:NERDTreeChDirMode=2
+  let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
+  let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
+  let g:NERDTreeShowBookmarks=1
+  let g:nerdtree_tabs_focus_on_files=1
+  let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
+  let g:NERDTreeWinSize = 50
+  set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
+  nnoremap <silent> <F2> :NERDTreeFind<CR>
+  nnoremap <silent> <F3> :NERDTreeToggle<CR>
+endif
 
 " grep.vim
 nnoremap <silent> <leader>ff :Rgrep<CR>
@@ -419,7 +422,7 @@ autocmd Filetype html setlocal ts=2 sw=2 expandtab
 
 
 " javascript
-let g:javascript_enable_domhtmlcss = 1
+" let g:javascript_enable_domhtmlcss = 1
 
 " vim-javascript
 " augroup vimrc-javascript
@@ -427,26 +430,27 @@ let g:javascript_enable_domhtmlcss = 1
 "   autocmd FileType javascript setl tabstop=4|setl shiftwidth=4|setl expandtab softtabstop=4
 " augroup END
 
-
 " python
 " vim-python
-augroup vimrc-python
-  autocmd!
-  autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 colorcolumn=79
-      \ formatoptions+=croq softtabstop=4
-      \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-augroup END
+" augroup vimrc-python
+"   autocmd!
+"   autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 colorcolumn=79
+"       \ formatoptions+=croq softtabstop=4
+"       \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+" augroup END
 
 " jedi-vim
-let g:jedi#popup_on_dot = 0
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = "<leader>d"
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#rename_command = "<leader>r"
-let g:jedi#show_call_signatures = "0"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#smart_auto_mappings = 0
+if has_key(plugs, 'jedi-vim')
+  let g:jedi#popup_on_dot = 0
+  let g:jedi#goto_assignments_command = "<leader>g"
+  let g:jedi#goto_definitions_command = "<leader>d"
+  let g:jedi#documentation_command = "K"
+  let g:jedi#usages_command = "<leader>n"
+  let g:jedi#rename_command = "<leader>r"
+  let g:jedi#show_call_signatures = "0"
+  let g:jedi#completions_command = "<C-Space>"
+  let g:jedi#smart_auto_mappings = 0
+endif
 
 " ale
 " :call extend(g:ale_linters, {
