@@ -1,11 +1,13 @@
-#!/usr/bin/env bash
-#
+#!/usr/bin/env sh
+
 # Remove duplicated PATH
-typeset -U PATH
+# if [[ $SHELL = 'zsh' ]]; then
+# typeset -U PATH
+# fi
 
-source $HOME/code/dotfiles/install.sh
-
+export TERM=xterm-256color
 export EDITOR=vim
+source $HOME/code/dotfiles/install.sh
 
 if [ -z "$XDG_CONFIG_HOME" ]; then
   export XDG_CONFIG_HOME=$HOME/.config
@@ -63,8 +65,8 @@ zstyle ':completion:*:(ssh|scp|ftp|sftp):*' hosts $hosts
 zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
 
 # aliases
-if [ -f ~/.zsh_aliases ]; then
-  . ~/.zsh_aliases
+if [ -f ~/.sh_aliases ]; then
+  . ~/.sh_aliases
 fi
 
 # pip
@@ -82,4 +84,3 @@ eval "$(pyenv virtualenv-init -)"
 # pew
 # source $(pew shell_config)
 
-# source /usr/local/opt/gitstatus/gitstatus.prompt.zsh

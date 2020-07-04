@@ -7,8 +7,8 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/limelight.vim'
-" Plug 'NLKNguyen/papercolor-theme'
-Plug 'lifepillar/vim-gruvbox8'
+Plug 'joshdick/onedark.vim'
+Plug 'dracula/vim'
 
 " Editor
 Plug 'tpope/vim-surround'

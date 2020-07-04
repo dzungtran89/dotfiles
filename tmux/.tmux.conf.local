@@ -17,8 +17,6 @@ set -g @tpm_plugins '         \
  tmux-plugins/tpm             \
  tmux-plugins/tmux-resurrect  \
  schasse/tmux-jump            \
- # Morantron/tmux-fingers       \
- # fcsonline/tmux-thumbs        \
 '
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
@@ -33,11 +31,11 @@ run '~/.tmux/plugins/tpm/tpm'
 # then uncomment the following line to make Meta + arrow keys mapping work
 # set -ga terminal-overrides "*:kUP3=\e[1;9A,*:kDN3=\e[1;9B,*:kRIT3=\e[1;9C,*:kLFT3=\e[1;9D"
 
-# set -g default-terminal "xterm-256color"
-# set -g default-terminal "screen-256color"
 # set-option -sa terminal-overrides ',XXX:RGB'
 
 # -- windows & pane creation ---------------------------------------------------
+
+set -g default-terminal "screen-256color" # colors!
 
 # new window retains current path, possible values are:
 #   - true
@@ -65,7 +63,7 @@ tmux_conf_new_session_prompt=false
 # RGB 24-bit colour support (tmux >= 2.2), possible values are:
 #  - true
 #  - false (default)
-tmux_conf_theme_24b_colour=false
+tmux_conf_theme_24b_colour=true
 
 # window style
 tmux_conf_theme_window_fg='default'
@@ -348,6 +346,10 @@ set -g history-limit 5000
 set -gu prefix2
 unbind C-a
 unbind C-b
+
 set -g prefix C-a
 bind C-a send-prefix
 
+bind C-e command-prompt -p "Command:" \
+"run \"tmux list-panes -s -F '##{session_name}:##{window_index}.##{pane_index}' \
+| xargs -I PANE tmux send-keys -t PANE '%1' Enter\""

@@ -28,4 +28,4 @@
 ;   timestampResolution = 1001 milliseconds
 ;   minRacyThreshold = 0 nanoseconds
 [oh-my-zsh]
-	hide-status = 1
+  hide-status = 1
