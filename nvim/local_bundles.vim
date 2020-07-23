@@ -1,11 +1,13 @@
-"
+
 " Common
 Plug 'ThePrimeagen/vim-be-good'
 
 " Themes
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
+
 " Plug 'junegunn/limelight.vim'
 " Plug 'joshdick/onedark.vim'
 " Plug 'dracula/vim'
@@ -72,4 +74,7 @@ Plug 'junegunn/gv.vim'
 Plug 'will133/vim-dirdiff'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'tpope/vim-rhubarb'
+
+" Plug 'ryanoasis/vim-devicons'
+" Plug 'hardcoreplayers/spaceline.vim'
 
