@@ -2,16 +2,22 @@
 
 # Remove duplicated PATH
 # if [[ $SHELL = 'zsh' ]]; then
-# typeset -U PATH
+#   typeset -U PATH
 # fi
 
-export TERM=xterm-256color
+# export TERM=xterm-256color
+
 export EDITOR=vim
+export VISUAL=vim
+
 source $HOME/code/dotfiles/install.sh
 
 if [ -z "$XDG_CONFIG_HOME" ]; then
   export XDG_CONFIG_HOME=$HOME/.config
 fi
+
+# bindkeys
+bindkey "^R" history-incremental-search-backward
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
@@ -83,4 +89,16 @@ eval "$(pyenv virtualenv-init -)"
 
 # pew
 # source $(pew shell_config)
+
+# Yank to the system clipboard
+function vi-yank-xclip {
+    zle vi-yank
+   echo "$CUTBUFFER" | pbcopy -i
+}
+
+zle -N vi-yank-xclip
+bindkey -M vicmd 'y' vi-yank-xclip
+
+# zprezto
+export ZDOTDIR=$HOME
 

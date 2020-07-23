@@ -29,3 +29,5 @@
 ;   minRacyThreshold = 0 nanoseconds
 [oh-my-zsh]
   hide-status = 1
+[web]
+  browse = open

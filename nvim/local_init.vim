@@ -2,6 +2,34 @@
 
 " Editor {{{
 
+if has_key(plugs, 'vim-wordmotion')
+  " example
+  " foo_bar-baz.qux
+  "
+  " CamelCaseACRONYMWords_underscore1234
+  " w--------------------------------->w
+  " e--------------------------------->e
+  " b<---------------------------------b
+  "
+  " With this plugin, this becomes six words:
+  "
+  " CamelCaseACRONYMWords_underscore1234
+  " w--->w-->w----->w---->w-------->w->w
+  " e-->e-->e----->e--->e--------->e-->e
+  " b<---b<--b<-----b<----b<--------b<-b
+
+  let g:wordmotion_spaces = '_-.'
+  let g:wordmotion_mappings = {
+        \ 'w' : '<M-w>',
+        \ 'b' : '<M-b>',
+        \ 'e' : '<M-e>',
+        \ 'ge' : 'g<M-e>',
+        \ 'aw' : 'a<M-w>',
+        \ 'iw' : 'i<M-w>',
+        \ '<C-R><C-W>' : '<C-R><M-w>'
+        \ }
+endif
+
 if has_key(plugs, 'vim-airline')
   let g:airline_disable_statusline = 1
   let g:airline_theme = 'onedark'

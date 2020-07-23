@@ -80,7 +80,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 export HISTSIZE=10000
-export FZF_BASE=/usr/local/bin/fzf
+export FZF_BASE=$(which fzf)
 
 plugins=(
   git
@@ -88,6 +88,15 @@ plugins=(
   tmux
   fzf
   docker
+
+  # git
+  # osx
+  # pass
+  # brew
+  # python
+  # docker
+  # pyenv
+  # autojump
 )
 
 source $ZSH/oh-my-zsh.sh

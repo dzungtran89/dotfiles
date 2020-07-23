@@ -6,9 +6,11 @@ Plug 'ThePrimeagen/vim-be-good'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
-Plug 'junegunn/limelight.vim'
-Plug 'joshdick/onedark.vim'
-Plug 'dracula/vim'
+" Plug 'junegunn/limelight.vim'
+" Plug 'joshdick/onedark.vim'
+" Plug 'dracula/vim'
+" Plug 'skbolton/embark'
+Plug 'chaoren/vim-wordmotion'
 
 " Editor
 Plug 'tpope/vim-surround'
@@ -43,7 +45,7 @@ Plug 'editorconfig/editorconfig-vim'
 " replaced by coc-snippets
 " Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'dzungtran89/vim-odoo-snippets'
+" Plug 'dzungtran89/vim-odoo-snippets'
 
 " motion
 Plug 'easymotion/vim-easymotion'

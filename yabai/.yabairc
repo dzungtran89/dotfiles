@@ -57,7 +57,7 @@ yabai -m config window_gap                   10
 # float system preferences
 #
 # regex that matches apps that will be float
-apps='^(The Unarchiver|IINA|Activity Monitor|AppCleaner|App Store|System Preferences|Finder)$'
+apps='^(The Unarchiver|AppCleaner|App Store|System Preferences|Finder)$'
 
 yabai -m rule --add app="${apps}" manage=off
 
