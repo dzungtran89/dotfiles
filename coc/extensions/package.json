@@ -7,6 +7,7 @@
     "coc-snippets": ">=2.1.28",
     "coc-tsserver": ">=1.5.1",
     "coc-xml": ">=1.11.1",
+    "coc-emoji": ">=1.2.3",
     "coc-git": ">=1.8.1"
   }
 }

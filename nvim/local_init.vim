@@ -348,6 +348,9 @@ if has_key(plugs, 'coc.nvim')
   " Highlight the symbol and its references when holding the cursor.
   " autocmd CursorHold * silent call CocActionAsync('highlight')
 
+  " Auto refresh git gutter
+  autocmd CursorHold * CocCommand git.refresh
+
   " Symbol renaming.
   nmap <leader>rn <Plug>(coc-rename)
 
@@ -447,6 +450,21 @@ if has_key(plugs, 'coc.nvim')
 
   endif
 
+  if has_key(plugs, 'vista.vim')
+    function! NearestMethodOrFunction() abort
+      return get(b:, 'vista_nearest_method_or_function', '')
+    endfunction
+
+    set statusline+=%{NearestMethodOrFunction()}
+
+    " By default vista.vim never run if you don't call it explicitly.
+    "
+    " If you want to show the nearest function in your statusline automatically,
+    " you can add the following line to your vimrc
+    autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+  endif
+
+  "
   let g:lightline = {
         \ 'colorscheme': 'one',
         \ 'active': {
