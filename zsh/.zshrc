@@ -13,7 +13,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
-ZSH_THEME="bira"
+ZSH_THEME="robbyrussell"
 # ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
@@ -84,7 +84,7 @@ export FZF_BASE=$(which fzf)
 
 plugins=(
   git
-  # vi-mode
+  vi-mode
   tmux
   fzf
   docker
@@ -100,6 +100,8 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+
+## Dir: current working directory
 
 # User configuration
 

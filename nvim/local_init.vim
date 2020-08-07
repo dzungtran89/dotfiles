@@ -2,6 +2,8 @@
 
 " Editor {{{
 
+set redrawtime=10000
+
 if has_key(plugs, 'vim-wordmotion')
   " example
   " foo_bar-baz.qux
@@ -122,56 +124,26 @@ nmap <leader>vc @:
 map <leader>vp :VimuxPromptCommand<CR>
 " Run last command executed by VimuxRunCommand
 map <leader>vl :VimuxRunLastCommand<CR>
-" " Zoom the tmux runner pane
-" map <leader>vz :VimuxZoomRunner<CR>
-" " Inspect runner pane
-" map <leader>vi :VimuxInspectRunner<CR>
 
 " vim-agriculture
-nmap <leader>/ <plug>RgRawSearch
-vmap <leader>/ <plug>RgRawVisualSelection
-nmap <leader>* <plug>RgRawWordUnderCursor
+if has_key(plugs, 'vim-agriculture')
+
+  let g:agriculture#rg_options='--follow'
+
+  nmap <leader>/ <plug>RgRawSearch
+  vmap <leader>/ <plug>RgRawVisualSelection
+  nmap <leader>* <plug>RgRawWordUnderCursor
+
+endif
 
 " quick preview {{{
-" let g:quickr_preview_keymaps = 0
+
 let g:quickr_preview_on_cursor = 1
-" let g:quickr_preview_exit_on_enter = 1
+
 " }}}
 
 " Git
 noremap <leader>gw :Gbrowse<CR>
-
-" nerdcommenter {{{
-
-if has_key(plugs, 'nerdcommenter')
-
-  " Add spaces after comment delimiters by default
-  let g:NERDSpaceDelims = 1
-
-  " Use compact syntax for prettified multi-line comments
-  let g:NERDCompactSexyComs = 1
-
-  " Align line-wise comment delimiters flush left instead of following code indentation
-  let g:NERDDefaultAlign = 'left'
-
-  " Set a language to use its alternate delimiters by default
-  " let g:NERDAltDelims_java = 1
-
-  " Add your own custom formats or override the defaults
-  " let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
-
-  " Allow commenting and inverting empty lines (useful when commenting a region)
-  let g:NERDCommentEmptyLines = 1
-
-  " Enable trimming of trailing whitespace when uncommenting
-  let g:NERDTrimTrailingWhitespace = 1
-
-  " Enable NERDCommenterToggle to check all selected lines is commented or not
-  " let g:NERDToggleCheckAllLines = 1
-
-endif
-
-" }}}
 
 " explorer {{{
 
@@ -229,10 +201,12 @@ let g:fugitive_gitlab_domains = ['https://gitlab.trobz.com']
 
 " ultisnips {{{
 
-" let g:UltiSnipsExpandTrigger="<C-f>"
-" let g:UltiSnipsJumpForwardTrigger="<C-f>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-" let g:UltiSnipsEditSplit="vertical"
+if has_key(plugs, 'ultisnips')
+  let g:UltiSnipsExpandTrigger="<C-l>"
+  let g:UltiSnipsJumpForwardTrigger="<C-f>"
+  let g:UltiSnipsJumpBackwardTrigger="<C-b>"
+  let g:UltiSnipsEditSplit="vertical"
+endif
 
 " }}}
 
@@ -348,9 +322,6 @@ if has_key(plugs, 'coc.nvim')
   " Highlight the symbol and its references when holding the cursor.
   " autocmd CursorHold * silent call CocActionAsync('highlight')
 
-  " Auto refresh git gutter
-  autocmd CursorHold * CocCommand git.refresh
-
   " Symbol renaming.
   nmap <leader>rn <Plug>(coc-rename)
 
@@ -416,7 +387,7 @@ if has_key(plugs, 'coc.nvim')
   " Show commands.
   nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
   " Find symbol of current document.
-  nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+  " nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
   " Search workspace symbols.
   nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
   " Do default action for next item.
@@ -515,20 +486,20 @@ endif
 
 " coc-snippets {{{
 
-" Use <C-l> for trigger snippet expand.
-imap <C-l> <Plug>(coc-snippets-expand)
+" " Use <C-l> for trigger snippet expand.
+" imap <C-l> <Plug>(coc-snippets-expand)
 
-" Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
+" " Use <C-j> for select text for visual placeholder of snippet.
+" vmap <C-j> <Plug>(coc-snippets-select)
 
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-l>'
+" " Use <C-j> for jump to next placeholder, it's default of coc.nvim
+" let g:coc_snippet_next = '<c-l>'
 
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-h>'
+" " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+" let g:coc_snippet_prev = '<c-h>'
 
-" Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
+" " Use <C-j> for both expand and jump (make expand higher priority.)
+" imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 " }}}
 
@@ -580,10 +551,10 @@ endif
 
 if has_key(plugs, 'vim-gutentags')
 
-  set tags+=./.git/tags
+  " set tags+=./.git/tags
   let g:gutentags_add_default_project_roots = 0
   let g:gutentags_project_root = ['.root', 'package.json', '.git']
-  let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
+  " let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
 
   command! -nargs=0 GutentagsClearCache call system('rm ' . g:gutentags_cache_dir . '/*')
 
@@ -646,6 +617,11 @@ if has_key(plugs, 'vim-gutentags')
         \ 'log',
         \ ]
 
+  " autocmd BufWritePost *.py,*.js silent! !ctags . &
+  nnoremap <silent> <space>e  :Tags<cr>
+  nnoremap <silent> <space>o  :BTags<cr>
+  nnoremap <silent> <space>t  g<C-]>
+
   if has_key(plugs, 'gutentags_plus')
     " change focus to quickfix window after search (optional).
     let g:gutentags_plus_switch = 1
@@ -658,3 +634,24 @@ if has_key(plugs, 'spaceline.vim')
   let g:spaceline_line_symbol = 0
 endif
 
+" ack.vim --- {{{
+
+" Use ripgrep for searching ⚡️
+" Options include:
+" --vimgrep -> Needed to parse the rg response properly for ack.vim
+" --type-not sql -> Avoid huge sql file dumps as it slows down the search
+" --smart-case -> Search case insensitive if all lowercase pattern, Search case sensitively otherwise
+" let g:ackprg = 'rg --vimgrep --type-not sql --smart-case'
+
+" Auto close the Quickfix list after pressing '<enter>' on a list item
+let g:ack_autoclose = 1
+
+" Any empty ack search will search for the work the cursor is on
+let g:ack_use_cword_for_empty_search = 1
+
+" Don't jump to first match
+cnoreabbrev Ack Ack!
+
+" Maps <leader>/ so we're ready to type the search keyword
+nnoremap <Leader>a :Ack!<Space>
+" }}}

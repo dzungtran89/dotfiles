@@ -1,11 +1,16 @@
 
 " Common
 Plug 'ThePrimeagen/vim-be-good'
+Plug 'mileszs/ack.vim'
+
+" You would love this
+Plug 'ludovicchabant/vim-gutentags'
+" Plug 'zackhsi/fzf-tags'
+" Plug 'kien/ctrlp.vim'
 
 " Themes
 Plug 'drewtempelmeyer/palenight.vim'
-" Plug 'itchyny/lightline.vim'
-" Plug 'morhetz/gruvbox'
+Plug 'itchyny/lightline.vim'
 Plug 'gruvbox-community/gruvbox'
 Plug 'hardcoreplayers/oceanic-material'
 
@@ -23,8 +28,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " explorer
 Plug 'mcchrish/nnn.vim'
-Plug 'sinetoami/fzy.nvim'
-Plug 'srstevenson/vim-picker'
+" Plug 'sinetoami/fzy.nvim'
+" Plug 'srstevenson/vim-picker'
 
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -39,9 +44,9 @@ Plug 'editorconfig/editorconfig-vim'
 
 " snippets
 " replaced by coc-snippets
-" Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-" Plug 'dzungtran89/vim-odoo-snippets'
+Plug 'dzungtran89/vim-odoo-snippets'
 
 " motion
 Plug 'easymotion/vim-easymotion'
@@ -56,12 +61,14 @@ Plug 'godlygeek/tabular'
 Plug 'junegunn/goyo.vim'
 
 " Git
+Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/gv.vim'
 Plug 'will133/vim-dirdiff'
 Plug 'shumphrey/fugitive-gitlab.vim'
-Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 
 Plug 'ryanoasis/vim-devicons'
-Plug 'hardcoreplayers/spaceline.vim'
+" Plug 'hardcoreplayers/spaceline.vim'
 " Plug 'tyru/caw.vim'
 
+" Plug 'neovim/nvim-lsp'

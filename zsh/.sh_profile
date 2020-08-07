@@ -16,8 +16,8 @@ if [ -z "$XDG_CONFIG_HOME" ]; then
   export XDG_CONFIG_HOME=$HOME/.config
 fi
 
-# bindkeys
-bindkey "^R" history-incremental-search-backward
+# bindkeys, enable it for zprezto usage
+# bindkey "^R" history-incremental-search-backward
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
@@ -70,6 +70,35 @@ export PATH="$HOME/.cargo/bin:$PATH"
 zstyle ':completion:*:(ssh|scp|ftp|sftp):*' hosts $hosts
 zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
 
+# fzf
+
+# fzf's command
+export FZF_DEFAULT_COMMAND="fd"
+# # CTRL-T's command
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# # ALT-C's command
+export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
+
+export FZF_DEFAULT_OPTS="
+--height=80%
+"
+# --prompt='∼ ' --pointer='▶' --marker='✓'
+# --bind '?:toggle-preview'
+# --multi
+# --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
+# --color='hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008'
+# --bind 'ctrl-y:execute-silent(echo {+} | pbcopy)'
+# --bind 'ctrl-e:execute(echo {+} | xargs -o vim)'
+# --bind 'ctrl-v:execute(code {+})'
+# "
+
+_fzf_compgen_path() {
+    fd . "$1"
+}
+_fzf_compgen_dir() {
+    fd --type d . "$1"
+}
+
 # aliases
 if [ -f ~/.sh_aliases ]; then
   . ~/.sh_aliases
@@ -77,6 +106,9 @@ fi
 
 # pip
 export PATH="$HOME/.local/bin":$PATH
+
+# pew
+# source $(pew shell_config)
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -86,9 +118,6 @@ if command -v pyenv 1>/dev/null; then
 fi
 
 eval "$(pyenv virtualenv-init -)"
-
-# pew
-# source $(pew shell_config)
 
 # Yank to the system clipboard
 function vi-yank-xclip {
@@ -100,5 +129,9 @@ zle -N vi-yank-xclip
 bindkey -M vicmd 'y' vi-yank-xclip
 
 # zprezto
-export ZDOTDIR=$HOME
+# export ZDOTDIR=$HOME
 
+# [pure](https://github.com/sindresorhus/pure)
+# fpath+=$HOME/.zsh/pure
+# autoload -U promptinit; promptinit
+# prompt pure
