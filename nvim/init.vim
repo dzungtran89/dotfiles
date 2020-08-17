@@ -13,6 +13,7 @@ if !filereadable(vimplug_exists)
     echoerr "You have to install curl or first install vim-plug yourself!"
     execute "q!"
   endif
+
   echo "Installing Vim-Plug..."
   echo ""
   silent exec "!\curl -fLo " . vimplug_exists . " --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
@@ -44,12 +45,15 @@ Plug 'sheerun/vim-polyglot'
 "   Plug 'lotabout/skim.vim'
 " endif
 
-if isdirectory('/usr/local/bin/fzf')
-  Plug '/usr/local/bin/fzf' | Plug 'junegunn/fzf.vim'
-else
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-  Plug 'junegunn/fzf.vim'
-endif
+" if isdirectory('/usr/local/bin/fzf')
+"   Plug '/usr/local/bin/fzf' | Plug 'junegunn/fzf.vim'
+" else
+"   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+"   Plug 'junegunn/fzf.vim'
+" endif
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
 
 let g:make = 'gmake'
 if exists('make')
@@ -82,7 +86,7 @@ Plug 'xolox/vim-session'
 " python
 "" Python Bundle
 " Plug 'davidhalter/jedi-vim'
-Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
+Plug 'raimon49/requirements.txt.vim'
 
 
 "*****************************************************************************
@@ -159,10 +163,12 @@ set guioptions=egmrti
 set gfn=Monospace\ 10
 
 if has("gui_running")
+
   if has("gui_mac") || has("gui_macvim")
     set guifont=Menlo:h12
     set transparency=7
   endif
+
 else
   let g:CSApprox_loaded = 1
 
@@ -171,7 +177,6 @@ else
   let g:indentLine_concealcursor = 0
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
-
 
 endif
 
@@ -203,12 +208,14 @@ endif
 
 " vim-airline
 if has_key(plugs, 'vim-airline')
+
   let g:airline_theme = 'powerlineish'
   let g:airline#extensions#branch#enabled = 1
   " let g:airline#extensions#ale#enabled = 1
   let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#tagbar#enabled = 1
   let g:airline_skip_empty_sections = 1
+
 endif
 
 "*****************************************************************************
@@ -228,6 +235,7 @@ cnoreabbrev Qall qall
 
 "" NERDTree configuration
 if has_key(plugs, 'nerdtree')
+
   let g:NERDTreeChDirMode=2
   let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
   let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
@@ -238,6 +246,7 @@ if has_key(plugs, 'nerdtree')
   set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
   nnoremap <silent> <F2> :NERDTreeFind<CR>
   nnoremap <silent> <F3> :NERDTreeToggle<CR>
+
 endif
 
 " grep.vim
@@ -343,20 +352,40 @@ noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
-" Empty value to disable preview window altogether
+
+" FZF preview
 let g:fzf_preview_window = 'up:60%'
+
+" " Empty value to disable preview window altogether
+" let $FZF_DEFAULT_OPTS = '--bind ctrl-f:preview-down,ctrl-b:preview-up'
+
+" " Floating window
+" let g:fzf_layout = {
+"     \ 'window': {
+"     \     'width': 0.9,
+"     \     'height': 0.6,
+"     \     'xoffset': 0.5,
+"     \     'yoffset': 0.5,
+"     \     'highlight': 'Todo',
+"     \     'border': 'sharp',
+"     \ }}
+
+" command! -bang -nargs=? -complete=dir Files
+"     \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--preview', 'cat {}']}, <bang>0)
 
 " The Silver Searcher
 if executable('ag')
-  let $FZF_DEFAULT_COMMAND = 'ag -w -f --hidden --ignore .git -g ""'
+  let $FZF_DEFAULT_COMMAND='ag -w -f --hidden --ignore .git -g ""'
   set grepprg=ag\ --nogroup\ --nocolor
 endif
 
 " ripgrep
 if executable('rg')
-  let $FZF_DEFAULT_COMMAND = 'rg --files -w --hidden --follow --glob "!.git/*"'
+  let $FZF_DEFAULT_COMMAND='rg --files -w --hidden --follow --glob "!.git/*"'
   set grepprg=rg\ --vimgrep
-  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+  command! -bang -nargs=* Find
+        \call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case -w --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"',
+        \1, <bang>0)
 endif
 
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>

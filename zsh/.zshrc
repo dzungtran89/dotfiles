@@ -88,6 +88,7 @@ plugins=(
   tmux
   fzf
   docker
+  # dune-quotes
 
   # git
   # osx
@@ -122,3 +123,5 @@ source ~/.sh_profile
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # zprof
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
