@@ -7,3 +7,12 @@
 [submodule "git/diff-so-fancy"]
 	path = git/diff-so-fancy
 	url = https://github.com/so-fancy/diff-so-fancy
+[submodule "nvim/plugins/vim-cool"]
+	path = nvim/plugins/vim-cool
+	url = https://github.com/romainl/vim-cool
+[submodule "nvim/plugins/incsearch.vim"]
+	path = nvim/plugins/incsearch.vim
+	url = https://github.com/haya14busa/incsearch.vim
+[submodule "nvim/plugins/incsearch"]
+	path = nvim/plugins/incsearch
+	url = https://github.com/haya14busa/incsearch.vim

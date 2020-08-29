@@ -1,23 +1,17 @@
 
 " Common
 Plug 'ThePrimeagen/vim-be-good'
-" Plug 'mileszs/ack.vim'
 
 " You would love this
 Plug 'ludovicchabant/vim-gutentags'
-" Plug 'zackhsi/fzf-tags'
 
 " Themes
-" Plug 'drewtempelmeyer/palenight.vim'
+Plug 'chrisbra/Colorizer'
 Plug 'itchyny/lightline.vim'
 Plug 'gruvbox-community/gruvbox'
-Plug 'hardcoreplayers/oceanic-material'
-
-" Plug 'junegunn/limelight.vim'
-" Plug 'joshdick/onedark.vim'
-" Plug 'dracula/vim'
-" Plug 'skbolton/embark'
-" Plug 'chaoren/vim-wordmotion'
+Plug 'arcticicestudio/nord-vim'
+Plug 'dzungtran89/photon.vim'
+Plug 'YorickPeterse/vim-paper'
 
 " Editor
 "
@@ -27,49 +21,29 @@ Plug 'ronakg/quickr-preview.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 Plug 'bignimbus/you-are-here.vim'
-
-" Plug 'chengzeyi/fzf-preview.vim'
-" Plug 'autozimu/LanguageClient-neovim', {
-"     \ 'branch': 'next',
-"     \ 'do': 'bash install.sh',
-"     \ }
+Plug 'jceb/vim-orgmode'
+Plug 'liuchengxu/vista.vim'
+Plug 'voldikss/vim-floaterm'
+Plug 'liuchengxu/vim-which-key'
+Plug 'pechorin/any-jump.vim'
 
 " explorer
 "
 Plug 'mcchrish/nnn.vim'
 
-" if has('nvim')
-"   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-" else
-"   Plug 'Shougo/defx.nvim'
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-" endif
+Plug 'francoiscabrol/ranger.vim'
+" for neovim (ranger patched)
+Plug 'rbgrouleff/bclose.vim'
 
 " editorconfig
 Plug 'editorconfig/editorconfig-vim'
 
 " snippets
 " replaced by coc-snippets
-" Plug 'hrsh7th/vim-vsnip'
-" Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'microsoft/vscode-python'
 Plug 'mstuttgart/vscode-odoo-snippets'
 
-" Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'dzungtran89/vim-odoo-snippets'
-
-" if has('nvim')
-"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" else
-"   Plug 'Shougo/deoplete.nvim'
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-" endif
-
-" Plug 'Shougo/neosnippet.vim'
-" Plug 'Shougo/neosnippet-snippets'
 
 " motion
 Plug 'easymotion/vim-easymotion'
@@ -79,6 +53,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'benmills/vimux'
 
 " wiki / writing
+Plug 'vimwiki/vimwiki'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/goyo.vim'
@@ -86,10 +61,8 @@ Plug 'junegunn/goyo.vim'
 " Git
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/gv.vim'
-Plug 'will133/vim-dirdiff'
 Plug 'shumphrey/fugitive-gitlab.vim'
-Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
+" required by fugitive to :Gbrowse
+Plug 'tpope/vim-rhubarb'
 
 Plug 'ryanoasis/vim-devicons'
-
-" Plug 'neovim/nvim-lsp'

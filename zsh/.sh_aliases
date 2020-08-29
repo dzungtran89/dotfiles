@@ -2,20 +2,45 @@
 
 # common
 
+# bookmarks
+alias g="jump"
+alias s="bookmark"
+alias d="deletemark"
+alias l="showmarks"
+
+# Restart SHELL
+ez() {
+  pyenv deactivate
+  clear
+  exec $SHELL
+}
+
+cls() {
+  clear; tmux clear-history; clear
+}
+# jump to subdir of marks
+c() {
+  g "$1" && cd "$2"
+}
+
+# jump to trobz and its subdir
+ct() {
+  g trobz && cd "$1"
+}
+
 alias p='pwd'
-alias ez='pyenv deactivate; clear; exec $SHELL'
 alias diskusage='iostat -Id disk0'
 alias fa='alias | grep'
-alias goto='cd ~/code/projects && cd'
-alias gotos='cd $E/code/projects && cd'
+
 alias pins='pip install -q'
 alias cl='clear'
-alias cls='clear; tmux clear-history; clear'
 alias cpath='pwd|pbcopy'
 
 # vim
-alias vim='pyenv activate vip3 ; nvim'
-alias vno='vim --noplugin $@'
+vim() {
+  pyenv activate vip3 ; nvim
+}
+alias vno='nvim --noplugin $@'
 
 # yabai
 alias ycf='yabai -m config $@'
@@ -23,7 +48,8 @@ alias ycf='yabai -m config $@'
 # hugo
 alias hs='hugo server'
 
-alias b='buku --suggest'
+alias bu='buku'
+alias b='bu --suggest'
 alias n3='nnn'
 
 # docker
@@ -53,11 +79,11 @@ alias bcu='brew cask upgrade'
 
 # emacs
 alias em='emacs'
-alias emt='emacsclient -t'
-alias ec='emt ~/.emacs.d/init.el'
-alias emd='em --daemon'
-alias emk='emacsclient -e "(kill-emacs)"'
-alias emc='emacsclient -c'
+alias ve='emacsclient -t'
+alias vec='ve ~/.emacs.d/init.el'
+# alias emd='emacs --daemon'
+# alias emk='emacsclient -e "(kill-emacs)"'
+# alias emc='emacsclient -c'
 
 # pyenv
 alias pv='pyenv'
@@ -113,6 +139,9 @@ else
   alias llt='exa -lT --git-ignore --level=2 --group-directories-first'
   alias lT='exa -T --git-ignore --level=4 --group-directories-first'
 fi
+
+alias lgit='lazygit'
+alias ldocker='lazydocker'
 
 # alias fzf="fzf --layout=reverse --height=50% --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'"
 

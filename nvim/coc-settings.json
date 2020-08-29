@@ -3,6 +3,12 @@
   "python.linting.enabled": true,
   "python.linting.pylintPath": "pylint",
   "xml.java.home": "/Library/Java/JavaVirtualMachines/openjdk-14.0.1.jdk/Contents/Home",
-  "xml.completion.autoCloseTags": true
+  "xml.completion.autoCloseTags": true,
+  "python.autoComplete.extraPaths": [
+    "${workspaceFolder}/odoo/addons",
+    "${workspaceFolder}/addons",
+    "${workspaceFolder}/project"
+  ],
+  "snippets.userSnippetsDirectory": "/Users/tran/.config/nvim/plugged/vscode-python/snippets",
+  "git.gitlab.hosts": ["gitlab.trobz.com", "gitlab.com"]
 }
-

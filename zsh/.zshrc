@@ -79,15 +79,13 @@ ZSH_THEME="robbyrussell"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-export HISTSIZE=10000
-export FZF_BASE=$(which fzf)
-
 plugins=(
   git
   vi-mode
   tmux
   fzf
   docker
+  zshmarks
   # dune-quotes
 
   # git
@@ -118,10 +116,18 @@ source $ZSH/oh-my-zsh.sh
 #
 
 # Personal config
+export FZF_BASE=$(which fzf)
+
+export HISTSIZE=5000
+export SAVEHIST=$HISTSIZE
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+
 source ~/.sh_profile
 
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# zprof
+# https://github.com/rupa/z
+. /usr/local/etc/profile.d/z.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
