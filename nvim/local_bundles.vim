@@ -12,6 +12,7 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 Plug 'dzungtran89/photon.vim'
 Plug 'YorickPeterse/vim-paper'
+Plug 'andreypopp/vim-colors-plain'
 
 " Editor
 "
@@ -32,7 +33,7 @@ Plug 'pechorin/any-jump.vim'
 "
 Plug 'mcchrish/nnn.vim'
 
-Plug 'francoiscabrol/ranger.vim'
+Plug 'ptzz/lf.vim'
 " for neovim (ranger patched)
 Plug 'rbgrouleff/bclose.vim'
 
@@ -41,6 +42,7 @@ Plug 'editorconfig/editorconfig-vim'
 
 " snippets
 " replaced by coc-snippets
+" Plug 'Jorengarenar/miniSnip'
 Plug 'microsoft/vscode-python'
 Plug 'mstuttgart/vscode-odoo-snippets'
 

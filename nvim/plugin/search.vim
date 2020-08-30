@@ -48,8 +48,8 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 map <C-f> :Files<CR>
 " map <leader>b :Buffers<CR>
-nnoremap <leader>g :Rg<CR>
-nnoremap <leader>t :Tags<CR>
+" nnoremap <leader>g :Rg<CR>
+" nnoremap <leader>t :Tags<CR>
 nnoremap <leader>m :Marks<CR>
 
 let g:fzf_tags_command = 'ctags -R --languages=python'
@@ -109,15 +109,18 @@ command! -bang -nargs=* GGrep
 
 " }}}
 
-
-" vim-agriculture
 if has_key(plugs, 'vim-agriculture')
 
   let g:agriculture#rg_options='--follow'
 
-  nmap <leader>/ <plug>RgRawSearch
-  vmap <leader>/ <plug>RgRawVisualSelection
-  nmap <leader>* <plug>RgRawWordUnderCursor
+  nmap <leader>/  <Plug>RgRawSearch
+  nmap <leader>fp <Plug>RgRawSearch-tpy
+  nmap <leader>fj <Plug>RgRawSearch-tjs
+  nmap <leader>fv <Plug>RgRawSearch-tvim
+  nmap <leader>fx <Plug>RgRawSearch-txml
+
+  " vmap <leader>/ <Plug>RgRawVisualSelection
+  nmap <leader>* <Plug>RgRawWordUnderCursor
 
 endif
 

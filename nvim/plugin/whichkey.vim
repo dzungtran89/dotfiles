@@ -89,7 +89,7 @@ if has_key(plugs, 'vim-which-key')
         \ 'N' : [':FloatermNew node'                       , 'node']     ,
         \ 'n' : [':FloatermNew nnn'                        , 'nnn']      ,
         \ 'p' : [':FloatermNew python'                     , 'python']   ,
-        \ 'r' : [':FloatermNew ranger'                     , 'ranger']   ,
+        \ 'r' : [':FloatermNew lf'                     , 'lf']   ,
         \ 't' : [':FloatermToggle'                         , 'toggle']   ,
         \ 'y' : [':FloatermNew ytop'                       , 'ytop']     ,
         \ }
