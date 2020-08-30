@@ -165,7 +165,9 @@ else
 endif
 
 "" Disable the blinking cursor.
-set gcr=a:blinkon0
+" set gcr=a:blinkon0
+" set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
+
 set scrolloff=3
 
 "" Status bar

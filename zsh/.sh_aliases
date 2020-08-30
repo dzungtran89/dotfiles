@@ -38,8 +38,10 @@ alias cpath='pwd|pbcopy'
 
 # vim
 vim() {
-  pyenv activate vip3 ; nvim
+  pyenv activate vip3
+  nvim $@
 }
+
 alias vno='nvim --noplugin $@'
 
 # yabai
@@ -72,10 +74,10 @@ alias icloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
 # alias ctags="`brew --prefix`/bin/ctags"
 
 # brew / cask
-alias bo='brew outdated'
-alias bco='brew cask outdated --greedy'
-alias bcun='brew cask uninstall'
-alias bcu='brew cask upgrade'
+# alias bo='brew outdated'
+# alias bco='brew cask outdated --greedy'
+# alias bcun='brew cask uninstall'
+# alias bcu='brew cask upgrade'
 
 # emacs
 alias em='emacs'
@@ -127,18 +129,20 @@ alias tmls='tmux ls'
 alias hap='prompt powerlevel10k'
 
 # exa
-if ! command -v exa &> /dev/null; then
-  alias ls='ls'
-else
-  alias ls='exa'
-  alias la='exa -l --all --group-directories-first'
-  alias ll='exa -l --all --all --group-directories-first'
-  alias lg='exa -l --all --group-directories-first --git'
-  alias llg='exa -l --all --all --group-directories-first --git'
-  alias lt='exa -T --git-ignore --group-directories-first --level'
-  alias llt='exa -lT --git-ignore --level=2 --group-directories-first'
-  alias lT='exa -T --git-ignore --level=4 --group-directories-first'
-fi
+
+alias ls='ls'
+alias lt='tree -L'
+
+# if command -v exa &> /dev/null; then
+#   alias ls='exa'
+#   alias la='exa -l --all --group-directories-first'
+#   alias ll='exa -l --all --all --group-directories-first'
+#   alias lg='exa -l --all --group-directories-first --git'
+#   alias llg='exa -l --all --all --group-directories-first --git'
+#   alias lt='exa -T --git-ignore --group-directories-first --level'
+#   alias llt='exa -lT --git-ignore --level=2 --group-directories-first'
+#   alias lT='exa -T --git-ignore --level=4 --group-directories-first'
+# fi
 
 alias lgit='lazygit'
 alias ldocker='lazydocker'

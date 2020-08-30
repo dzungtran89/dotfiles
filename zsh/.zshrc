@@ -86,12 +86,10 @@ plugins=(
   fzf
   docker
   zshmarks
-  # dune-quotes
+  brew
 
-  # git
   # osx
   # pass
-  # brew
   # python
   # docker
   # pyenv

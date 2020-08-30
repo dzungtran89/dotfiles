@@ -19,6 +19,7 @@ Plug 'tpope/vim-surround'
 Plug 'jesseleite/vim-agriculture'
 Plug 'ronakg/quickr-preview.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 Plug 'bignimbus/you-are-here.vim'
 Plug 'jceb/vim-orgmode'
@@ -47,6 +48,7 @@ Plug 'honza/vim-snippets'
 
 " motion
 Plug 'easymotion/vim-easymotion'
+" Plug 'justinmk/vim-sneak'
 
 " tmux
 Plug 'christoomey/vim-tmux-navigator'

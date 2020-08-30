@@ -81,16 +81,6 @@ export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 
 export FZF_DEFAULT_OPTS="--height=80%"
 
-# --prompt='∼ ' --pointer='▶' --marker='✓'
-# --bind '?:toggle-preview'
-# --multi
-# --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
-# --color='hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008'
-# --bind 'ctrl-y:execute-silent(echo {+} | pbcopy)'
-# --bind 'ctrl-e:execute(echo {+} | xargs -o vim)'
-# --bind 'ctrl-v:execute(code {+})'
-# "
-
 _fzf_compgen_path() {
     fd . "$1"
 }
@@ -127,6 +117,22 @@ function vi-yank-xclip {
 zle -N vi-yank-xclip
 bindkey -M vicmd 'y' vi-yank-xclip
 
+# nnn {{{
+
+export NNN_BMS='d:~/Documents;w:~/vimwiki;D:~/Downloads/'
+
+# export NNN_BMS="$(cat <<-EOF
+#   d:~/Documents;
+#   w:~/vimwiki;D:~/Downloads/;
+#   l:~/code
+# EOF
+# )"
+
+export NNN_COLORS="2136"
+export NNN_TRASH=1
+
+# }}}
+
 n () {
   # Block nesting of nnn in subshells
   if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then
@@ -139,6 +145,7 @@ n () {
   #     NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
   # NOTE: NNN_TMPFILE is fixed, should not be modified
   export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+
 
   # Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
   # stty start undef

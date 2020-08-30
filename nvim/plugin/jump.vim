@@ -1,3 +1,19 @@
+if has_key(plugs, 'vim-easymotion')
+
+  let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+  " `s{char}{char}{label}`
+  " Need one more keystroke, but on average, it may be more comfortable.
+  nmap s <Plug>(easymotion-overwin-f2)
+
+  " Turn on case-insensitive feature
+  let g:EasyMotion_smartcase = 1
+
+  " JK motions: Line motions
+  map <localleader>j <Plug>(easymotion-j)
+  map <localleader>k <Plug>(easymotion-k)
+
+endif
 
 if has_key(plugs, 'any-jump.vim')
 
