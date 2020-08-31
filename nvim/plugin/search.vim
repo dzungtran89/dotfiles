@@ -1,8 +1,5 @@
 " nnoremap <leader>. :call fzf#vim#tags('^' . expand('<cword>'), {'options': '--exact --select-1 --exit-0 +i'})<CR>
 
-" Disable Bclose mappings
-let g:no_plugin_maps = 1
-
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
@@ -47,11 +44,6 @@ let g:fzf_action = {
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 map <C-f> :Files<CR>
-" map <leader>b :Buffers<CR>
-" nnoremap <leader>g :Rg<CR>
-" nnoremap <leader>t :Tags<CR>
-nnoremap <leader>m :Marks<CR>
-
 let g:fzf_tags_command = 'ctags -R --languages=python'
 
 " Border color
@@ -133,8 +125,6 @@ noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>e :FZF -m<CR>
-" nnoremap <silent> <leader>e :GFiles<CR>
-"Recovery commands from history through FZF
 nmap <leader>y :History:<CR>
 
 if has_key(plugs, 'denite.nvim')
@@ -177,4 +167,8 @@ if has_key(plugs, 'denite.nvim')
   nnoremap <localleader>db :Denite buffer<CR>
   nnoremap \ :Denite grep<CR>
 
+endif
+
+if has_key(plugs, 'FlyGrep.vim')
+  nnoremap <localleader>s/ :FlyGrep<cr>
 endif

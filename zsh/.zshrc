@@ -82,7 +82,7 @@ export LANG=en_US.UTF-8
 plugins=(
   git
   vi-mode
-  tmux
+  # tmux
   fzf
   docker
   zshmarks
@@ -116,7 +116,7 @@ source $ZSH/oh-my-zsh.sh
 # Personal config
 export FZF_BASE=$(which fzf)
 
-export HISTSIZE=5000
+export HISTSIZE=4000
 export SAVEHIST=$HISTSIZE
 setopt hist_ignore_all_dups
 setopt hist_ignore_space

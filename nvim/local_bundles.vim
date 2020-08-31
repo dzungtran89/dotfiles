@@ -20,14 +20,16 @@ Plug 'tpope/vim-surround'
 Plug 'jesseleite/vim-agriculture'
 Plug 'ronakg/quickr-preview.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'plasticboy/vim-markdown'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 Plug 'bignimbus/you-are-here.vim'
-Plug 'jceb/vim-orgmode'
 Plug 'liuchengxu/vista.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'liuchengxu/vim-which-key'
 Plug 'pechorin/any-jump.vim'
+" Plug 'wsdjeg/FlyGrep.vim'
+
+" Plug 'plasticboy/vim-markdown'
+" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
+" Plug 'jceb/vim-orgmode'
 
 " explorer
 "
@@ -50,7 +52,6 @@ Plug 'honza/vim-snippets'
 
 " motion
 Plug 'easymotion/vim-easymotion'
-" Plug 'justinmk/vim-sneak'
 
 " tmux
 Plug 'christoomey/vim-tmux-navigator'
@@ -58,7 +59,7 @@ Plug 'benmills/vimux'
 
 " wiki / writing
 Plug 'vimwiki/vimwiki'
-Plug 'dhruvasagar/vim-table-mode'
+" Plug 'dhruvasagar/vim-table-mode'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/goyo.vim'
 

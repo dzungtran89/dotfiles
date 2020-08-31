@@ -23,4 +23,5 @@ postgres-data
 .vim/
 .dungtd
 
+*.gz
 tags

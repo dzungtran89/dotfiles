@@ -28,6 +28,9 @@ map <leader>vl :VimuxRunLastCommand<CR>
 
 " Editor {{{
 
+" Disable Bclose mappings
+let g:no_plugin_maps = 1
+
 set redrawtime=10000
 set cursorline
 set history=500

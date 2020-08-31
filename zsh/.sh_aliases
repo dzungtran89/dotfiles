@@ -15,9 +15,9 @@ ez() {
   exec $SHELL
 }
 
-cls() {
-  clear; tmux clear-history; clear
-}
+alias clear='clear; tmux clear-history; clear'
+# clear() {
+# }
 # jump to subdir of marks
 c() {
   g "$1" && cd "$2"
