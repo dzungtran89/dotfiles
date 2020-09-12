@@ -2,8 +2,9 @@
 if has_key(plugs, 'vimwiki')
 
   " let g:vimwiki_conceal_onechar_markers = 0
-  " let g:vimwiki_conceallevel = 0
+  let g:vimwiki_conceallevel = 3
   " let g:vimwiki_conceal_pre = 1
+
   let g:vimwiki_key_mappings =
     \ {
     \   'global': 1,
@@ -21,4 +22,5 @@ if has_key(plugs, 'vimwiki')
   let g:vimwiki_map_prefix = '<leader>o'
   let g:vimwiki_list = [{'path': '~/vimwiki/',
         \ 'syntax': 'markdown', 'ext': '.md'}]
+
 endif

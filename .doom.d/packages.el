@@ -51,5 +51,5 @@
 (package! org-roam)
 (package! airline-themes)
 
-(package! docker-compose-mode)
-(package! dockerfile-mode)
+;; (package! docker-compose-mode)
+;; (package! dockerfile-mode)

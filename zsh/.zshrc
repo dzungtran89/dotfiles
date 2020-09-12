@@ -13,7 +13,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="bira"
 # ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
@@ -82,10 +82,8 @@ export LANG=en_US.UTF-8
 plugins=(
   git
   vi-mode
-  # tmux
   fzf
   docker
-  zshmarks
   brew
 
   # osx
@@ -129,3 +127,4 @@ source ~/.sh_profile
 . /usr/local/etc/profile.d/z.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# source ~/gitstatus/gitstatus.prompt.zsh

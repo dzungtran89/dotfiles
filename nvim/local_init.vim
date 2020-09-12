@@ -2,7 +2,11 @@
 
 " Mappings {{{
 
-imap jk <Esc>
+" search and replace pattern under the cursor
+nnoremap c* *Ncgn
+set mouse=a
+
+" imap jk <Esc>
 
 noremap <leader>c :bd!<CR>
 noremap <leader>w <C-w>
@@ -19,21 +23,36 @@ nmap <C-P> :cp<CR>
 nmap <leader>vc @:
 
 " vmux (evolution of vim + tmux)
-" Prompt for a command to run
-map <leader>vp :VimuxPromptCommand<CR>
-" Run last command executed by VimuxRunCommand
-map <leader>vl :VimuxRunLastCommand<CR>
+"
+if has_key(plugs, 'vimux')
+  " Prompt for a command to run
+  map <leader>vp :VimuxPromptCommand<CR>
+  " Run last command executed by VimuxRunCommand
+  map <leader>vl :VimuxRunLastCommand<CR>
+endif
+
+" Disable tmux navigator when zooming the Vim pane
+let g:tmux_navigator_disable_when_zoomed = 1
 
 " }}}
 
 " Editor {{{
 
+if has('gui')
+  " Turn off scrollbars. (Default on macOS is "egmrL").
+  set guioptions-=L
+  set guioptions-=R
+  set guioptions-=b
+  set guioptions-=l
+  set guioptions-=r
+endif
+
 " Disable Bclose mappings
 let g:no_plugin_maps = 1
 
-set redrawtime=10000
-set cursorline
+" set redrawtime=10000
 set history=500
+set cursorline
 
 command! CopyBuffer let @+ = expand('%:p')
 
@@ -43,7 +62,8 @@ if has('termguicolors')
 endif
 
 " set background=light
-colorscheme photon
+colorscheme gruvbox8_hard
+" colorscheme gruvbox
 
 " git
 
@@ -253,17 +273,21 @@ endif
 
 " Personal plugins
 
-source $HOME/.config/nvim/plugin/explorer.vim
-source $HOME/.config/nvim/plugin/search.vim
-source $HOME/.config/nvim/plugin/coc.vim
-source $HOME/.config/nvim/plugin/git.vim
-source $HOME/.config/nvim/plugin/gutentags.vim
-source $HOME/.config/nvim/plugin/snips.vim
-source $HOME/.config/nvim/plugin/md.vim
-source $HOME/.config/nvim/plugin/jump.vim
-source $HOME/.config/nvim/plugin/wiki.vim
+source $HOME/.config/nvim/plugins/scheme.vim
+source $HOME/.config/nvim/plugins/editor.vim
+source $HOME/.config/nvim/plugins/explorer.vim
+source $HOME/.config/nvim/plugins/search.vim
+source $HOME/.config/nvim/plugins/coc.vim
+source $HOME/.config/nvim/plugins/git.vim
+source $HOME/.config/nvim/plugins/gutentags.vim
+source $HOME/.config/nvim/plugins/snips.vim
+source $HOME/.config/nvim/plugins/md.vim
+source $HOME/.config/nvim/plugins/jump.vim
+source $HOME/.config/nvim/plugins/wiki.vim
 
-source $HOME/.config/nvim/plugin/statusline.vim
-source $HOME/.config/nvim/plugin/floaterm.vim
-source $HOME/.config/nvim/plugin/whichkey.vim
-source $HOME/.config/nvim/plugin/keys.vim
+source $HOME/.config/nvim/plugins/statusline.vim
+source $HOME/.config/nvim/plugins/floaterm.vim
+source $HOME/.config/nvim/plugins/whichkey.vim
+source $HOME/.config/nvim/plugins/keys.vim
+
+source $HOME/.config/nvim/plugins/linter.vim

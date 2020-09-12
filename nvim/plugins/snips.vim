@@ -1,4 +1,17 @@
-if has_key(plugs, 'vim-vsnip')
+" vim: set ft=vim fdm=marker
+
+" if has_key(plugs, 'vim-snipmate')
+
+"   imap <C-j> <Plug>snipMateNextOrTrigger
+"   imap <C-l> <Plug>snipMateTrigger
+
+if has_key(plugs, 'ultisnips')
+  " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+  let g:UltiSnipsExpandTrigger="<c-j>"
+  let g:UltiSnipsJumpForwardTrigger="<c-l>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-h>"
+
+elseif has_key(plugs, 'vim-vsnip')
 
   if has_key(plugs, 'deoplete.nvim')
     let g:deoplete#enable_at_startup = 1

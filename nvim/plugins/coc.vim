@@ -22,11 +22,11 @@ if has_key(plugs, 'coc.nvim')
   " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
   " other plugin before putting this into your config.
 
-  inoremap <silent><expr> <TAB>
-        \ pumvisible() ? "\<C-n>" :
-        \ <SID>check_back_space() ? "\<TAB>" :
+  inoremap <silent><expr> <tab>
+        \ pumvisible() ? "\<c-n>" :
+        \ <sid>check_back_space() ? "\<tab>" :
         \ coc#refresh()
-  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+  inoremap <expr><S-tab> pumvisible() ? "\<c-p>" : "\<c-h>"
 
   function! s:check_back_space() abort
     let col = col('.') - 1
@@ -162,6 +162,11 @@ if has_key(plugs, 'coc.nvim')
 
   set showtabline=2  " Show tabline
   set guioptions-=e  " Don't use GUI tabline
+
+
+  if has_key(plugs, 'ale')
+    let g:ale_disable_lsp = 1
+  endif
 
 endif
 

@@ -103,7 +103,8 @@ command! -bang -nargs=* GGrep
 
 if has_key(plugs, 'vim-agriculture')
 
-  let g:agriculture#rg_options='--follow'
+  " Search symlinks recursively
+  let g:agriculture#rg_options='--follow --smart-case'
 
   nmap <leader>/  <Plug>RgRawSearch
   nmap <leader>fp <Plug>RgRawSearch-tpy

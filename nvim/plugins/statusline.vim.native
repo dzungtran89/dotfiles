@@ -1,0 +1,66 @@
+" statusline {{{
+
+set laststatus=2
+set statusline=                          " left align
+set statusline+=%2*\                     " blank char
+set statusline+=%2*\%{StatuslineMode()}
+set statusline+=%2*\
+" set statusline+=%1*\ <<
+set statusline+=%1*\ %f                  " short filename
+" set statusline+=%1*\ >>
+
+if has_key(plugs, 'vista.vim')
+
+  function! NearestMethodOrFunction() abort
+    return get(b:, 'vista_nearest_method_or_function', '')
+  endfunction
+
+  set statusline+=%1*\ ::
+  set statusline+=%1*\ %{NearestMethodOrFunction()}
+
+  " By default vista.vim never run if you don't call it explicitly.
+  "
+  " If you want to show the nearest function in your statusline automatically,
+  " you can add the following line to your vimrc
+  autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+
+endif
+
+set statusline+=%=                       " right align
+set statusline+=%*
+set statusline+=%3*\%h%m%r               " file flags (help, read-only, modified)
+" set statusline+=%4*\%{b:gitbranch}       " include git branch
+
+" set statusline+=%3*\%.25F                " long filename (trimmed to 25 chars)
+set statusline+=%3*\::
+set statusline+=%3*\%l/%L\\|             " line count
+set statusline+=%3*\%y                   " file type
+
+if exists("*fugitive#statusline")
+  set statusline+=%{fugitive#statusline()}
+endif
+
+hi User1 ctermbg=237 ctermfg=108 cterm=NONE guibg=#3a3a3a guifg=#87af87 gui=NONE
+hi User2 ctermbg=236 ctermfg=243 cterm=NONE guibg=#303030 guifg=#767676 gui=NONE
+hi User3 ctermbg=237 ctermfg=108 cterm=NONE guibg=#3a3a3a guifg=#87af87 gui=NONE
+
+" hi User1 ctermbg=black ctermfg=grey guibg=black guifg=grey
+" hi User2 ctermbg=green ctermfg=black guibg=green guifg=black
+" hi User3 ctermbg=black ctermfg=lightgreen guibg=black guifg=lightgreen
+
+"" statusline functions
+function! StatuslineMode()
+    let l:mode=mode()
+    if l:mode==#"n"
+        return "NORMAL"
+    elseif l:mode==?"v"
+        return "VISUAL"
+    elseif l:mode==#"i"
+        return "INSERT"
+    elseif l:mode==#"R"
+        return "REPLACE"
+    endif
+endfunction
+
+" }}}
+

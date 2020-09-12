@@ -3,10 +3,10 @@
 # common
 
 # bookmarks
-alias g="jump"
-alias s="bookmark"
-alias d="deletemark"
-alias l="showmarks"
+# alias g="jump"
+# alias s="bookmark"
+# alias d="deletemark"
+# alias l="showmarks"
 
 # Restart SHELL
 ez() {
@@ -89,28 +89,21 @@ alias vec='ve ~/.emacs.d/init.el'
 
 # pyenv
 alias pv='pyenv'
-alias pvs='pyenv shell'
-alias pva='pyenv activate'
-alias pvda='pyenv deactivate'
+alias pa='pyenv activate'
+alias pd='pyenv deactivate'
 
 # trobz internal tools
 alias roi='remoteoi'
 alias eoi='emoi'
 alias aoi='anhoi'
-alias es='emoi start'
-alias eu='emoi upgrade'
+alias es='clear; emoi start'
+alias eu='clear; upgrade'
 
 alias dois='demoi start'
 
 # yabai, skhd
 alias yres='launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"'
 alias sres='launchctl kickstart -k "gui/${UID}/homebrew.mxcl.skhd"'
-
-# brew
-alias brs='brew services restart'
-alias brst='brew services stop'
-alias brl='brew link'
-alias brul='brew unlink'
 
 # postgres
 alias brupsql='brew postgresql-upgrade-database'
@@ -126,12 +119,9 @@ alias ta='tmux attach -t'
 alias tmls='tmux ls'
 
 # powerlevel10k
-alias hap='prompt powerlevel10k'
+# alias hap='prompt powerlevel10k'
 
-# exa
-
-alias ls='ls'
-alias lt='tree -L'
+alias lt='tree -la -L'
 
 # if command -v exa &> /dev/null; then
 #   alias ls='exa'

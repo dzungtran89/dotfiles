@@ -1,3 +1,5 @@
+" vim: set ft=vim fdm=marker
+
 " vista {{{
 
 if has_key(plugs, 'vista.vim')
@@ -59,6 +61,7 @@ if has_key(plugs, 'vim-gutentags')
   let g:gutentags_ctags_extra_args = [
       \ '--tag-relative=yes',
       \ '--fields=+ailmnS',
+      \ '--languages=python',
       \ ]
 
   let g:gutentags_ctags_exclude = [

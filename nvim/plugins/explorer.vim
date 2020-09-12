@@ -31,6 +31,7 @@ if has_key(plugs, 'lf.vim')
   " open ranger when vim open a directory
   let g:lf_replace_netrw = 1
 
+  map <leader>fl :Lf<CR>
   let g:lf_command_override = 'lf -command "set hidden"'
   let g:lf_open_new_tab = 1
 

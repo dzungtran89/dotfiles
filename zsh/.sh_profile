@@ -106,7 +106,7 @@ if command -v pyenv 1>/dev/null; then
   eval "$(pyenv init -)"
 fi
 
-eval "$(pyenv virtualenv-init -)"
+# eval "$(pyenv virtualenv-init -)"
 
 # Yank to the system clipboard
 function vi-yank-xclip {
@@ -168,3 +168,14 @@ n () {
 # fpath+=$HOME/.zsh/pure
 # autoload -U promptinit; promptinit
 # prompt pure
+
+# lg() {
+#   export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
+
+#   lazygit "$@"
+
+#   if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
+#     cd "$(cat $LAZYGIT_NEW_DIR_FILE)"
+#     rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
+#   fi
+# }

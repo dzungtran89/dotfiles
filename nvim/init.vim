@@ -330,11 +330,11 @@ noremap YY "+y<CR>
 noremap <leader>p "+gP<CR>
 noremap XX "+x<CR>
 
-if has('macunix')
-  " pbcopy for OSX copy/paste
-  vmap <C-x> :!pbcopy<CR>
-  vmap <C-c> :w !pbcopy<CR><CR>
-endif
+" if has('macunix')
+"   " pbcopy for OSX copy/paste
+"   vmap <C-x> :!pbcopy<CR>
+"   vmap <C-c> :w !pbcopy<CR><CR>
+" endif
 
 "" Buffer nav
 noremap <leader>z :bp<CR>
@@ -400,12 +400,6 @@ endif
 
 " ale
 " :call extend(g:ale_linters, {
-"     \'python': [''], })
-
-" vim-airline
-if has_key(plugs, 'vim-airline')
-  let g:airline#extensions#virtualenv#enabled = 1
-endif
 
 " Syntax highlight
 " Default highlight is better than polyglot

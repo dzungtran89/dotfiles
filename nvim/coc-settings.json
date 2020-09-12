@@ -9,6 +9,7 @@
     "${workspaceFolder}/addons",
     "${workspaceFolder}/project"
   ],
+  "git.gitlab.hosts": ["gitlab.trobz.com", "gitlab.com"],
   "snippets.userSnippetsDirectory": "/Users/tran/.config/nvim/plugged/vscode-python/snippets",
-  "git.gitlab.hosts": ["gitlab.trobz.com", "gitlab.com"]
+  "diagnostic.displayByAle": true
 }

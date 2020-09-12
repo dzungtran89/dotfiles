@@ -1,6 +1,7 @@
 
 " Common
 Plug 'ThePrimeagen/vim-be-good'
+Plug 'lifepillar/vim-colortemplate'
 
 " You would love this
 Plug 'ludovicchabant/vim-gutentags'
@@ -10,11 +11,9 @@ Plug 'chrisbra/Colorizer'
 Plug 'itchyny/lightline.vim'
 Plug 'gruvbox-community/gruvbox'
 Plug 'arcticicestudio/nord-vim'
-Plug 'dzungtran89/photon.vim'
-Plug 'YorickPeterse/vim-paper'
-Plug 'andreypopp/vim-colors-plain'
+Plug 'lifepillar/vim-gruvbox8'
 
-" Editor
+" jditor
 "
 Plug 'tpope/vim-surround'
 Plug 'jesseleite/vim-agriculture'
@@ -25,9 +24,10 @@ Plug 'liuchengxu/vista.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'liuchengxu/vim-which-key'
 Plug 'pechorin/any-jump.vim'
-" Plug 'wsdjeg/FlyGrep.vim'
+Plug 'jeetsukumaran/vim-indentwise'
+Plug 'ntpeters/vim-better-whitespace'
 
-" Plug 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown'
 " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 " Plug 'jceb/vim-orgmode'
 
@@ -45,20 +45,26 @@ Plug 'editorconfig/editorconfig-vim'
 " snippets
 " replaced by coc-snippets
 " Plug 'Jorengarenar/miniSnip'
-Plug 'microsoft/vscode-python'
-Plug 'mstuttgart/vscode-odoo-snippets'
+" Plug 'MarcWeber/vim-addon-mw-utils'
+" Plug 'tomtom/tlib_vim'
+" Plug 'garbas/vim-snipmate'
 
+" Plug 'microsoft/vscode-python'
+" Plug 'mstuttgart/vscode-odoo-snippets'
+
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'dzungtran89/vim-odoo-snippets'
 
 " motion
 Plug 'easymotion/vim-easymotion'
 
 " tmux
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'benmills/vimux'
+" Plug 'benmills/vimux'
 
 " wiki / writing
-Plug 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki'
 " Plug 'dhruvasagar/vim-table-mode'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/goyo.vim'
@@ -71,3 +77,5 @@ Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'tpope/vim-rhubarb'
 
 Plug 'ryanoasis/vim-devicons'
+" Plug 'dense-analysis/ale'
+
