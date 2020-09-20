@@ -10,6 +10,6 @@
     "${workspaceFolder}/project"
   ],
   "git.gitlab.hosts": ["gitlab.trobz.com", "gitlab.com"],
-  "snippets.userSnippetsDirectory": "/Users/tran/.config/nvim/plugged/vscode-python/snippets",
+  "snippets.userSnippetsDirectory": "/Users/tran/.config/nvim/plugged/vim-odoo-snippets/UltiSnips",
   "diagnostic.displayByAle": true
 }

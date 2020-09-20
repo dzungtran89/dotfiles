@@ -28,6 +28,9 @@ endif
 " Required:
 call plug#begin(expand('~/.config/nvim/plugged'))
 
+
+let g:polyglot_disabled = ['python', 'javascript']
+
 "*****************************************************************************
 "" Plug install packages
 "*****************************************************************************
@@ -83,7 +86,10 @@ endif
 call plug#end()
 
 " Required:
-filetype plugin indent on
+filetype plugin on
+filetype indent on
+" set ai
+" set si
 
 "*****************************************************************************
 "" Basic Setup
@@ -95,7 +101,7 @@ set fileencodings=utf-8
 
 
 "" Fix backspace indent
-set backspace=indent,eol,start
+set backspace=eol,start,indent
 
 "" Tabs. May be overridden by autocmd rules
 " set tabstop=4
@@ -120,9 +126,9 @@ set smartcase
 set fileformats=unix,dos,mac
 
 if exists('$SHELL')
-    set shell=$SHELL
+  set shell=$SHELL
 else
-    set shell=/bin/sh
+  set shell=/bin/sh
 endif
 
 " session management
@@ -403,7 +409,6 @@ endif
 
 " Syntax highlight
 " Default highlight is better than polyglot
-let g:polyglot_disabled = ['python', 'javascript']
 let python_highlight_all = 1
 
 "*****************************************************************************

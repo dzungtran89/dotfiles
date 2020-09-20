@@ -1,4 +1,9 @@
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
 " set ai "Auto indent
 " set si "Smart indent
 " set wrap "Wrap lines
@@ -14,7 +19,7 @@ set noswapfile
 
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
-set complete-=i
+" set complete-=i
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
@@ -44,3 +49,25 @@ function! VisualSelection(direction, extra_filter) range
   let @/ = l:pattern
   let @" = l:saved_reg
 endfunction
+
+if has_key(plugs, 'vim-autoformat')
+
+  let g:autoformat_autoindent = 0
+  let g:autoformat_retab = 0
+  let g:autoformat_remove_trailing_spaces = 0
+
+endif
+
+if has_key(plugs, 'vim-multiple-cursors')
+  let g:multi_cursor_use_default_mapping=0
+
+  " Default mapping
+  let g:multi_cursor_start_word_key      = '<C-n>'
+  let g:multi_cursor_select_all_word_key = '<A-n>'
+  let g:multi_cursor_start_key           = 'g<C-n>'
+  let g:multi_cursor_select_all_key      = 'g<A-n>'
+  let g:multi_cursor_next_key            = '<C-n>'
+  let g:multi_cursor_prev_key            = '<C-p>'
+  let g:multi_cursor_skip_key            = '<C-x>'
+  let g:multi_cursor_quit_key            = '<Esc>'
+endif

@@ -4,7 +4,7 @@
 
 " search and replace pattern under the cursor
 nnoremap c* *Ncgn
-set mouse=a
+set mouse=
 
 " imap jk <Esc>
 
@@ -17,8 +17,8 @@ nnoremap <leader>dd :lcd %:p:h<CR>
 
 nmap <leader>l :set invrelativenumber<CR>
 
-nmap <C-N> :cn<CR>
-nmap <C-P> :cp<CR>
+" nmap <C-N> :cn<CR>
+" nmap <C-P> :cp<CR>
 
 nmap <leader>vc @:
 
@@ -61,34 +61,7 @@ if has('termguicolors')
   set termguicolors
 endif
 
-" set background=light
-colorscheme gruvbox8_hard
-" colorscheme gruvbox
-
-" git
-
-" function! StatuslineGitBranch()
-"   let b:gitbranch=""
-"   if &modifiable
-"     lcd %:p:h
-"     let l:gitrevparse=system("git rev-parse --abbrev-ref HEAD")
-"     lcd -
-"     if l:gitrevparse!~"fatal: not a git repository"
-"       let b:gitbranch="(".substitute(l:gitrevparse, '\n', '', 'g').")"
-"     endif
-"   endif
-" endfunction
-
-" augroup GetGitBranch
-"   autocmd!
-"   autocmd VimEnter,WinEnter,BufEnter * call StatuslineGitBranch()
-" augroup END
-
-" nnoremap <silent> <localleader>s :w<CR>
-
-" if has_key(plugs, 'tagbar')
-"   nmap <localleader>t :TagbarCurrentTag<CR>
-" endif
+colorscheme dalton
 
 if has_key(plugs, 'vim-wordmotion')
 
@@ -119,21 +92,6 @@ if has_key(plugs, 'vim-wordmotion')
         \ }
 endif
 
-if has_key(plugs, 'vim-airline')
-
-  let g:airline_disable_statusline = 1
-  let g:airline_theme = 'onedark'
-  let g:airline_powerline_fonts = 1
-  let g:airline#extensions#branch#enabled = 0
-  let g:airline#extensions#ale#enabled = 0
-  let g:airline#extensions#tabline#enabled = 0
-  let g:airline#extensions#tagbar#enabled = 0
-  let g:airline_skip_empty_sections = 1
-
-endif
-
-let g:jedi#auto_initialization = 0
-
 let g:python3_host_prog = '$VIRTUAL_ENV/bin/python'
 
 " }}}
@@ -142,35 +100,20 @@ let g:python3_host_prog = '$VIRTUAL_ENV/bin/python'
 
 let g:indentLine_char = '.'
 let g:indentLine_first_char = '.'
-" let g:indentLine_char = ''
-" let g:indentLine_first_char = ''
-" let g:indentLine_showFirstIndentLevel = 1
-" let g:indentLine_setColors = 0
 
 " }}}
 
 set foldmethod=manual
 set nonu
-" set relativenumber
 
 " search
 set ignorecase
-
-" fold
-" nmap <leader>fo zO
-" nmap <leader>fc zC
-" nmap <leader>fa za
-" nmap <leader>fm zm
 
 " quick preview {{{
 
 let g:quickr_preview_on_cursor = 1
 
 " }}}
-
-" closetag
-" replaced by coc-xml
-" let g:closetag_filetypes = 'html,xml,phtml'
 
 " ultisnips {{{
 
@@ -210,7 +153,7 @@ endif
 
 if has_key(plugs, 'ack.vim')
 
-  " Use ripgrep for searching ⚡️
+  " Use ripgrep for searching
   " Options include:
   " --vimgrep -> Needed to parse the rg response properly for ack.vim
   " --type-not sql -> Avoid huge sql file dumps as it slows down the search
@@ -273,7 +216,6 @@ endif
 
 " Personal plugins
 
-source $HOME/.config/nvim/plugins/scheme.vim
 source $HOME/.config/nvim/plugins/editor.vim
 source $HOME/.config/nvim/plugins/explorer.vim
 source $HOME/.config/nvim/plugins/search.vim
@@ -291,3 +233,4 @@ source $HOME/.config/nvim/plugins/whichkey.vim
 source $HOME/.config/nvim/plugins/keys.vim
 
 source $HOME/.config/nvim/plugins/linter.vim
+source $HOME/.config/nvim/plugins/scheme.vim

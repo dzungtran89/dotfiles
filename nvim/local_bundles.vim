@@ -11,25 +11,30 @@ Plug 'chrisbra/Colorizer'
 Plug 'itchyny/lightline.vim'
 Plug 'gruvbox-community/gruvbox'
 Plug 'arcticicestudio/nord-vim'
-Plug 'lifepillar/vim-gruvbox8'
+Plug 'dzungtran89/vim-gruvbox8'
+" Plug 'andreypopp/vim-colors-plain'
+Plug 'edersonferreira/dalton-vim'
+" Plug 'embark-theme/vim', { 'as': 'embark' }
+" Plug 'yarisgutierrez/ayu-lightline'
 
-" jditor
+" Editor
 "
 Plug 'tpope/vim-surround'
 Plug 'jesseleite/vim-agriculture'
 Plug 'ronakg/quickr-preview.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'bignimbus/you-are-here.vim'
-Plug 'liuchengxu/vista.vim'
+Plug 'preservim/tagbar'
 Plug 'voldikss/vim-floaterm'
 Plug 'liuchengxu/vim-which-key'
 Plug 'pechorin/any-jump.vim'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'dyng/ctrlsf.vim'
 
 Plug 'plasticboy/vim-markdown'
 " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
-" Plug 'jceb/vim-orgmode'
 
 " explorer
 "
@@ -41,6 +46,7 @@ Plug 'rbgrouleff/bclose.vim'
 
 " editorconfig
 Plug 'editorconfig/editorconfig-vim'
+" Plug 'chiel92/vim-autoformat'
 
 " snippets
 " replaced by coc-snippets
@@ -61,13 +67,11 @@ Plug 'easymotion/vim-easymotion'
 
 " tmux
 Plug 'christoomey/vim-tmux-navigator'
-" Plug 'benmills/vimux'
 
 " wiki / writing
-" Plug 'vimwiki/vimwiki'
-" Plug 'dhruvasagar/vim-table-mode'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/goyo.vim'
+" Plug 'xolox/vim-notes'
 
 " Git
 Plug 'airblade/vim-gitgutter'
@@ -77,5 +81,3 @@ Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'tpope/vim-rhubarb'
 
 Plug 'ryanoasis/vim-devicons'
-" Plug 'dense-analysis/ale'
-

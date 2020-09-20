@@ -1,20 +1,30 @@
 
 function! ClearSyntax()
-  if &ft ==? "python"
-    match Comment /#.*$/
-  elseif &ft ==? "html"
+
+  if index(['zsh', 'python', 'yaml', 'yml', 'conf'], &ft) >= 0
+    match Comment /^[ \t:]*#.*$/
+
+  elseif index(['html', 'xml'], &ft) >= 0
     match Comment /<!--\_.\{-}-->/
-  elseif &ft ==? "xml"
-    match Comment /<!--\_.\{-}-->/
+
   elseif &ft ==? "vim"
-    match Comment /".*$/
+    match Comment /^[ \t:]*".*$/
+
+  elseif &ft ==? "rust"
+    match Comment /^[ \t:]*\/\/.*$/
+
+  elseif index(['javascript', 'js'], &ft) >= 0
+    match Comment /\/\*\_.\{-}\*\//
+
+  elseif index(['plsql', 'sql'], &ft) >= 0
+    match Comment /\/\*\_.\{-}\*\//
+
   endif
 
   syntax off
+
 endfunction
 
-" command! ClearSyntax :call ClearSyntax()
-
-autocmd!
-autocmd VimEnter,BufEnter * call ClearSyntax()
+" autocmd!
+au VimEnter,BufEnter * call ClearSyntax()
 

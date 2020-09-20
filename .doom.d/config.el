@@ -6,7 +6,7 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
-(setq user-full-name "dung.tran"
+(setq user-full-name "dzung.tran"
       user-mail-address "d2tran7@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
@@ -32,8 +32,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-;; (setq display-line-numbers-type 'relative')
-
+(setq display-line-numbers-type nil)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
@@ -53,42 +52,15 @@
 ;; they are implemented.
 
 (load-theme 'gruvbox-dark-hard t)
-;; (load-theme 'doom-one t)
+
+(global-font-lock-mode 0)
+
+;; (add-hook 'org-mode-hook 'font-lock-mode)
 
 ;; Treat words with _
 (modify-syntax-entry ?_ "w")
 
-;; Key bindings
-;; (define-key evil-normal-state-map (kbd "<tab>") 'other-window)
-;; (define-key evil-normal-state-map (kbd "<backtab>") 'evil-next-buffer)
-
 (setq org-export-with-section-numbers nil)
 
-; Turn off line number as default
-;
-;; (global-display-line-numbers-mode -1)
-
-;; (add-hook 'prog-mode-hook (lambda() (global-display-line-numbers-mode -1)))
-
-;; (add-hook 'markdown-mode-hook
-;;           (lambda()
-;;             (hl-line-mode -1)
-;;             ))
-
-;; (add-hook 'python-mode-hook
-;;           (lambda()
-;;             (global-display-line-numbers-mode -1)
-;;             (hl-line-mode -1)
-;;             ))
-
-;; (add-hook 'emacs-lisp-mode-hook
-;;           (lambda()
-;;             (global-display-line-numbers-mode -1)
-;;             (hl-line-mode -1)
-;;             (rainbow-delimiters-mode -1)
-;;             ))
-
-;; (remove-hook 'prog-mode-hook #'global-display-line-numbers-mode)
-
-(unless (display-graphic-p)
-  (remove-hook 'after-init-hook #'doom-modeline-mode))
+;; always use system clipboard
+(remove-hook 'doom-post-init-hook #'osx-clipboard-mode)

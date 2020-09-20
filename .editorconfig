@@ -9,13 +9,19 @@ end_of_line = lf
 trim_trailing_whitespace = true
 ; insert_final_newline = true
 
-; [{Vagrant,Cap,Rake,Gem}file]
-; indent_size = 2
+[{Vagrant,Cap,Rake,Gem}file]
+indent_size = 2
 
 ; [*.{xml,sql,el,rb,cr,lua,y{a,}ml,json,toml,coffee,css,s{a,c}ss,styl,slim,jade,pug,html,{,z}sh}]
 ; indent_size = 2
 
+[*.{xml,json,toml,html,{,z}sh,y{a,}ml}]
+indent_size = 4
+
 [*.{py,md}]
+indent_size = 4
+
+[*.{rs,go}]
 indent_size = 4
 
 ; [*.go]

@@ -24,3 +24,7 @@ if has_key(plugs, 'vimwiki')
         \ 'syntax': 'markdown', 'ext': '.md'}]
 
 endif
+
+if has_key(plugs, 'vim-notes')
+  let g:notes_directories = ['~/vimwiki']
+endif
