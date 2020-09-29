@@ -106,11 +106,11 @@ if has_key(plugs, 'vim-agriculture')
   " Search symlinks recursively
   let g:agriculture#rg_options='--follow --smart-case'
 
-  nmap <leader>/  <Plug>RgRawSearch
-  nmap <leader>fp <Plug>RgRawSearch-tpy
-  nmap <leader>fj <Plug>RgRawSearch-tjs
-  nmap <leader>fv <Plug>RgRawSearch-tvim
-  nmap <leader>fx <Plug>RgRawSearch-txml
+  nmap <leader>/  <Plug>RgRawSearch 
+  nmap <leader>sp <Plug>RgRawSearch-tpy 
+  nmap <leader>sj <Plug>RgRawSearch-tjs 
+  nmap <leader>sv <Plug>RgRawSearch-tvim 
+  nmap <leader>sx <Plug>RgRawSearch-txml 
 
   " vmap <leader>/ <Plug>RgRawVisualSelection
   nmap <leader>* <Plug>RgRawWordUnderCursor
@@ -118,10 +118,10 @@ if has_key(plugs, 'vim-agriculture')
 endif
 
 "" Opens an edit command with the path of the currently edited file filled in
-noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+noremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 "" Opens a tab edit command with the path of the currently edited file filled
-noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+noremap <leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <silent> <leader>b :Buffers<CR>
@@ -171,5 +171,16 @@ if has_key(plugs, 'denite.nvim')
 endif
 
 if has_key(plugs, 'FlyGrep.vim')
-  nnoremap <localleader>s/ :FlyGrep<cr>
+  nnoremap <leader>s/ :FlyGrep<cr>
+endif
+
+if has_key(plugs, 'ctrlsf.vim')
+  nmap     <leader>ff <Plug>CtrlSFPrompt-T py 
+  vmap     <leader>fF <Plug>CtrlSFVwordExec 
+  nmap     <leader>fn <Plug>CtrlSFCwordPath 
+  nmap     <leader>fp <Plug>CtrlSFPwordPath 
+  nnoremap <leader>ft :CtrlSFToggle<CR>
+  " vmap     <leader>ff <Plug>CtrlSFVwordPath 
+  " nnoremap <leader>fo :CtrlSFOpen<CR>
+  " inoremap <leader>ft <Esc>:CtrlSFToggle<CR>
 endif

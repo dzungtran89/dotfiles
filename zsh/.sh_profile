@@ -1,23 +1,20 @@
 #!/usr/bin/env sh
 
 # Remove duplicated PATH
-# if [[ $SHELL = 'zsh' ]]; then
-#   typeset -U PATH
-# fi
+if [[ $SHELL = 'zsh' ]]; then
+  typeset -U PATH
+fi
 
-# export TERM=xterm-256color
+export TERM=xterm-256color
 
 export EDITOR=vi
 export VISUAL=vi
 
-source $HOME/code/dotfiles/install.sh
+# source $HOME/code/dotfiles/install.sh
 
 if [ -z "$XDG_CONFIG_HOME" ]; then
   export XDG_CONFIG_HOME=$HOME/.config
 fi
-
-# bindkeys, enable it for zprezto usage
-# bindkey "^R" history-incremental-search-backward
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
@@ -70,23 +67,25 @@ export PATH="$HOME/.cargo/bin:$PATH"
 zstyle ':completion:*:(ssh|scp|ftp|sftp):*' hosts $hosts
 zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
 
-# fzf
+# fzf {{{
 
 # fzf's command
 export FZF_DEFAULT_COMMAND="fd"
-# # CTRL-T's command
+# CTRL-T's command
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-# # ALT-C's command
+# ALT-C's command
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 
 export FZF_DEFAULT_OPTS="--height=80%"
 
 _fzf_compgen_path() {
-    fd . "$1"
+  fd . "$1"
 }
 _fzf_compgen_dir() {
-    fd --type d . "$1"
+  fd --type d . "$1"
 }
+
+# }}}
 
 # aliases
 if [ -f ~/.sh_aliases ]; then
@@ -102,31 +101,35 @@ export PATH="$HOME/.local/bin":$PATH
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null; then
-  eval "$(pyenv init -)"
+
+# # Setup virtualenv home
+# export WORKON_HOME=$HOME/.virtualenvs
+# source /usr/local/bin/virtualenvwrapper.sh
+
+# # Tell pyenv-virtualenvwrapper to use pyenv when creating new Python environments
+# export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+
+# Set the pyenv shims to initialize
+if command -v pyenv 1>/dev/null 2>&1; then
+ eval "$(pyenv init -)"
 fi
 
-# eval "$(pyenv virtualenv-init -)"
+# if command -v pyenv 1>/dev/null; then
+#   eval "$(pyenv init -)"
+# fi
+
+eval "$(pyenv virtualenv-init -)"
 
 # Yank to the system clipboard
 function vi-yank-xclip {
-    zle vi-yank
-   echo "$CUTBUFFER" | pbcopy -i
+  zle vi-yank
+  echo "$CUTBUFFER" | pbcopy -i
 }
 
 zle -N vi-yank-xclip
 bindkey -M vicmd 'y' vi-yank-xclip
 
 # nnn {{{
-
-export NNN_BMS='d:~/Documents;w:~/vimwiki;D:~/Downloads/'
-
-# export NNN_BMS="$(cat <<-EOF
-#   d:~/Documents;
-#   w:~/vimwiki;D:~/Downloads/;
-#   l:~/code
-# EOF
-# )"
 
 export NNN_COLORS="2136"
 export NNN_TRASH=1
@@ -179,3 +182,13 @@ n () {
 #     rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
 #   fi
 # }
+
+# vifm keeps the working dir
+vc() {
+  local dst="$(command vifm --choose-dir - "$@")"
+  if [ -z "$dst" ]; then
+    echo 'Directory picking cancelled/failed'
+    return 1
+  fi
+  cd "$dst"
+}

@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(vimrc-mode undo-fu org-superstar org-recent-headings org-fancy-priorities))
+   '(org-super-agenda vimrc-mode undo-fu shrink-path org-superstar org-recent-headings org-fancy-priorities all-the-icons))
  '(safe-local-variable-values '((encoding . utf-8))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

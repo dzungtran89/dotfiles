@@ -1,7 +1,10 @@
 
+syntax match potionComment "\v#.*$"
+highlight link potionComment Comment
+
 function! ClearSyntax()
 
-  if index(['zsh', 'python', 'yaml', 'yml', 'conf'], &ft) >= 0
+  if index(['zsh', 'sh', 'python', 'yaml', 'yml', 'conf'], &ft) >= 0
     match Comment /^[ \t:]*#.*$/
 
   elseif index(['html', 'xml'], &ft) >= 0

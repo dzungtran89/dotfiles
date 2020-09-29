@@ -2,20 +2,23 @@
 
 if has_key(plugs, 'vim-fugitive')
 
-  noremap <localleader>go :.Gbrowse<CR>
-  noremap <localleader>gw :Gbrowse<CR>
-  noremap <localleader>gb :Gblame<CR>
-  noremap <localleader>gq :gq<CR>
-  " noremap <localleader>ga  :Gwrite<CR>
-  " noremap <localleader>gc :Gcommit<CR>
-  " noremap <localleader>gP :Gpush<CR>
-  " noremap <localleader>gp :Gpull<CR>
-  " noremap <localleader>gs :Gstatus<CR>
-  " noremap <localleader>gd  :Gvdiff<CR>
-  " noremap <localleader>gr  :Gremove<CR>
+  noremap <leader>go :.Gbrowse<CR>
+  noremap <leader>gw :Gbrowse<CR>
+  noremap <leader>gb :Gblame<CR>
+  noremap <leader>gq :gq<CR>
+  " noremap <leader>ga :Gwrite<CR>
+  " noremap <leader>gc :Gcommit<CR>
+  " noremap <leader>gP :Gpush<CR>
+  " noremap <leader>gp :Gpull<CR>
+  " noremap <leader>gs :Gstatus<CR>
+  " noremap <leader>gd :Gvdiff<CR>
+  " noremap <leader>gr :Gremove<CR>
 
   " Git
   let g:fugitive_gitlab_domains = ['https://gitlab.trobz.com']
 
 endif
 
+if has_key(plugs, 'vim-gitgutter')
+  set updatetime=250
+endif

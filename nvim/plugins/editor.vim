@@ -71,3 +71,45 @@ if has_key(plugs, 'vim-multiple-cursors')
   let g:multi_cursor_skip_key            = '<C-x>'
   let g:multi_cursor_quit_key            = '<Esc>'
 endif
+
+" if has_key(plugs, 'vim-better-whitespace')
+"   let g:strip_whitespace_on_save=1
+" endif
+
+if has_key(plugs, 'vim-winmanip')
+
+  let g:winmanip_disable_key_mapping = 1
+
+  nmap   1<Right>    <Plug>(JumpRight)
+  nmap   1<Left>     <Plug>(JumpLeft)
+  nmap   1<Down>     <Plug>(JumpDown)
+  nmap   1<Up>       <Plug>(JumpUp)
+
+  nmap   2<Right>    <Plug>(MoveBufRight)
+  nmap   2<Left>     <Plug>(MoveBufLeft)
+  nmap   2<Down>     <Plug>(MoveBufDown)
+  nmap   2<Up>       <Plug>(MoveBufUp)
+
+  nmap   3<Right>    <Plug>(MoveJumpBufRight)
+  nmap   3<Left>     <Plug>(MoveJumpBufLeft)
+  nmap   3<Down>     <Plug>(MoveJumpBufDown)
+  nmap   3<Up>       <Plug>(MoveJumpBufUp)
+
+  nmap   4<Right>    <Plug>(MoveWinToNextTab)
+  nmap   4<Left>     <Plug>(MoveWinToPrevTab)
+
+  nmap   5<Right>    <Plug>(CopyBufRight)
+  nmap   5<Left>     <Plug>(CopyBufLeft)
+  nmap   5<Down>     <Plug>(CopyBufDown)
+  nmap   5<Up>       <Plug>(CopyBufUp)
+
+  nmap   6<Right>    <Plug>(CopyJumpBufRight)
+  nmap   6<Left>     <Plug>(CopyJumpBufLeft)
+  nmap   6<Down>     <Plug>(CopyJumpBufDown)
+  nmap   6<Up>       <Plug>(CopyJumpBufUp)
+
+  nmap   <leader>z   <Plug>(MaximizeWin)
+  nmap   <silent>    <leader>dw                 <Plug>(ClearAllWindows)
+  nmap   <silent>    <leader>db                 <Plug>(ClearBufferList)
+
+endif

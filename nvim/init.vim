@@ -110,9 +110,9 @@ set softtabstop=0
 set expandtab
 set cc=79
 
-"" Map leader to ,
-let mapleader=','
-let maplocalleader="\<space>"
+"" Map leader/localleader to <space>
+let mapleader=" "
+let maplocalleader=","
 
 "" Enable hidden buffers
 set hidden
@@ -140,7 +140,7 @@ let g:session_command_aliases = 1
 "*****************************************************************************
 "" Visual Settings
 "*****************************************************************************
-syntax on
+syntax off
 set ruler
 set number
 
@@ -310,7 +310,7 @@ nnoremap <leader>sc :CloseSession<CR>
 "" Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
-nnoremap <silent> <S-t> :tabnew<CR>
+nnoremap <S-t> :tabnew<CR>
 
 "" Set working directory
 " nnoremap <leader>. :lcd %:p:h<CR>
@@ -418,8 +418,3 @@ let python_highlight_all = 1
 if filereadable(expand("~/.config/nvim/local_init.vim"))
   source ~/.config/nvim/local_init.vim
 endif
-
-"*****************************************************************************
-"" Convenience variables
-"*****************************************************************************
-

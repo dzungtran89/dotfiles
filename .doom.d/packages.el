@@ -34,6 +34,8 @@
 ;; If you'd like to disable a package included with Doom, for whatever reason,
 ;; you can do so here with the `:disable' property:
 (package! rainbow-delimiters :disable t)
+(package! vc-gutter :disable t)
+(package! git-gutter :disable t)
 
 ;; You can override the recipe of a built in package without having to specify
 ;; all the properties for `:recipe'. These will inherit the rest of its recipe
@@ -52,3 +54,6 @@
 (package! vimrc-mode)
 (package! doom-modeline)
 (package! ox-hugo)
+(package! org-super-agenda)
+(package! org-brain)
+(package! plantuml-mode)

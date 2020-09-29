@@ -9,14 +9,11 @@ if has_key(plugs, 'nnn.vim')
   let g:nnn#layout = 'new' " or vnew, tabnew etc.
 
   " Or pass a dictionary with window size
-  let g:nnn#layout = { 'left': '~20%' } " or right, up, down
+  " let g:nnn#layout = { 'left': '~20%' } " or right, up, down
 
-  " Floating window (neovim latest and vim with patch 8.2.191)
   let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
 
-  " Or override
-  " Start nnn in the current file's directory
-  nnoremap <leader>n :NnnPicker '%:p:h'<CR>
+  nnoremap <leader>n :NnnPicker %:p:h<CR>
 
   let g:nnn#action = {
         \ '<c-t>': 'tab split',
@@ -43,4 +40,8 @@ if has_key(plugs, 'ranger.vim')
   " open ranger when vim open a directory
   let g:ranger_replace_netrw = 1
 
+endif
+
+if has_key(plugs, 'vim-molder')
+  let g:molder_show_hidden = 1
 endif

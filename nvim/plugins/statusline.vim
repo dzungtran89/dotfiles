@@ -7,6 +7,7 @@ if has_key(plugs, 'lightline.vim')
   set showtabline=2
   set tabline="%1t"
 
+  " seoul256
   let g:lightline = {
         \ 'colorscheme': 'one',
         \ 'active': {

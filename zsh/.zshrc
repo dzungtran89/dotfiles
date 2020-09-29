@@ -3,7 +3,7 @@
 # zmodload zsh/zprof
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -122,9 +122,9 @@ setopt hist_ignore_space
 source ~/.sh_profile
 
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# POWERLEVEL9K_DISABLE_GITSTATUS=true
 
 # https://github.com/rupa/z
 . /usr/local/etc/profile.d/z.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# source ~/gitstatus/gitstatus.prompt.zsh

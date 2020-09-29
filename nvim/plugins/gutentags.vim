@@ -116,7 +116,7 @@ if has_key(plugs, 'vim-gutentags')
   " autocmd BufWritePost *.py,*.js silent! !ctags . &
   nnoremap <silent> <localleader>e  :Tags<cr>
   nnoremap <silent> <localleader>o  :BTags<cr>
-  nnoremap <silent> <localleader>]  g<C-]>
+  nnoremap <silent> <leader>]  g<C-]>
 
   if has_key(plugs, 'gutentags_plus')
     " change focus to quickfix window after search (optional).

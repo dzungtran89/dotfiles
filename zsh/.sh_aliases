@@ -9,24 +9,8 @@
 # alias l="showmarks"
 
 # Restart SHELL
-ez() {
-  pyenv deactivate
-  clear
-  exec $SHELL
-}
-
 alias clear='clear; tmux clear-history; clear'
-# clear() {
-# }
-# jump to subdir of marks
-c() {
-  g "$1" && cd "$2"
-}
-
-# jump to trobz and its subdir
-ct() {
-  g trobz && cd "$1"
-}
+alias ez='pyenv deactivate; typeset -U PATH; clear'
 
 alias p='pwd'
 alias diskusage='iostat -Id disk0'

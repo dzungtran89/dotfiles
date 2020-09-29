@@ -1,10 +1,10 @@
 if has_key(plugs, 'vim-which-key')
 
-  call which_key#register('<Space>', "g:which_key_map")
+  call which_key#register('<space>', "g:which_key_map")
 
-  nnoremap <silent> <leader> :<c-u>WhichKey ','<CR>
-  vnoremap <silent> <leader> :<c-u>WhichKeyVisual ','<CR>
-  nnoremap <silent> <localleader> :<c-u>WhichKey '<Space>'<CR>
+  nnoremap <silent> <leader> :<c-u>WhichKey '<space>'<CR>
+  vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<space>'<CR>
+  nnoremap <silent> <localleader> :<c-u>WhichKey ','<CR>
 
   set timeoutlen=500
 
@@ -18,9 +18,9 @@ if has_key(plugs, 'vim-which-key')
 
   let g:which_key_map.f = { 'name' : '+file' }
 
-  nnoremap  <localleader>fz :e!<CR>
-  nnoremap  <localleader>fe :e<CR>
-  nnoremap  <localleader>fs :update<CR>
+  nnoremap <leader>fz :e!<CR>
+  nnoremap <leader>fe :e<CR>
+  nnoremap <leader>fs :update<CR>
 
   " nnoremap <silent> <leader>fd :e $MYVIMRC<CR>
   " let g:which_key_map.f.d = 'open-vimrc'
@@ -80,18 +80,26 @@ if has_key(plugs, 'vim-which-key')
   "       \ '?' : ['Windows'     , 'fzf-window']            ,
   "       \ }
 
+  " \ ';' : [':FloatermNew --wintype=popup --height=6' , 'terminal'] ,
   let g:which_key_map.c = {
-        \ 'name' : '+terminal'                             ,
-        \ ';' : [':FloatermNew --wintype=popup --height=6' , 'terminal'] ,
-        \ 'f' : [':FloatermNew fzf'                        , 'fzf']      ,
-        \ 'g' : [':FloatermNew lazygit'                    , 'git']      ,
-        \ 'd' : [':FloatermNew lazydocker'                 , 'docker']   ,
-        \ 'N' : [':FloatermNew node'                       , 'node']     ,
-        \ 'n' : [':FloatermNew nnn'                        , 'nnn']      ,
-        \ 'p' : [':FloatermNew python'                     , 'python']   ,
-        \ 'r' : [':FloatermNew lf'                     , 'lf']   ,
-        \ 't' : [':FloatermToggle'                         , 'toggle']   ,
-        \ 'y' : [':FloatermNew ytop'                       , 'ytop']     ,
+        \ 'name' : '+terminal'             ,
+        \ 'f' : [':FloatermNew fzf'        , 'fzf']      ,
+        \ 'l' : [':FloatermNew lazygit'    , 'git']      ,
+        \ 'g' : [':FloatermNew tig'        , 'tig']      ,
+        \ 'd' : [':FloatermNew lazydocker' , 'docker']   ,
+        \ 'N' : [':FloatermNew node'       , 'node']     ,
+        \ 'v' : [':FloatermNew vifm'       , 'vifm']      ,
+        \ 'p' : [':FloatermNew python'     , 'python']   ,
+        \ 'r' : [':FloatermNew lf'         , 'lf']       ,
+        \ 't' : [':FloatermToggle'         , 'terminal'] ,
+        \ 'y' : [':FloatermNew ytop'       , 'ytop']     ,
         \ }
+
+endif
+
+if has_key(plugs, 'vim-floaterm')
+  " Configuration example
+  nnoremap   <silent>   <F12>   :FloatermToggle<CR>
+  tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
 
 endif

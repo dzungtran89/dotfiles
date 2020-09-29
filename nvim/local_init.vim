@@ -8,7 +8,7 @@ set mouse=
 
 " imap jk <Esc>
 
-noremap <leader>c :bd!<CR>
+noremap <localleader>c :bd!<CR>
 noremap <leader>w <C-w>
 noremap <leader>Q :qa!<CR>
 
@@ -61,6 +61,7 @@ if has('termguicolors')
   set termguicolors
 endif
 
+set background=dark
 colorscheme dalton
 
 if has_key(plugs, 'vim-wordmotion')
@@ -170,7 +171,7 @@ if has_key(plugs, 'ack.vim')
   cnoreabbrev Ack Ack!
 
   " Maps <leader>/ so we're ready to type the search keyword
-  nnoremap <Leader>a :Ack!<Space>
+  nnoremap <leader>a :Ack!<Space>
 
 endif
 
@@ -216,6 +217,7 @@ endif
 
 " Personal plugins
 
+source $HOME/.config/nvim/plugins/whichkey.vim
 source $HOME/.config/nvim/plugins/editor.vim
 source $HOME/.config/nvim/plugins/explorer.vim
 source $HOME/.config/nvim/plugins/search.vim
@@ -229,8 +231,9 @@ source $HOME/.config/nvim/plugins/wiki.vim
 
 source $HOME/.config/nvim/plugins/statusline.vim
 source $HOME/.config/nvim/plugins/floaterm.vim
-source $HOME/.config/nvim/plugins/whichkey.vim
 source $HOME/.config/nvim/plugins/keys.vim
 
 source $HOME/.config/nvim/plugins/linter.vim
-source $HOME/.config/nvim/plugins/scheme.vim
+
+" source $HOME/.config/nvim/plugins/scheme.vim
+
