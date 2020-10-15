@@ -71,9 +71,13 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-"Get Files
+" Get Files
 command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>1)
+
+" GFiles
+command! -bang -nargs=? -complete=dir GFiles
+    \ call fzf#vim#gitfiles('--modified')
 
 " Get text in files with Rg
 command! -bang -nargs=* Rg
@@ -106,7 +110,7 @@ if has_key(plugs, 'vim-agriculture')
   " Search symlinks recursively
   let g:agriculture#rg_options='--follow --smart-case'
 
-  nmap <leader>/  <Plug>RgRawSearch 
+  nmap <leader>/  <Plug>RgRawSearch
   nmap <leader>sp <Plug>RgRawSearch-tpy 
   nmap <leader>sj <Plug>RgRawSearch-tjs 
   nmap <leader>sv <Plug>RgRawSearch-tvim 
@@ -175,12 +179,24 @@ if has_key(plugs, 'FlyGrep.vim')
 endif
 
 if has_key(plugs, 'ctrlsf.vim')
+
+  let g:ctrlsf_auto_close = {
+    \ "normal" : 0,
+    \ "compact": 0
+    \}
+
+  let g:ctrlsf_auto_focus = {
+    \ "at": "start"
+    \ }
+
   nmap     <leader>ff <Plug>CtrlSFPrompt-T py 
   vmap     <leader>fF <Plug>CtrlSFVwordExec 
   nmap     <leader>fn <Plug>CtrlSFCwordPath 
   nmap     <leader>fp <Plug>CtrlSFPwordPath 
-  nnoremap <leader>ft :CtrlSFToggle<CR>
+  nnoremap <leader>fo :CtrlSFToggle<CR>
+
   " vmap     <leader>ff <Plug>CtrlSFVwordPath 
   " nnoremap <leader>fo :CtrlSFOpen<CR>
   " inoremap <leader>ft <Esc>:CtrlSFToggle<CR>
+
 endif

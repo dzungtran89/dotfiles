@@ -3,10 +3,13 @@
 # zmodload zsh/zprof
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+
+# fix duplicated PATH, ref: https://github.com/bmorrall/dotfiles/commit/9ebfaf088ccedb7949cb25137a707ba6f561a211
+export -U PATH
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,

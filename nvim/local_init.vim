@@ -99,7 +99,10 @@ let g:python3_host_prog = '$VIRTUAL_ENV/bin/python'
 
 " IndentLine {{{
 
-let g:indentLine_char = '.'
+let g:indentLine_enabled = 1
+let g:indentLine_concealcursor = 0
+let g:indentLine_char = '┆'
+let g:indentLine_faster = 1
 let g:indentLine_first_char = '.'
 
 " }}}
@@ -234,6 +237,4 @@ source $HOME/.config/nvim/plugins/floaterm.vim
 source $HOME/.config/nvim/plugins/keys.vim
 
 source $HOME/.config/nvim/plugins/linter.vim
-
-" source $HOME/.config/nvim/plugins/scheme.vim
-
+source $HOME/.config/nvim/plugins/scheme.vim

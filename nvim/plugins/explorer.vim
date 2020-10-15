@@ -1,5 +1,7 @@
 if has_key(plugs, 'nnn.vim')
 
+  let g:nnn#replace_netrw = 1
+
   let $NNN_TRASH=1
 
   " Disable default mappings

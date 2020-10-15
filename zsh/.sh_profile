@@ -1,16 +1,9 @@
 #!/usr/bin/env sh
 
-# Remove duplicated PATH
-if [[ $SHELL = 'zsh' ]]; then
-  typeset -U PATH
-fi
-
-export TERM=xterm-256color
+# export TERM=xterm-256color
 
 export EDITOR=vi
 export VISUAL=vi
-
-# source $HOME/code/dotfiles/install.sh
 
 if [ -z "$XDG_CONFIG_HOME" ]; then
   export XDG_CONFIG_HOME=$HOME/.config
@@ -93,7 +86,7 @@ if [ -f ~/.sh_aliases ]; then
 fi
 
 # pip
-export PATH="$HOME/.local/bin":$PATH
+# export PATH="$HOME/.local/bin":$PATH
 
 # pew
 # source $(pew shell_config)
@@ -102,21 +95,10 @@ export PATH="$HOME/.local/bin":$PATH
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
-# # Setup virtualenv home
-# export WORKON_HOME=$HOME/.virtualenvs
-# source /usr/local/bin/virtualenvwrapper.sh
-
-# # Tell pyenv-virtualenvwrapper to use pyenv when creating new Python environments
-# export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
-
 # Set the pyenv shims to initialize
 if command -v pyenv 1>/dev/null 2>&1; then
  eval "$(pyenv init -)"
 fi
-
-# if command -v pyenv 1>/dev/null; then
-#   eval "$(pyenv init -)"
-# fi
 
 eval "$(pyenv virtualenv-init -)"
 
@@ -163,25 +145,6 @@ n () {
     rm -f "$NNN_TMPFILE" > /dev/null
   fi
 }
-
-# zprezto
-# export ZDOTDIR=$HOME
-
-# [pure](https://github.com/sindresorhus/pure)
-# fpath+=$HOME/.zsh/pure
-# autoload -U promptinit; promptinit
-# prompt pure
-
-# lg() {
-#   export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
-
-#   lazygit "$@"
-
-#   if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
-#     cd "$(cat $LAZYGIT_NEW_DIR_FILE)"
-#     rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
-#   fi
-# }
 
 # vifm keeps the working dir
 vc() {

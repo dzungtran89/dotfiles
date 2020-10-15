@@ -13,7 +13,7 @@ function! ClearSyntax()
   elseif &ft ==? "vim"
     match Comment /^[ \t:]*".*$/
 
-  elseif &ft ==? "rust"
+  elseif index(['rust', 'dart'], &ft) >= 0
     match Comment /^[ \t:]*\/\/.*$/
 
   elseif index(['javascript', 'js'], &ft) >= 0

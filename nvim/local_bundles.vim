@@ -17,6 +17,8 @@ Plug 'dzungtran89/photon.vim'
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'chriskempson/base16-vim'
 Plug 'barlog-m/oceanic-primal-vim', { 'branch': 'main' }
+Plug 'arzg/vim-colors-xcode'
+Plug 'dracula/vim', {'dir': '/Users/tran/.config/nvim/plugged/dracula'}
 
 " Plug 'andreypopp/vim-colors-plain'
 " Plug 'joshdick/onedark.vim'
@@ -33,7 +35,6 @@ Plug 'tpope/vim-surround'
 Plug 'jesseleite/vim-agriculture'
 Plug 'ronakg/quickr-preview.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'bignimbus/you-are-here.vim'
 Plug 'preservim/tagbar'
 Plug 'voldikss/vim-floaterm'
 Plug 'liuchengxu/vim-which-key'
@@ -43,7 +44,8 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'dyng/ctrlsf.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'yaronkh/vim-winmanip'
-" Plug 'jbgutierrez/vim-better-comments'
+" Plug 'bignimbus/you-are-here.vim'
+" Plug 'jceb/vim-orgmode'
 
 " Plug 'terryma/vim-multiple-cursors'
 " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
@@ -60,18 +62,11 @@ Plug 'ryanoasis/vim-devicons'
 
 Plug 'mcchrish/nnn.vim'
 
-" Plug 'ptzz/lf.vim'
-" for neovim (ranger patched)
-" Plug 'rbgrouleff/bclose.vim'
-" Plug 'mattn/vim-molder'
-" Plug 'mattn/vim-molder-operations'
-
 " editorconfig
 Plug 'editorconfig/editorconfig-vim'
-" Plug 'chiel92/vim-autoformat'
 
-" snippets
-" replaced by coc-snippets
+" " snippets
+" " replaced by coc-snippets
 " Plug 'Jorengarenar/miniSnip'
 " Plug 'MarcWeber/vim-addon-mw-utils'
 " Plug 'tomtom/tlib_vim'

@@ -72,9 +72,12 @@ if has_key(plugs, 'vim-multiple-cursors')
   let g:multi_cursor_quit_key            = '<Esc>'
 endif
 
-" if has_key(plugs, 'vim-better-whitespace')
-"   let g:strip_whitespace_on_save=1
-" endif
+if has_key(plugs, 'vim-better-whitespace')
+
+  let g:strip_whitespace_on_save=0
+  " let g:strip_only_modified_lines=1
+
+endif
 
 if has_key(plugs, 'vim-winmanip')
 

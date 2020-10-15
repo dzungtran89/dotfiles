@@ -54,6 +54,6 @@
 (package! vimrc-mode)
 (package! doom-modeline)
 (package! ox-hugo)
-(package! org-super-agenda)
+;; (package! org-super-agenda)
 (package! org-brain)
 (package! plantuml-mode)

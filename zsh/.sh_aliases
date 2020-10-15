@@ -2,12 +2,6 @@
 
 # common
 
-# bookmarks
-# alias g="jump"
-# alias s="bookmark"
-# alias d="deletemark"
-# alias l="showmarks"
-
 # Restart SHELL
 alias clear='clear; tmux clear-history; clear'
 alias ez='pyenv deactivate; typeset -U PATH; clear'
@@ -122,61 +116,3 @@ alias lgit='lazygit'
 alias ldocker='lazydocker'
 
 # alias fzf="fzf --layout=reverse --height=50% --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'"
-
-# git - inspried by oh-my-zsh {{{
-
-# alias gc='git commit -v'
-# alias 'gc!'='git commit -v --amend'
-# alias gca='git commit -v -a'
-# alias 'gca!'='git commit -v -a --amend'
-# alias gcm='git commit -m'
-# alias 'gcan!'='git commit -v -a --no-edit --amend'
-# alias 'gcans!'='git commit -v -a -s --no-edit --amend'
-# alias 'gcn!'='git commit -v --no-edit --amend'
-# alias gcs='git commit -S'
-# alias gcsm='git commit -s -m'
-# alias gaa='git add .'
-# alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify --no-gpg-sign -m "--wip-- [skip ci]"'
-
-# alias gke='\gitk --all $(git log -g --pretty=%h)'
-# alias glg='git log --stat'
-# alias glgg='git log --graph'
-# alias glgga='git log --graph --decorate --all'
-# alias glgm='git log --graph --max-count=10'
-# alias glgp='git log --stat -p'
-# alias glo='git log --oneline --decorate'
-# alias glod='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'\'
-# alias glods='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'\'' --date=short'
-# alias glog='git log --oneline --decorate --graph'
-# alias gloga='git log --oneline --decorate --graph --all'
-# alias glol='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'
-# alias glola='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --all'
-# alias glols='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --stat'
-# alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
-
-# alias gsb='git status -sb'
-# alias gss='git status -s'
-# alias gst='git status'
-
-# alias ggpush='git push origin "$(git_current_branch)"'
-# alias git-svn-dcommit-push='git svn dcommit && git push github master:svntrunk'
-# alias gp='git push'
-# alias gpd='git push --dry-run'
-# alias gpf='git push --force-with-lease'
-# alias 'gpf!'='git push --force'
-# alias gpoat='git push origin --all && git push origin --tags'
-# alias gpsup='git push --set-upstream origin $(git_current_branch)'
-# alias gpu='git push upstream'
-# alias gpv='git push -v'
-
-# alias gd='git diff'
-# alias gdca='git diff --cached'
-# alias gdcw='git diff --cached --word-diff'
-# alias gds='git diff --staged'
-# alias gdt='git diff-tree --no-commit-id --name-only -r'
-# alias gdw='git diff --word-diff'
-
-# alias gcb='git checkout -b'
-# alias gco='git checkout'
-
-# }}}

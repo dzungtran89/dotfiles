@@ -53,9 +53,8 @@
 
 (load-theme 'gruvbox-dark-hard t)
 
-(global-font-lock-mode 0)
-
-(add-hook 'org-mode-hook 'font-lock-mode)
+(global-font-lock-mode 1)
+;; (add-hook 'org-mode-hook 'font-lock-mode)
 
 ;; Treat words with _
 (modify-syntax-entry ?_ "w")
@@ -77,53 +76,32 @@
 (setq interprogram-cut-function 'paste-to-osx)
 (setq interprogram-paste-function 'copy-from-osx)
 
-;; ;; org-super-agenda
-;; (let ((org-super-agenda-groups
-;;        '(;; Each group has an implicit boolean OR operator between its selectors.
-;;          (:name "Today"  ; Optionally specify section name
-;;                 :time-grid t  ; Items that appear on the time grid
-;;                 :todo "TODAY")  ; Items that have this TODO keyword
-;;          (:name "Important"
-;;                 ;; Single arguments given alone
-;;                 :tag "bills"
-;;                 :priority "A")
-;;          ;; Set order of multiple groups at once
-;;          (:order-multi (2 (:name "Shopping in town"
-;;                                  ;; Boolean AND group matches items that match all subgroups
-;;                                  :and (:tag "shopping" :tag "@town"))
-;;                           (:name "Food-related"
-;;                                  ;; Multiple args given in list with implicit OR
-;;                                  :tag ("food" "dinner"))
-;;                           (:name "Personal"
-;;                                  :habit t
-;;                                  :tag "personal")
-;;                           (:name "Space-related (non-moon-or-planet-related)"
-;;                                  ;; Regexps match case-insensitively on the entire entry
-;;                                  :and (:regexp ("space" "NASA")
-;;                                                ;; Boolean NOT also has implicit OR between selectors
-;;                                                :not (:regexp "moon" :tag "planet")))))
-;;          ;; Groups supply their own section names when none are given
-;;          (:todo "WAITING" :order 8)  ; Set order of this section
-;;          (:todo ("SOMEDAY" "TO-READ" "CHECK" "TO-WATCH" "WATCHING")
-;;                 ;; Show this group at the end of the agenda (since it has the
-;;                 ;; highest number). If you specified this group last, items
-;;                 ;; with these todo keywords that e.g. have priority A would be
-;;                 ;; displayed in that group instead, because items are grouped
-;;                 ;; out in the order the groups are listed.
-;;                 :order 9)
-;;          (:priority<= "B"
-;;                       ;; Show this section after "Today" and "Important", because
-;;                       ;; their order is unspecified, defaulting to 0. Sections
-;;                       ;; are displayed lowest-number-first.
-;;                       :order 1)
-;;          ;; After the last group, the agenda will display items that didn't
-;;          ;; match any of these groups, with the default order position of 99
-;;          )))
-;;   (org-agenda nil "a"))
-
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((plantuml . t))) ; this line activates dot
 
 (setq org-plantuml-jar-path
       (expand-file-name "~/org/contrib/scripts/plantuml.jar"))
+
+(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+
+;;----------------------------------------------------------------------------
+;; Theme
+;;----------------------------------------------------------------------------
+;; (load! theme)
+;; (use-package theme
+;;   :demand
+;;   ;; :bind (("C-c y" . zp/variable-pitch-mode)
+;;   ;;        ("C-c T" . zp/switch-emacs-theme)
+;;   ;;        :map zp/toggle-map
+;;   ;;        (("t" . zp/switch-emacs-theme)
+;;   ;;         ("y" . zp/helm-select-font-dwim)))
+;;   :config
+;;   ;; ;; Fonts
+;;   ;; (zp/set-font "sarasa")
+;;   ;; (zp/set-font-variable "warung-kopi")
+
+;;   ;; Day/night cycle
+;;   (setq zp/time-of-day-sections '("05:00" "08:00" "16:00" "20:00" "00:00"))
+;;   (zp/switch-theme-auto)
+;;   )
