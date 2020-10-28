@@ -1,4 +1,4 @@
-" vim:fileencoding=utf-8:foldmethod=marker
+" vim:fileencoding=utf-8
 
 " common {{{
 Plug 'ThePrimeagen/vim-be-good'
@@ -14,11 +14,11 @@ Plug 'itchyny/lightline.vim'
 Plug 'gruvbox-community/gruvbox'
 Plug 'edersonferreira/dalton-vim'
 Plug 'dzungtran89/photon.vim'
-Plug 'lifepillar/vim-gruvbox8'
-Plug 'chriskempson/base16-vim'
-Plug 'barlog-m/oceanic-primal-vim', { 'branch': 'main' }
-Plug 'arzg/vim-colors-xcode'
 Plug 'dracula/vim', {'dir': '/Users/tran/.config/nvim/plugged/dracula'}
+" Plug 'lifepillar/vim-gruvbox8'
+" Plug 'chriskempson/base16-vim'
+" Plug 'barlog-m/oceanic-primal-vim', { 'branch': 'main' }
+" Plug 'NieTiger/halcyon-neovim'
 
 " Plug 'andreypopp/vim-colors-plain'
 " Plug 'joshdick/onedark.vim'
@@ -34,6 +34,7 @@ Plug 'dracula/vim', {'dir': '/Users/tran/.config/nvim/plugged/dracula'}
 Plug 'tpope/vim-surround'
 Plug 'jesseleite/vim-agriculture'
 Plug 'ronakg/quickr-preview.vim'
+Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/tagbar'
 Plug 'voldikss/vim-floaterm'
@@ -44,6 +45,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'dyng/ctrlsf.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'yaronkh/vim-winmanip'
+" Plug 'ledesmablt/vim-run'
 " Plug 'bignimbus/you-are-here.vim'
 " Plug 'jceb/vim-orgmode'
 
@@ -52,7 +54,7 @@ Plug 'yaronkh/vim-winmanip'
 
 " wiki / writing
 Plug 'godlygeek/tabular'
-Plug 'junegunn/goyo.vim'
+" Plug 'junegunn/goyo.vim'
 
 Plug 'ryanoasis/vim-devicons'
 
@@ -60,7 +62,7 @@ Plug 'ryanoasis/vim-devicons'
 
 " explorer {{{
 
-Plug 'mcchrish/nnn.vim'
+" Plug 'mcchrish/nnn.vim'
 
 " editorconfig
 Plug 'editorconfig/editorconfig-vim'

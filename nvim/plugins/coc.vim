@@ -1,5 +1,7 @@
 if has_key(plugs, 'coc.nvim')
 
+  autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
+
   " Some servers have issues with backup files, see #649.
   set nobackup
   set nowritebackup
@@ -142,31 +144,8 @@ if has_key(plugs, 'coc.nvim')
   " Resume latest coc list.
   nnoremap <silent><nowait> <leader>cp  :<C-u>CocListResume<CR>
 
-  function! CocCurrentFunction()
-    return get(b:, 'coc_current_function', '')
-  endfunction
-
-  " set statusline+=%{CocCurrentFunction()}
-
-  " function! LightlineFilename()
-  "   let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
-  "   let modified = &modified ? ' +' : ''
-  "   return filename . modified
-  " endfunction
-
-  " let g:tagbar_status_func = 'TagbarStatusFunc'
-  " function! TagbarStatusFunc(current, sort, fname, ...) abort
-  "   let g:lightline.fname = a:fname
-  "   return lightline#statusline(0)
-  " endfunction
-
-  set showtabline=2  " Show tabline
-  set guioptions-=e  " Don't use GUI tabline
-
-
-  if has_key(plugs, 'ale')
-    let g:ale_disable_lsp = 1
-  endif
+  " Don't use GUI tabline
+  set guioptions-=e
 
 endif
 

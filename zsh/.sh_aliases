@@ -14,11 +14,13 @@ alias pins='pip install -q'
 alias cl='clear'
 alias cpath='pwd|pbcopy'
 
+alias vim=nvim
+
 # vim
-vim() {
-  pyenv activate vip3
-  nvim $@
-}
+# vim() {
+#   pyenv activate vip3
+#   nvim $@
+# }
 
 alias vno='nvim --noplugin $@'
 

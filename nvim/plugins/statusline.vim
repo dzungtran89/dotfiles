@@ -4,8 +4,7 @@
 
 if has_key(plugs, 'lightline.vim')
 
-  set showtabline=2
-  set tabline="%1t"
+  " set tabline="%1t"
 
   " seoul256
   let g:lightline = {
@@ -18,11 +17,12 @@ if has_key(plugs, 'lightline.vim')
         \   'right': [
         \       ['percent', 'gitbranch'],
         \       ['lineinfo'],
-        \       ['fileformat', 'fileencoding', 'filetype'],
+        \       ['cocstatus', 'fileformat', 'fileencoding', 'filetype'],
         \   ]
         \ },
         \ 'component_function': {
-        \   'gitbranch' : 'FugitiveHead'
+        \   'gitbranch' : 'FugitiveHead',
+        \   'cocstatus' : 'coc#status'
         \ },
         \ 'component': {
         \   'lineinfo': '%3l:%-2v%<',
@@ -47,15 +47,8 @@ if has_key(plugs, 'lightline.vim')
         \
         \ }
 
-  " let g:lightline.tabline = {
-  "             \   'left': [ ['tabs'] ],
-  "             \   'right': [ [''] ],
-  "             \ }
-
 elseif has_key(plugs, 'vim-airline')
 
-  set showtabline=2
-  set tabline="%1t"
   let g:airline_extensions = []
   let g:airline#extensions#tabline#enabled = 0
 
@@ -67,10 +60,6 @@ else
   " Needs to figure out how to return cterm values too
   " let fgcolor=synIDattr(synIDtrans(hlID("Normal")), "fg", "gui")
   " let bgcolor=synIDattr(synIDtrans(hlID("Normal")), "bg", "gui")
-
-  " Tabline/Buffer line
-  set showtabline=2
-  set tabline="%1t"
 
   " Statusline
   " https://github.com/Greduan/dotfiles/blob/76e16dd8a04501db29989824af512c453550591d/vim/after/plugin/statusline.vim

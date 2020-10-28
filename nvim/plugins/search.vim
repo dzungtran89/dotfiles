@@ -15,7 +15,7 @@ if executable('rg')
   let $FZF_DEFAULT_COMMAND='rg --files -w --hidden --follow --glob "!.git/*"'
   set grepprg=rg\ --vimgrep
   command! -bang -nargs=* Find
-        \call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case -w --hidden --follow --glob "!.git/*" --color=always '.shellescape(<q-args>).'| tr -d "\017"',
+        \call fzf#vim#grep('--column --line-number --no-heading --fixed-strings --ignore-case -w --hidden --follow --glob "!.git/*" --color=always '.shellescape(<q-args>).'| tr -d "\017"',
         \1, <bang>0)
 endif
 
@@ -82,13 +82,13 @@ command! -bang -nargs=? -complete=dir GFiles
 " Get text in files with Rg
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   '--column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview(), <bang>0)
 
 " Ripgrep advanced
 
 function! RipgrepFzf(query, fullscreen)
-  let command_fmt = 'rg --column --line-number --no-heading --smart-case %s || true'
+  let command_fmt = '--column --line-number --no-heading --smart-case %s || true'
   let initial_command = printf(command_fmt, shellescape(a:query))
   let reload_command = printf(command_fmt, '{q}')
   let spec = {'options': ['--query', a:query, '--bind', 'change:reload:'.reload_command]}
@@ -180,6 +180,10 @@ endif
 
 if has_key(plugs, 'ctrlsf.vim')
 
+  " g:ctrlsf_regex_pattern defines CtrlSF using literal pattern or regular 
+  " expression pattern as default. Default value is 0, which means literal pattern.
+  let g:ctrlsf_regex_pattern = 1
+
   let g:ctrlsf_auto_close = {
     \ "normal" : 0,
     \ "compact": 0
@@ -189,8 +193,8 @@ if has_key(plugs, 'ctrlsf.vim')
     \ "at": "start"
     \ }
 
-  nmap     <leader>ff <Plug>CtrlSFPrompt-T py 
-  vmap     <leader>fF <Plug>CtrlSFVwordExec 
+  nmap     <leader>sf <Plug>CtrlSFPrompt-T py 
+  vmap     <leader>sF <Plug>CtrlSFVwordExec 
   nmap     <leader>fn <Plug>CtrlSFCwordPath 
   nmap     <leader>fp <Plug>CtrlSFPwordPath 
   nnoremap <leader>fo :CtrlSFToggle<CR>

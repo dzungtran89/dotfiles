@@ -7,7 +7,7 @@
 " If you would like to use another vi clone such as Elvis or Vile
 " you will need to change this setting.
 
-set vicmd=vim
+set vicmd=vim\ --noplugin
 " set vicmd=elvis\ -G\ termcap
 " set vicmd=vile
 
@@ -411,3 +411,8 @@ set grepprg='ag --line-numbers %i %a %s'
 "     vifm --server-name "$VIFM_SERVER_NAME" --remote +"cd '$PWD'"
 "
 " let $VIFM_SERVER_NAME = v:servername
+
+nnoremap <space> <nop>
+nnoremap q <nop>
+nnoremap qq :quit<CR> "
+" nnoremap ,q :quit<CR> " work around

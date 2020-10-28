@@ -19,6 +19,7 @@ set noswapfile
 
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
+" set relativenumber
 " set complete-=i
 
 """"""""""""""""""""""""""""""
@@ -73,10 +74,7 @@ if has_key(plugs, 'vim-multiple-cursors')
 endif
 
 if has_key(plugs, 'vim-better-whitespace')
-
   let g:strip_whitespace_on_save=0
-  " let g:strip_only_modified_lines=1
-
 endif
 
 if has_key(plugs, 'vim-winmanip')
@@ -115,4 +113,18 @@ if has_key(plugs, 'vim-winmanip')
   nmap   <silent>    <leader>dw                 <Plug>(ClearAllWindows)
   nmap   <silent>    <leader>db                 <Plug>(ClearBufferList)
 
+endif
+
+" lua <<EOF
+" local nvim_lsp = require'nvim_lsp'
+" require'nvim_lsp'.jedi-language-server.setup{}
+" EOF
+
+if has_key(plugs, 'vim-run')
+  let g:rundir = "/Users/tran/.config/nvim/rundir"
+  let g:run_shell = $SHELL
+  let g:run_quiet_default = 0
+  let g:run_autosave_logs = 0
+  let g:run_nostream_default = 0
+  let g:run_browse_default_limit = 10
 endif

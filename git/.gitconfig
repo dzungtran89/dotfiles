@@ -24,9 +24,6 @@
   rebase = true
 [rebase]
   autoStash = true
-; [filesystem "Oracle Corporation|1.8.0_144|/dev/disk1s1"]
-;   timestampResolution = 1001 milliseconds
-;   minRacyThreshold = 0 nanoseconds
 [oh-my-zsh]
   hide-status = 1
 [web]

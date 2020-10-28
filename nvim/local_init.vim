@@ -93,7 +93,7 @@ if has_key(plugs, 'vim-wordmotion')
         \ }
 endif
 
-let g:python3_host_prog = '$VIRTUAL_ENV/bin/python'
+let g:python3_host_prog = 'python3'
 
 " }}}
 

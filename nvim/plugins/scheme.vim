@@ -1,6 +1,6 @@
 
-syntax match potionComment "\v#.*$"
-highlight link potionComment Comment
+" syntax match potionComment "\v#.*$"
+" highlight link potionComment Comment
 
 function! ClearSyntax()
 
@@ -30,4 +30,8 @@ endfunction
 
 " autocmd!
 au VimEnter,BufEnter * call ClearSyntax()
+
+" syntax on for markdown files
+" au BufEnter *.md set syntax=on
+
 

@@ -28,6 +28,7 @@ endif
 " Required:
 call plug#begin(expand('~/.config/nvim/plugged'))
 
+let g:ale_disable_lsp = 1
 
 let g:polyglot_disabled = ['python', 'javascript']
 

@@ -18,14 +18,8 @@ indent_size = 2
 [*.{xml,json,toml,html,{z,}sh,y{a,}ml}]
 indent_size = 4
 
-[*.{py,md}]
+; [*.{py,md}]
+; indent_size = 4
+
+[*.{py,rs,go}]
 indent_size = 4
-
-[*.{rs,go}]
-indent_size = 4
-
-; [*.go]
-; indent_style = tab
-
-; [{Makefile,gitconfig}]
-; indent_style = tab
