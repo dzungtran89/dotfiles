@@ -1,9 +1,10 @@
 [user]
-  name = dung.tran
+  name = Dũng (Trần Đình)
   email = dungtd@trobz.com
 [core]
   excludesfile = ~/.gitignore_global
   pager = diff-so-fancy | less --tabs=4 -RFX
+  editor = /usr/bin/vi
 [color]
   ui = true
 [color "diff-highlight"]
@@ -25,15 +26,15 @@
 [rebase]
   autoStash = true
 [oh-my-zsh]
-  hide-status = 1
+	hide-status = 1
 [web]
   browse = open
 [merge]
-	tool = vimdiff
+  tool = vimdiff
 [mergetool]
-	keepBackup = false
+  keepBackup = false
 [mergetool "vimdiff"]
-	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+  cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [tig]
-	line-graphics = no	# Disable graphics characters
-	tab-size = 4		# Number of spaces per tab
+  line-graphics = no	# Disable graphics characters
+  tab-size = 4		# Number of spaces per tab

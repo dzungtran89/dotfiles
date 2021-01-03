@@ -3,10 +3,94 @@
 " => Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Disable Ex mode keybinding
+nnoremap Q <Nop>
+
+noremap <localleader>c :bd!<CR>
+noremap <leader>w <C-w>
+noremap <leader>Q :qa!<CR>
+
+" Wrap
+set nowrap
+nnoremap <localleader>ww :set wrap!<CR>
+
+" Set working dir to the current file path
+nnoremap <leader>de :lcd %:p:h<CR>
+
+nmap <silent> <leader>l :set invrelativenumber<CR>
+
+"" Split
+" noremap <Leader>h :<C-u>split<CR>
+" noremap <Leader>v :<C-u>vsplit<CR>
+
+" session management
+nnoremap <leader>so :OpenSession<Space>
+nnoremap <leader>ss :SaveSession<Space>
+nnoremap <leader>sd :DeleteSession<CR>
+nnoremap <leader>sc :CloseSession<CR>
+
+"" Tabs
+nnoremap <Tab> gt
+nnoremap <S-Tab> gT
+nnoremap <S-t> :tabnew<CR>
+
+"" Set working directory
+" nnoremap <leader>. :lcd %:p:h<CR>
+
+" Tagbar
+if has_key(plugs, 'tagbar')
+  nmap <silent> <F4> :TagbarToggle<CR>
+  let g:tagbar_autofocus = 1
+endif
+
+if has_key(plugs, 'editorconfig-vim')
+  let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+endif
+
+let g:indentLine_enabled = 1
+let g:indentLine_concealcursor = 0
+let g:indentLine_char = '┆'
+let g:indentLine_faster = 1
+let g:indentLine_first_char = '.'
 
 " set ai "Auto indent
 " set si "Smart indent
 " set wrap "Wrap lines
+
+" Session management
+let g:session_autoload = "no"
+let g:session_autosave = "no"
+let g:session_command_aliases = 1
+
+"" Buffer nav
+noremap <leader>z :bp<CR>
+noremap <leader>x :bn<CR>
+
+" Auto insert dash with the same length of header
+nnoremap <localleader>u YpVr-<CR>
+
+"" Clean search (highlight)
+nnoremap <silent> <leader><space> :noh<cr>
+
+"" Keep cursor at the first match
+" nnoremap <silent> * :let @/='\<'.expand('<cword>').'\>'<CR>
+
+nnoremap * *N
+nnoremap # #N
+
+"" Switching windows
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+noremap <C-h> <C-w>h
+
+"" Vmap for maintain Visual Mode after shifting > and <
+vmap < <gv
+vmap > >gv
+
+"" Move visual block
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
@@ -74,6 +158,7 @@ if has_key(plugs, 'vim-multiple-cursors')
 endif
 
 if has_key(plugs, 'vim-better-whitespace')
+  let g:better_whitespace_enabled = 0
   let g:strip_whitespace_on_save=0
 endif
 
@@ -128,3 +213,17 @@ if has_key(plugs, 'vim-run')
   let g:run_nostream_default = 0
   let g:run_browse_default_limit = 10
 endif
+
+if has_key(plugs, 'vim-prettier')
+  let g:prettier#autoformat = 0
+endif
+
+if has_key(plugs, 'scrollbar.nvim')
+  augroup ScrollbarInit
+    autocmd!
+    autocmd CursorMoved,VimResized,QuitPre * silent! lua require('scrollbar').show()
+    autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
+    autocmd WinLeave,FocusLost             * silent! lua require('scrollbar').clear()
+  augroup end
+endif
+

@@ -12,9 +12,6 @@ trim_trailing_whitespace = false
 [{Vagrant,Cap,Rake,Gem}file]
 indent_size = 2
 
-; [*.{xml,sql,el,rb,cr,lua,y{a,}ml,json,toml,coffee,css,s{a,c}ss,styl,slim,jade,pug,html,{,z}sh}]
-; indent_size = 2
-
 [*.{xml,json,toml,html,{z,}sh,y{a,}ml}]
 indent_size = 4
 

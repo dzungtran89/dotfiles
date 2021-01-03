@@ -18,10 +18,10 @@ endif
 if has_key(plugs, 'any-jump.vim')
 
   " Normal mode: Jump to definition under cursore
-  nnoremap <leader>j :AnyJump<CR>
+  nnoremap <leader>jj :AnyJump<CR>
 
   " Visual mode: jump to selected text in visual mode
-  xnoremap <leader>j :AnyJumpVisual<CR>
+  xnoremap <leader>jj :AnyJumpVisual<CR>
 
   " Normal mode: open previous opened file (after jump)
   nnoremap <leader>ab :AnyJumpBack<CR>

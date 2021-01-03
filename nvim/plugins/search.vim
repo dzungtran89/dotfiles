@@ -1,18 +1,29 @@
 " nnoremap <leader>. :call fzf#vim#tags('^' . expand('<cword>'), {'options': '--exact --select-1 --exit-0 +i'})<CR>
 
+" quick way to search wholeword
+nnoremap <localleader>/ /\<\><left><left>
+
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
-let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
+
+let $FZF_DEFAULT_COMMAND = "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
+
+" let $SKIM_DEFAULT_COMMAND = "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
 
 " The Silver Searcher
 if executable('ag')
   let $FZF_DEFAULT_COMMAND='ag -w -f --hidden --ignore .git -g ""'
+
+  " let $SKIM_DEFAULT_COMMAND='ag -w -f --hidden --ignore .git -g ""'
+
   set grepprg=ag\ --nogroup\ --nocolor
 endif
 
 " ripgrep
 if executable('rg')
   let $FZF_DEFAULT_COMMAND='rg --files -w --hidden --follow --glob "!.git/*"'
+  let $FZF_DEFAULT_COMMAND='rg --files -w --hidden --follow --glob "!.git/*"'
+
   set grepprg=rg\ --vimgrep
   command! -bang -nargs=* Find
         \call fzf#vim#grep('--column --line-number --no-heading --fixed-strings --ignore-case -w --hidden --follow --glob "!.git/*" --color=always '.shellescape(<q-args>).'| tr -d "\017"',
@@ -43,7 +54,7 @@ let g:fzf_action = {
 " explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
-map <C-f> :Files<CR>
+" map <C-f> :Files<CR>
 let g:fzf_tags_command = 'ctags -R --languages=python'
 
 " Border color
@@ -74,6 +85,10 @@ let g:fzf_colors =
 " Get Files
 command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>1)
+
+" " Tags
+" command! -bang -nargs=? -complete=dir Tags
+"     \ call fzf#vim#tags(<q-args>, 0, fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}))
 
 " GFiles
 command! -bang -nargs=? -complete=dir GFiles
@@ -129,7 +144,14 @@ noremap <leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <silent> <leader>b :Buffers<CR>
-nnoremap <silent> <leader>e :FZF -m<CR>
+
+if has_key(plugs, 'skim.vim')
+  nnoremap <silent> <leader>e :SK -m<CR>
+else
+  nnoremap <silent> <leader>e :FZF -m<CR>
+endif
+
+
 nmap <leader>y :History:<CR>
 
 if has_key(plugs, 'denite.nvim')
@@ -183,24 +205,43 @@ if has_key(plugs, 'ctrlsf.vim')
   " g:ctrlsf_regex_pattern defines CtrlSF using literal pattern or regular 
   " expression pattern as default. Default value is 0, which means literal pattern.
   let g:ctrlsf_regex_pattern = 1
+  " let g:ctrlsf_default_view_mode = 'compact'
+  let g:ctrlsf_winsize = '30%'
+
+  " let g:ctrlsf_extra_backend_args = {
+  "   \ 'rg': '--files -w --hidden --follow --glob "!.git/*"'
+  "   \ }
 
   let g:ctrlsf_auto_close = {
-    \ "normal" : 0,
-    \ "compact": 0
-    \}
+        \ "normal" : 0,
+        \ "compact": 0
+        \}
 
   let g:ctrlsf_auto_focus = {
-    \ "at": "start"
-    \ }
+        \ "at": "start"
+        \ }
 
-  nmap     <leader>sf <Plug>CtrlSFPrompt-T py 
-  vmap     <leader>sF <Plug>CtrlSFVwordExec 
-  nmap     <leader>fn <Plug>CtrlSFCwordPath 
-  nmap     <leader>fp <Plug>CtrlSFPwordPath 
+  nmap     <leader>ff <Plug>CtrlSFPrompt-G *py 
+  nmap     <leader>fj <Plug>CtrlSFPrompt-G *js 
+  nmap     <leader>fx <Plug>CtrlSFPrompt-G *xml 
+  nmap     <leader>fv <Plug>CtrlSFPrompt-G *vim 
+  nmap     <leader>fc <Plug>CtrlSFPrompt-G *css 
+  vmap     <leader>fF <Plug>CtrlSFVwordExec
+  nmap     <leader>fn <Plug>CtrlSFCwordPath
+  nmap     <leader>fp <Plug>CtrlSFPwordPath
   nnoremap <leader>fo :CtrlSFToggle<CR>
 
-  " vmap     <leader>ff <Plug>CtrlSFVwordPath 
+  " vmap     <leader>ff <Plug>CtrlSFVwordPath
   " nnoremap <leader>fo :CtrlSFOpen<CR>
   " inoremap <leader>ft <Esc>:CtrlSFToggle<CR>
+
+else
+  
+  " grep.vim
+  " command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+  nnoremap \ :Rgrep<SPACE>
+  let Grep_Default_Options = '-IR'
+  let Grep_Skip_Files = '*.log *.db'
+  let Grep_Skip_Dirs = '.git node_modules'
 
 endif

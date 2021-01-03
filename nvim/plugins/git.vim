@@ -6,6 +6,8 @@ if has_key(plugs, 'vim-fugitive')
   noremap <leader>gw :Gbrowse<CR>
   noremap <leader>gb :Gblame<CR>
   noremap <leader>gq :gq<CR>
+  noremap <leader>gc :GFiles<CR>
+  noremap <leader>gl :Commits<CR>
   " noremap <leader>ga :Gwrite<CR>
   " noremap <leader>gc :Gcommit<CR>
   " noremap <leader>gP :Gpush<CR>

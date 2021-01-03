@@ -15,7 +15,7 @@ noremap <leader>Q :qa!<CR>
 " Set working dir to the current file path
 nnoremap <leader>dd :lcd %:p:h<CR>
 
-nmap <leader>l :set invrelativenumber<CR>
+" nmap <silent> <leader>l :set invrelativenumber<CR>
 
 " nmap <C-N> :cn<CR>
 " nmap <C-P> :cp<CR>
@@ -38,19 +38,19 @@ let g:tmux_navigator_disable_when_zoomed = 1
 
 " Editor {{{
 
-if has('gui')
-  " Turn off scrollbars. (Default on macOS is "egmrL").
-  set guioptions-=L
-  set guioptions-=R
-  set guioptions-=b
-  set guioptions-=l
-  set guioptions-=r
-endif
+" if has('gui')
+"   " Turn off scrollbars. (Default on macOS is "egmrL").
+"   set guioptions-=L
+"   set guioptions-=R
+"   set guioptions-=b
+"   set guioptions-=l
+"   set guioptions-=r
+" endif
 
 " Disable Bclose mappings
 let g:no_plugin_maps = 1
 
-" set redrawtime=10000
+set redrawtime=10000
 set history=500
 set cursorline
 
@@ -97,18 +97,9 @@ let g:python3_host_prog = 'python3'
 
 " }}}
 
-" IndentLine {{{
-
-let g:indentLine_enabled = 1
-let g:indentLine_concealcursor = 0
-let g:indentLine_char = '┆'
-let g:indentLine_faster = 1
-let g:indentLine_first_char = '.'
-
-" }}}
-
 set foldmethod=manual
 set nonu
+set relativenumber
 
 " search
 set ignorecase
@@ -121,19 +112,14 @@ let g:quickr_preview_on_cursor = 1
 
 " ultisnips {{{
 
-if has_key(plugs, 'ultisnips')
-  let g:UltiSnipsExpandTrigger="<C-l>"
-  let g:UltiSnipsJumpForwardTrigger="<C-f>"
-  let g:UltiSnipsJumpBackwardTrigger="<C-b>"
-  let g:UltiSnipsEditSplit="vertical"
-endif
+" if has_key(plugs, 'ultisnips')
+"   let g:UltiSnipsExpandTrigger="<C-l>"
+"   let g:UltiSnipsJumpForwardTrigger="<C-f>"
+"   let g:UltiSnipsJumpBackwardTrigger="<C-b>"
+"   let g:UltiSnipsEditSplit="vertical"
+" endif
 
 " }}}
-
-
-if has_key(plugs, 'editorconfig-vim')
-  let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-endif
 
 if has_key(plugs, 'LanguageClient-neovim')
 
@@ -236,5 +222,9 @@ source $HOME/.config/nvim/plugins/statusline.vim
 source $HOME/.config/nvim/plugins/floaterm.vim
 source $HOME/.config/nvim/plugins/keys.vim
 
+source $HOME/.config/nvim/plugins/doc.vim
+
 source $HOME/.config/nvim/plugins/linter.vim
-source $HOME/.config/nvim/plugins/scheme.vim
+" source $HOME/.config/nvim/plugins/scheme.vim
+
+source $HOME/.config/nvim/plugins/debug.vim

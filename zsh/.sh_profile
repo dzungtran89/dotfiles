@@ -16,6 +16,12 @@ export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
 
+export LDFLAGS="-L/usr/local/opt/bzip2/lib"
+export CPPFLAGS="-I/usr/local/opt/bzip2/include"
+
+export LDFLAGS="-L/usr/local/opt/node@14/lib"
+export CPPFLAGS="-I/usr/local/opt/node@14/include"
+
 # go-lang
 export GOPATH=$HOME/go-workspace
 export GOROOT=/usr/local/opt/go/libexec
@@ -63,9 +69,11 @@ zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
 # fzf {{{
 
 # fzf's command
-export FZF_DEFAULT_COMMAND="fd"
+export FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --exclude .git"
+
 # CTRL-T's command
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 # ALT-C's command
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 
@@ -100,7 +108,7 @@ if command -v pyenv 1>/dev/null 2>&1; then
  eval "$(pyenv init -)"
 fi
 
-eval "$(pyenv virtualenv-init -)"
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 # Yank to the system clipboard
 function vi-yank-xclip {

@@ -36,16 +36,12 @@ let g:polyglot_disabled = ['python', 'javascript']
 "" Plug install packages
 "*****************************************************************************
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
 Plug 'vim-scripts/grep.vim'
 " Plug 'vim-scripts/CSApprox'
 Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
-
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
 
 let g:make = 'gmake'
 if exists('make')
@@ -111,10 +107,6 @@ set softtabstop=0
 set expandtab
 set cc=79
 
-"" Map leader/localleader to <space>
-let mapleader=" "
-let maplocalleader=","
-
 "" Enable hidden buffers
 set hidden
 
@@ -134,14 +126,15 @@ endif
 
 " session management
 let g:session_directory = "~/.config/nvim/session"
-let g:session_autoload = "no"
-let g:session_autosave = "no"
-let g:session_command_aliases = 1
+
+" let g:session_autoload = "no"
+" let g:session_autosave = "no"
+" let g:session_command_aliases = 1
 
 "*****************************************************************************
 "" Visual Settings
 "*****************************************************************************
-syntax off
+syntax on
 set ruler
 set number
 
@@ -193,8 +186,8 @@ set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
 
-nnoremap n nzzzv
-nnoremap N Nzzzv
+" nnoremap n nzzzv
+" nnoremap N Nzzzv
 
 " vim-airline
 if has_key(plugs, 'vim-airline')
@@ -240,7 +233,7 @@ if has_key(plugs, 'nerdtree')
 endif
 
 " grep.vim
-nnoremap <silent> <leader>ff :Rgrep<CR>
+nnoremap <silent> <leader>sf :Rgrep<CR>
 let Grep_Default_Options = '-IR'
 let Grep_Skip_Files = '*.log *.db'
 let Grep_Skip_Dirs = '.git node_modules'
@@ -302,25 +295,25 @@ augroup END
 " noremap <Leader>h :<C-u>split<CR>
 " noremap <Leader>v :<C-u>vsplit<CR>
 
-" session management
-nnoremap <leader>so :OpenSession<Space>
-nnoremap <leader>ss :SaveSession<Space>
-nnoremap <leader>sd :DeleteSession<CR>
-nnoremap <leader>sc :CloseSession<CR>
+" " session management
+" nnoremap <leader>so :OpenSession<Space>
+" nnoremap <leader>ss :SaveSession<Space>
+" nnoremap <leader>sd :DeleteSession<CR>
+" nnoremap <leader>sc :CloseSession<CR>
 
-"" Tabs
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
-nnoremap <S-t> :tabnew<CR>
+" "" Tabs
+" nnoremap <Tab> gt
+" nnoremap <S-Tab> gT
+" nnoremap <S-t> :tabnew<CR>
 
-"" Set working directory
-" nnoremap <leader>. :lcd %:p:h<CR>
+" "" Set working directory
+" " nnoremap <leader>. :lcd %:p:h<CR>
 
-" Tagbar
-if has_key(plugs, 'tagbar')
-  nmap <silent> <F4> :TagbarToggle<CR>
-  let g:tagbar_autofocus = 1
-endif
+" " Tagbar
+" if has_key(plugs, 'tagbar')
+"   nmap <silent> <F4> :TagbarToggle<CR>
+"   let g:tagbar_autofocus = 1
+" endif
 
 " Disable visualbell
 set noerrorbells visualbell t_vb=

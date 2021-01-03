@@ -33,5 +33,3 @@ au VimEnter,BufEnter * call ClearSyntax()
 
 " syntax on for markdown files
 " au BufEnter *.md set syntax=on
-
-

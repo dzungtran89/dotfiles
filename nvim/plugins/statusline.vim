@@ -1,21 +1,69 @@
-" vim: set ft=vim fdm=marker:
+" if has_key(plugs, 'barrow')
 
-" set tabline="%1t"
+if has_key(plugs, 'bubbly.nvim')
 
-if has_key(plugs, 'lightline.vim')
+lua << EOF
+
+vim.g.bubbly_statusline = {
+  'mode',
+
+  'truncate',
+
+  'path',
+  'branch',
+  'signify',
+  'coc',
+
+  'divisor',
+
+  'filetype',
+  'progress',
+}
+
+EOF
+
+elseif has_key(plugs, 'lualine.nvim')
+  
+lua << EOF
+
+local lualine = require('lualine')
+    lualine.theme = 'gruvbox'
+    lualine.separator = '|'
+    lualine.sections = {
+      lualine_a = { 'mode' },
+      lualine_b = { 'branch' },
+      lualine_c = { 'filename' },
+      lualine_x = { 'encoding', 'fileformat', 'filetype' },
+      lualine_y = { 'progress' },
+      lualine_z = { 'location'  },
+      lualine_diagnostics = {  }
+    }
+    lualine.inactiveSections = {
+      lualine_a = {  },
+      lualine_b = {  },
+      lualine_c = { 'filename' },
+      lualine_x = { 'location' },
+      lualine_y = {  },
+      lualine_z = {   }
+    }
+    lualine.extensions = { 'fzf' }
+    lualine.status()
+EOF
+
+elseif has_key(plugs, 'lightline.vim')
 
   " set tabline="%1t"
 
-  " seoul256
   let g:lightline = {
         \ 'colorscheme': 'one',
+        \ 'separator': { 'left': "", 'right': "" },
         \ 'active': {
         \   'left': [
-        \       [ 'filename', 'mode' ],
+        \       [ 'gitbranch', 'mode' ],
         \       [ 'readonly', 'modified', 'tagbar' ]
         \   ],
         \   'right': [
-        \       ['percent', 'gitbranch'],
+        \       ['percent'],
         \       ['lineinfo'],
         \       ['cocstatus', 'fileformat', 'fileencoding', 'filetype'],
         \   ]

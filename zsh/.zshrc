@@ -131,3 +131,4 @@ source ~/.sh_profile
 . /usr/local/etc/profile.d/z.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+

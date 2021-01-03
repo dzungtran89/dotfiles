@@ -263,7 +263,7 @@ noremap <leader>E :e<CR>
 noremap <leader>Q :qa!<CR>
 
 " Set working dir to the current file path
-nnoremap <leader>dd :lcd %:p:h<CR>
+nnoremap <leader>de :lcd %:p:h<CR>
 
 " set relativenumber
 nmap <leader>l :set invrelativenumber<CR>

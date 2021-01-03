@@ -1,3 +1,15 @@
+
+"" Map leader/localleader to <space>
+let mapleader=" "
+let maplocalleader=","
+
+nnoremap <silent> <leader>st
+      \ :if exists("syntax_on") <BAR>
+      \    syntax off <BAR>
+      \ else <BAR>  
+      \    syntax enable <BAR>
+      \ endif<CR>   
+
 if has_key(plugs, 'vim-which-key')
 
   call which_key#register('<space>', "g:which_key_map")
@@ -99,7 +111,7 @@ endif
 
 if has_key(plugs, 'vim-floaterm')
   " Configuration example
-  nnoremap   <silent>   <leader>n          :FloatermNew vifm<CR>
+  " nnoremap   <silent>   <leader>n          :FloatermNew lf<CR>
   nnoremap   <silent>   <F12>              :FloatermToggle<CR>
   tnoremap   <silent>   <F12>   <C-\><C-n> :FloatermToggle<CR>
 

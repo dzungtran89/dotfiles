@@ -1,5 +1,9 @@
 
-if has_key(plugs, 'vimwiki')
+if has_key(plugs, 'wiki.vim')
+  let g:wiki_root = '~/vimwiki'
+  autocmd VimEnter * unmap! [[
+
+elseif has_key(plugs, 'vimwiki')
 
   " let g:vimwiki_conceal_onechar_markers = 0
   let g:vimwiki_conceallevel = 3
@@ -19,12 +23,16 @@ if has_key(plugs, 'vimwiki')
     \ }
 
   " let g:vimwiki_listsyms = '✗○◐●✓'
-  let g:vimwiki_map_prefix = '<leader>o'
-  let g:vimwiki_list = [{'path': '~/vimwiki/',
-        \ 'syntax': 'markdown', 'ext': '.md'}]
+  let g:vimwiki_map_prefix = '<leader>w'
+  let g:vimwiki_list = [{
+        \'path': '~/vimwiki/',
+        \'syntax': 'markdown',
+        \'ext': '.md'
+        \}]
 
 endif
 
 if has_key(plugs, 'vim-notes')
   let g:notes_directories = ['~/vimwiki']
 endif
+
