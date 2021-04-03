@@ -94,7 +94,7 @@ alias scnew='screen -S'
 alias sca='screen -r'
 
 # tmux
-alias tmn='tmux new -s'
+alias tn='tmux new -s'
 alias ta='tmux attach -t'
 alias tmls='tmux ls'
 
@@ -127,4 +127,13 @@ alias fbi='flutter build ios'
 
 # git
 alias gh="open \`git remote -v | grep fetch | head -1 | cut -f2 | cut -d' ' -f1 | sed -e's/git@/http:\/\//' -e's/\.git$//' | sed -E 's/(\/\/[^:]*):/\1\//'\`"
+
+# i3
+alias ir='i3-resurrect'
+
+# apt
+alias sau='sudo apt update'
+alias sai='sudo apt install'
+alias sar='sudo apt autoremove'
+alias saa='sudo add-apt-repository -y -u'
 

@@ -9,14 +9,13 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 # fix duplicated PATH, ref: https://github.com/bmorrall/dotfiles/commit/9ebfaf088ccedb7949cb25137a707ba6f561a211
-export -U PATH
+# export -U PATH
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
-# ZSH_THEME="spaceship"
 ZSH_THEME="bira"
 # ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -88,7 +87,7 @@ plugins=(
   vi-mode
   fzf
   docker
-  brew
+  zsh-z
 
   # osx
   # pass
@@ -127,9 +126,6 @@ source ~/.sh_profile
 
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # POWERLEVEL9K_DISABLE_GITSTATUS=true
-
-# https://github.com/rupa/z
-. /usr/local/etc/profile.d/z.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

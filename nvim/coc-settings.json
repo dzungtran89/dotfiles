@@ -10,7 +10,7 @@
     "${workspaceFolder}/project"
   ],
   "git.gitlab.hosts": ["gitlab.trobz.com", "gitlab.com"],
-  "snippets.userSnippetsDirectory": "/Users/tran/.config/nvim/plugged/vim-odoo-snippets/UltiSnips",
+  "snippets.userSnippetsDirectory": "$HOME/.config/nvim/plugged/vim-odoo-snippets/UltiSnips",
   "diagnostic.displayByAle": true,
   "disableWorkspaceFolders": true
 }

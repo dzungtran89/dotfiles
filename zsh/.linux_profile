@@ -1,0 +1,25 @@
+#!/usr/bin/env sh
+
+if [ -z "$XDG_CONFIG_HOME" ]; then
+  export XDG_CONFIG_HOME=$HOME/.config
+fi
+
+export PATH=$HOME/code/github/dotfiles/git/diff-so-fancy:$PATH
+export PATH=$HOME/.local/bin:$PATH
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# aliases
+if [ -f ~/.sh_aliases ]; then
+  . ~/.sh_aliases
+fi
+
+# if you can not use IBus, update bashrc / zshrc, then relog
+# export GTK_IM_MODULE=ibus
+# export GTK_IM_MODULE=@im=ibus
+# export QT_IM_MODULE=ibus
+
+# added by Pew
+source "$(pew shell_config)"
