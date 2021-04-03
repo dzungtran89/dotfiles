@@ -16,6 +16,7 @@ export -U PATH
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
+# ZSH_THEME="spaceship"
 ZSH_THEME="bira"
 # ZSH_THEME="powerlevel10k/powerlevel10k"
 

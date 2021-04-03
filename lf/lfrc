@@ -1,1 +1,4 @@
 map . set hidden!
+
+set hidden
+set drawbox

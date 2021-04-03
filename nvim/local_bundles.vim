@@ -46,7 +46,6 @@ Plug 'ronakg/quickr-preview.vim'
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/tagbar'
-Plug 'voldikss/vim-floaterm'
 Plug 'liuchengxu/vim-which-key'
 Plug 'pechorin/any-jump.vim'
 Plug 'jeetsukumaran/vim-indentwise'
@@ -75,6 +74,7 @@ Plug 'samgriesemer/vim-roam'
 
 " Plug 'mcchrish/nnn.vim'
 Plug 'ptzz/lf.vim'
+Plug 'voldikss/vim-floaterm'
 
 " editorconfig
 Plug 'editorconfig/editorconfig-vim'
@@ -115,6 +115,7 @@ Plug 'shumphrey/fugitive-gitlab.vim'
 " required by fugitive to :Gbrowse
 Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
+
 " }}}
 
 " if has('nvim') || has('patch-8.0.902')

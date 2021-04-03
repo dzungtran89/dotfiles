@@ -205,6 +205,7 @@ if has_key(plugs, 'ctrlsf.vim')
   " g:ctrlsf_regex_pattern defines CtrlSF using literal pattern or regular 
   " expression pattern as default. Default value is 0, which means literal pattern.
   let g:ctrlsf_regex_pattern = 1
+
   " let g:ctrlsf_default_view_mode = 'compact'
   let g:ctrlsf_winsize = '30%'
 
@@ -221,15 +222,15 @@ if has_key(plugs, 'ctrlsf.vim')
         \ "at": "start"
         \ }
 
-  nmap     <leader>ff <Plug>CtrlSFPrompt-G *py 
-  nmap     <leader>fj <Plug>CtrlSFPrompt-G *js 
-  nmap     <leader>fx <Plug>CtrlSFPrompt-G *xml 
-  nmap     <leader>fv <Plug>CtrlSFPrompt-G *vim 
-  nmap     <leader>fc <Plug>CtrlSFPrompt-G *css 
+  nmap     <leader>ff <Plug>CtrlSFPrompt-G *py -W<space>
+  nmap     <leader>fj <Plug>CtrlSFPrompt-G *js -W<space>
+  nmap     <leader>fx <Plug>CtrlSFPrompt-G *xml -W<space>
+  nmap     <leader>fv <Plug>CtrlSFPrompt-G *vim -W<space>
+  nmap     <leader>fc <Plug>CtrlSFPrompt-G *css -W<space>
   vmap     <leader>fF <Plug>CtrlSFVwordExec
   nmap     <leader>fn <Plug>CtrlSFCwordPath
   nmap     <leader>fp <Plug>CtrlSFPwordPath
-  nnoremap <leader>fo :CtrlSFToggle<CR>
+  nnoremap <leader>o :CtrlSFToggle<CR>
 
   " vmap     <leader>ff <Plug>CtrlSFVwordPath
   " nnoremap <leader>fo :CtrlSFOpen<CR>
