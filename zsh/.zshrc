@@ -89,6 +89,7 @@ plugins=(
   fzf
   docker
   brew
+  zsh-z
 
   # osx
   # pass
@@ -129,7 +130,8 @@ source ~/.sh_profile
 # POWERLEVEL9K_DISABLE_GITSTATUS=true
 
 # https://github.com/rupa/z
-. /usr/local/etc/profile.d/z.sh
+# . /usr/local/etc/profile.d/z.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# source <(gopass completion zsh)

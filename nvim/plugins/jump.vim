@@ -24,10 +24,10 @@ if has_key(plugs, 'any-jump.vim')
   xnoremap <leader>jj :AnyJumpVisual<CR>
 
   " Normal mode: open previous opened file (after jump)
-  nnoremap <leader>ab :AnyJumpBack<CR>
+  nnoremap <leader>jb :AnyJumpBack<CR>
 
   " Normal mode: open last closed search window again
-  nnoremap <leader>al :AnyJumpLastResults<CR>
+  nnoremap <leader>jl :AnyJumpLastResults<CR>
 
   " Show line numbers in search rusults
   let g:any_jump_list_numbers = 0

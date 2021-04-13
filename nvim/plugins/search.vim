@@ -227,6 +227,7 @@ if has_key(plugs, 'ctrlsf.vim')
   nmap     <leader>fx <Plug>CtrlSFPrompt-G *xml -W<space>
   nmap     <leader>fv <Plug>CtrlSFPrompt-G *vim -W<space>
   nmap     <leader>fc <Plug>CtrlSFPrompt-G *css -W<space>
+  nmap     <leader>fd <Plug>CtrlSFPrompt-G *dart -W<space>
   vmap     <leader>fF <Plug>CtrlSFVwordExec
   nmap     <leader>fn <Plug>CtrlSFCwordPath
   nmap     <leader>fp <Plug>CtrlSFPwordPath
