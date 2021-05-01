@@ -25,4 +25,6 @@ postgres-data
 *.pgdump
 
 *.gz
-tags*
+tags
+
+plugged

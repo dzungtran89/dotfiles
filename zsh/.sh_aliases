@@ -137,3 +137,8 @@ alias sai='sudo apt install'
 alias sar='sudo apt autoremove'
 alias saa='sudo add-apt-repository -y -u'
 
+alias dus='df -h | grep sda3'
+
+# docker-compose
+alias dcu='docker-compose up'
+

@@ -47,7 +47,7 @@ if has_key(plugs, 'vim-gutentags')
 
   " set tags+=./.git/tags
   let g:gutentags_add_default_project_roots = 0
-  let g:gutentags_project_root = ['.root', 'package.json', '.git']
+  let g:gutentags_project_root = ['.git', 'package.json']
   " let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
 
   command! -nargs=0 GutentagsClearCache call
@@ -55,7 +55,7 @@ if has_key(plugs, 'vim-gutentags')
 
   let g:gutentags_generate_on_new = 0
   let g:gutentags_generate_on_missing = 0
-  let g:gutentags_generate_on_write = 1
+  let g:gutentags_generate_on_write = 0
   let g:gutentags_generate_on_empty_buffer = 0
 
   let g:gutentags_ctags_extra_args = [

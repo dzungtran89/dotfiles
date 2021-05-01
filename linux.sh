@@ -48,26 +48,35 @@ ln -sf ~/code/github/dotfiles/nvim ~/.config/
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 nvm install nodejs npm
 
-sudo add-apt-repository -y ppa:bamboo-engine/ibus-bamboo
-sudo add-apt-repository -y ppa:lazygit-team/release
+# Adding apt repos
+ADD_REPO='sudo add-apt-repository -y'
+$ADD_REPO ppa:noobslab/icons
+$ADD_REPO ppa:agornostal/ulauncher
+$ADD_REPO ppa:bamboo-engine/ibus-bamboo
+$ADD_REPO ppa:lazygit-team/release
+
 sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 
+# Updating apt
 sudo apt update
+
+# Doing installation
 sudo apt install fzf python3-pip ruby universal-ctags ttf-mscorefonts-installer \
-    htop lazygit docker-ce docker-ce-cli \
-    containerd.io postgresql \
+    neovim emacs kitty code tig fd-find locate neofetch \
+    firejail htop lazygit docker-ce docker-ce-cli \
+    containerd.io postgresql libpq-dev \
     ibus-bamboo steam \
-    obs-studio blender \
-    kitty brave-browser code \
-    telegram-desktop \
+    obs-studio blender brave-browser \
+    telegram-desktop ulauncher
 
 curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
 
 # post install
+ln -s $(which fdfind) ~/.local/bin/fd
 ibus restart
 gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('ibus', 'Bamboo')]"
 
