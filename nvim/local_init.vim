@@ -222,7 +222,7 @@ source $HOME/.config/nvim/plugins/statusline.vim
 source $HOME/.config/nvim/plugins/floaterm.vim
 source $HOME/.config/nvim/plugins/keys.vim
 
-source $HOME/.config/nvim/plugins/doc.vim
+" source $HOME/.config/nvim/plugins/doc.vim
 
 source $HOME/.config/nvim/plugins/linter.vim
 " source $HOME/.config/nvim/plugins/scheme.vim

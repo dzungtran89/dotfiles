@@ -25,6 +25,9 @@
 --exclude=log
 --exclude=tmp
 --exclude=node_modules
+--exclude=bin
+--exclude=venv
+--exclude=ila
 
 --languages=-javascript
 --langdef=js

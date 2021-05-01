@@ -16,6 +16,7 @@ if has_key(plugs, 'ale')
   let g:ale_linters = {
         \   'python': ['flake8'],
         \}
+  let g:ale_pattern_options = {'[^\.py]+$': {'ale_enabled': 0}}
 
   " " Fix Python files with autopep8 and ypf.
   " let b:ale_fixers = ['autopep8', 'yapf']

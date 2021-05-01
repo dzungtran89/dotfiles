@@ -76,12 +76,12 @@
 (setq interprogram-cut-function 'paste-to-osx)
 (setq interprogram-paste-function 'copy-from-osx)
 
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((plantuml . t))) ; this line activates dot
+;; (org-babel-do-load-languages
+;;  'org-babel-load-languages
+;;  '((plantuml . t))) ; this line activates dot
 
-(setq org-plantuml-jar-path
-      (expand-file-name "~/org/contrib/scripts/plantuml.jar"))
+;; (setq org-plantuml-jar-path
+;;       (expand-file-name "~/org/contrib/scripts/plantuml.jar"))
 
 (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 

@@ -1,6 +1,10 @@
-
 if has_key(plugs, 'wiki.vim')
-  let g:wiki_root = '~/vimwiki'
+
+  let g:wiki_root = '/Users/tran/Documents/book-tc'
+  let g:wiki_filetypes = ['wiki', 'markdown', 'md']
+  let g:wiki_link_target_type = 'md'
+  let g:wiki_link_extension = '.md'
+
   autocmd VimEnter * unmap! [[
 
 elseif has_key(plugs, 'vimwiki')
@@ -22,7 +26,6 @@ elseif has_key(plugs, 'vimwiki')
     \   'mouse': 0,
     \ }
 
-  " let g:vimwiki_listsyms = '✗○◐●✓'
   let g:vimwiki_map_prefix = '<leader>w'
   let g:vimwiki_list = [{
         \'path': '~/vimwiki/',

@@ -17,7 +17,7 @@ export -U PATH
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 # ZSH_THEME="spaceship"
-ZSH_THEME="bira"
+ZSH_THEME="robbyrussell"
 # ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
@@ -129,9 +129,6 @@ source ~/.sh_profile
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # POWERLEVEL9K_DISABLE_GITSTATUS=true
 
-# https://github.com/rupa/z
-# . /usr/local/etc/profile.d/z.sh
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# source <(gopass completion zsh)
+# . $HOME/.asdf/asdf.sh
