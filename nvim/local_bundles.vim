@@ -21,20 +21,7 @@ Plug 'itchyny/lightline.vim'
 " Plug 'dzungtran89/photon.vim'
 " Plug 'dracula/vim', {'dir': '/Users/tran/.config/nvim/plugged/dracula'}
 Plug 'edersonferreira/dalton-vim'
-
 Plug 'mhartington/oceanic-next'
-
-" Plug 'lifepillar/vim-gruvbox8'
-" Plug 'chriskempson/base16-vim'
-" Plug 'barlog-m/oceanic-primal-vim', { 'branch': 'main' }
-" Plug 'NieTiger/halcyon-neovim'
-
-" Plug 'andreypopp/vim-colors-plain'
-" Plug 'joshdick/onedark.vim'
-" Plug 'connorholyday/vim-snazzy'
-" Plug 'doums/darcula'
-" Plug 'dzungtran89/vim-gruvbox8-mono'
-" Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 
 " }}}
 
@@ -54,8 +41,8 @@ Plug 'dyng/ctrlsf.vim'
 
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
+" Plug 'wfxr/minimap.vim', {'do': ':!cargo install --locked code-minimap'}
 
-" Plug 'terryma/vim-multiple-cursors'
 " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 
 " wiki / writing
@@ -67,6 +54,7 @@ Plug 'plasticboy/vim-markdown'
 
 Plug 'samgriesemer/wiki.vim'
 Plug 'samgriesemer/vim-roam'
+" Plug 'samgriesemer/vim-roam-md'
 
 " }}}
 
@@ -78,7 +66,7 @@ Plug 'voldikss/vim-floaterm'
 
 " editorconfig
 Plug 'editorconfig/editorconfig-vim'
-Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
+" Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 
 " Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
@@ -97,15 +85,9 @@ Plug 'honza/vim-snippets'
 Plug 'dzungtran89/vim-odoo-snippets'
 
 " }}}
-
-" motion {{{
-
+"
 Plug 'easymotion/vim-easymotion'
-
-" tmux
 Plug 'christoomey/vim-tmux-navigator'
-
-" }}}
 
 " git {{{
 
@@ -117,10 +99,3 @@ Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
 
 " }}}
-
-" if has('nvim') || has('patch-8.0.902')
-"   Plug 'mhinz/vim-signify'
-" else
-"   Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
-" endif
-

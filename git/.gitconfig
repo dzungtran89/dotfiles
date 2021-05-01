@@ -3,8 +3,8 @@
   email = dungtd@trobz.com
 [core]
   excludesfile = ~/.gitignore_global
-  pager = diff-so-fancy | less --tabs=4 -RFX
-  editor = /usr/bin/vi
+  ; pager = diff-so-fancy | less --tabs=4 -RFX
+  editor = /usr/bin/vim
 [color]
   ui = true
 [color "diff-highlight"]

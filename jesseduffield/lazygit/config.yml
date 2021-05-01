@@ -1,0 +1,33 @@
+gui:
+    theme:
+        selectedLineBgColor:
+            - reverse
+        selectedRangeBgColor:
+            - reverse
+    commitLength:
+        show: true
+    mouseEvents: false
+    # theme:
+    #   lightTheme: false # For terminals with a light background
+    #   activeBorderColor:
+    #     - white
+    #     - bold
+    #   inactiveBorderColor:
+    #     - green
+    #   optionsTextColor:
+    #     - blue
+    #   selectedLineBgColor:
+    #     - default
+    #   selectedRangeBgColor:
+    #     - blue
+    # commitLength:
+    #   show: true
+    # mouseEvents: true
+    # skipUnstageLineWarning: false
+    # skipStashWarning: true
+git:
+    branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium --oneline {{branchName}} --"
+
+reporting: "off"
+disableStartupPopups: true
+

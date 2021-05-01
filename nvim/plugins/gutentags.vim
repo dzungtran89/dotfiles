@@ -111,6 +111,8 @@ if has_key(plugs, 'vim-gutentags')
         \ '*.rar', '*.zip', '*.tar', '*.tar.gz', '*.tar.xz', '*.tar.bz2',
         \ '*.pdf', '*.doc', '*.docx', '*.ppt', '*.pptx',
         \ 'log',
+        \ 'venv',
+        \ 'ila',
         \ ]
 
   " autocmd BufWritePost *.py,*.js silent! !ctags . &

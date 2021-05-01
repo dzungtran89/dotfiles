@@ -93,16 +93,16 @@ if has_key(plugs, 'vim-which-key')
   "       \ }
 
   " \ ';' : [':FloatermNew --wintype=popup --height=6' , 'terminal'] ,
+  " \ 'd' : [':FloatermNew lazydocker' , 'docker']   ,
+  " \ 'N' : [':FloatermNew node'       , 'node']     ,
+  " \ 'v' : [':FloatermNew vifm'       , 'vifm']      ,
+  " \ 'r' : [':FloatermNew lf'         , 'lf']       ,
   let g:which_key_map.c = {
         \ 'name' : '+terminal'             ,
         \ 'f' : [':FloatermNew fzf'        , 'fzf']      ,
         \ 'l' : [':FloatermNew lazygit'    , 'git']      ,
         \ 'g' : [':FloatermNew tig'        , 'tig']      ,
-        \ 'd' : [':FloatermNew lazydocker' , 'docker']   ,
-        \ 'N' : [':FloatermNew node'       , 'node']     ,
-        \ 'v' : [':FloatermNew vifm'       , 'vifm']      ,
         \ 'p' : [':FloatermNew python'     , 'python']   ,
-        \ 'r' : [':FloatermNew lf'         , 'lf']       ,
         \ 't' : [':FloatermToggle'         , 'terminal'] ,
         \ 'y' : [':FloatermNew ytop'       , 'ytop']     ,
         \ }
