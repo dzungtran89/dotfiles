@@ -37,9 +37,11 @@ let g:polyglot_disabled = ['python', 'javascript']
 "*****************************************************************************
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/grep.vim'
+
 " Plug 'vim-scripts/CSApprox'
 Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
+
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
 
@@ -52,7 +54,6 @@ Plug 'Shougo/vimproc.vim', {'do': g:make}
 
 "" Vim-Session
 Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'
 
 "*****************************************************************************
 "" Custom bundles
@@ -123,13 +124,6 @@ if exists('$SHELL')
 else
   set shell=/bin/sh
 endif
-
-" session management
-let g:session_directory = "~/.config/nvim/session"
-let g:session_autosave = "no"
-
-" let g:session_autoload = "no"
-" let g:session_command_aliases = 1
 
 "*****************************************************************************
 "" Visual Settings

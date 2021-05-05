@@ -26,3 +26,4 @@ postgres-data
 
 *.gz
 tags
+*build

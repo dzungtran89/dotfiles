@@ -232,3 +232,16 @@ if has_key(plugs, 'minimap.vim')
   let g:minimap_auto_start = 1
   let g:minimap_auto_start_win_enter = 1
 endif
+
+" Disabling the cursor-line/column in unused windows/buffers.
+augroup cursorline
+  autocmd!
+  autocmd WinEnter,BufEnter * setlocal cursorline
+  autocmd WinLeave,BufLeave * setlocal nocursorline
+augroup END
+
+" Markdown
+augroup Markdown
+  autocmd!
+  autocmd FileType markdown set wrap
+augroup END
