@@ -17,7 +17,7 @@ export -U PATH
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 # ZSH_THEME="spaceship"
-ZSH_THEME="robbyrussell"
+ZSH_THEME="bira"
 # ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
@@ -90,6 +90,7 @@ plugins=(
   docker
   brew
   zsh-z
+  tig
 
   # osx
   # pass
@@ -130,5 +131,3 @@ source ~/.sh_profile
 # POWERLEVEL9K_DISABLE_GITSTATUS=true
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# . $HOME/.asdf/asdf.sh

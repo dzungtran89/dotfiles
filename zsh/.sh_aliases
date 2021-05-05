@@ -128,3 +128,7 @@ alias fbi='flutter build ios'
 # git
 alias gh="open \`git remote -v | grep fetch | head -1 | cut -f2 | cut -d' ' -f1 | sed -e's/git@/http:\/\//' -e's/\.git$//' | sed -E 's/(\/\/[^:]*):/\1\//'\`"
 
+# fd
+alias fdd="fd --type d"
+
+alias fdf="fd --type f"

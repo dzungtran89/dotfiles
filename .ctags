@@ -27,7 +27,6 @@
 --exclude=node_modules
 --exclude=bin
 --exclude=venv
---exclude=ila
 
 --languages=-javascript
 --langdef=js
@@ -50,3 +49,4 @@
 --regex-js=/^[ \t]*(export)?[ \t]*(public|private)[ \t]+(static)?[ \t]*([a-zA-Z0-9_]+)/\4/m,members/
 --regex-js=/^[ \t]*(export)?[ \t]*interface[ \t]+([a-zA-Z0-9_]+)/\2/i,interfaces/
 --regex-js=/^[ \t]*(export)?[ \t]*enum[ \t]+([a-zA-Z0-9_]+)/\2/e,enums/
+
