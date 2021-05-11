@@ -71,7 +71,8 @@ sudo apt install fzf python3-pip ruby universal-ctags ttf-mscorefonts-installer 
     containerd.io postgresql libpq-dev \
     ibus-bamboo steam \
     obs-studio blender brave-browser \
-    telegram-desktop ulauncher
+    telegram-desktop ulauncher \
+    libsasl2-dev libldap2-dev libssl-dev
 
 curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
 
