@@ -207,6 +207,7 @@ endif
 " Personal plugins
 
 source $HOME/.config/nvim/plugins/whichkey.vim
+source $HOME/.config/nvim/plugins/session.vim
 source $HOME/.config/nvim/plugins/editor.vim
 source $HOME/.config/nvim/plugins/explorer.vim
 source $HOME/.config/nvim/plugins/search.vim

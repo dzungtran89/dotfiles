@@ -1,19 +1,20 @@
 " vim:fileencoding=utf-8
 
 " common {{{
+Plug 'xolox/vim-session'
+" Plug 'thaerkh/vim-workspace'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
-" Plug 'ThePrimeagen/vim-be-good'
-" Plug 'lifepillar/vim-colortemplate'
-
 " You would love this
+" Please add `.notags` file into the $HOME dir in order to avoid tags processing 
+"   in that big dir
 Plug 'ludovicchabant/vim-gutentags'
 " }}}
 
 " themes {{{
-" Plug 'arcticicestudio/nord-vim'
+Plug 'arcticicestudio/nord-vim'
 Plug 'chrisbra/Colorizer'
 Plug 'itchyny/lightline.vim'
 
@@ -49,12 +50,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
-" Plug 'vimwiki/vimwiki'
-" Plug 'ducbueno/vimwiki-roam', { 'branch': 'myroam' }
-
 Plug 'samgriesemer/wiki.vim'
 Plug 'samgriesemer/vim-roam'
-" Plug 'samgriesemer/vim-roam-md'
 
 " }}}
 
@@ -66,8 +63,9 @@ Plug 'voldikss/vim-floaterm'
 
 " editorconfig
 Plug 'editorconfig/editorconfig-vim'
-" Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
+" Plug 'datwaft/bubbly.nvim'
 
+" Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 " Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " " snippets

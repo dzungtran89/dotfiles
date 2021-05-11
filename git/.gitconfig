@@ -4,7 +4,8 @@
 [core]
   excludesfile = ~/.gitignore_global
   ; pager = diff-so-fancy | less --tabs=4 -RFX
-  editor = /usr/bin/vim
+  ; pager = delta
+  editor = /usr/bin/vi
 [color]
   ui = true
 [color "diff-highlight"]
@@ -26,7 +27,7 @@
 [rebase]
   autoStash = true
 [oh-my-zsh]
-	hide-status = 1
+  hide-status = 1
 [web]
   browse = open
 [merge]
@@ -35,6 +36,28 @@
   keepBackup = false
 [mergetool "vimdiff"]
   cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
 [tig]
   line-graphics = no	# Disable graphics characters
   tab-size = 4		# Number of spaces per tab
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  features = side-by-side line-numbers decorations
+  syntax-theme = gruvbox-dark
+  plus-style = syntax "#003800"
+  minus-style = syntax "#3f0001"
+
+[delta "decorations"]
+  commit-decoration-style = bold yellow box ul
+  file-style = bold yellow ul
+  file-decoration-style = none
+  hunk-header-decoration-style = cyan box ul
+
+[delta "line-numbers"]
+  line-numbers-left-style = cyan
+  line-numbers-right-style = cyan
+  line-numbers-minus-style = 124
+  line-numbers-plus-style = 28

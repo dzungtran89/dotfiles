@@ -1,11 +1,14 @@
 
 if has_key(plugs, 'ale')
 
+  let g:ale_pattern_options = {'[^\.py]+$': {'ale_enabled': 0}}
+
   let g:ale_list_window_size = 5
 
   " Write this in your vimrc file
   let g:ale_lint_on_text_changed = 'never'
   let g:ale_lint_on_insert_leave = 0
+
   " You can disable this option too
   " if you don't want linters to run on opening a file
   let g:ale_lint_on_enter = 0
@@ -16,7 +19,6 @@ if has_key(plugs, 'ale')
   let g:ale_linters = {
         \   'python': ['flake8'],
         \}
-  let g:ale_pattern_options = {'[^\.py]+$': {'ale_enabled': 0}}
 
   " " Fix Python files with autopep8 and ypf.
   " let b:ale_fixers = ['autopep8', 'yapf']

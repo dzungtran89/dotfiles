@@ -2,3 +2,9 @@ map . set hidden!
 
 set hidden
 set drawbox
+set info size:time
+set tabstop 4
+
+# set sortby ext
+# set previewer 'Preview.app'
+# set hlsearch

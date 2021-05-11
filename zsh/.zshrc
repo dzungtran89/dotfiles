@@ -16,7 +16,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="spaceship"
+ZSH_THEME="bira"
 # ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
@@ -88,7 +89,7 @@ plugins=(
   fzf
   docker
   zsh-z
-  zsh-autosuggestions
+  tig
 
   # osx
   # pass
@@ -129,5 +130,4 @@ source ~/.sh_profile
 # POWERLEVEL9K_DISABLE_GITSTATUS=true
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 [[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc

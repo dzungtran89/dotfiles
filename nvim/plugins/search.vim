@@ -19,9 +19,8 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 endif
 
-" ripgrep
+" ripgrep, override the above `ag`
 if executable('rg')
-  let $FZF_DEFAULT_COMMAND='rg --files -w --hidden --follow --glob "!.git/*"'
   let $FZF_DEFAULT_COMMAND='rg --files -w --hidden --follow --glob "!.git/*"'
 
   set grepprg=rg\ --vimgrep
@@ -35,7 +34,7 @@ endif
 " let g:fzf_preview_window = 'up:60%'
 let g:fzf_preview_window = ''
 
-nmap <Leader>B :BLines<CR>
+nmap <localleader>b :BLines<CR>
 nmap <Leader>L :Lines<CR>
 nmap <Leader>' :Marks<CR>
 

@@ -128,9 +128,6 @@ alias fbi='flutter build ios'
 # git
 alias gh="open \`git remote -v | grep fetch | head -1 | cut -f2 | cut -d' ' -f1 | sed -e's/git@/http:\/\//' -e's/\.git$//' | sed -E 's/(\/\/[^:]*):/\1\//'\`"
 
-# i3
-alias ir='i3-resurrect'
-
 # apt
 alias sau='sudo apt update'
 alias sai='sudo apt install'
@@ -142,3 +139,6 @@ alias dus='df -h | grep sda3'
 # docker-compose
 alias dcu='docker-compose up'
 
+# fd
+alias fdd="fd --type d"
+alias fdf="fd --type f"
