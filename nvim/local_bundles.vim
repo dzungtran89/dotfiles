@@ -48,7 +48,7 @@ Plug 'ryanoasis/vim-devicons'
 
 " wiki / writing
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
+" Plug 'plasticboy/vim-markdown'
 
 Plug 'samgriesemer/wiki.vim'
 Plug 'samgriesemer/vim-roam'
@@ -89,11 +89,11 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " git {{{
 
-Plug 'junegunn/gv.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+" Plug 'junegunn/gv.vim'
 Plug 'shumphrey/fugitive-gitlab.vim'
 " required by fugitive to :Gbrowse
-Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
 
 " }}}

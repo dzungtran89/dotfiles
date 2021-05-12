@@ -68,7 +68,7 @@ alias vec='ve ~/.emacs.d/init.el'
 # alias emc='emacsclient -c'
 
 # pyenv
-alias pv='pyenv'
+alias pv='pyenv virtualenv'
 alias pa='pyenv activate'
 alias pd='pyenv deactivate'
 

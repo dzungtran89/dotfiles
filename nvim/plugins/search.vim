@@ -221,15 +221,15 @@ if has_key(plugs, 'ctrlsf.vim')
         \ "at": "start"
         \ }
 
-  nmap     <leader>ff <Plug>CtrlSFPrompt-G *py -W<space>
-  nmap     <leader>fj <Plug>CtrlSFPrompt-G *js -W<space>
-  nmap     <leader>fx <Plug>CtrlSFPrompt-G *xml -W<space>
-  nmap     <leader>fv <Plug>CtrlSFPrompt-G *vim -W<space>
-  nmap     <leader>fc <Plug>CtrlSFPrompt-G *css -W<space>
-  nmap     <leader>fd <Plug>CtrlSFPrompt-G *dart -W<space>
   vmap     <leader>fF <Plug>CtrlSFVwordExec
   nmap     <leader>fn <Plug>CtrlSFCwordPath
   nmap     <leader>fp <Plug>CtrlSFPwordPath
+  nmap     <leader>ff <Plug>CtrlSFPrompt-G *py -W -I<space>
+  nmap     <leader>fj <Plug>CtrlSFPrompt-G *js -W -I<space>
+  nmap     <leader>fx <Plug>CtrlSFPrompt-G *xml -W -I<space>
+  nmap     <leader>fv <Plug>CtrlSFPrompt-G *vim -W -I<space>
+  nmap     <leader>fc <Plug>CtrlSFPrompt-G *css -W -I<space>
+  nmap     <leader>fd <Plug>CtrlSFPrompt-G *dart -W -I<space>
   nnoremap <leader>o :CtrlSFToggle<CR>
 
   " vmap     <leader>ff <Plug>CtrlSFVwordPath

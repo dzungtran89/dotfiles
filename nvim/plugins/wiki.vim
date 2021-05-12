@@ -1,6 +1,6 @@
 if has_key(plugs, 'wiki.vim')
 
-  let g:wiki_root = '/Users/tran/Documents/book-tc'
+  let g:wiki_root = '/Users/tran/Documents/abc-og'
   let g:wiki_filetypes = ['wiki', 'markdown', 'md']
   let g:wiki_link_target_type = 'md'
   let g:wiki_link_extension = '.md'
@@ -26,7 +26,7 @@ elseif has_key(plugs, 'vimwiki')
     \   'mouse': 0,
     \ }
 
-  let g:vimwiki_map_prefix = '<leader>w'
+  let g:vimwiki_map_prefix = '<c-w>w'
   let g:vimwiki_list = [{
         \'path': '~/vimwiki/',
         \'syntax': 'markdown',

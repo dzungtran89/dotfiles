@@ -1,16 +1,16 @@
 {
-  "python.jediEnabled": false,
-  "python.linting.enabled": true,
-  "python.linting.pylintPath": "pylint",
-  "xml.java.home": "/Library/Java/JavaVirtualMachines/openjdk-14.0.1.jdk/Contents/Home",
-  "xml.completion.autoCloseTags": true,
-  "python.autoComplete.extraPaths": [
-    "${workspaceFolder}/odoo/addons",
-    "${workspaceFolder}/addons",
-    "${workspaceFolder}/project"
-  ],
-  "git.gitlab.hosts": ["gitlab.trobz.com", "gitlab.com"],
-  "snippets.userSnippetsDirectory": "/Users/tran/.config/nvim/plugged/vim-odoo-snippets/UltiSnips",
-  "diagnostic.displayByAle": true,
-  "disableWorkspaceFolders": true
+    "python.jediEnabled": false,
+    "python.linting.enabled": true,
+    "python.linting.pylintPath": "pylint",
+    "xml.java.home": "/Library/Java/JavaVirtualMachines/openjdk-14.0.1.jdk/Contents/Home",
+    "xml.completion.autoCloseTags": true,
+    "python.autoComplete.extraPaths": [
+        "${workspaceFolder}/odoo/addons",
+        "${workspaceFolder}/addons",
+        "${workspaceFolder}/project"
+    ],
+    "git.gitlab.hosts": ["gitlab.trobz.com", "gitlab.com"],
+    "snippets.userSnippetsDirectory": "/Users/tran/.config/nvim/plugged/vim-odoo-snippets/UltiSnips",
+    "diagnostic.displayByAle": true,
+    "disableWorkspaceFolders": true
 }

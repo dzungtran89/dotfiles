@@ -4,6 +4,7 @@ set hidden
 set drawbox
 set info size:time
 set tabstop 4
+set incsearch
 
 # set sortby ext
 # set previewer 'Preview.app'
