@@ -26,6 +26,6 @@ postgres-data
 
 *.gz
 tags
-
 *build
 plugged
+setup

@@ -38,22 +38,22 @@ endif
 
 " Add support for markdown files in tagbar.
 
-if has_key(plugs, 'tagbar')
-  let g:tagbar_type_markdown = {
-        \ 'ctagstype': 'markdown',
-        \ 'ctagsbin' : '/Users/tran/code/github/markdown2ctags/markdown2ctags.py',
-        \ 'ctagsargs' : '-f - --sort=yes --sro=»',
-        \ 'kinds' : [
-        \ 's:sections',
-        \ 'i:images'
-        \ ],
-        \ 'sro' : '»',
-        \ 'kind2scope' : {
-        \ 's' : 'section',
-        \ },
-        \ 'sort': 0,
-        \ }
-endif
+" if has_key(plugs, 'tagbar')
+"   let g:tagbar_type_markdown = {
+"         \ 'ctagstype': 'markdown',
+"         \ 'ctagsbin' : '/Users/tran/code/github/markdown2ctags/markdown2ctags.py',
+"         \ 'ctagsargs' : '-f - --sort=yes --sro=»',
+"         \ 'kinds' : [
+"         \ 's:sections',
+"         \ 'i:images'
+"         \ ],
+"         \ 'sro' : '»',
+"         \ 'kind2scope' : {
+"         \ 's' : 'section',
+"         \ },
+"         \ 'sort': 0,
+"         \ }
+" endif
 
 if has_key(plugs, 'markdown-preview.nvim')
 

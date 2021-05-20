@@ -17,7 +17,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 # ZSH_THEME="spaceship"
-ZSH_THEME="bira"
+# ZSH_THEME="bira"
+ZSH_THEME=""
 # ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
@@ -114,7 +115,26 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
+
+# Pure {{{
+
+fpath+=$HOME/.zsh/pure
+autoload -U promptinit; promptinit
+
+# optionally define some options
+PURE_CMD_MAX_EXEC_TIME=10
+
+# # change the path color
+# zstyle :prompt:pure:path color white
+
+# # change the color for both `prompt:success` and `prompt:error`
+# zstyle ':prompt:pure:prompt:*' color cyan
+
+# turn on git stash status
+zstyle :prompt:pure:git:stash show yes
+prompt pure
+
+# }}}
 
 # Personal config
 export FZF_BASE=$(which fzf)
@@ -131,3 +151,7 @@ source ~/.sh_profile
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
+
+# asdf
+. $HOME/.asdf/asdf.sh
+fpath=(${ASDF_DIR}/completions $fpath)
