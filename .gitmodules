@@ -25,3 +25,6 @@
 [submodule "awesome/awesome-wm-widgets"]
 	path = awesome/awesome-wm-widgets
 	url = git@github.com:streetturtle/awesome-wm-widgets.git
+[submodule "zsh/pure"]
+	path = zsh/pure
+	url = git@github.com:sindresorhus/pure.git
