@@ -50,7 +50,7 @@
 
 (package! gruvbox-theme)
 (package! editorconfig)
-(package! org-roam)
+;; (package! org-roam)
 (package! org-superstar)
 (package! doom-modeline)
 ;; (package! vimrc-mode)
