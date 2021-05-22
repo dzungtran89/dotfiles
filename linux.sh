@@ -1,8 +1,12 @@
 #!/usr/bin/env sh
 
-sudo apt-get install zsh git tmux
-wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-sh install.sh
+sudo apt update
+sudo apt install zsh git tmux gcc build-essential \
+    pkg-config libevent-dev ncurses-dev byacc \
+    fd-find locate htop
+
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.1
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # change default shell in case zsh is not automatically changed
 chsh
@@ -20,7 +24,6 @@ chsh
 # xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
 
 # https://github.com/pyenv/pyenv/wiki/common-build-problems#prerequisites
-sudo apt install kitty neovim git gcc zsh
 
 # zsh
 ln -sf $HOME/code/github/dotfiles/zsh/.linux_profile ~/.sh_profile
@@ -32,7 +35,7 @@ ln -sf $HOME/code/github/dotfiles/zsh/.zshrc ~/
 git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
 
 # python
-sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1
+# sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 
 # tmux
 ln -sf $HOME/code/github/dotfiles/tmux/plugins/.tmux/.tmux.conf ~/
@@ -44,15 +47,15 @@ ln -sf $HOME/code/github/dotfiles/kitty/kitty.conf ~/.config/kitty
 # nvim
 ln -sf ~/code/github/dotfiles/nvim ~/.config/
 
-# nvm
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-nvm install nodejs npm
+# # nvm
+# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+# nvm install nodejs npm
 
 # Adding apt repos
-ADD_REPO='sudo add-apt-repository -y'
-$ADD_REPO ppa:noobslab/icons
-$ADD_REPO ppa:agornostal/ulauncher
-$ADD_REPO ppa:bamboo-engine/ibus-bamboo
+ADD_REPO='sudo add-apt-repository -y ppa:lazygit-team/release'
+# $ADD_REPO ppa:noobslab/icons
+# $ADD_REPO ppa:agornostal/ulauncher
+# $ADD_REPO ppa:bamboo-engine/ibus-bamboo
 $ADD_REPO ppa:lazygit-team/release
 
 sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release
@@ -65,18 +68,30 @@ echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=
 sudo apt update
 
 # Doing installation
-sudo apt install fzf python3-pip ruby universal-ctags ttf-mscorefonts-installer \
-    neovim emacs kitty code tig fd-find locate neofetch \
-    firejail htop lazygit docker-ce docker-ce-cli \
-    containerd.io postgresql libpq-dev \
-    ibus-bamboo steam \
-    obs-studio blender brave-browser \
-    telegram-desktop ulauncher \
-    libsasl2-dev libldap2-dev libssl-dev
+sudo apt install fzf python3-pip ruby universal-ctags \
+	htop containerd.io postgresql libpq-dev \
+	libsasl2-dev libldap2-dev libssl-dev \
+	neovim emacs kitty code ttf-mscorefonts-installer \
+	firejail lazygit docker-ce docker-ce-cli \
+	ibus-bamboo steam \
+	obs-studio blender brave-browser \
+	telegram-desktop ulauncher \
 
 curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
 
 # post install
+asdf plugin add tmux
+asdf plugin add exa
+asdf plugin add neovim
+
+asdf install tmux latest
+asdf install exa latest
+asdf install neovim nightly
+
+asdf global tmux latest
+asdf global exa latest
+asdf global neovim nightly
+
 ln -s $(which fdfind) ~/.local/bin/fd
 ibus restart
 gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('ibus', 'Bamboo')]"

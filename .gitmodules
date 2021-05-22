@@ -19,3 +19,9 @@
 [submodule "zsh/zsh-z"]
 	path = zsh/zsh-z
 	url = git@github.com:agkozak/zsh-z.git
+[submodule "awesome/lain"]
+	path = awesome/lain
+	url = git@github.com:lcpz/lain.git
+[submodule "awesome/awesome-wm-widgets"]
+	path = awesome/awesome-wm-widgets
+	url = git@github.com:streetturtle/awesome-wm-widgets.git
