@@ -28,9 +28,6 @@ endif
 " Required:
 call plug#begin(expand('~/.config/nvim/plugged'))
 
-let g:ale_disable_lsp = 1
-
-let g:polyglot_disabled = ['python', 'javascript']
 
 "*****************************************************************************
 "" Plug install packages
@@ -44,6 +41,9 @@ Plug 'Yggdroot/indentLine'
 
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
+
+let g:ale_disable_lsp = 1
+let g:polyglot_disabled = ['python' , 'javascript']
 
 let g:make = 'gmake'
 if exists('make')
@@ -113,9 +113,9 @@ set hidden
 
 "" Searching
 set hlsearch
-set incsearch
-set ignorecase
-set smartcase
+" set nois
+set noic
+" set smartcase
 
 set fileformats=unix,dos,mac
 
