@@ -62,7 +62,14 @@ if has('termguicolors')
 endif
 
 set background=dark
-colorscheme dalton
+
+if has_key(plugs, 'gruvbox-flat.nvim')
+  let g:gruvbox_flat_style = "dark"
+  let g:gruvbox_colors = { "hint" : "orange", "error" : "#ff0000" }
+endif
+
+colorscheme gruvbox-flat
+" colorscheme darcula-solid
 
 if has_key(plugs, 'vim-wordmotion')
 
@@ -219,7 +226,7 @@ source $HOME/.config/nvim/plugins/md.vim
 source $HOME/.config/nvim/plugins/jump.vim
 source $HOME/.config/nvim/plugins/wiki.vim
 
-source $HOME/.config/nvim/plugins/statusline.vim
+source $HOME/.config/nvim/plugins/statusline.lua
 source $HOME/.config/nvim/plugins/floaterm.vim
 source $HOME/.config/nvim/plugins/keys.vim
 

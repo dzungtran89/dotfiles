@@ -3,24 +3,34 @@
 #         without any warranty.
 #         Copyright 2012— Gregory Pakosz (@gpakosz).
 
-# -- plugins ----------------------------------------------------------------
-# set -g @plugin 'tmux-plugins/tpm'
-# set -g @plugin 'tmux-plugins/tmux-sensible'
+# -- tpm -----------------------------------------------------------------------
 
-# set -g @plugin 'tmux-plugins/tmux-resurrect'
-# set -g @plugin 'Morantron/tmux-fingers'
-# set -g @plugin 'fcsonline/tmux-thumbs'
+# while I don't use tpm myself, many people requested official support so here
+# is a seamless integration that automatically installs plugins in parallel
 
-# Alternative way to fix installing plugins, [ref](https://github.com/tmux-plugins/tpm/blob/master/docs/tpm_not_working.md)
-#
-set -g @tpm_plugins '         \
- tmux-plugins/tpm             \
- tmux-plugins/tmux-resurrect  \
- schasse/tmux-jump            \
-'
+# whenever a plugin introduces a variable to be used in 'status-left' or
+# 'status-right', you can use it in 'tmux_conf_theme_status_left' and
+# 'tmux_conf_theme_status_right' variables.
 
-# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-run '~/.tmux/plugins/tpm/tpm'
+# by default, launching tmux will update tpm and all plugins
+#   - true (default)
+#   - false
+tmux_conf_update_plugins_on_launch=true
+
+# by default, reloading the configuration will update tpm and all plugins
+#   - true (default)
+#   - false
+tmux_conf_update_plugins_on_reload=true
+
+# /!\ do not add set -g @plugin 'tmux-plugins/tpm'
+# /!\ do not add run '~/.tmux/plugins/tpm/tpm'
+
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'schasse/tmux-jump'
+# set -g @plugin 'tmux-plugins/tmux-copycat'
+# set -g @plugin 'tmux-plugins/tmux-cpu'
+# set -g @plugin 'tmux-plugins/tmux-continuum'
+# set -g @continuum-restore 'on'
 
 # -- navigation ----------------------------------------------------------------
 

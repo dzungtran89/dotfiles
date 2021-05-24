@@ -14,9 +14,15 @@ Plug 'ludovicchabant/vim-gutentags'
 " }}}
 
 " themes {{{
+Plug 'rktjmp/lush.nvim', {'branch': 'main'}
+Plug 'briones-gabriel/darcula-solid.nvim', { 'branch': 'main' }
+Plug 'eddyekofo94/gruvbox-flat.nvim'
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 Plug 'arcticicestudio/nord-vim'
 Plug 'chrisbra/Colorizer'
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
+Plug 'hoob3rt/lualine.nvim'
 
 " Plug 'gruvbox-community/gruvbox'
 " Plug 'dzungtran89/photon.vim'
@@ -57,16 +63,11 @@ Plug 'samgriesemer/vim-roam'
 
 " explorer {{{
 
-" Plug 'mcchrish/nnn.vim'
 Plug 'ptzz/lf.vim'
 Plug 'voldikss/vim-floaterm'
 
 " editorconfig
 Plug 'editorconfig/editorconfig-vim'
-" Plug 'datwaft/bubbly.nvim'
-
-" Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
-" Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " " snippets
 " " replaced by coc-snippets
@@ -89,6 +90,7 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " git {{{
 
+" Plug 'lambdalisue/gina.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 " Plug 'junegunn/gv.vim'

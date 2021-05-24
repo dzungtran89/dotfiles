@@ -10,9 +10,11 @@ noremap <localleader>c :bd!<CR>
 noremap <leader>w <C-w>
 noremap <leader>Q :qa!<CR>
 
+nnoremap <silent> <leader>i :set ic!<CR>
+
 " Wrap
 set nowrap
-nnoremap <localleader>ww :set wrap!<CR>
+nnoremap <localleader>w :set wrap!<CR>
 
 " Set working dir to the current file path
 nnoremap <leader>de :lcd %:p:h<CR>
