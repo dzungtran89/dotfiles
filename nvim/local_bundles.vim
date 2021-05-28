@@ -13,23 +13,26 @@ Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
 " }}}
 
+" tree-sitter stuff
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'romgrk/nvim-treesitter-context', { 'branch': 'main' }
+
 " themes {{{
 Plug 'rktjmp/lush.nvim', {'branch': 'main'}
 Plug 'briones-gabriel/darcula-solid.nvim', { 'branch': 'main' }
 Plug 'eddyekofo94/gruvbox-flat.nvim'
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-Plug 'arcticicestudio/nord-vim'
-Plug 'chrisbra/Colorizer'
-" Plug 'itchyny/lightline.vim'
-Plug 'hoob3rt/lualine.nvim'
-
-" Plug 'gruvbox-community/gruvbox'
-" Plug 'dzungtran89/photon.vim'
-" Plug 'dracula/vim', {'dir': '/Users/tran/.config/nvim/plugged/dracula'}
 Plug 'edersonferreira/dalton-vim'
 Plug 'mhartington/oceanic-next'
 
+" Plug 'arcticicestudio/nord-vim'
+" Plug 'chrisbra/Colorizer'
+" Plug 'itchyny/lightline.vim'
+Plug 'hoob3rt/lualine.nvim'
+
+
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'ryanoasis/vim-devicons'
 " }}}
 
 " editor {{{
@@ -45,9 +48,8 @@ Plug 'pechorin/any-jump.vim'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'dyng/ctrlsf.vim'
+Plug 'kdav5758/HighStr.nvim'
 
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'ryanoasis/vim-devicons'
 " Plug 'wfxr/minimap.vim', {'do': ':!cargo install --locked code-minimap'}
 
 " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }

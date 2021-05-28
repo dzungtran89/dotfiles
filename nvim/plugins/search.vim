@@ -201,6 +201,11 @@ endif
 
 if has_key(plugs, 'ctrlsf.vim')
 
+  let g:ctrlsf_mapping = {
+        \ "next"    : "<C-n>",
+        \ "prev"    : "<C-p>"
+        \ }
+
   " g:ctrlsf_regex_pattern defines CtrlSF using literal pattern or regular 
   " expression pattern as default. Default value is 0, which means literal pattern.
   let g:ctrlsf_regex_pattern = 1
@@ -224,12 +229,12 @@ if has_key(plugs, 'ctrlsf.vim')
   vmap     <leader>fF <Plug>CtrlSFVwordExec
   nmap     <leader>fn <Plug>CtrlSFCwordPath
   nmap     <leader>fp <Plug>CtrlSFPwordPath
-  nmap     <leader>ff <Plug>CtrlSFPrompt-G *py -W -I<space>
-  nmap     <leader>fj <Plug>CtrlSFPrompt-G *js -W -I<space>
-  nmap     <leader>fx <Plug>CtrlSFPrompt-G *xml -W -I<space>
-  nmap     <leader>fv <Plug>CtrlSFPrompt-G *vim -W -I<space>
-  nmap     <leader>fc <Plug>CtrlSFPrompt-G *css -W -I<space>
-  nmap     <leader>fd <Plug>CtrlSFPrompt-G *dart -W -I<space>
+  nmap     <leader>ff <Plug>CtrlSFPrompt-G *py -W<space>
+  nmap     <leader>fj <Plug>CtrlSFPrompt-G *js -W<space>
+  nmap     <leader>fx <Plug>CtrlSFPrompt-G *xml -W<space>
+  nmap     <leader>fv <Plug>CtrlSFPrompt-G *vim -W<space>
+  nmap     <leader>fc <Plug>CtrlSFPrompt-G *css -W<space>
+  nmap     <leader>fd <Plug>CtrlSFPrompt-G *dart -W<space>
   nnoremap <leader>o :CtrlSFToggle<CR>
 
   " vmap     <leader>ff <Plug>CtrlSFVwordPath

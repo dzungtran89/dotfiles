@@ -200,16 +200,16 @@ ins_right {
   color = {fg = colors.violet, gui = 'bold'}
 }
 
-ins_right {
-  'diff',
-  -- Is it me or the symbol for modified us really weird
-  -- symbols = {added = ' ', modified = '柳 ', removed = ' '},
-  symbols = {added = ' ', modified = '🙋 ', removed = ' '},
-  color_added = colors.green,
-  color_modified = colors.orange,
-  color_removed = colors.red,
-  condition = conditions.hide_in_width
-}
+-- ins_right {
+--   'diff',
+--   -- Is it me or the symbol for modified us really weird
+--   -- symbols = {added = ' ', modified = '柳 ', removed = ' '},
+--   symbols = {added = ' ', modified = '🙋 ', removed = ' '},
+--   color_added = colors.green,
+--   color_modified = colors.orange,
+--   color_removed = colors.red,
+--   condition = conditions.hide_in_width
+-- }
 
 ins_right {
   function() return '▊' end,

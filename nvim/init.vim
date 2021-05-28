@@ -43,7 +43,10 @@ Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
 
 let g:ale_disable_lsp = 1
-let g:polyglot_disabled = ['python' , 'javascript']
+
+if has_key(plugs, 'vim-polyglot')
+  let g:polyglot_disabled = ['python' , 'javascript']
+endif
 
 let g:make = 'gmake'
 if exists('make')
