@@ -247,3 +247,41 @@ augroup Markdown
   autocmd!
   autocmd FileType markdown set wrap
 augroup END
+
+if has_key(plugs, 'HighStr.nvim')
+  vnoremap <silent> <f1> :<c-u>HSHighlight 1<CR>
+  vnoremap <silent> <f2> :<c-u>HSHighlight 2<CR>
+  vnoremap <silent> <f3> :<c-u>HSHighlight 3<CR>
+  vnoremap <silent> <f4> :<c-u>HSRmHighlight<CR>
+"lua << EOF
+"vim.api.nvim_set_keymap(
+"    "v",
+"    "<F3>",
+"    ":<c-u>HSHighlight 1<CR>",
+"    {
+"        noremap = true,
+"        silent = true
+"    }
+")
+
+"vim.api.nvim_set_keymap(
+"    "v",
+"    "<F4>",
+"    ":<c-u>HSRmHighlight<CR>",
+"    {
+"        noremap = true,
+"        silent = true
+"    }
+")
+"EOF
+endif
+
+if has_key(plugs, 'nvim-treesitter')
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  indent = {
+    enable = true
+  }
+}
+EOF
+endif
