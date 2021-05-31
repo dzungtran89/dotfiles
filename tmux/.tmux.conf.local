@@ -126,7 +126,7 @@ tmux_conf_theme_status_attr='none'
 
 # pane borders colours:
 tmux_conf_theme_pane_border='#3b4252'                   # gray
-tmux_conf_theme_pane_active_border='#a3be8c'            # light blue
+tmux_conf_theme_pane_active_border='#e5e9f0'            # light blue
 
 # pane indicator colours
 tmux_conf_theme_pane_indicator='#e5e9f0'                # light blue
