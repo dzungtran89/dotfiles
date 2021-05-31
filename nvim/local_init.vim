@@ -9,9 +9,10 @@ set mouse=
 " imap jk <Esc>
 
 noremap <localleader>c :bd!<CR>
-noremap <leader>w <C-w>
+" noremap <leader>w <C-w>
 noremap <leader>Q :qa!<CR>
 
+" noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 " Set working dir to the current file path
 nnoremap <leader>dd :lcd %:p:h<CR>
 

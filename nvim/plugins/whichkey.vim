@@ -30,9 +30,9 @@ if has_key(plugs, 'vim-which-key')
 
   let g:which_key_map.f = { 'name' : '+file' }
 
-  nnoremap <leader>fz :e!<CR>
-  nnoremap <leader>fe :e<CR>
-  nnoremap <leader>fs :update<CR>
+  " nnoremap <leader>fz :e!<CR>
+  " nnoremap <leader>fe :e<CR>
+  " nnoremap <leader>fs :update<CR>
 
   " nnoremap <silent> <leader>fd :e $MYVIMRC<CR>
   " let g:which_key_map.f.d = 'open-vimrc'
