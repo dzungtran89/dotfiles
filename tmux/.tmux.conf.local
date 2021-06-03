@@ -126,7 +126,7 @@ tmux_conf_theme_status_attr='none'
 
 # pane borders colours:
 tmux_conf_theme_pane_border='#3b4252'                   # gray
-tmux_conf_theme_pane_active_border='#e5e9f0'            # light blue
+tmux_conf_theme_pane_active_border='#a3be8c'            # light blue
 
 # pane indicator colours
 tmux_conf_theme_pane_indicator='#e5e9f0'                # light blue
@@ -191,11 +191,9 @@ tmux_conf_theme_window_status_format='#W'
 tmux_conf_theme_window_status_current_fg='#2e3440'      # black
 tmux_conf_theme_window_status_current_bg='#e5e9f0'      # light blue
 tmux_conf_theme_window_status_current_attr='bold'
-tmux_conf_theme_window_status_current_format='#W'
 
 # tmux_conf_theme_window_status_current_format='#{circled_window_index} #W'
-
-tmux_conf_theme_window_status_current_format='#W#{?window_zoomed_flag,🔍,}'
+tmux_conf_theme_window_status_current_format='#W#{?window_zoomed_flag, 🔍,}'
 
 # window activity status style
 tmux_conf_theme_window_status_activity_fg='default'
@@ -255,10 +253,12 @@ tmux_conf_theme_right_separator_sub=''  #   PowerlineSymbols.otf font, see READM
 #     - #{username_ssh}
 # tmux_conf_theme_status_left=' ❐ #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} '
 # tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} '
+
 tmux_conf_theme_status_left='   #S '
-tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized}'\
+tmux_conf_theme_status_right='#{prefix} #{pairing} #{synchronized}'\
 '#{?battery_bar,#{battery_bar},} , %d %b | '\
 '#{username}#{root} | #{hostname} '
+
 # '#(curl -m 1 wttr.in?format=3 2>/dev/null; sleep 900) ,#{?battery_bar, #{battery_bar},} , %d %b |'\
 # '#{?battery_bar, #{battery_bar},} ,'\
 

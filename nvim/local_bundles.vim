@@ -2,7 +2,6 @@
 
 " common {{{
 Plug 'xolox/vim-session'
-" Plug 'thaerkh/vim-workspace'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
@@ -13,12 +12,13 @@ Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
 " }}}
 
-" tree-sitter stuff
+" tree-sitter stuff {{{
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Plug 'lukas-reineke/indent-blankline.nvim'
 " Plug 'nvim-lua/plenary.nvim'
 " Plug 'lewis6991/gitsigns.nvim', {'branch': 'main'}
 " Plug 'romgrk/nvim-treesitter-context', { 'branch': 'main' }
+" }}}
 
 " themes {{{
 Plug 'rktjmp/lush.nvim', {'branch': 'main'}
@@ -26,18 +26,7 @@ Plug 'briones-gabriel/darcula-solid.nvim', { 'branch': 'main' }
 Plug 'eddyekofo94/gruvbox-flat.nvim'
 Plug 'ishan9299/nvim-solarized-lua'
 
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-Plug 'arcticicestudio/nord-vim'
-Plug 'chrisbra/Colorizer'
-" Plug 'itchyny/lightline.vim'
-Plug 'hoob3rt/lualine.nvim'
-
-Plug 'edersonferreira/dalton-vim'
-Plug 'mhartington/oceanic-next'
-
 Plug 'norcalli/nvim-colorizer.lua'
-" Plug 'arcticicestudio/nord-vim'
 " Plug 'itchyny/lightline.vim'
 Plug 'hoob3rt/lualine.nvim'
 

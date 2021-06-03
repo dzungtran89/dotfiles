@@ -1,6 +1,6 @@
 if has_key(plugs, 'wiki.vim')
 
-  let g:wiki_root = $HOME . '/Documents/book-tc'
+  let g:wiki_root = $HOME . '/code/github/abc-og'
   let g:wiki_filetypes = ['wiki', 'markdown', 'md']
   let g:wiki_link_target_type = 'md'
   let g:wiki_link_extension = '.md'

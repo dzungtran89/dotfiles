@@ -101,8 +101,8 @@ if has_key(plugs, 'vim-wordmotion')
         \ }
 endif
 
-let g:python3_host_prog = '$HOME/.pyenv/shims/python3'
-let g:python_host_prog = '$HOME/.pyenv/shims/python3'
+let g:python3_host_prog = 'python3'
+let g:python2_host_prog = 'python2'
 let g:ruby_host_prog = '$(which ruby)'
 
 " }}}

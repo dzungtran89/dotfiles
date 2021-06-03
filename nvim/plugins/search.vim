@@ -8,17 +8,7 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 
 let $FZF_DEFAULT_COMMAND = "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
 
-" let $SKIM_DEFAULT_COMMAND = "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
-
 " The Silver Searcher
-if executable('ag')
-  let $FZF_DEFAULT_COMMAND='ag -w -f --hidden --ignore .git -g ""'
-
-  " let $SKIM_DEFAULT_COMMAND='ag -w -f --hidden --ignore .git -g ""'
-
-  set grepprg=ag\ --nogroup\ --nocolor
-endif
-
 " ripgrep, override the above `ag`
 if executable('rg')
   let $FZF_DEFAULT_COMMAND='rg --files -w --hidden --follow --glob "!.git/*"'
@@ -27,7 +17,12 @@ if executable('rg')
   command! -bang -nargs=* Find
         \call fzf#vim#grep('--column --line-number --no-heading --fixed-strings --ignore-case -w --hidden --follow --glob "!.git/*" --color=always '.shellescape(<q-args>).'| tr -d "\017"',
         \1, <bang>0)
+
+elseif executable('ag')
+  let $FZF_DEFAULT_COMMAND='ag -w -f --hidden --ignore .git -g ""'
+  set grepprg=ag\ --nogroup\ --nocolor
 endif
+
 
 " fzf cool stuff {{{
 
@@ -201,6 +196,7 @@ endif
 
 if has_key(plugs, 'ctrlsf.vim')
 
+  let g:ctrlsf_backend = 'rg'
   let g:ctrlsf_mapping = {
         \ "next"    : "<C-n>",
         \ "prev"    : "<C-p>"
