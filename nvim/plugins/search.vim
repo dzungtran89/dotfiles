@@ -145,9 +145,9 @@ cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 
 if has_key(plugs, 'skim.vim')
-  nnoremap <silent> <leader>e :SK -m<CR>
+  nnoremap <silent> <leader>ef :SK -m<CR>
 else
-  nnoremap <leader>e :FZF -m<CR>
+  nnoremap <leader>ef :FZF -m<CR>
 endif
 
 

@@ -59,3 +59,12 @@ if has_key(plugs, 'telescope.nvim')
   nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
   nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 endif
+
+if has_key(plugs, 'nvim-tree.lua')
+  let g:nvim_tree_side = 'right'  "left by default
+  let g:nvim_tree_width = 60      "30 by default
+  let g:nvim_tree_highlight_opened_files = 1
+  nnoremap <leader>tt :NvimTreeToggle<CR>
+  nnoremap <leader>tr :NvimTreeRefresh<CR>
+  nnoremap <leader>tf :NvimTreeFindFile<CR>
+endif

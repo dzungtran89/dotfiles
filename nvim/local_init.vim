@@ -54,6 +54,7 @@ let g:no_plugin_maps = 1
 set redrawtime=10000
 set history=500
 set cursorline
+set conceallevel=0
 
 command! CopyBuffer let @+ = expand('%:p')
 
@@ -70,7 +71,6 @@ if has_key(plugs, 'gruvbox-flat.nvim')
 endif
 
 colorscheme gruvbox-flat
-" colorscheme darcula-solid
 
 if has_key(plugs, 'vim-wordmotion')
 
@@ -101,7 +101,9 @@ if has_key(plugs, 'vim-wordmotion')
         \ }
 endif
 
-let g:python3_host_prog = 'python3'
+let g:python3_host_prog = '$HOME/.pyenv/shims/python3'
+let g:python_host_prog = '$HOME/.pyenv/shims/python3'
+let g:ruby_host_prog = '$(which ruby)'
 
 " }}}
 
@@ -223,9 +225,9 @@ source $HOME/.config/nvim/plugins/coc.vim
 source $HOME/.config/nvim/plugins/git.vim
 source $HOME/.config/nvim/plugins/gutentags.vim
 source $HOME/.config/nvim/plugins/snips.vim
-source $HOME/.config/nvim/plugins/md.vim
 source $HOME/.config/nvim/plugins/jump.vim
 source $HOME/.config/nvim/plugins/wiki.vim
+source $HOME/.config/nvim/plugins/md.vim
 
 source $HOME/.config/nvim/plugins/statusline.lua
 source $HOME/.config/nvim/plugins/floaterm.vim
