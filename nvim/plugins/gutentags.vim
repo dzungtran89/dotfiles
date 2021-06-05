@@ -55,7 +55,7 @@ if has_key(plugs, 'vim-gutentags')
 
   let g:gutentags_generate_on_new = 0
   let g:gutentags_generate_on_missing = 0
-  let g:gutentags_generate_on_write = 1
+  let g:gutentags_generate_on_write = 0
   let g:gutentags_generate_on_empty_buffer = 0
 
   let g:gutentags_ctags_extra_args = [
@@ -112,6 +112,7 @@ if has_key(plugs, 'vim-gutentags')
         \ '*.pdf', '*.doc', '*.docx', '*.ppt', '*.pptx',
         \ 'log',
         \ 'venv',
+        \ 'git'
         \ ]
 
   " autocmd BufWritePost *.py,*.js silent! !ctags . &

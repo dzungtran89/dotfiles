@@ -17,7 +17,7 @@ set nowrap
 nnoremap <localleader>w :set wrap!<CR>
 
 " Set working dir to the current file path
-nnoremap <leader>de :lcd %:p:h<CR>
+nnoremap <leader>ed :lcd %:p:h<CR>
 
 nmap <silent> <leader>l :set invrelativenumber<CR>
 
@@ -63,14 +63,13 @@ noremap <leader>z :bp<CR>
 noremap <leader>x :bn<CR>
 
 " Auto insert dash with the same length of header
+" -----------------------------------------------
 nnoremap <localleader>u YpVr-<CR>
 
 "" Clean search (highlight)
 nnoremap <silent> <leader><space> :noh<cr>
 
 "" Keep cursor at the first match
-" nnoremap <silent> * :let @/='\<'.expand('<cword>').'\>'<CR>
-
 nnoremap * *N
 nnoremap # #N
 
@@ -243,31 +242,10 @@ augroup Markdown
 augroup END
 
 if has_key(plugs, 'HighStr.nvim')
-  vnoremap <silent> <f1> :<c-u>HSHighlight 1<CR>
-  vnoremap <silent> <f2> :<c-u>HSHighlight 2<CR>
-  vnoremap <silent> <f3> :<c-u>HSHighlight 3<CR>
-  vnoremap <silent> <f4> :<c-u>HSRmHighlight<CR>
-"lua << EOF
-"vim.api.nvim_set_keymap(
-"    "v",
-"    "<F3>",
-"    ":<c-u>HSHighlight 1<CR>",
-"    {
-"        noremap = true,
-"        silent = true
-"    }
-")
-
-"vim.api.nvim_set_keymap(
-"    "v",
-"    "<F4>",
-"    ":<c-u>HSRmHighlight<CR>",
-"    {
-"        noremap = true,
-"        silent = true
-"    }
-")
-"EOF
+  vnoremap <silent> <leader>h1 :<c-u>HSHighlight 1<CR>
+  vnoremap <silent> <leader>h2 :<c-u>HSHighlight 2<CR>
+  vnoremap <silent> <leader>h3 :<c-u>HSHighlight 3<CR>
+  vnoremap <silent> <leader>h0 :<c-u>HSRmHighlight<CR>
 endif
 
 if has_key(plugs, 'nvim-treesitter')
@@ -278,4 +256,8 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 EOF
+endif
+
+if has_key(plugs, 'nvim-colorizer.lua')
+  noremap <leader>tc :ColorizerToggle<CR>
 endif
