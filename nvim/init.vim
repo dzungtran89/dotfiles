@@ -118,7 +118,7 @@ set hidden
 set hlsearch
 " set nois
 set noic
-" set smartcase
+set smartcase
 
 set fileformats=unix,dos,mac
 

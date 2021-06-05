@@ -1,5 +1,11 @@
-
 if has_key(plugs, 'vim-session')
+
+  " session management
+  nnoremap <leader>wo :OpenSession<Space>
+  nnoremap <leader>ws :SaveSession<Space>
+  nnoremap <leader>wd :DeleteSession<CR>
+  nnoremap <leader>wc :CloseSession<CR>
+
   " session management
   let g:session_directory = "~/.config/nvim/session"
   let g:session_autosave = "no"

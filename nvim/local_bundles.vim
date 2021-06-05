@@ -15,12 +15,16 @@ Plug 'ludovicchabant/vim-gutentags'
 
 " tree-sitter stuff
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'lukas-reineke/indent-blankline.nvim'
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'lewis6991/gitsigns.nvim', {'branch': 'main'}
 " Plug 'romgrk/nvim-treesitter-context', { 'branch': 'main' }
 
 " themes {{{
 Plug 'rktjmp/lush.nvim', {'branch': 'main'}
 Plug 'briones-gabriel/darcula-solid.nvim', { 'branch': 'main' }
 Plug 'eddyekofo94/gruvbox-flat.nvim'
+Plug 'ishan9299/nvim-solarized-lua'
 
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -32,14 +36,19 @@ Plug 'hoob3rt/lualine.nvim'
 Plug 'edersonferreira/dalton-vim'
 Plug 'mhartington/oceanic-next'
 
+Plug 'norcalli/nvim-colorizer.lua'
 " Plug 'arcticicestudio/nord-vim'
-" Plug 'chrisbra/Colorizer'
 " Plug 'itchyny/lightline.vim'
 Plug 'hoob3rt/lualine.nvim'
 
+" Plug 'nvim-lua/popup.nvim'
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
 
+Plug 'kyazdani42/nvim-tree.lua'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'ryanoasis/vim-devicons'
+" Plug 'ryanoasis/vim-devicons'
+
 " }}}
 
 " editor {{{

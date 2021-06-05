@@ -58,15 +58,15 @@ export PATH="/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
 
 export PATH="/usr/local/opt/texinfo/bin:$PATH"
 
-# rust-lang
-export PATH="$HOME/.cargo/bin:$PATH"
+# # rust-lang
+# export PATH="$HOME/.cargo/bin:$PATH"
 
 # ssh to host by hostname :)
 # TODO: check $SHELL
 zstyle ':completion:*:(ssh|scp|ftp|sftp):*' hosts $hosts
 zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
 
-# fzf {{{
+# fzf loves fd {{{
 
 # fzf's command
 export FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --exclude .git"
@@ -121,8 +121,9 @@ bindkey -M vicmd 'y' vi-yank-xclip
 
 # nnn {{{
 
-export NNN_COLORS="2136"
-export NNN_TRASH=1
+alias nnn="nnn -de"
+# export NNN_COLORS="2136"
+export NNN_TRASH=0
 
 # }}}
 

@@ -28,11 +28,11 @@ if has_key(plugs, 'vim-which-key')
   " =======================================================
   " You can pass a descriptive text to an existing mapping.
 
-  let g:which_key_map.f = { 'name' : '+file' }
+  " let g:which_key_map.f = { 'name' : '+file' }
 
-  nnoremap <leader>fz :e!<CR>
-  nnoremap <leader>fe :e<CR>
-  nnoremap <leader>fs :update<CR>
+  " nnoremap <leader>fz :e!<CR>
+  " nnoremap <leader>fe :e<CR>
+  " nnoremap <leader>fs :update<CR>
 
   " nnoremap <silent> <leader>fd :e $MYVIMRC<CR>
   " let g:which_key_map.f.d = 'open-vimrc'
@@ -97,13 +97,13 @@ if has_key(plugs, 'vim-which-key')
   " \ 'N' : [':FloatermNew node'       , 'node']     ,
   " \ 'v' : [':FloatermNew vifm'       , 'vifm']      ,
   " \ 'r' : [':FloatermNew lf'         , 'lf']       ,
+  " \ 't' : [':FloatermToggle'         , 'terminal'] ,
   let g:which_key_map.c = {
         \ 'name' : '+terminal'             ,
         \ 'f' : [':FloatermNew fzf'        , 'fzf']      ,
         \ 'l' : [':FloatermNew lazygit'    , 'git']      ,
         \ 'g' : [':FloatermNew tig'        , 'tig']      ,
         \ 'p' : [':FloatermNew python'     , 'python']   ,
-        \ 't' : [':FloatermToggle'         , 'terminal'] ,
         \ 'y' : [':FloatermNew ytop'       , 'ytop']     ,
         \ }
 

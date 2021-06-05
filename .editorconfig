@@ -15,8 +15,8 @@ indent_size = 2
 [*.{xml,json,toml,html,{z,}sh,y{a,}ml}]
 indent_size = 4
 
-; [*.{py,md}]
-; indent_size = 4
+[*.{py,md}]
+indent_size = 4
 
 [*.{py,rs,go}]
 indent_size = 4
