@@ -257,7 +257,7 @@ tmux_conf_theme_right_separator_sub=''  #   PowerlineSymbols.otf font, see READM
 # tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} '
 tmux_conf_theme_status_left='   #S '
 tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized}'\
-'#{?battery_bar,#{battery_bar},} , %d %b |'\
+'#{?battery_bar,#{battery_bar},} , %d %b | '\
 '#{username}#{root} | #{hostname} '
 # '#(curl -m 1 wttr.in?format=3 2>/dev/null; sleep 900) ,#{?battery_bar, #{battery_bar},} , %d %b |'\
 # '#{?battery_bar, #{battery_bar},} ,'\
