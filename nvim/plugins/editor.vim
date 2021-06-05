@@ -259,5 +259,5 @@ EOF
 endif
 
 if has_key(plugs, 'nvim-colorizer.lua')
-  noremap <localleader>ct :ColorizerToggle<CR>
+  noremap <localleader>tc :ColorizerToggle<CR>
 endif

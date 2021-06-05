@@ -3,7 +3,7 @@
 let mapleader=" "
 let maplocalleader=","
 
-nnoremap <silent> <leader>st
+nnoremap <silent> <leader>ts
       \ :if exists("syntax_on") <BAR>
       \    syntax off <BAR>
       \ else <BAR>  
