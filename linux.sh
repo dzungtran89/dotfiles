@@ -105,5 +105,5 @@ asdf global nodejs latest
 
 ln -s $(which fdfind) ~/.local/bin/fd
 # ibus restart
-# gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('ibus', 'Bamboo')]"
+# gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('ibus', 'Unikey')]"
 

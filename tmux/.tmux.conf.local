@@ -256,10 +256,10 @@ tmux_conf_theme_right_separator_sub=''  #   PowerlineSymbols.otf font, see READM
 
 tmux_conf_theme_status_left='   #S '
 tmux_conf_theme_status_right='#{prefix} #{pairing} #{synchronized}'\
-'#{?battery_bar,#{battery_bar},} , %d %b | '\
+'#{?battery_bar, #{battery_bar},}| %d %b |'\
 '#{username}#{root} | #{hostname} '
 
-# '#(curl -m 1 wttr.in?format=3 2>/dev/null; sleep 900) ,#{?battery_bar, #{battery_bar},} , %d %b |'\
+# '#{?battery_bar,#{battery_bar},} , %d %b | '\
 # '#{?battery_bar, #{battery_bar},} ,'\
 
 # status left style
@@ -357,6 +357,7 @@ tmux_conf_copy_to_os_clipboard=true
 
 set -g set-titles on
 set -g status-interval 15
+set -g display-panes-time 1500
 
 setw -g automatic-rename on
 set -g monitor-activity off

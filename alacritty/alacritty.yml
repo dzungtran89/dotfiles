@@ -7,15 +7,15 @@ import:
   - ~/.config/alacritty/keys.yml
 
 env:
-  TERM: alacritty
+  # TERM: alacritty
   # https://github.com/jwilm/alacritty/issues/2566
   LC_CTYPE: en_US.UTF-8
 
 window:
-  decorations: full
+  decorations: none
 
   # Window title
-  title: CHU
+  # title: CHU
 
   # # Window class (Linux/BSD only):
   # class:

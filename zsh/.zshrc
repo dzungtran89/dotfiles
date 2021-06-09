@@ -146,9 +146,6 @@ setopt hist_ignore_space
 
 source ~/.sh_profile
 
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-# POWERLEVEL9K_DISABLE_GITSTATUS=true
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
 
@@ -156,9 +153,14 @@ source ~/.sh_profile
 . $HOME/.asdf/asdf.sh
 fpath=(${ASDF_DIR}/completions $fpath)
 
-# Start Docker daemon automatically when logging in if not running.
-# RUNNING=`ps aux | grep dockerd | grep -v grep`
-# if [ -z "$RUNNING" ]; then
-#     sudo dockerd > /dev/null 2>&1 &
-#     disown
-# fi
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/code/projects
+
+mkenv(){
+  virtualenv -p $(asdf where python "$1")/bin/python "$WORKON_HOME"/"$2"
+}
+
+workon(){
+  source "$WORKON_HOME"/"$1"/bin/activate
+  [ -d "$PROJECT_HOME"/"$1" ] && cd "$PROJECT_HOME"/"$1"
+}
