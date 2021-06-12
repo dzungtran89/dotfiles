@@ -26,6 +26,8 @@ Plug 'briones-gabriel/darcula-solid.nvim', { 'branch': 'main' }
 Plug 'eddyekofo94/gruvbox-flat.nvim'
 Plug 'ishan9299/nvim-solarized-lua'
 
+" Plug 'camspiers/snap', {'branch': 'main'}
+
 Plug 'norcalli/nvim-colorizer.lua'
 " Plug 'itchyny/lightline.vim'
 Plug 'hoob3rt/lualine.nvim'

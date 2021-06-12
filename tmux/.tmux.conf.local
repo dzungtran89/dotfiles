@@ -254,9 +254,9 @@ tmux_conf_theme_right_separator_sub=''  #   PowerlineSymbols.otf font, see READM
 # tmux_conf_theme_status_left=' ❐ #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} '
 # tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} '
 
-tmux_conf_theme_status_left='   #S '
+tmux_conf_theme_status_left='  #S '
 tmux_conf_theme_status_right='#{prefix} #{pairing} #{synchronized}'\
-'#{?battery_bar, #{battery_bar},}| %d %b |'\
+'#{?battery_bar, #{battery_bar},} | %d %b |'\
 '#{username}#{root} | #{hostname} '
 
 # '#{?battery_bar,#{battery_bar},} , %d %b | '\
@@ -370,9 +370,6 @@ bind-key -n 'C-h' if-shell "$is_vim" 'send-keys C-h'  'select-pane -L'
 bind-key -n 'C-j' if-shell "$is_vim" 'send-keys C-j'  'select-pane -D'
 bind-key -n 'C-k' if-shell "$is_vim" 'send-keys C-k'  'select-pane -U'
 bind-key -n 'C-l' if-shell "$is_vim" 'send-keys C-l'  'select-pane -R'
-# bind-key -n S-Tab next-window
-# bind-key -n C-S-Tab previous-window
-
 tmux_version='$(tmux -V | sed -En "s/^tmux ([0-9]+(.[0-9]+)?).*/\1/p")'
 if-shell -b '[ "$(echo "$tmux_version < 3.0" | bc)" = 1 ]' \
     "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\'  'select-pane -l'"

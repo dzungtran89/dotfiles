@@ -261,3 +261,27 @@ endif
 if has_key(plugs, 'nvim-colorizer.lua')
   noremap <leader>tc :ColorizerToggle<CR>
 endif
+
+if has_key(plugs, 'snap')
+lua <<EOF
+local snap = require'snap'
+snap.register.map({"n"}, {"<Leader>sf"}, function ()
+snap.run {
+  producer = snap.get'consumer.fzf'(snap.get'producer.git.file'),
+  select = snap.get'select.file'.select,
+  multiselect = snap.get'select.file'.multiselect,
+  views = {snap.get'preview.file'}
+  }
+end)
+
+snap.register.map({"n"}, {"<Leader>sr"}, function ()
+snap.run {
+  producer = snap.get'producer.ripgrep.vimgrep',
+  select = snap.get'select.vimgrep'.select,
+  multiselect = snap.get'select.vimgrep'.multiselect,
+  views = {snap.get'preview.vimgrep'}
+  }
+end)
+
+EOF
+endif
