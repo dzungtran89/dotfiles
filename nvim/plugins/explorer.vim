@@ -61,9 +61,11 @@ if has_key(plugs, 'telescope.nvim')
 endif
 
 if has_key(plugs, 'nvim-tree.lua')
+  let g:nvim_tree_disable_netrw = 0 "1 by default, disables netrw
   let g:nvim_tree_side = 'right'  "left by default
   let g:nvim_tree_width = 60      "30 by default
   let g:nvim_tree_highlight_opened_files = 1
+
   nnoremap <leader>tt :NvimTreeToggle<CR>
   nnoremap <leader>tr :NvimTreeRefresh<CR>
   nnoremap <leader>tf :NvimTreeFindFile<CR>

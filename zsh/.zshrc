@@ -153,14 +153,15 @@ source ~/.sh_profile
 . $HOME/.asdf/asdf.sh
 fpath=(${ASDF_DIR}/completions $fpath)
 
-# export WORKON_HOME=$HOME/.virtualenvs
-# export PROJECT_HOME=$HOME/code/projects
 
-# mkenv(){
-#   virtualenv -p $(asdf where python "$1")/bin/python "$WORKON_HOME"/"$2"
-# }
+export WORKON_HOME=$HOME/.local/share/virtualenvs
+export PROJECT_HOME=$HOME/code/projects
 
-# workon(){
-#   source "$WORKON_HOME"/"$1"/bin/activate
-#   [ -d "$PROJECT_HOME"/"$1" ] && cd "$PROJECT_HOME"/"$1"
-# }
+envmk(){
+  virtualenv -p $(asdf where python "$1")/bin/python "$WORKON_HOME"/"$2"
+}
+
+envon(){
+  source "$WORKON_HOME"/"$1"/bin/activate
+  [ -d "$PROJECT_HOME"/"$1" ] && cd "$PROJECT_HOME"/"$1"
+}
