@@ -1,0 +1,12 @@
+reporting: "off"
+ selectedLineBgColor:
+        - reverse
+    selectedRangeBgColor:
+        - reverse
+    # activeBorderColor:
+    # - green
+    # - bold
+    # inactiveBorderColor:
+    # - white
+    # optionsTextColor:
+    # - blue
