@@ -7,7 +7,7 @@
 nnoremap Q <Nop>
 
 noremap <localleader>c :bd!<CR>
-noremap <leader>w <C-w>
+" noremap <leader>w <C-w>
 noremap <leader>Q :qa!<CR>
 
 nnoremap <silent> <leader>i :set ic!<CR>

@@ -31,7 +31,7 @@ git:
 reporting: "off"
 disableStartupPopups: true
 
-keybinding:
-  universal:
-    quit: '<esc>'
-    return: 'q'
+# keybinding:
+#   universal:
+#     quit: '<esc>'
+#     return: 'q'

@@ -25,6 +25,7 @@ Plug 'rktjmp/lush.nvim', {'branch': 'main'}
 Plug 'briones-gabriel/darcula-solid.nvim', { 'branch': 'main' }
 Plug 'eddyekofo94/gruvbox-flat.nvim'
 Plug 'ishan9299/nvim-solarized-lua'
+" Plug 'Th3Whit3Wolf/one-nvim', { 'branch': 'main' }
 
 " Plug 'camspiers/snap', {'branch': 'main'}
 
@@ -45,8 +46,9 @@ Plug 'ryanoasis/vim-devicons'
 " editor {{{
 
 " Plug 'suxpert/vimcaps'
+Plug 'dhruvasagar/vim-zoom'
 Plug 'tpope/vim-surround'
-Plug 'ronakg/quickr-preview.vim'
+" Plug 'ronakg/quickr-preview.vim'
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/tagbar'
