@@ -2,9 +2,13 @@
 
 if has_key(plugs, 'nnn.vim')
 
-  " let g:nnn#replace_netrw = 1
+  let g:nnn#replace_netrw = 1
 
-  let $NNN_TRASH=1
+  " use the same n³ session within a vim session
+  let g:nnn#session = 'local'
+
+  " OR, to pass env variables
+  let g:nnn#command = 'NNN_TRASH=1 nnn -d'
 
   " Disable default mappings
   let g:nnn#set_default_mappings = 0

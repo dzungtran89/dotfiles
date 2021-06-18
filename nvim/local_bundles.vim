@@ -25,7 +25,6 @@ Plug 'rktjmp/lush.nvim', {'branch': 'main'}
 Plug 'briones-gabriel/darcula-solid.nvim', { 'branch': 'main' }
 Plug 'eddyekofo94/gruvbox-flat.nvim'
 Plug 'ishan9299/nvim-solarized-lua'
-" Plug 'Th3Whit3Wolf/one-nvim', { 'branch': 'main' }
 
 " Plug 'camspiers/snap', {'branch': 'main'}
 
@@ -74,7 +73,8 @@ Plug 'samgriesemer/vim-roam'
 
 " explorer {{{
 
-Plug 'ptzz/lf.vim'
+" Plug 'ptzz/lf.vim'
+Plug 'mcchrish/nnn.vim'
 Plug 'voldikss/vim-floaterm'
 
 " editorconfig
