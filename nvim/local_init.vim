@@ -229,7 +229,7 @@ source $HOME/.config/nvim/plugins/jump.vim
 source $HOME/.config/nvim/plugins/wiki.vim
 source $HOME/.config/nvim/plugins/md.vim
 
-source $HOME/.config/nvim/plugins/statusline.lua
+source $HOME/.config/nvim/plugins/statusline.vim
 source $HOME/.config/nvim/plugins/floaterm.vim
 source $HOME/.config/nvim/plugins/keys.vim
 

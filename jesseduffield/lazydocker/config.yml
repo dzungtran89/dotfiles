@@ -1,8 +1,9 @@
 reporting: "off"
- selectedLineBgColor:
-        - reverse
-    selectedRangeBgColor:
-        - reverse
+colors:
+   selectedLineBgColor:
+      - reverse
+   selectedRangeBgColor:
+      - reverse
     # activeBorderColor:
     # - green
     # - bold
