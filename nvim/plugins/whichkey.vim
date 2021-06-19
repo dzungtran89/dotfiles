@@ -111,7 +111,7 @@ endif
 
 if has_key(plugs, 'vim-floaterm')
   " Configuration example
-  " nnoremap   <silent>   <leader>n          :FloatermNew lf<CR>
+  " nnoremap   <silent>   <leader>n          :FloatermNew nnn<CR>
   nnoremap   <silent>   <F12>              :FloatermToggle<CR>
   tnoremap   <silent>   <F12>   <C-\><C-n> :FloatermToggle<CR>
 

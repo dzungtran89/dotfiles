@@ -45,8 +45,9 @@ Plug 'ryanoasis/vim-devicons'
 " editor {{{
 
 " Plug 'suxpert/vimcaps'
+Plug 'dhruvasagar/vim-zoom'
 Plug 'tpope/vim-surround'
-Plug 'ronakg/quickr-preview.vim'
+" Plug 'ronakg/quickr-preview.vim'
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/tagbar'
@@ -72,7 +73,8 @@ Plug 'samgriesemer/vim-roam'
 
 " explorer {{{
 
-Plug 'ptzz/lf.vim'
+" Plug 'ptzz/lf.vim'
+Plug 'mcchrish/nnn.vim'
 Plug 'voldikss/vim-floaterm'
 
 " editorconfig
