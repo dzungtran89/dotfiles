@@ -44,7 +44,7 @@ yabai -m config window_gap                   10
 # float system preferences
 #
 # regex that matches apps that will be float
-apps='^(Problem Reporter|About This Mac|Preview|Calendar|Dictionary|Messages|Keychain Access|Maps|Mail|EasyRes|Dozer|Stats|Parallels Desktop|LICEcap|DBngin|TablePlus|IINA|The Unarchiver|AppCleaner|App Store|System Preferences|System Information|Finder|Monosnap|Creative Cloud)$'
+apps='^(Problem Reporter|About This Mac|Preview|Calendar|Dictionary|Messages|Keychain Access|Maps|Mail|EasyRes|Dozer|Stats|Parallels Desktop|LICEcap|DBngin|TablePlus|IINA|The Unarchiver|AppCleaner|App Store|System Preferences|System Information|Finder|Monosnap|Creative Cloud|Activity Monitor)$'
 
 yabai -m rule --add app="${apps}" manage=off
 
