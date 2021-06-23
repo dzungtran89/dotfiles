@@ -6,8 +6,13 @@
 " Disable Ex mode keybinding
 nnoremap Q <Nop>
 
-noremap <localleader>c :b#<bar>bd#<CR>
-noremap <leader>Q :qa!<CR>
+" noremap <localleader>c :b#<bar>bd#<CR>
+noremap <localleader>bd :bd!<CR>
+noremap <localleader>be :e!<CR>
+noremap <localleader>bq :close<CR>
+noremap <localleader>bs :split<CR>
+noremap <localleader>bv :vsplit<CR>
+noremap <leader>sq :qa!<CR>
 
 nnoremap <silent> <leader>i :set ic!<CR>
 
@@ -36,6 +41,10 @@ nnoremap <S-t> :tabnew<CR>
 if has_key(plugs, 'tagbar')
   nmap <silent> <F4> :TagbarToggle<CR>
   let g:tagbar_autofocus = 1
+
+elseif has_key(plugs, 'symbols-outline.nvim')
+  source $HOME/.config/nvim/plugins/outline.lua
+
 endif
 
 if has_key(plugs, 'editorconfig-vim')
@@ -152,7 +161,7 @@ if has_key(plugs, 'vim-multiple-cursors')
 endif
 
 if has_key(plugs, 'vim-better-whitespace')
-  let g:better_whitespace_enabled = 0
+  let g:better_whitespace_enabled = 1
   let g:strip_whitespace_on_save=0
 endif
 

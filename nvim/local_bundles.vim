@@ -7,7 +7,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
 " You would love this
-" Please add `.notags` file into the $HOME dir in order to avoid tags processing 
+" Please add `.notags` file into the $HOME dir in order to avoid tags processing
 "   in that big dir
 Plug 'ludovicchabant/vim-gutentags'
 " }}}
@@ -31,6 +31,7 @@ Plug 'ishan9299/nvim-solarized-lua'
 Plug 'norcalli/nvim-colorizer.lua'
 " Plug 'itchyny/lightline.vim'
 Plug 'hoob3rt/lualine.nvim'
+" Plug 'famiu/feline.nvim'
 
 " Plug 'nvim-lua/popup.nvim'
 " Plug 'nvim-lua/plenary.nvim'
@@ -47,7 +48,6 @@ Plug 'ryanoasis/vim-devicons'
 " Plug 'suxpert/vimcaps'
 Plug 'dhruvasagar/vim-zoom'
 Plug 'tpope/vim-surround'
-" Plug 'ronakg/quickr-preview.vim'
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/tagbar'
@@ -57,15 +57,10 @@ Plug 'jeetsukumaran/vim-indentwise'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'dyng/ctrlsf.vim'
 Plug 'kdav5758/HighStr.nvim'
-
-" Plug 'wfxr/minimap.vim', {'do': ':!cargo install --locked code-minimap'}
-
-" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
+" Plug 'simrat39/symbols-outline.nvim'
 
 " wiki / writing
 Plug 'godlygeek/tabular'
-" Plug 'plasticboy/vim-markdown'
-
 Plug 'samgriesemer/wiki.vim'
 Plug 'samgriesemer/vim-roam'
 
@@ -104,9 +99,9 @@ Plug 'christoomey/vim-tmux-navigator'
 " Plug 'lambdalisue/gina.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
-" Plug 'junegunn/gv.vim'
-Plug 'shumphrey/fugitive-gitlab.vim'
-" required by fugitive to :Gbrowse
 Plug 'airblade/vim-gitgutter'
+" Plug 'junegunn/gv.vim'
+" required by fugitive to :Gbrowse
+Plug 'shumphrey/fugitive-gitlab.vim'
 
 " }}}
