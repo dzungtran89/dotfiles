@@ -31,6 +31,7 @@ Plug 'ishan9299/nvim-solarized-lua'
 Plug 'norcalli/nvim-colorizer.lua'
 " Plug 'itchyny/lightline.vim'
 Plug 'hoob3rt/lualine.nvim'
+" Plug 'famiu/feline.nvim'
 
 " Plug 'nvim-lua/popup.nvim'
 " Plug 'nvim-lua/plenary.nvim'
@@ -57,15 +58,11 @@ Plug 'jeetsukumaran/vim-indentwise'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'dyng/ctrlsf.vim'
 Plug 'kdav5758/HighStr.nvim'
-
-" Plug 'wfxr/minimap.vim', {'do': ':!cargo install --locked code-minimap'}
-
-" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
+" Plug 'simrat39/symbols-outline.nvim'
+" Plug 'famiu/bufdelete.nvim'
 
 " wiki / writing
 Plug 'godlygeek/tabular'
-" Plug 'plasticboy/vim-markdown'
-
 Plug 'samgriesemer/wiki.vim'
 Plug 'samgriesemer/vim-roam'
 

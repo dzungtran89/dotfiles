@@ -33,6 +33,7 @@ alias hs='hugo server'
 alias bu='buku'
 alias b='bu --suggest'
 alias n3='nnn'
+alias nnn="nnn -deH"
 
 # docker
 alias dki='docker images'
@@ -123,7 +124,11 @@ alias ldocker='lazydocker'
 alias c2c-deploy='$HOME/code/projects/c2c-migration/deploy.sh'
 
 # flutter
-alias fbi='flutter build ios'
+alias fl='flutter'
+alias flb='flutter build'
+alias flc='flutter clean'
+alias flbi='flutter build ios'
+alias flba='flutter build apk'
 
 # git
 alias gh="open \`git remote -v | grep fetch | head -1 | cut -f2 | cut -d' ' -f1 | sed -e's/git@/http:\/\//' -e's/\.git$//' | sed -E 's/(\/\/[^:]*):/\1\//'\`"

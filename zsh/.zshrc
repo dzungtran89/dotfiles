@@ -1,8 +1,16 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+IS_PURE=1
+IS_STARSHIP=0
+IS_P10K=0
+
+if [[ $IS_P10K == 0 ]] then
+
+  # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+  # Initialization code that may require console input (password prompts, [y/n]
+  # confirmations, etc.) must go above this block; everything else may go below.
+  if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+  fi
+
 fi
 
 # vim:foldmethod=manual
@@ -25,12 +33,13 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # ZSH_THEME="spaceship"
 # ZSH_THEME="bira"
-ZSH_THEME=""
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="bira"
 
-IS_PURE=0
+if [[ $IS_P10K == 1 ]] then
+  ZSH_THEME="powerlevel10k/powerlevel10k"
+fi
 
-if [[ ${IS_PURE} == 1 ]] then
+if [[ $IS_PURE == 1 ]] then
   ZSH_THEME=""
 fi
 
@@ -129,10 +138,7 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-# Pure {{{
-
-
-if [[ ${IS_PURE} == 1 ]] then;
+if [[ $IS_PURE == 1 ]] then;
   fpath+=$HOME/.zsh/pure
   autoload -U promptinit; promptinit
 
@@ -150,8 +156,6 @@ if [[ ${IS_PURE} == 1 ]] then;
   prompt pure
 fi
 
-# }}}
-
 # Personal config
 export FZF_BASE=$(which fzf)
 
@@ -164,6 +168,10 @@ source ~/.sh_profile
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
+
+# nnn
+export NNN_COLORS="2136"
+export NNN_TRASH=0
 
 # asdf
 . $HOME/.asdf/asdf.sh
@@ -182,5 +190,11 @@ envon(){
   [ -d "$PROJECT_HOME"/"$1" ] && cd "$PROJECT_HOME"/"$1"
 }
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+if [[ $IS_P10K == 1 ]] then
+  # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+  [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+fi
+
+if [[ $IS_STARSHIP == 1 ]] then
+  eval "$(starship init zsh)"
+fi
