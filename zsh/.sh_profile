@@ -55,11 +55,10 @@ export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/libffi/lib/pkgconfig"
 # jekyll
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
-
 export PATH="/usr/local/opt/texinfo/bin:$PATH"
 
-# # rust-lang
-# export PATH="$HOME/.cargo/bin:$PATH"
+# java
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-14.0.2.jdk/Contents/Home"
 
 # ssh to host by hostname :)
 # TODO: check $SHELL
@@ -118,14 +117,6 @@ function vi-yank-xclip {
 
 zle -N vi-yank-xclip
 bindkey -M vicmd 'y' vi-yank-xclip
-
-# nnn {{{
-
-alias nnn="nnn -de"
-# export NNN_COLORS="2136"
-export NNN_TRASH=0
-
-# }}}
 
 n () {
   # Block nesting of nnn in subshells
