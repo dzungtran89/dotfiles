@@ -1,4 +1,3 @@
-lua << EOF
 vim.g.symbols_outline = {
     highlight_hovered_item = true,
     show_guides = true,
@@ -14,4 +13,3 @@ vim.g.symbols_outline = {
     },
     lsp_blacklist = {},
 }
-EOF

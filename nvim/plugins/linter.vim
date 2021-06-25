@@ -1,4 +1,3 @@
-
 if has_key(plugs, 'ale')
 
   let g:ale_pattern_options = {'[^\.py]+$': {'ale_enabled': 0}}

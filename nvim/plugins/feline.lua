@@ -1,5 +1,3 @@
-lua << EOF
-
 local get_diag = function(str)
   local count = vim.lsp.diagnostic.get_count(0, str)
   return (count > 0) and ' '..count..' ' or ''
@@ -128,6 +126,3 @@ require'feline'.setup {
     }
   },
 }
-
-
-EOF

@@ -2,7 +2,7 @@ if has_key(plugs, 'feline.nvim')
   source $HOME/.config/nvim/plugins/feline.lua
 
 elseif has_key(plugs, 'lualine.nvim')
-	source $HOME/.config/nvim/plugins/lualine.lua
+  source $HOME/.config/nvim/plugins/lualine.lua
 
 elseif has_key(plugs, 'lightline.vim')
   source $HOME/.config/nvim/plugins/lightline.vim

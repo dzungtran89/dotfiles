@@ -2,7 +2,7 @@ IS_PURE=1
 IS_STARSHIP=0
 IS_P10K=0
 
-if [[ $IS_P10K == 0 ]] then
+if [[ $IS_P10K == 1 ]] then
 
   # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
   # Initialization code that may require console input (password prompts, [y/n]
@@ -31,8 +31,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
-# ZSH_THEME="spaceship"
-# ZSH_THEME="bira"
 ZSH_THEME="bira"
 
 if [[ $IS_P10K == 1 ]] then
@@ -167,7 +165,11 @@ setopt hist_ignore_space
 source ~/.sh_profile
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
+# [[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
+
+# nnn
+export NNN_COLORS="2136"
+export NNN_TRASH=0
 
 # nnn
 export NNN_COLORS="2136"

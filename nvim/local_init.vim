@@ -221,7 +221,14 @@ source $HOME/.config/nvim/plugins/session.vim
 source $HOME/.config/nvim/plugins/editor.vim
 source $HOME/.config/nvim/plugins/explorer.vim
 source $HOME/.config/nvim/plugins/search.vim
-source $HOME/.config/nvim/plugins/coc.vim
+
+if has_key(plugs, 'coc.nvim')
+  source $HOME/.config/nvim/plugins/coc.vim
+else
+  source $HOME/.config/nvim/plugins/lsp.lua
+  source $HOME/.config/nvim/plugins/compe.lua
+endif
+
 source $HOME/.config/nvim/plugins/git.vim
 source $HOME/.config/nvim/plugins/gutentags.vim
 source $HOME/.config/nvim/plugins/snips.vim

@@ -8,7 +8,7 @@ if has_key(plugs, 'nnn.vim')
   let g:nnn#session = 'local'
 
   " OR, to pass env variables
-  let g:nnn#command = 'NNN_TRASH=1 nnn -d'
+  let g:nnn#command = 'NNN_COLORS="" nnn'
 
   " Disable default mappings
   let g:nnn#set_default_mappings = 0

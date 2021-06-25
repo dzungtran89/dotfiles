@@ -6,9 +6,13 @@
 " Disable Ex mode keybinding
 nnoremap Q <Nop>
 
-noremap <localleader>c :b#<bar>bd#<CR>
-noremap <leader>Q :qa!<CR>
- 
+" noremap <localleader>c :b#<bar>bd#<CR>
+noremap <localleader>bd :bd!<CR>
+noremap <localleader>be :e!<CR>
+noremap <localleader>bq :close<CR>
+noremap <localleader>bs :split<CR>
+noremap <localleader>bv :vsplit<CR>
+noremap <leader>sq :qa!<CR>
 nnoremap <silent> <leader>i :set ic!<CR>
 
 " Wrap

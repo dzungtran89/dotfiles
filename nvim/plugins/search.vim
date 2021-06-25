@@ -29,7 +29,7 @@ endif
 " let g:fzf_preview_window = 'up:60%'
 let g:fzf_preview_window = ''
 
-nmap <localleader>b :BLines<CR>
+nmap <localleader>bl :BLines<CR>
 nmap <Leader>L :Lines<CR>
 nmap <Leader>' :Marks<CR>
 
