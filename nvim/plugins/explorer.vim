@@ -51,7 +51,10 @@ endif
 " fzf / telescope
 
 if has_key(plugs, 'telescope.nvim')
+  source $HOME/.config/nvim/plugins/telescope.lua
+
   " Find files using Telescope command-line sugar.
+  nnoremap <leader>ft <cmd>Telescope <cr>
   nnoremap <leader>ff <cmd>Telescope find_files<cr>
   nnoremap <leader>fg <cmd>Telescope live_grep<cr>
   nnoremap <leader>fb <cmd>Telescope buffers<cr>
@@ -62,13 +65,18 @@ if has_key(plugs, 'telescope.nvim')
   nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
   nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
   nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+
 endif
 
 if has_key(plugs, 'nvim-tree.lua')
-  let g:nvim_tree_disable_netrw = 0 "1 by default, disables netrw
-  let g:nvim_tree_side = 'right'  "left by default
-  let g:nvim_tree_width = 60      "30 by default
+  let g:nvim_tree_disable_netrw = 0                                       " 1 by default, disables netrw
+  let g:nvim_tree_side = 'right'                                          " left by default
+  let g:nvim_tree_width = 60                                              " 30 by default
   let g:nvim_tree_highlight_opened_files = 1
+  let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ]           " empty by default
+  let g:nvim_tree_gitignore = 1                                           " 0 by default
+  let g:nvim_tree_auto_ignore_ft = [ 'startify', 'dashboard' ]            " empty by default, don't auto open tree on specific filetypes.
+  let g:nvim_tree_special_files = [ 'README.md', 'Makefile', 'MAKEFILE' ] " List of filenames that gets highlighted with NvimTreeSpecialFile
 
   nnoremap <leader>tt :NvimTreeToggle<CR>
   nnoremap <leader>tr :NvimTreeRefresh<CR>

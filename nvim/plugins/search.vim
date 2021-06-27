@@ -202,7 +202,7 @@ if has_key(plugs, 'ctrlsf.vim')
         \ "prev"    : "<C-p>"
         \ }
 
-  " g:ctrlsf_regex_pattern defines CtrlSF using literal pattern or regular 
+  " g:ctrlsf_regex_pattern defines CtrlSF using literal pattern or regular
   " expression pattern as default. Default value is 0, which means literal pattern.
   let g:ctrlsf_regex_pattern = 1
 
@@ -222,23 +222,23 @@ if has_key(plugs, 'ctrlsf.vim')
         \ "at": "start"
         \ }
 
-  vmap     <leader>fF <Plug>CtrlSFVwordExec
-  nmap     <leader>fn <Plug>CtrlSFCwordPath
-  nmap     <leader>fp <Plug>CtrlSFPwordPath
-  nmap     <leader>ff <Plug>CtrlSFPrompt-G *py -W<space>
-  nmap     <leader>fj <Plug>CtrlSFPrompt-G *js -W<space>
-  nmap     <leader>fx <Plug>CtrlSFPrompt-G *xml -W<space>
-  nmap     <leader>fv <Plug>CtrlSFPrompt-G *vim -W<space>
-  nmap     <leader>fc <Plug>CtrlSFPrompt-G *css -W<space>
-  nmap     <leader>fd <Plug>CtrlSFPrompt-G *dart -W<space>
-  nnoremap <leader>o :CtrlSFToggle<CR>
+  vmap     <leader>sF <Plug>CtrlSFVwordExec
+  nmap     <leader>sn <Plug>CtrlSFCwordPath
+  nmap     <leader>sp <Plug>CtrlSFPwordPath
+  nmap     <leader>sf <Plug>CtrlSFPrompt-G *py -W<space>
+  nmap     <leader>sj <Plug>CtrlSFPrompt-G *js -W<space>
+  nmap     <leader>sx <Plug>CtrlSFPrompt-G *xml -W<space>
+  nmap     <leader>sv <Plug>CtrlSFPrompt-G *vim -W<space>
+  nmap     <leader>sc <Plug>CtrlSFPrompt-G *css -W<space>
+  nmap     <leader>sd <Plug>CtrlSFPrompt-G *dart -W<space>
+  nnoremap <leader>so :CtrlSFToggle<CR>
 
   " vmap     <leader>ff <Plug>CtrlSFVwordPath
   " nnoremap <leader>fo :CtrlSFOpen<CR>
   " inoremap <leader>ft <Esc>:CtrlSFToggle<CR>
 
 else
-  
+
   " grep.vim
   " command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
   nnoremap \ :Rgrep<SPACE>

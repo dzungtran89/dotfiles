@@ -37,7 +37,7 @@ Plug 'vim-scripts/grep.vim'
 
 " Plug 'vim-scripts/CSApprox'
 Plug 'Raimondi/delimitMate'
-Plug 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine'
 
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'

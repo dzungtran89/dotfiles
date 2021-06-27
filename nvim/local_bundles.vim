@@ -12,7 +12,6 @@ Plug 'ludovicchabant/vim-gutentags'
 
 " tree-sitter stuff {{{
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" Plug 'lukas-reineke/indent-blankline.nvim'
 " Plug 'nvim-lua/plenary.nvim'
 " Plug 'lewis6991/gitsigns.nvim', {'branch': 'main'}
 " Plug 'romgrk/nvim-treesitter-context', { 'branch': 'main' }
@@ -28,10 +27,12 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'hoob3rt/lualine.nvim'
 " Plug 'famiu/feline.nvim'
 
-" Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 
 Plug 'kyazdani42/nvim-tree.lua'
+
+
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
 
@@ -40,9 +41,12 @@ Plug 'ryanoasis/vim-devicons'
 
 " }}}
 
-" editor {{{
+" -------------------------------
+"  EDITORS
+" -------------------------------
 
 " Plug 'suxpert/vimcaps'
+Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'lua' }
 Plug 'dhruvasagar/vim-zoom'
 Plug 'tpope/vim-surround'
 Plug 'dense-analysis/ale'
@@ -56,15 +60,19 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'kdav5758/HighStr.nvim'
 " Plug 'simrat39/symbols-outline.nvim'
 
-" wiki / writing
+" -------------------------------
+"  WIKI / WRITING
+" -------------------------------
+
 Plug 'godlygeek/tabular'
 Plug 'samgriesemer/wiki.vim'
 Plug 'samgriesemer/vim-roam'
 
-" }}}
+" -------------------------------
+"  EXPLORER
+" -------------------------------
 
-" explorer {{{
-
+Plug 'nvim-telescope/telescope.nvim'
 " Plug 'ptzz/lf.vim'
 Plug 'mcchrish/nnn.vim'
 Plug 'voldikss/vim-floaterm'

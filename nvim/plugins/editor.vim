@@ -12,7 +12,6 @@ noremap <localleader>be :e!<CR>
 noremap <localleader>bq :close<CR>
 noremap <localleader>bs :split<CR>
 noremap <localleader>bv :vsplit<CR>
-noremap <leader>sq :qa!<CR>
 nnoremap <silent> <leader>i :set ic!<CR>
 
 " Wrap
@@ -50,11 +49,15 @@ if has_key(plugs, 'editorconfig-vim')
   let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 endif
 
-let g:indentLine_enabled = 1
-let g:indentLine_concealcursor = 0
-let g:indentLine_char = '┆'
-let g:indentLine_faster = 1
-let g:indentLine_first_char = '.'
+if has_key(plugs, 'indentLine')
+  let g:indentLine_enabled = 1
+  let g:indentLine_concealcursor = 0
+  let g:indentLine_char = '┆'
+  let g:indentLine_faster = 1
+  let g:indentLine_first_char = '.'
+" elseif has_key(plugs, 'indent-blankline.nvim')
+"   let g:indent_blankline_use_treesitter = 1
+endif
 
 " set ai "Auto indent
 " set si "Smart indent
