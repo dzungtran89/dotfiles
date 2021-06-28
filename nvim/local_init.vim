@@ -63,9 +63,13 @@ if has('termguicolors')
   set termguicolors
 endif
 
-set background=dark
+
+if has_key(plugs, 'tokyonight.nvim')
+  source $HOME/.config/nvim/plugins/theme.lua
+endif
 
 if has_key(plugs, 'gruvbox-flat.nvim')
+  set background=dark
   let g:gruvbox_flat_style = "dark"
   let g:gruvbox_colors = { "hint" : "orange", "error" : "#ff0000" }
 endif

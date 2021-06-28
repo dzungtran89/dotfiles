@@ -6,9 +6,9 @@ let maplocalleader=","
 nnoremap <silent> <leader>ts
       \ :if exists("syntax_on") <BAR>
       \    syntax off <BAR>
-      \ else <BAR>  
+      \ else <BAR>
       \    syntax enable <BAR>
-      \ endif<CR>   
+      \ endif<CR>
 
 if has_key(plugs, 'vim-which-key')
 
@@ -111,7 +111,7 @@ endif
 
 if has_key(plugs, 'vim-floaterm')
   " Configuration example
-  " nnoremap   <silent>   <leader>n          :FloatermNew nnn<CR>
+  nnoremap   <silent>   <leader>n          :FloatermNew nnn<CR>
   nnoremap   <silent>   <F12>              :FloatermToggle<CR>
   tnoremap   <silent>   <F12>   <C-\><C-n> :FloatermToggle<CR>
 

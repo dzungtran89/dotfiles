@@ -22,6 +22,7 @@ Plug 'rktjmp/lush.nvim', {'branch': 'main'}
 Plug 'briones-gabriel/darcula-solid.nvim', { 'branch': 'main' }
 Plug 'eddyekofo94/gruvbox-flat.nvim'
 
+Plug 'crispgm/nvim-tabline'
 Plug 'norcalli/nvim-colorizer.lua'
 " Plug 'itchyny/lightline.vim'
 Plug 'hoob3rt/lualine.nvim'
@@ -75,7 +76,7 @@ Plug 'samgriesemer/vim-roam'
 
 Plug 'nvim-telescope/telescope.nvim'
 " Plug 'ptzz/lf.vim'
-Plug 'mcchrish/nnn.vim'
+" Plug 'mcchrish/nnn.vim'
 Plug 'voldikss/vim-floaterm'
 
 " editorconfig
