@@ -123,7 +123,6 @@ if has_key(plugs, 'vim-gutentags')
   if has_key(plugs, 'gutentags_plus')
     " change focus to quickfix window after search (optional).
     let g:gutentags_plus_switch = 1
-
   endif
 
 endif

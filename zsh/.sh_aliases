@@ -75,10 +75,10 @@ alias pd='pyenv deactivate'
 
 # trobz internal tools
 alias roi='remoteoi'
-alias eoi='emoi'
+alias eoi='emoi --offline'
 alias aoi='anhoi'
-alias es='clear; emoi start'
-alias eu='clear; upgrade'
+alias es='clear; eoi start'
+alias eu='clear; eoi upgrade'
 
 alias dois='demoi start'
 

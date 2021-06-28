@@ -57,6 +57,10 @@ if has_key(plugs, 'indentLine')
   let g:indentLine_first_char = '.'
 " elseif has_key(plugs, 'indent-blankline.nvim')
 "   let g:indent_blankline_use_treesitter = 1
+else
+  let g:indent_blankline_char_list = ['┆']
+  " let g:indent_blankline_space_char = '.'
+
 endif
 
 " set ai "Auto indent

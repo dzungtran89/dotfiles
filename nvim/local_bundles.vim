@@ -46,7 +46,8 @@ Plug 'ryanoasis/vim-devicons'
 " -------------------------------
 
 " Plug 'suxpert/vimcaps'
-Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'lua' }
+Plug 'Yggdroot/indentLine'
+" Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'lua' }
 Plug 'dhruvasagar/vim-zoom'
 Plug 'tpope/vim-surround'
 Plug 'dense-analysis/ale'
