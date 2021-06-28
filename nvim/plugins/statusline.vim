@@ -1,3 +1,12 @@
+if has_key(plugs, 'nvim-tabline')
+lua << EOF
+require'tabline'.setup{
+  show_index = true,    -- show tab index
+  show_modify = true,   -- show buffer modification indicator
+  no_name = '[No name]' -- no name buffer name
+}
+EOF
+endif
 if has_key(plugs, 'feline.nvim')
   source $HOME/.config/nvim/plugins/feline.lua
 
