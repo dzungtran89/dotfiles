@@ -215,4 +215,21 @@ ins_right {
 }
 
 -- Now don't forget to initialize lualine
+-- evil_lualine: https://gist.github.com/hoob3rt/b200435a765ca18f09f83580a606b878
 lualine.setup(config)
+
+local nord = {
+  options = {
+    theme = 'nord',
+    section_separators = {'', ''},
+    -- component_separators = {'', ''},
+    lower = true
+  },
+  sections = {
+    lualine_a = {{'mode', lower = false}},
+    lualine_b = {'branch'}
+  }
+}
+
+-- lualine.setup(nord)
+

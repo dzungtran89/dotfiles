@@ -20,7 +20,6 @@ pipfile.lock
 postgres-data
 .csv
 .profile/
-.vim/
 .dungtd
 *.pgdump
 

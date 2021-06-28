@@ -1,7 +1,47 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Global
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if has_key(plugs, 'gruvbox-flat.nvim')
+  set background=dark
+  let g:gruvbox_flat_style = "dark"
+  let g:gruvbox_colors = { "hint" : "orange", "error" : "#ff0000" }
+endif
+
+colorscheme gruvbox-flat
+
+set foldmethod=manual
+set nonu
+set relativenumber
+
+" search
+set ignorecase
+
+let g:python3_host_prog = 'python3'
+let g:python2_host_prog = 'python2'
+let g:ruby_host_prog = '$(which ruby)'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" search and replace pattern under the cursor
+nnoremap c* *Ncgn
+set mouse=
+
+noremap <localleader>c :bd!<CR>
+" noremap <leader>w <C-w>
+noremap <leader>Q :qa!<CR>
+
+" noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+" Set working dir to the current file path
+nnoremap <leader>dd :lcd %:p:h<CR>
+
+" nmap <silent> <leader>l :set invrelativenumber<CR>
+
+" nmap <C-N> :cn<CR>
+" nmap <C-P> :cp<CR>
+
+nmap <leader>vc @:
 
 " Disable Ex mode keybinding
 nnoremap Q <Nop>
@@ -23,17 +63,10 @@ nnoremap <leader>ed :lcd %:p:h<CR>
 
 nmap <silent> <leader>l :set invrelativenumber<CR>
 
-"" Split
-" noremap <Leader>h :<C-u>split<CR>
-" noremap <Leader>v :<C-u>vsplit<CR>
-
 "" Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 nnoremap <S-t> :tabnew<CR>
-
-"" Set working directory
-" nnoremap <leader>. :lcd %:p:h<CR>
 
 " Tagbar
 if has_key(plugs, 'tagbar')
@@ -42,35 +75,19 @@ if has_key(plugs, 'tagbar')
 
 elseif has_key(plugs, 'symbols-outline.nvim')
   source $HOME/.config/nvim/plugins/outline.lua
-
 endif
 
 if has_key(plugs, 'editorconfig-vim')
   let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 endif
 
-if has_key(plugs, 'indentLine')
-  let g:indentLine_enabled = 1
-  let g:indentLine_concealcursor = 0
-  let g:indentLine_char = '┆'
-  let g:indentLine_faster = 1
-  let g:indentLine_first_char = '.'
-" elseif has_key(plugs, 'indent-blankline.nvim')
-"   let g:indent_blankline_use_treesitter = 1
-else
-  let g:indent_blankline_char_list = ['┆']
-  " let g:indent_blankline_space_char = '.'
-
-endif
-
-" set ai "Auto indent
-" set si "Smart indent
-" set wrap "Wrap lines
-
-" Session management
-let g:session_autoload = "no"
-let g:session_autosave = "no"
-let g:session_command_aliases = 1
+" if has_key(plugs, 'indent-blankline.nvim')
+"   let g:indentLine_enabled = 1
+"   " let g:indentLine_concealcursor = 0
+"   let g:indentLine_char = '|'
+"   let g:indentLine_faster = 1
+"   let g:indentLine_first_char = '.'
+" endif
 
 "" Buffer nav
 noremap <leader>z :bp<CR>
@@ -303,12 +320,23 @@ endif
 let g:clipboard = {
       \   'name': 'win32yank-wsl',
       \   'copy': {
-        \      '+': '/mnt/c/ProgramData/chocolatey/lib/win32yank/tools/win32yank.exe -i --crlf',
-        \      '*': '/mnt/c/ProgramData/chocolatey/lib/win32yank/tools/win32yank.exe -i --crlf',
-        \    },
-        \   'paste': {
-          \      '+': '/mnt/c/ProgramData/chocolatey/lib/win32yank/tools/win32yank.exe -o --lf',
-          \      '*': '/mnt/c/ProgramData/chocolatey/lib/win32yank/tools/win32yank.exe -o --lf',
-          \   },
-          \   'cache_enabled': 0,
-          \ }
+      \      '+': '/mnt/c/ProgramData/chocolatey/bin/win32yank.exe -i --crlf',
+      \      '*': '/mnt/c/ProgramData/chocolatey/bin/win32yank.exe -i --crlf',
+      \    },
+      \   'paste': {
+      \      '+': '/mnt/c/ProgramData/chocolatey/bin/win32yank.exe -o --lf',
+      \      '*': '/mnt/c/ProgramData/chocolatey/bin/win32yank.exe -o --lf',
+      \   },
+      \   'cache_enabled': 0,
+      \ }
+
+
+" Disable tmux navigator when zooming the Vim pane
+let g:tmux_navigator_disable_when_zoomed = 1
+set redrawtime=10000
+set history=500
+set cursorline
+set conceallevel=0
+
+command! CopyBuffer let @+ = expand('%:p')
+

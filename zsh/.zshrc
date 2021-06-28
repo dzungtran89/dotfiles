@@ -171,10 +171,6 @@ source ~/.sh_profile
 export NNN_COLORS="2136"
 export NNN_TRASH=0
 
-# nnn
-export NNN_COLORS="2136"
-export NNN_TRASH=0
-
 # asdf
 . $HOME/.asdf/asdf.sh
 fpath=(${ASDF_DIR}/completions $fpath)

@@ -46,8 +46,7 @@ set -g @plugin 'schasse/tmux-jump'
 
 # -- windows & pane creation ---------------------------------------------------
 
-# set -g default-terminal "screen-256color" # colors!
-set-option -sa terminal-overrides ',screen-256color:RGB'
+set -g default-terminal "screen-256color" # colors!
 
 # new window retains current path, possible values are:
 #   - true
