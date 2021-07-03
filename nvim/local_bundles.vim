@@ -1,8 +1,8 @@
 " vim:fileencoding=utf-8
 
 " common {{{
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/' . 'fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/' . 'fzf.vim'
 
 " You would love this
 " Please add `.notags` file into the $HOME dir in order to avoid tags processing
@@ -18,8 +18,6 @@ Plug 'ludovicchabant/vim-gutentags'
 " }}}
 
 " themes {{{
-Plug 'rktjmp/lush.nvim', {'branch': 'main'}
-Plug 'briones-gabriel/darcula-solid.nvim', { 'branch': 'main' }
 Plug 'eddyekofo94/gruvbox-flat.nvim'
 
 Plug 'crispgm/nvim-tabline', {'branch': 'main'}
@@ -33,12 +31,8 @@ Plug 'nvim-lua/plenary.nvim'
 
 Plug 'kyazdani42/nvim-tree.lua'
 
-
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
-
-" Plug 'neovim/nvim-lspconfig'
-" Plug 'hrsh7th/nvim-compe'
 
 " }}}
 
@@ -47,8 +41,7 @@ Plug 'ryanoasis/vim-devicons'
 " -------------------------------
 
 " Plug 'suxpert/vimcaps'
-Plug 'Yggdroot/indentLine'
-" Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'lua' }
+Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'master'}
 Plug 'dhruvasagar/vim-zoom'
 Plug 'tpope/vim-surround'
 Plug 'dense-analysis/ale'
@@ -73,9 +66,7 @@ Plug 'samgriesemer/vim-roam'
 " -------------------------------
 "  EXPLORER
 " -------------------------------
-
 Plug 'nvim-telescope/telescope.nvim'
-" Plug 'ptzz/lf.vim'
 " Plug 'mcchrish/nnn.vim'
 Plug 'voldikss/vim-floaterm'
 
@@ -84,17 +75,16 @@ Plug 'editorconfig/editorconfig-vim'
 
 " " snippets
 " " replaced by coc-snippets
-" Plug 'Jorengarenar/miniSnip'
 " Plug 'MarcWeber/vim-addon-mw-utils'
 " Plug 'tomtom/tlib_vim'
-" Plug 'garbas/vim-snipmate'
 
 " Plug 'microsoft/vscode-python'
 " Plug 'mstuttgart/vscode-odoo-snippets'
 
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'dzungtran89/vim-odoo-snippets'
+" Plug 'honza/vim-snippets'
+Plug 'akretion/vim-odoo-snippets'
+" Plug 'dzungtran89/vim-odoo-snippets'
 
 " }}}
 "
