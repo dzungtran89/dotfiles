@@ -22,7 +22,7 @@ Plug 'rktjmp/lush.nvim', {'branch': 'main'}
 Plug 'briones-gabriel/darcula-solid.nvim', { 'branch': 'main' }
 Plug 'eddyekofo94/gruvbox-flat.nvim'
 
-Plug 'crispgm/nvim-tabline'
+Plug 'crispgm/nvim-tabline', {'branch': 'main'}
 Plug 'norcalli/nvim-colorizer.lua'
 " Plug 'itchyny/lightline.vim'
 Plug 'hoob3rt/lualine.nvim'

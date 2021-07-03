@@ -216,7 +216,7 @@ ins_right {
 
 -- Now don't forget to initialize lualine
 -- evil_lualine: https://gist.github.com/hoob3rt/b200435a765ca18f09f83580a606b878
--- lualine.setup(config)
+lualine.setup(config)
 
 local nord = {
   options = {
@@ -231,5 +231,5 @@ local nord = {
   }
 }
 
-lualine.setup(nord)
+-- lualine.setup(nord)
 
