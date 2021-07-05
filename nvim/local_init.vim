@@ -7,13 +7,20 @@ endif
 
 " Personal plugins
 
-source $HOME/.config/nvim/plugins/whichkey.vim
-source $HOME/.config/nvim/plugins/session.vim
-source $HOME/.config/nvim/plugins/editor.vim
-source $HOME/.config/nvim/plugins/explorer.vim
+source $HOME/.config/nvim/plugins/_whichkey.vim
+source $HOME/.config/nvim/plugins/_session.vim
+source $HOME/.config/nvim/plugins/_editor.vim
+source $HOME/.config/nvim/plugins/_nvimtree.vim
+source $HOME/.config/nvim/plugins/_telescope.vim
+source $HOME/.config/nvim/plugins/_nvimtree.vim
 source $HOME/.config/nvim/plugins/search.vim
+" source $HOME/.config/nvim/plugins/_find.vim
+" source $HOME/.config/nvim/plugins/_fzf.vim
+source $HOME/.config/nvim/lua/_indent_blankline_nvim.lua
+source $HOME/.config/nvim/lua/_nnn.lua
+source $HOME/.config/nvim/lua/_fzf.lua
 
-if has_key(plugs, 'coc.nvim')
+if PlugLoaded('coc.nvim')
   source $HOME/.config/nvim/plugins/coc.vim
 else
   source $HOME/.config/nvim/plugins/lsp.lua
@@ -29,7 +36,6 @@ source $HOME/.config/nvim/plugins/md.vim
 
 source $HOME/.config/nvim/plugins/statusline.vim
 source $HOME/.config/nvim/plugins/floaterm.vim
-source $HOME/.config/nvim/plugins/keys.vim
 
 " source $HOME/.config/nvim/plugins/doc.vim
 

@@ -81,13 +81,13 @@ if has_key(plugs, 'editorconfig-vim')
   let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 endif
 
-if has_key(plugs, 'indent-blankline.nvim')
-  let g:indentLine_enabled = 1
-  " let g:indentLine_concealcursor = 0
-  let g:indentLine_char = '|'
-  let g:indentLine_faster = 1
-  let g:indentLine_first_char = '.'
-endif
+" if has_key(plugs, 'indent-blankline.nvim')
+"   let g:indentLine_enabled = 1
+"   " let g:indentLine_concealcursor = 0
+"   let g:indentLine_char = '|'
+"   let g:indentLine_faster = 1
+"   let g:indentLine_first_char = '.'
+" endif
 
 "" Buffer nav
 noremap <leader>z :bp<CR>

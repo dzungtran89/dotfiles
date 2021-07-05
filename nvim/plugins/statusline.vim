@@ -1,4 +1,4 @@
-if has_key(plugs, 'nvim-tabline')
+if PlugLoaded('nvim-tabline')
 lua << EOF
 require'tabline'.setup{
   show_index = true,    -- show tab index
@@ -7,19 +7,15 @@ require'tabline'.setup{
 }
 EOF
 endif
-if has_key(plugs, 'feline.nvim')
+
+if PlugLoaded('feline.nvim')
   source $HOME/.config/nvim/plugins/feline.lua
 
-elseif has_key(plugs, 'lualine.nvim')
+elseif PlugLoaded('lualine.nvim')
   source $HOME/.config/nvim/plugins/lualine.lua
 
 elseif has_key(plugs, 'lightline.vim')
   source $HOME/.config/nvim/plugins/lightline.vim
-
-elseif has_key(plugs, 'vim-airline')
-
-  let g:airline_extensions = []
-  let g:airline#extensions#tabline#enabled = 0
 
 else
 

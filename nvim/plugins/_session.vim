@@ -1,4 +1,4 @@
-if has_key(plugs, 'vim-session')
+if PlugLoaded('vim-session')
 
   let g:session_directory = "~/.config/nvim/session"
   let g:session_autoload = "no"

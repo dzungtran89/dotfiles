@@ -10,7 +10,7 @@ nnoremap <silent> <leader>ts
       \    syntax enable <BAR>
       \ endif<CR>
 
-if has_key(plugs, 'vim-which-key')
+if PlugLoaded('vim-which-key')
 
   call which_key#register('<space>', "g:which_key_map")
 
@@ -109,9 +109,8 @@ if has_key(plugs, 'vim-which-key')
 
 endif
 
-if has_key(plugs, 'vim-floaterm')
+if PlugLoaded('vim-floaterm')
   " Configuration example
-  nnoremap   <silent>   <leader>n          :FloatermNew nnn<CR>
   nnoremap   <silent>   <F12>              :FloatermToggle<CR>
   tnoremap   <silent>   <F12>   <C-\><C-n> :FloatermToggle<CR>
 
