@@ -1,4 +1,4 @@
-if has_key(plugs, "tabular")
+if PlugLoaded("tabular")
 
   " nmap <localleader>a= :Tabularize /=<CR>
   " vmap <localleader>a= :Tabularize /=<CR>
@@ -22,7 +22,7 @@ if has_key(plugs, "tabular")
 
 endif
 
-if has_key(plugs, 'vim-markdown')
+if PlugLoaded('vim-markdown')
 
   let g:vim_markdown_folding_disabled = 1
   let g:vim_markdown_no_default_key_mappings = 1
@@ -55,7 +55,7 @@ endif
 "         \ }
 " endif
 
-if has_key(plugs, 'markdown-preview.nvim')
+if PlugLoaded('markdown-preview.nvim')
 
   " set to 1, nvim will open the preview window after entering the markdown buffer
   " default: 0

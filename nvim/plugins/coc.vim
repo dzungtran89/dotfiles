@@ -1,4 +1,4 @@
-if has_key(plugs, 'coc.nvim')
+if PlugLoaded('coc.nvim')
 
   autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
 
@@ -144,6 +144,8 @@ if has_key(plugs, 'coc.nvim')
 
   " Mappings for CoCList
   " Show all diagnostics.
+  nnoremap <silent><nowait> <leader>cL  :<C-u>CocList<CR>
+
   nnoremap <silent><nowait> <leader>ca  :<C-u>CocList diagnostics<cr>
   " Manage extensions.
   nnoremap <silent><nowait> <leader>ce  :<C-u>CocList extensions<cr>

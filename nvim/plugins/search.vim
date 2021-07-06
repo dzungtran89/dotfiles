@@ -1,8 +1,5 @@
 " nnoremap <leader>. :call fzf#vim#tags('^' . expand('<cword>'), {'options': '--exact --select-1 --exit-0 +i'})<CR>
 
-" quick way to search wholeword
-nnoremap <localleader>/ /\<\><left><left>
-
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 
@@ -28,13 +25,6 @@ endif
 
 " let g:fzf_preview_window = 'up:60%'
 let g:fzf_preview_window = ''
-
-" nmap <localleader>bl :BLines<CR>
-" nmap <Leader>L :Lines<CR>
-" nmap <Leader>' :Marks<CR>
-
-" nmap <Leader>C :Commands<CR>
-" nmap <Leader>S :Filetypes<CR>
 
 " This is the default extra key bindings
 let g:fzf_action = {
@@ -114,7 +104,7 @@ command! -bang -nargs=* GGrep
 
 " }}}
 
-if has_key(plugs, 'vim-agriculture')
+if PlugLoaded('vim-agriculture')
 
   " Search symlinks recursively
   let g:agriculture#rg_options='--follow --smart-case'
@@ -139,13 +129,13 @@ noremap <leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 " nnoremap <silent> <leader>b :Buffers<CR>
 
-if has_key(plugs, 'skim.vim')
+if PlugLoaded('skim.vim')
   nnoremap <silent> <leader>ef :SK -m<CR>
 endif
 
 " nmap <leader>y :History:<CR>
 
-if has_key(plugs, 'denite.nvim')
+if PlugLoaded('denite.nvim')
 
   " Define mappings
   autocmd FileType denite call s:denite_my_settings()
@@ -187,7 +177,7 @@ if has_key(plugs, 'denite.nvim')
 
 endif
 
-if has_key(plugs, 'FlyGrep.vim')
+if PlugLoaded('FlyGrep.vim')
   nnoremap <leader>s/ :FlyGrep<cr>
 endif
 

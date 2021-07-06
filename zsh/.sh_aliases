@@ -15,6 +15,7 @@ alias cl='clear'
 alias cpath='pwd|pbcopy'
 
 alias vim=nvim
+alias vims='vim -S $@'
 
 # vim
 # vim() {
@@ -22,7 +23,7 @@ alias vim=nvim
 #   nvim $@
 # }
 
-alias vno='nvim --noplugin $@'
+alias vno='vim --noplugin $@'
 
 # yabai
 alias ycf='yabai -m config $@'

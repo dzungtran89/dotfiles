@@ -3,8 +3,8 @@
 " -------------------------------
 " LIBRARIES
 " -------------------------------
-" Plug 'sheerun/vim-polyglot'
-Plug 'Shougo/vimproc.vim', {'do': g:make}
+Plug 'sheerun/vim-polyglot'
+" Plug 'Shougo/vimproc.vim', {'do': g:make}
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'nvim-lua/plenary.nvim'
@@ -14,7 +14,7 @@ Plug 'junegunn/' . 'fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/' . 'fzf.vim'
 Plug 'pbogut/'   . 'fzf-mru.vim'
 
-" Add `.notags` file into the $HOME dir 
+" Add `.notags` file into the $HOME dir
 " in order to avoid tags processing in that big dir
 Plug 'ludovicchabant/vim-gutentags'
 
@@ -31,8 +31,8 @@ Plug 'nvim-telescope/telescope-frecency.nvim'
 " -------------------------------
 " TREESITTER
 " -------------------------------
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 " -------------------------------
 " EDITORS
@@ -45,7 +45,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'Raimondi/delimitMate'
 Plug 'dhruvasagar/vim-zoom'
 Plug 'kdav5758/HighStr.nvim'
-Plug 'easymotion/vim-easymotion' 
+Plug 'easymotion/vim-easymotion'
 
 Plug 'preservim/tagbar'
 Plug 'pechorin/any-jump.vim'
@@ -62,9 +62,9 @@ Plug 'samgriesemer/vim-roam'
 " SNIPPETS
 " -------------------------------
 Plug 'SirVer/ultisnips'
-Plug 'akretion/vim-odoo-snippets'
+" Plug 'akretion/vim-odoo-snippets'
 " Plug 'honza/vim-snippets'
-" Plug 'dzungtran89/vim-odoo-snippets'
+Plug 'dzungtran89/vim-odoo-snippets'
 
 " -------------------------------
 "  TOOLS
@@ -85,20 +85,22 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " -------------------------------
 " VISUAL
 " -------------------------------
-Plug 'hoob3rt/lualine.nvim'
 Plug 'crispgm/nvim-tabline'
 Plug 'norcalli/nvim-colorizer.lua'
+
+Plug 'rktjmp/lush.nvim'
 Plug 'eddyekofo94/gruvbox-flat.nvim'
-Plug 'folke/tokyonight.nvim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'itchyny/lightline.vim'
 " Plug 'famiu/feline.nvim'
-" Plug 'itchyny/lightline.vim'
+" Plug 'hoob3rt/lualine.nvim'
 
 " -------------------------------
 " MISC
 " -------------------------------
 " Plug 'preservim/nerdtree'
-Plug 'mcchrish/nnn.vim'
 Plug 'kyazdani42/nvim-tree.lua'
+Plug 'ptzz/lf.vim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
 

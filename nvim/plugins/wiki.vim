@@ -1,7 +1,7 @@
-if has_key(plugs, 'wiki.vim')
+if PlugLoaded('wiki.vim') || PlugLoaded('vim-roam')
 
   let g:wiki_root = $HOME . '/code/github/abc-og'
-  let g:wiki_filetypes = ['wiki', 'markdown', 'md']
+  let g:wiki_filetypes = ['md', 'markdown']
   let g:wiki_link_target_type = 'md'
   let g:wiki_link_extension = '.md'
 

@@ -1,8 +1,3 @@
-
-"" Map leader/localleader to <space>
-let mapleader=" "
-let maplocalleader=","
-
 nnoremap <silent> <leader>ts
       \ :if exists("syntax_on") <BAR>
       \    syntax off <BAR>
@@ -14,8 +9,8 @@ if PlugLoaded('vim-which-key')
 
   call which_key#register('<space>', "g:which_key_map")
 
-  nnoremap <silent> <leader> :<c-u>WhichKey '<space>'<CR>
-  vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<space>'<CR>
+  nnoremap <silent> <leader>      :<c-u>WhichKey '<space>'<CR>
+  vnoremap <silent> <leader>      :<c-u>WhichKeyVisual '<space>'<CR>
   nnoremap <silent> <localleader> :<c-u>WhichKey ','<CR>
 
   set timeoutlen=500
@@ -110,8 +105,6 @@ if PlugLoaded('vim-which-key')
 endif
 
 if PlugLoaded('vim-floaterm')
-  " Configuration example
   nnoremap   <silent>   <F12>              :FloatermToggle<CR>
   tnoremap   <silent>   <F12>   <C-\><C-n> :FloatermToggle<CR>
-
 endif

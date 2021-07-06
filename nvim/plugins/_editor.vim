@@ -2,14 +2,6 @@
 " => Global
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-if has_key(plugs, 'gruvbox-flat.nvim')
-  set background=dark
-  let g:gruvbox_flat_style = "dark"
-  let g:gruvbox_colors = { "hint" : "orange", "error" : "#ff0000" }
-endif
-
-colorscheme gruvbox-flat
-
 set foldmethod=manual
 set nonu
 set relativenumber
@@ -17,9 +9,8 @@ set relativenumber
 " search
 set ignorecase
 
-let g:python3_host_prog = 'python3'
-let g:python2_host_prog = 'python2'
-let g:ruby_host_prog = '$(which ruby)'
+" let g:python3_host_prog = 'python3'
+" let g:python2_host_prog = 'python2'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mappings
@@ -317,19 +308,20 @@ end)
 EOF
 endif
 
-let g:clipboard = {
-      \   'name': 'win32yank-wsl',
-      \   'copy': {
-      \      '+': '/mnt/c/ProgramData/chocolatey/bin/win32yank.exe -i --crlf',
-      \      '*': '/mnt/c/ProgramData/chocolatey/bin/win32yank.exe -i --crlf',
-      \    },
-      \   'paste': {
-      \      '+': '/mnt/c/ProgramData/chocolatey/bin/win32yank.exe -o --lf',
-      \      '*': '/mnt/c/ProgramData/chocolatey/bin/win32yank.exe -o --lf',
-      \   },
-      \   'cache_enabled': 0,
-      \ }
-
+if has("win64") || has("win32") || has("win16")
+  let g:clipboard = {
+        \   'name': 'win32yank-wsl',
+        \   'copy': {
+        \      '+': '/mnt/c/ProgramData/chocolatey/bin/win32yank.exe -i --crlf',
+        \      '*': '/mnt/c/ProgramData/chocolatey/bin/win32yank.exe -i --crlf',
+        \    },
+        \   'paste': {
+        \      '+': '/mnt/c/ProgramData/chocolatey/bin/win32yank.exe -o --lf',
+        \      '*': '/mnt/c/ProgramData/chocolatey/bin/win32yank.exe -o --lf',
+        \   },
+        \   'cache_enabled': 0,
+        \ }
+endif
 
 " Disable tmux navigator when zooming the Vim pane
 let g:tmux_navigator_disable_when_zoomed = 1

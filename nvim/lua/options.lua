@@ -1,6 +1,10 @@
 local home = os.getenv("HOME")
 local g = vim.g
 
+g.python3_host_prog = 'python3'
+g.python2_host_prog = 'python2'
+g.ruby_host_prog = '$(which ruby)'
+
 -- Workaround until https://github.com/neovim/neovim/pull/13479
 local function o(key, value)
   vim.o[key] = value
@@ -38,6 +42,7 @@ o("hidden", true)                     -- Allow hiding unsaved buffers
 o("mouse", "a")                       -- Mouse interactivity
 o("wildmenu", true)                   -- Enhanced command-line completion
 o("wildmode", "longest,list,full")    -- Command-line completion behavior
+o("clipboard", 'unnamed,unnamedplus')
 
 -- Search
 o("hlsearch", true)                   -- Highlight search results
@@ -56,6 +61,7 @@ o("laststatus", 2)                    -- Status line
 w("numberwidth", 2)                   -- Numbering column width
 w("relativenumber", true)             -- Relative line numbers
 w("scrolloff", 2)                     -- Always display lines around cursor
+o("background", "dark")
 
 -- Session
 o("sessionoptions", 'buffers,curdir,tabpages,winsize')

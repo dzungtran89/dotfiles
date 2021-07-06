@@ -175,7 +175,6 @@ export NNN_TRASH=0
 . $HOME/.asdf/asdf.sh
 fpath=(${ASDF_DIR}/completions $fpath)
 
-
 export WORKON_HOME=$HOME/.local/share/virtualenvs
 export PROJECT_HOME=$HOME/code/projects
 
@@ -196,3 +195,33 @@ fi
 if [[ $IS_STARSHIP == 1 ]] then
   eval "$(starship init zsh)"
 fi
+
+# lf cd on quit
+lfcd () {
+  tmp="$(mktemp)"
+  lf -last-dir-path="$tmp" "$@"
+  if [ -f "$tmp" ]; then
+    dir="$(cat "$tmp")"
+    rm -f "$tmp"
+    if [ -d "$dir" ]; then
+      if [ "$dir" != "$(pwd)" ]; then
+        cd "$dir"
+      fi
+    fi
+  fi
+}
+
+bindkey -s '^o' 'lfcd\n'
+
+case `uname` in
+  Darwin)
+    alias lstat=stat
+  ;;
+  Linux)
+    # commands for Linux go here
+  ;;
+  FreeBSD)
+    # commands for FreeBSD go here
+  ;;
+esac
+

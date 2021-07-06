@@ -1,3 +1,7 @@
+"" Map leader/localleader to <space>
+let mapleader=" "
+let maplocalleader=","
+
 noremap YY "+y<CR>
 noremap <leader>p "+gP<CR>
 noremap XX "+x<CR>
@@ -29,3 +33,11 @@ vmap > >gv
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+" quick way to search wholeword
+nnoremap <localleader>/ /\<\><left><left>
+
+" TL;DR quit faster
+nnoremap <leader>qq :qa!<CR>
+
+nnoremap <silent> <localleader>o  :BTags<cr>
+nnoremap <silent> <leader>]  g<C-]>

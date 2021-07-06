@@ -19,15 +19,15 @@ if !filereadable(vimplug_exists)
   autocmd VimEnter * PlugInstall
 endif
 
-" Required:
-call plug#begin(expand('~/.config/nvim/plugged'))
-
 let g:make = 'gmake'
 if exists('make')
   let g:make = 'make'
 endif
 
-let g:polyglot_disabled = ['python' , 'javascript']
+let g:polyglot_disabled = ['python', 'javascript']
+
+" Required:
+call plug#begin(expand('~/.config/nvim/plugged'))
 
 if filereadable(expand("~/.config/nvim/local_bundles.vim"))
   source ~/.config/nvim/local_bundles.vim
@@ -81,8 +81,8 @@ endif
 "" Commands
 "*****************************************************************************
 
-source ~/.config/nvim/lua/options.lua
-source ~/.config/nvim/lua/utils.lua
+lua require('options')
+lua require('utils')
 
 if !exists('*s:setupWrapping')
   function s:setupWrapping()
@@ -92,19 +92,7 @@ if !exists('*s:setupWrapping')
   endfunction
 endif
 
-"" The PC is fast enough, do syntax highlight syncing from start unless 200 lines
-augroup vimrc-sync-fromstart
-  autocmd!
-  " autocmd BufEnter * :syntax sync maxlines=200
-  autocmd BufEnter * :syntax sync fromstart
-augroup END
-
-"" Remember cursor position
-augroup vimrc-remember-cursor-position
-  autocmd!
-  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-augroup END
-
+" COMMON
 source ~/.config/nvim/plugins/.vim/functions.vim
 source ~/.config/nvim/plugins/.vim/commands.vim
 source ~/.config/nvim/plugins/.vim/autocmds.vim
@@ -114,3 +102,4 @@ source ~/.config/nvim/plugins/.vim/mappings.vim
 if filereadable(expand("~/.config/nvim/local_init.vim"))
   source ~/.config/nvim/local_init.vim
 endif
+

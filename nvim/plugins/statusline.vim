@@ -1,18 +1,8 @@
-if PlugLoaded('nvim-tabline')
-lua << EOF
-require'tabline'.setup{
-  show_index = true,    -- show tab index
-  show_modify = true,   -- show buffer modification indicator
-  no_name = '[No name]' -- no name buffer name
-}
-EOF
-endif
-
 if PlugLoaded('feline.nvim')
-  source $HOME/.config/nvim/plugins/feline.lua
+  lua require('_feline')
 
 elseif PlugLoaded('lualine.nvim')
-  source $HOME/.config/nvim/plugins/lualine.lua
+  lua require('_lualine')
 
 elseif has_key(plugs, 'lightline.vim')
   source $HOME/.config/nvim/plugins/lightline.vim

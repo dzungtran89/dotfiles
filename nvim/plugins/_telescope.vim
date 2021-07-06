@@ -1,5 +1,5 @@
-if has_key(plugs, 'telescope.nvim')
-  source $HOME/.config/nvim/plugins/telescope.lua
+if PlugLoaded('telescope.nvim')
+  lua require('_telescope')
 
   " Find files using Telescope command-line sugar.
   nnoremap <leader>ft <cmd>Telescope <cr>

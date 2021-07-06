@@ -1,0 +1,23 @@
+local vimp = require('vimp')
+local nnoremap = vimp.nnoremap
+
+vim.g.coc_global_extensions = {
+  "coc-css",
+  "coc-html",
+  "coc-json",
+  "coc-lists",
+  "coc-lua",
+  "coc-tsserver",
+  "coc-vimlsp",
+  "coc-xml",
+  -- "coc-git",
+  -- "coc-highlight",
+  -- "coc-pyright",
+  -- "coc-rls",
+  -- "coc-texlab",
+  -- "coc-vimtex",
+  -- "coc-yaml",
+}
+
+-- nnoremap("<leader>qo",  ":CocCommand session.load ")
+-- nnoremap("<leader>qs",  ":CocCommand session.save ")

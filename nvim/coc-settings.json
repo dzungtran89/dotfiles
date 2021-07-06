@@ -2,15 +2,20 @@
     "python.jediEnabled": false,
     "python.linting.enabled": true,
     "python.linting.pylintPath": "pylint",
-    "xml.java.home": "/Library/Java/JavaVirtualMachines/openjdk-14.0.1.jdk/Contents/Home",
-    "xml.completion.autoCloseTags": true,
     "python.autoComplete.extraPaths": [
         "${workspaceFolder}/odoo/addons",
         "${workspaceFolder}/addons",
         "${workspaceFolder}/project"
     ],
     "git.gitlab.hosts": ["gitlab.trobz.com", "gitlab.com"],
-    "snippets.userSnippetsDirectory": "$HOME/.config/nvim/plugged/vim-odoo-snippets/UltiSnips",
+    "disableWorkspaceFolders": true,
+
+    "xml.java.home": "/Library/Java/JavaVirtualMachines/openjdk-14.0.2.jdk/Contents/Home",
+    "xml.completion.autoCloseTags": true,
+    "snippets.userSnippetsDirectory": "~/.config/nvim/plugged/vim-odoo-snippets/UltiSnips",
     "diagnostic.displayByAle": true,
-    "disableWorkspaceFolders": true
+    "session.directory": "~/.config/nvim/session",
+    "list.source.mru.ignoreGitIgnore": true,
+    "list.source.mru.maxLength": 500,
+    "list.source.tags.command": "ctags -R --languages=python"
 }

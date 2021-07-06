@@ -30,21 +30,5 @@ if PlugLoaded('fzf.vim')
         \ call fzf#vim#buffers(<q-args>, &columns > 120 ?
         \ fzf#vim#with_preview() : {}, <bang>0)
 
-  " " -- nnoremap <Leader>es"     :LocateFiles .<CR> 
-  " nnoremap <Leader>b       :Buffers<CR> 
-  " nnoremap <Leader>ef      :FZF -m<CR> 
-  " nnoremap <Leader>eF      :Files %:h<CR> 
-  " nnoremap <Leader>eg      :GFiles --cached --others --exclude-standard<CR> 
-  " nnoremap <Leader>eh      :History<CR> 
-  " nnoremap <Leader>el      :Lines<CR> 
-  " nnoremap <Leader>ea      :Ag!<CR> 
-  " nnoremap <Leader>er      :Rg!<CR> 
-  " nnoremap <Leader>em      :Marks<CR> 
-  " nnoremap <Leader>et      :Tags<CR> 
-  " nnoremap <Leader>ec      :Commands<CR> 
-  " nnoremap <Leader>es      :Filetypes<CR> 
-  " nnoremap <Leader>,       :SmartFiles<CR> 
-  " nnoremap <localleader>bl :BLines<CR> 
-  " nnoremap gl"             :Rg<CR> 
 endif
 

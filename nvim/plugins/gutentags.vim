@@ -43,7 +43,7 @@ endif
 " }}}
 
 " You would love it
-if has_key(plugs, 'vim-gutentags')
+if PlugLoaded('vim-gutentags')
 
   " set tags+=./.git/tags
   let g:gutentags_add_default_project_roots = 0
@@ -116,11 +116,7 @@ if has_key(plugs, 'vim-gutentags')
         \ ]
 
   " autocmd BufWritePost *.py,*.js silent! !ctags . &
-  nnoremap <silent> <localleader>e  :Tags<cr>
-  nnoremap <silent> <localleader>o  :BTags<cr>
-  nnoremap <silent> <leader>]  g<C-]>
-
-  if has_key(plugs, 'gutentags_plus')
+  if PlugLoaded('gutentags_plus')
     " change focus to quickfix window after search (optional).
     let g:gutentags_plus_switch = 1
   endif

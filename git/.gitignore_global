@@ -31,3 +31,5 @@ setup
 .git
 .obsidian
 .tool-versions
+
+dev.conf

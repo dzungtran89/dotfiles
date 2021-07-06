@@ -10,22 +10,28 @@ endif
 source $HOME/.config/nvim/plugins/_whichkey.vim
 source $HOME/.config/nvim/plugins/_session.vim
 source $HOME/.config/nvim/plugins/_editor.vim
-source $HOME/.config/nvim/plugins/_nvimtree.vim
 source $HOME/.config/nvim/plugins/_telescope.vim
 source $HOME/.config/nvim/plugins/_nvimtree.vim
 source $HOME/.config/nvim/plugins/search.vim
-" source $HOME/.config/nvim/plugins/_find.vim
-" source $HOME/.config/nvim/plugins/_fzf.vim
-source $HOME/.config/nvim/lua/_indent_blankline_nvim.lua
-source $HOME/.config/nvim/lua/_nnn.lua
-source $HOME/.config/nvim/lua/_fzf.lua
+source $HOME/.config/nvim/plugins/_find.vim
+source $HOME/.config/nvim/plugins/_lf.vim
+
+lua require('_indent_blankline_nvim')
+lua require('_fzf')
+lua require('_coc')
+" lua require('_nvimtree')
 
 if PlugLoaded('coc.nvim')
   source $HOME/.config/nvim/plugins/coc.vim
 else
-  source $HOME/.config/nvim/plugins/lsp.lua
-  source $HOME/.config/nvim/plugins/compe.lua
+  lua require('_lsp')
+  lua require('_compe')
 endif
+
+" lua require('_treesitter')
+" lua require('_tabline')
+lua require('_theme')
+" lua require('_lualine')
 
 source $HOME/.config/nvim/plugins/git.vim
 source $HOME/.config/nvim/plugins/gutentags.vim
