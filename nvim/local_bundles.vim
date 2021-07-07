@@ -16,23 +16,22 @@ Plug 'pbogut/'   . 'fzf-mru.vim'
 
 " Add `.notags` file into the $HOME dir
 " in order to avoid tags processing in that big dir
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-" Plug 'nelstrom/vim-visual-star-search'
 
 " -------------------------------
 " TELESCOPE
 " -------------------------------
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-frecency.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
+" Plug 'nvim-telescope/telescope-frecency.nvim'
 
 " -------------------------------
 " TREESITTER
 " -------------------------------
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 " -------------------------------
 " EDITORS
@@ -40,9 +39,10 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'raimon49/requirements.txt.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'master'}
+" Plug 'Yggdroot/indentLine'
 Plug 'jeetsukumaran/vim-indentwise'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'Raimondi/delimitMate'
+" Plug 'ntpeters/vim-better-whitespace'
+Plug 'jiangmiao/auto-pairs'
 Plug 'dhruvasagar/vim-zoom'
 Plug 'kdav5758/HighStr.nvim'
 Plug 'easymotion/vim-easymotion'
@@ -62,9 +62,9 @@ Plug 'samgriesemer/vim-roam'
 " SNIPPETS
 " -------------------------------
 Plug 'SirVer/ultisnips'
+Plug 'dzungtran89/vim-odoo-snippets'
 " Plug 'akretion/vim-odoo-snippets'
 " Plug 'honza/vim-snippets'
-Plug 'dzungtran89/vim-odoo-snippets'
 
 " -------------------------------
 "  TOOLS

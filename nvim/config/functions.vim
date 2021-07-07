@@ -1,5 +1,5 @@
 function! PlugLoaded(name)
-    return has_key(g:plugs, a:name)
+    return has_key(g:plugs, a:name) && isdirectory(g:plugs[a:name].dir)
 endfunction
 
 " Check backspace {{{1
@@ -69,6 +69,14 @@ function! SmartFiles(...)
         execute ":ProjectMru"
     endif
 endfunction
+
+if !exists('*s:setupWrapping')
+  function s:setupWrapping()
+    set wrap
+    set wm=2
+    set textwidth=79
+  endfunction
+endif
 
 " " vim-peekaboo float {{{1
 " function! CreateCenteredFloatingWindow()

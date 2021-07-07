@@ -1,7 +1,7 @@
 " set tabline="%1t"
 
 let g:lightline = {
-      \ 'colorscheme': 'one',
+      \ 'colorscheme': 'nord',
       \ 'separator': { 'left': "", 'right': "" },
       \ 'active': {
       \   'left': [

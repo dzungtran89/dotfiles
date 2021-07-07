@@ -2,14 +2,16 @@ local vimp = require('vimp')
 local nnoremap = vimp.nnoremap
 
 vim.g.coc_global_extensions = {
-  "coc-css",
-  "coc-html",
   "coc-json",
   "coc-lists",
-  "coc-lua",
   "coc-tsserver",
-  "coc-vimlsp",
-  "coc-xml",
+  "coc-snippets",
+  "coc-pyright",
+  -- "coc-css",
+  -- "coc-html",
+  -- "coc-lua",
+  -- "coc-vimlsp",
+  -- "coc-xml",
   -- "coc-git",
   -- "coc-highlight",
   -- "coc-pyright",

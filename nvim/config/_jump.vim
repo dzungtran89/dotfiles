@@ -1,4 +1,4 @@
-if has_key(plugs, 'vim-easymotion')
+if PlugLoaded('vim-easymotion')
 
   let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
@@ -15,7 +15,15 @@ if has_key(plugs, 'vim-easymotion')
 
 endif
 
-if has_key(plugs, 'any-jump.vim')
+if PlugLoaded('any-jump.vim')
+
+  " -------------------------------------------------
+  "
+  " /~~||/~\\  /---   ||   ||/~\ /~\ |~~\
+  " \__||   |\/       | \_/||   |   ||__/
+  "         _/     \__|              |
+  "
+  " -------------------------------------------------
 
   " Normal mode: Jump to definition under cursore
   nnoremap <leader>jj :AnyJump<CR>
@@ -47,7 +55,6 @@ if has_key(plugs, 'any-jump.vim')
   " Prefered search engine: rg or ag
   let g:any_jump_search_prefered_engine = 'rg'
 
-
   " Search results list styles:
   " - 'filename_first'
   " - 'filename_last'
@@ -57,9 +64,6 @@ if has_key(plugs, 'any-jump.vim')
   let g:any_jump_window_width_ratio  = 0.6
   let g:any_jump_window_height_ratio = 0.6
   let g:any_jump_window_top_offset   = 4
-
-  " Customize any-jump colors with extending default color scheme:
-  let g:any_jump_colors = { "help": "Comment" }
 
   " Or override all default colors
   let g:any_jump_colors = {
@@ -77,6 +81,9 @@ if has_key(plugs, 'any-jump.vim')
         \"result_path":        "String",
         \"help":               "Comment"
         \}
+
+  " top left corner, top right corner, bottom left corner, bottom right corner, top/bottom, left/right
+  let g:any_jump_neovim_border = ['╭', '╮','╰', '╯', '─', '│']
 
   " Disable default any-jump keybindings (default: 0)
   let g:any_jump_disable_default_keybindings = 1

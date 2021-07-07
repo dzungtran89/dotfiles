@@ -15,7 +15,7 @@ alias cl='clear'
 alias cpath='pwd|pbcopy'
 
 alias vim=nvim
-alias vims='vim -S $@'
+alias vs='vim -S $@'
 
 # vim
 # vim() {

@@ -72,43 +72,6 @@ if has_key(plugs, 'editorconfig-vim')
   let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 endif
 
-" if has_key(plugs, 'indent-blankline.nvim')
-"   let g:indentLine_enabled = 1
-"   " let g:indentLine_concealcursor = 0
-"   let g:indentLine_char = '|'
-"   let g:indentLine_faster = 1
-"   let g:indentLine_first_char = '.'
-" endif
-
-"" Buffer nav
-noremap <leader>z :bp<CR>
-noremap <leader>x :bn<CR>
-
-" Auto insert dash with the same length of header
-" -----------------------------------------------
-nnoremap <localleader>u YpVr-<CR>
-
-"" Clean search (highlight)
-nnoremap <silent> <leader><space> :noh<cr>
-
-"" Keep cursor at the first match
-nnoremap * *N
-nnoremap # #N
-
-"" Switching windows
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-noremap <C-h> <C-w>h
-
-"" Vmap for maintain Visual Mode after shifting > and <
-vmap < <gv
-vmap > >gv
-
-"" Move visual block
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -325,6 +288,7 @@ endif
 
 " Disable tmux navigator when zooming the Vim pane
 let g:tmux_navigator_disable_when_zoomed = 1
+
 set redrawtime=10000
 set history=500
 set cursorline

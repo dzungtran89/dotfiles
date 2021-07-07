@@ -1,4 +1,3 @@
-
 if has_key(plugs, 'vim-doge')
 
   let g:doge_doc_standard_python = 'google'
