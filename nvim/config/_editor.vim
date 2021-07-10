@@ -12,52 +12,12 @@ set ignorecase
 " let g:python3_host_prog = 'python3'
 " let g:python2_host_prog = 'python2'
 
+set mouse=
+set nowrap
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" search and replace pattern under the cursor
-nnoremap c* *Ncgn
-set mouse=
-
-noremap <localleader>c :bd!<CR>
-" noremap <leader>w <C-w>
-noremap <leader>Q :qa!<CR>
-
-" noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-" Set working dir to the current file path
-nnoremap <leader>dd :lcd %:p:h<CR>
-
-" nmap <silent> <leader>l :set invrelativenumber<CR>
-
-" nmap <C-N> :cn<CR>
-" nmap <C-P> :cp<CR>
-
-nmap <leader>vc @:
-
-" Disable Ex mode keybinding
-nnoremap Q <Nop>
-
-" noremap <localleader>c :b#<bar>bd#<CR>
-noremap <localleader>bd :bd!<CR>
-noremap <localleader>be :e!<CR>
-noremap <localleader>bq :close<CR>
-noremap <localleader>bs :split<CR>
-noremap <localleader>bv :vsplit<CR>
-nnoremap <silent> <leader>i :set ic!<CR>
-
-" Wrap
-set nowrap
-nnoremap <localleader>w :set wrap!<CR>
-
-" Set working dir to the current file path
-nnoremap <leader>ed :lcd %:p:h<CR>
-
-nmap <silent> <leader>l :set invrelativenumber<CR>
-
-"" Tabs
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
-nnoremap <S-t> :tabnew<CR>
 
 " Tagbar
 if has_key(plugs, 'tagbar')
@@ -244,6 +204,14 @@ EOF
 endif
 
 if has_key(plugs, 'nvim-colorizer.lua')
+lua << eof
+  require 'colorizer'.setup({
+    'css';
+    'javascript';
+    html = { mode = 'background' };
+    }, { mode = 'foreground' })
+eof
+
   noremap <leader>tc :ColorizerToggle<CR>
 endif
 
@@ -290,9 +258,8 @@ endif
 let g:tmux_navigator_disable_when_zoomed = 1
 
 set redrawtime=10000
-set history=500
-set cursorline
-set conceallevel=0
+" set history=500
+" set conceallevel=0
 
 command! CopyBuffer let @+ = expand('%:p')
 

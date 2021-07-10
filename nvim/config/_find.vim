@@ -1,4 +1,4 @@
-if has_key(plugs, 'ctrlsf.vim')
+if PlugLoaded('ctrlsf.vim')
 
   let g:ctrlsf_backend = 'rg'
   let g:ctrlsf_mapping = {

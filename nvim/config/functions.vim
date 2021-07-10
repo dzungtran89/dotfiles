@@ -1,3 +1,5 @@
+" vim:tabstop=2:foldmethod=syntax
+
 function! PlugLoaded(name)
     return has_key(g:plugs, a:name) && isdirectory(g:plugs[a:name].dir)
 endfunction
@@ -29,8 +31,8 @@ function! CheckForUpdates()
     let g:pluginUpdateStatus = ''
     let Jobstart = has('nvim') ? function("jobstart") : function("job_start")
     let callbacks = has('nvim') ?
-        \ {'on_stdout': function('s:JobHandlerNeovim')} :
-        \ {'out_cb':    function('s:JobHandlerVim')}
+                \ {'on_stdout': function('s:JobHandlerNeovim')} :
+                \ {'out_cb':    function('s:JobHandlerVim')}
 
     for key in keys(g:plugs)
         let cmd = "cd " . g:plugs[key].dir ." && git remote update && git status -uno"
@@ -71,11 +73,11 @@ function! SmartFiles(...)
 endfunction
 
 if !exists('*s:setupWrapping')
-  function s:setupWrapping()
-    set wrap
-    set wm=2
-    set textwidth=79
-  endfunction
+    function s:setupWrapping()
+        set wrap
+        set wm=2
+        set textwidth=79
+    endfunction
 endif
 
 " " vim-peekaboo float {{{1
@@ -110,3 +112,8 @@ function! ToggleWrap()
     noremap <buffer> <silent> j gj
 endfunction
 
+function! CustomFold()
+    return printf('   %6-d%s', v:foldend - v:foldstart + 1, getline(v:foldstart))
+endfunction
+
+set fillchars=fold:\ | set foldtext=CustomFold() 

@@ -1,3 +1,9 @@
+" -----------------------------------------------
+" Common {{{1
+" -----------------------------------------------
+
+" }}}
+
 nnoremap <silent> <leader>ts
       \ :if exists("syntax_on") <BAR>
       \    syntax off <BAR>
@@ -93,9 +99,9 @@ if PlugLoaded('vim-which-key')
   " \ 'v' : [':FloatermNew vifm'       , 'vifm']      ,
   " \ 'r' : [':FloatermNew lf'         , 'lf']       ,
   " \ 't' : [':FloatermToggle'         , 'terminal'] ,
+  " \ 'f' : [':FloatermNew fzf'        , 'fzf']      ,
   let g:which_key_map.c = {
         \ 'name' : '+terminal'             ,
-        \ 'f' : [':FloatermNew fzf'        , 'fzf']      ,
         \ 'l' : [':FloatermNew lazygit'    , 'git']      ,
         \ 'g' : [':FloatermNew tig'        , 'tig']      ,
         \ 'p' : [':FloatermNew python'     , 'python']   ,
@@ -108,3 +114,4 @@ if PlugLoaded('vim-floaterm')
   nnoremap   <silent>   <F12>              :FloatermToggle<CR>
   tnoremap   <silent>   <F12>   <C-\><C-n> :FloatermToggle<CR>
 endif
+

@@ -81,6 +81,7 @@ Plug 'shumphrey/fugitive-gitlab.vim'
 " LSP
 " -------------------------------
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'antoinemadec/coc-fzf'
 
 " -------------------------------
 " VISUAL
@@ -91,9 +92,10 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'rktjmp/lush.nvim'
 Plug 'eddyekofo94/gruvbox-flat.nvim'
 Plug 'arcticicestudio/nord-vim'
-Plug 'itchyny/lightline.vim'
+Plug 'projekt0n/github-nvim-theme'
+" Plug 'itchyny/lightline.vim'
 " Plug 'famiu/feline.nvim'
-" Plug 'hoob3rt/lualine.nvim'
+Plug 'hoob3rt/lualine.nvim'
 
 " -------------------------------
 " MISC

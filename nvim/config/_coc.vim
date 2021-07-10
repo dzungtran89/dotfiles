@@ -134,27 +134,41 @@ if PlugLoaded('coc.nvim')
   " set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
   " Mappings for CoCList
-  " Show all diagnostics.
-  nnoremap <silent><nowait> <leader>cL  :<C-u>CocList<CR>
-
-  nnoremap <silent><nowait> <leader>ca  :<C-u>CocList diagnostics<cr>
-  " Manage extensions.
-  nnoremap <silent><nowait> <leader>ce  :<C-u>CocList extensions<cr>
-  " Show commands.
-  nnoremap <silent><nowait> <leader>cc  :<C-u>CocList commands<cr>
-  " Find symbol of current document.
-  nnoremap <silent><nowait> <leader>co  :<C-u>CocList outline<cr>
-  " Search workspace symbols.
-  nnoremap <silent><nowait> <leader>cs  :<C-u>CocList -I symbols<cr>
-  " Do default action for next item.
-  nnoremap <silent><nowait> <leader>cj  :<C-u>CocNext<CR>
-  " Do default action for previous item.
-  nnoremap <silent><nowait> <leader>ck  :<C-u>CocPrev<CR>
-  " Resume latest coc list.
-  nnoremap <silent><nowait> <leader>cp  :<C-u>CocListResume<CR>
 
   " Don't use GUI tabline
   " set guioptions-=e
 
+  " grep word under cursor
+  command! -nargs=+ -complete=custom,s:GrepArgs Rg exe 'CocFzfList grep '.<q-args>
+
+  function! s:GrepArgs(...)
+    let list = ['-S', '-smartcase', '-i', '-ignorecase', '-w', '-word',
+          \ '-e', '-regex', '-u', '-skip-vcs-ignores', '-t', '-extension']
+    return join(list, "\n")
+  endfunction
+
+  vnoremap <leader>gg :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
+  nnoremap <leader>gg :<C-u>set operatorfunc=<SID>GrepFromSelected<CR>g@
+
+  function! s:GrepFromSelected(type)
+    let saved_unnamed_register = @@
+    if a:type ==# 'v'
+      normal! `<v`>y
+    elseif a:type ==# 'char'
+      normal! `[v`]y
+    else
+      return
+    endif
+    let word = substitute(@@, '\n$', '', 'g')
+    let word = escape(word, '| ')
+    let @@ = saved_unnamed_register
+    execute 'CocFzfList grep '.word
+  endfunction
+
 endif
 
+if PlugLoaded('coc-fzf')
+  let g:coc_fzf_preview = 'up:50%'
+  let g:coc_fzf_opts = ['--layout=reverse-list']
+  let g:coc_fzf_preview_toggle_key = '?'
+endif

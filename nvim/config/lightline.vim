@@ -1,35 +1,39 @@
 " set tabline="%1t"
 
+source $HOME/.config/nvim/config/nord.vim
+
 let g:lightline = {
       \ 'colorscheme': 'nord',
       \ 'separator': { 'left': "", 'right': "" },
       \ 'active': {
       \   'left': [
-      \       [ 'gitbranch', 'mode' ],
-      \       [ 'readonly', 'modified', 'tagbar' ]
+      \       [ 'mode', 'paste' ],
+      \       [ 'gitbranch', 'readonly', 'filename', 'modified', 'tagbar' ]
       \   ],
       \   'right': [
       \       ['percent'],
       \       ['lineinfo'],
-      \       ['cocstatus', 'fileformat', 'fileencoding', 'filetype'],
+      \       ['cocstatus', 'fileformat', 'fileencoding', 'filetype' ],
       \   ]
       \ },
       \ 'component_function': {
       \   'gitbranch' : 'FugitiveHead',
-      \   'cocstatus' : 'coc#status'
+      \   'cocstatus' : 'coc#status',
+      \   'fileformat': 'LightlineFileformat',
+      \   'filetype': 'LightlineFiletype',
       \ },
       \ 'component': {
       \   'lineinfo': '%3l:%-2v%<',
       \   'tagbar': '%{tagbar#currenttag("%s", "", "f")}',
       \ },
       \ 'mode_map': {
-      \ 'n' : 'N',
+      \ 'n' : '🥚',
       \ 'r' : 'Prompt',
-      \ 'i' : 'I',
+      \ 'i' : '🐣',
       \ 'R' : 'R',
-      \ 'v' : 'Vim Ex',
+      \ 'v' : '🔥',
       \ 'V' : 'VL',
-      \ "\<C-v>": 'VB',
+      \ "\<C-v>": '🐍',
       \ 'c' : 'C',
       \ 's' : 'S',
       \ 'S' : 'SL',
@@ -40,3 +44,11 @@ let g:lightline = {
       \'enable': { 'tabline': 0 }
       \
       \ }
+
+function! LightlineFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! LightlineFiletype()
+  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction

@@ -4,6 +4,14 @@
 " " Color Scheme
 set bg=dark
 
+if PlugLoaded('github-nvim-theme')
+lua << EOF
+require('github-theme').setup({
+    themeStyle = 'dark'
+})
+EOF
+endif
+
 if PlugLoaded('nord-vim')
 lua << EOF
   local g = vim.g
@@ -22,13 +30,17 @@ lua << EOF
   g.gruvbox_italic_comments = 0
   g.gruvbox_colors = { hint = "orange", error = "#ff0000" }
 
-  -- default colorscheme
-  vim.cmd[[colorscheme gruvbox-flat]]
 EOF
 endif
 
+colorscheme nord
+
 " Use true colors
 set termguicolors
+
+if !has('gui_running')
+  set t_Co=256
+endif
 
 " don't syntax-highlight long lines
 set synmaxcol=200
@@ -66,11 +78,6 @@ set lazyredraw
 " " Show clipboards and macros
 " let g:peekaboo_delay = 500
 " let g:peekaboo_compact = 1
-
-" Colorize
-if has('nvim')
-  lua require 'colorizer'.setup(nil, { css = true; })
-endif
 
 augroup windows
   autocmd!

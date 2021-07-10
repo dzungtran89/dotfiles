@@ -9,7 +9,12 @@
     "diagnostic.displayByAle": true,
     "session.directory": "~/.config/nvim/session",
     "session.saveOnVimLeave": true,
+    "list.source.tags.command": "ctags -R --languages=python",
+
     "list.source.mru.ignoreGitIgnore": true,
     "list.source.mru.maxLength": 500,
-    "list.source.tags.command": "ctags -R --languages=python"
+
+    "list.source.files.args": ["--hidden", "--files"],
+    "list.source.grep.args": ["-tpy", "-txml"]
+    /* "list.source.files.excludePatterns": [] */
 }

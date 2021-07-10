@@ -33,6 +33,8 @@ command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), " ") |
 " Copy search matches {{{1
 command! -register CopyMatches call CopyMatches(<q-reg>)
 
+command! CopyBuffer let @+ = expand('%:p')
+
 " fzf {{{1
 if PlugLoaded('fzf.vim')
     command! -bang -nargs=? -complete=dir LocateFiles
@@ -52,3 +54,4 @@ if PlugLoaded('fzf.vim')
         \ call fzf#vim#buffers(<q-args>, &columns > 120 ?
         \ fzf#vim#with_preview() : {}, <bang>0)
 endif
+

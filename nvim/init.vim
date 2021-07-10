@@ -26,11 +26,9 @@ lua require('utils')
 source $HOME/.config/nvim/config/commands.vim
 source $HOME/.config/nvim/config/autocmds.vim
 source $HOME/.config/nvim/config/mappings.vim
-source $HOME/.config/nvim/config/nord.vim
 
 " Personal plugins
 
-source $HOME/.config/nvim/config/_whichkey.vim
 source $HOME/.config/nvim/config/_session.vim
 source $HOME/.config/nvim/config/_editor.vim
 source $HOME/.config/nvim/config/_telescope.vim
@@ -40,7 +38,7 @@ source $HOME/.config/nvim/config/_find.vim
 source $HOME/.config/nvim/config/_lf.vim
 
 lua require('_indent_blankline_nvim')
-lua require('_fzf')
+" lua require('_fzf')
 lua require('_coc')
 " lua require('_nvimtree')
 
@@ -67,3 +65,6 @@ source $HOME/.config/nvim/config/_debug.vim
 
 source $HOME/.config/nvim/config/_statusline.vim
 
+" Post Config
+source $HOME/.config/nvim/config/_whichkey.vim
+lua require('mappings')

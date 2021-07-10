@@ -21,5 +21,3 @@ vim.g.coc_global_extensions = {
   -- "coc-yaml",
 }
 
--- nnoremap("<leader>qo",  ":CocCommand session.load ")
--- nnoremap("<leader>qs",  ":CocCommand session.save ")

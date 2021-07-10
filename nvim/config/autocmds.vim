@@ -48,10 +48,10 @@ autocmd VimEnter * call CheckForUpdates()
 
 " Plugin: coc.nvim
 if PlugLoaded('coc.nvim')
-    set updatetime=50
-    autocmd CursorHold * silent     call CocActionAsync('highlight')
-    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-    autocmd FileType python let b:coc_root_patterns = ['.env', '.git']
+  set updatetime=50
+  autocmd CursorHold * silent     call CocActionAsync('highlight')
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  autocmd FileType python let b:coc_root_patterns = ['.env', '.git']
 endif
 
 " Disable visualbell
@@ -59,4 +59,3 @@ set noerrorbells visualbell t_vb=
 if has('autocmd')
   autocmd GUIEnter * set visualbell t_vb=
 endif
-
