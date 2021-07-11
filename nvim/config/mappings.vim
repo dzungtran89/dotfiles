@@ -27,6 +27,10 @@ nnoremap <localleader>u YpVr-<CR>
 "" Clean search (highlight)
 nnoremap <silent> <leader><space> :noh<cr>
 
+"" Keep cursor at the first match
+nnoremap * *N
+nnoremap # #N
+
 "" Switching windows
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
@@ -72,6 +76,7 @@ nnoremap Q <Nop>
 
 " noremap <localleader>c :b#<bar>bd#<CR>
 noremap <localleader>bd :bd!<CR>
+noremap <localleader>bw :update<CR>
 noremap <localleader>be :e!<CR>
 noremap <localleader>bq :close<CR>
 noremap <localleader>bs :split<CR>
@@ -80,7 +85,6 @@ nnoremap <silent> <leader>i :set ic!<CR>
 
 " Wrap
 nnoremap <localleader>w :set wrap!<CR>
-
 
 " nmap <silent> <leader>l :set invrelativenumber<CR>
 
@@ -100,3 +104,10 @@ noremap <leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 " }}}
+
+if PlugLoaded('HighStr.nvim')
+  vnoremap <silent> <leader>h1 :<c-u>HSHighlight 1<CR>
+  vnoremap <silent> <leader>h2 :<c-u>HSHighlight 2<CR>
+  vnoremap <silent> <leader>h3 :<c-u>HSHighlight 3<CR>
+  vnoremap <silent> <leader>h0 :<c-u>HSRmHighlight<CR>
+endif

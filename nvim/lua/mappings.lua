@@ -1,6 +1,5 @@
 local vimp = require("vimp")
 local nnoremap = vimp.nnoremap
-local vnoremap = vimp.vnoremap
 
 nnoremap("gl"             ,  ":Rg<CR>")
 
@@ -38,7 +37,7 @@ nnoremap("<Leader>ec"     ,  ":History:<CR>")
 nnoremap("<Leader>es"     ,  ":Filetypes<CR>")
 -- nnoremap("<Leader>,"      ,  ":SmartFiles<CR>")
 nnoremap("<localleader>bl",  ":BLines<CR>")
-nnoremap({"silent", "expr"}, "<localleader>o", ":BTags<CR>")
+nnoremap({"silent"}, "<localleader>o", ":BTags<CR>")
 
 
 -----------------------------------------------
@@ -49,7 +48,7 @@ nnoremap({"silent", "nowait"}, "<leader>l", ":<C-u>CocFzfList<CR>")
 
 -- nnoremap <silent><nowait> <leader>ca  
 nnoremap({"silent", "nowait"}, "<leader>cd", ":<C-u>CocFzfList diagnostics<cr>")
-nnoremap({"silent", "nowait"}, "<leader>ce", ":<C-u>CocFzfList extensions<cr>")
+nnoremap({"silent", "nowait"}, "<leader>ce", ":<C-u>CocCommand explorer<cr>")
 nnoremap({"silent", "nowait"}, "<leader>cc", ":<C-u>CocFzfList commands<cr>")
 nnoremap({"silent", "nowait"}, "<leader>co", ":<C-u>CocFzfList outline<cr>")
 

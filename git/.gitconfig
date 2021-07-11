@@ -3,39 +3,51 @@
   email = dungtd@trobz.com
 [core]
   excludesfile = ~/.gitignore_global
-  ; pager = diff-so-fancy | less --tabs=4 -RFX
-  ; pager = delta
   editor = /usr/bin/vi
 [color]
   ui = true
-[color "diff-highlight"]
-  oldNormal = red bold
-  oldHighlight = red bold 52
-  newNormal = green bold
-  newHighlight = green bold 22
-[color "diff"]
-  meta = yellow
-  frag = magenta bold
-  commit = yellow bold
-  old = red bold
-  new = green bold
-  whitespace = red reverse
+; [color "diff-highlight"]
+;   oldNormal = red bold
+;   oldHighlight = red bold 52
+;   newNormal = green bold
+;   newHighlight = green bold 22
+; [color "diff"]
+;   meta = yellow
+;   frag = magenta bold
+;   commit = yellow bold
+;   old = red bold
+;   new = green bold
+;   whitespace = red reverse
 [gc]
   autoDetach = false
 [pull]
   rebase = true
 [rebase]
   autoStash = true
-[oh-my-zsh]
-  hide-status = 1
 [web]
   browse = open
 [merge]
-  tool = vimdiff
+  ; tool = vimdiff
+  tool = nvim -d
 [mergetool]
   keepBackup = false
 [mergetool "vimdiff"]
   cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [tig]
-  line-graphics = no	# Disable graphics characters
-  tab-size = 4		# Number of spaces per tab
+  line-graphics = no  # Disable graphics characters
+  tab-size = 4        # Number of spaces per tab
+[alias]
+	c = commit
+	s = status
+	lg = log --oneline
+	last = log -1 HEAD
+	cl = log -p -- ':(exclude)Cargo.lock'
+	f = push --force-with-lease
+	# https://stackoverflow.com/a/11688523/472927
+	ss = "!f() { git stash show stash^{/$*} -p; }; f"
+	sa = "!f() { git stash apply stash^{/$*}; }; f"
+	sl = stash list
+[url "git@gitlab.trobz.com:"]
+	insteadOf = gt:
+[url "git@github.com:"]
+	insteadOf = gh:

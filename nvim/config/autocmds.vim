@@ -59,3 +59,11 @@ set noerrorbells visualbell t_vb=
 if has('autocmd')
   autocmd GUIEnter * set visualbell t_vb=
 endif
+
+" Disabling the cursor-line/column in unused windows/buffers.
+augroup cursorline
+  autocmd!
+  autocmd WinEnter,BufEnter * setlocal cursorline
+  autocmd WinLeave,BufLeave * setlocal nocursorline
+augroup END
+

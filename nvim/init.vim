@@ -40,7 +40,6 @@ source $HOME/.config/nvim/config/_lf.vim
 lua require('_indent_blankline_nvim')
 " lua require('_fzf')
 lua require('_coc')
-" lua require('_nvimtree')
 
 if PlugLoaded('coc.nvim')
   source $HOME/.config/nvim/config/_coc.vim
@@ -64,6 +63,7 @@ source $HOME/.config/nvim/config/_linter.vim
 source $HOME/.config/nvim/config/_debug.vim
 
 source $HOME/.config/nvim/config/_statusline.vim
+lua require('org')
 
 " Post Config
 source $HOME/.config/nvim/config/_whichkey.vim

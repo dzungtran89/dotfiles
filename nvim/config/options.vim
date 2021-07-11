@@ -21,6 +21,12 @@ set shiftround                      " Round >> to nearest shiftwidth multiple
 set shiftwidth=4                    " Spaces for >>
 set softtabstop=4                   " Spaces for tab
 set tabstop=4                       " Tab display width
+set nowrap
+
+" Turn backup off, since most stuff is in SVN, git etc. anyway...
+set nobackup
+set nowb
+set noswapfile
 
 " Python indenting {{{2
 " let g:pyindent_continue     = '&sw'
@@ -54,6 +60,7 @@ set colorcolumn=80                  " Column guide
 set cursorline                      " Highlight current line
 set laststatus=2                    " Status line
 set mouse=a                         " Mouse interactivity
+set mousemodel=popup
 set numberwidth=2                   " Numbering column width
 set relativenumber                  " Relative line numbers
 set scrolloff=2                     " Always display lines around cursor
@@ -71,7 +78,6 @@ syntax on
 set ruler
 set number
 
-set mousemodel=popup
 " set t_Co=256
 " set guioptions=egmrti
 " set gfn=Monaco \10
@@ -92,3 +98,21 @@ set titleold="Terminal"
 set titlestring=%F
 
 " set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
+
+if has("win64") || has("win32") || has("win16")
+  let g:clipboard = {
+        \   'name': 'win32yank-wsl',
+        \   'copy': {
+        \      '+': '/mnt/c/ProgramData/chocolatey/bin/win32yank.exe -i --crlf',
+        \      '*': '/mnt/c/ProgramData/chocolatey/bin/win32yank.exe -i --crlf',
+        \    },
+        \   'paste': {
+        \      '+': '/mnt/c/ProgramData/chocolatey/bin/win32yank.exe -o --lf',
+        \      '*': '/mnt/c/ProgramData/chocolatey/bin/win32yank.exe -o --lf',
+        \   },
+        \   'cache_enabled': 0,
+        \ }
+endif
+
+" Disable tmux navigator when zooming the Vim pane
+let g:tmux_navigator_disable_when_zoomed = 1

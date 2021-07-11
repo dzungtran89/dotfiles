@@ -69,6 +69,7 @@ set signcolumn=yes
 
 " Don't redraw for macros
 set lazyredraw
+set redrawtime=10000
 
 " Code Folding
 " See https://github.com/w0rp/ale/issues/1829

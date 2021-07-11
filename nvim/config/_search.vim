@@ -47,9 +47,6 @@ let g:fzf_tags_command = 'ctags -R --languages=python'
 "       \'highlight': 'Todo', 'border': 'sharp'
 "       \}}
 
-" let $FZF_DEFAULT_OPTS = '--layout=reverse'
-" let $FZF_DEFAULT_COMMAND='rg --files -w --hidden --follow --glob "!.git/*"'
-
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],

@@ -1,5 +1,8 @@
 local home = os.getenv("HOME")
 local g = vim.g
+local api = vim.api
+
+api.nvim_command('set nonumber')
 
 g.python3_host_prog = 'python3'
 g.python2_host_prog = 'python2'

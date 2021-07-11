@@ -168,6 +168,7 @@ if PlugLoaded('coc.nvim')
 endif
 
 if PlugLoaded('coc-fzf')
+  " let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
   let g:coc_fzf_preview = 'up:50%'
   let g:coc_fzf_opts = ['--layout=reverse-list']
   let g:coc_fzf_preview_toggle_key = '?'
