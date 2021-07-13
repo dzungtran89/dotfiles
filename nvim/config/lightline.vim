@@ -4,11 +4,11 @@ source $HOME/.config/nvim/config/nord.vim
 
 let g:lightline = {
       \ 'colorscheme': 'nord',
-      \ 'separator': { 'left': "", 'right': "" },
+      \ 'separator': { 'left': "", 'right': "" },
       \ 'active': {
       \   'left': [
       \       [ 'mode', 'paste' ],
-      \       [ 'gitbranch', 'readonly', 'filename', 'modified', 'tagbar' ]
+      \       [ 'gitbranch', 'readonly', 'modified', 'tagbar' ]
       \   ],
       \   'right': [
       \       ['percent'],
@@ -27,13 +27,13 @@ let g:lightline = {
       \   'tagbar': '%{tagbar#currenttag("%s", "", "f")}',
       \ },
       \ 'mode_map': {
-      \ 'n' : '🥚',
+      \ 'n' : 'N',
       \ 'r' : 'Prompt',
-      \ 'i' : '🐣',
+      \ 'i' : 'I',
       \ 'R' : 'R',
-      \ 'v' : '🔥',
+      \ 'v' : 'V',
       \ 'V' : 'VL',
-      \ "\<C-v>": '🐍',
+      \ "\<C-v>": 'VB',
       \ 'c' : 'C',
       \ 's' : 'S',
       \ 'S' : 'SL',

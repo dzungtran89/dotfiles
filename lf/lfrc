@@ -9,7 +9,7 @@ set shellopts --shwordsplit
 set relativenumber on
 set hidden
 set drawbox
-set info size:time
+set info
 set tabstop 4
 set incsearch
 

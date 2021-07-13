@@ -37,15 +37,20 @@
   line-graphics = no  # Disable graphics characters
   tab-size = 4        # Number of spaces per tab
 [alias]
+  r = rebase
+  m = merge
 	c = commit
+  co = checkout
 	s = status
 	lg = log --oneline
 	last = log -1 HEAD
 	cl = log -p -- ':(exclude)Cargo.lock'
-	f = push --force-with-lease
+	pf = push --force-with-lease
 	# https://stackoverflow.com/a/11688523/472927
 	ss = "!f() { git stash show stash^{/$*} -p; }; f"
 	sa = "!f() { git stash apply stash^{/$*}; }; f"
+  ss = stash save
+  sp = stash pop
 	sl = stash list
 [url "git@gitlab.trobz.com:"]
 	insteadOf = gt:

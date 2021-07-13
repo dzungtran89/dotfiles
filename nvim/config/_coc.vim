@@ -1,6 +1,24 @@
 if PlugLoaded('coc.nvim')
 
-  autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
+  let g:coc_global_extensions = [
+        \"coc-explorer",
+        \"coc-lists",
+        \"coc-tsserver",
+        \"coc-snippets",
+        \"coc-pyright",
+        \"coc-emoji",
+        \]
+  let g:python3_host_prog = 'python3'
+  let g:python2_host_prog = 'python2'
+  let g:ruby_host_prog = '$(which ruby)'
+
+  set updatetime=50
+
+  " Highlight the symbol and its references when holding the cursor.
+  autocmd CursorHold * silent     call CocActionAsync('highlight')
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  autocmd FileType python let b:coc_root_patterns = ['.env', '.git']
 
   " Some servers have issues with backup files, see #649.
   set nobackup
@@ -65,23 +83,12 @@ if PlugLoaded('coc.nvim')
     endif
   endfunction
 
-  " Highlight the symbol and its references when holding the cursor.
-  " autocmd CursorHold * silent call CocActionAsync('highlight')
-
   " Symbol renaming.
   nmap <leader>rn <Plug>(coc-rename)
 
   " Formatting selected code.
   " xmap <leader>f  <Plug>(coc-format-selected)
   " nmap <leader>f  <Plug>(coc-format-selected)
-
-  augroup mygroup
-    autocmd!
-    " Setup formatexpr specified filetype(s).
-    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-    " Update signature help on jump placeholder.
-    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-  augroup end
 
   " Applying codeAction to the selected region.
   " Example: `<leader>aap` for current paragraph
@@ -139,7 +146,7 @@ if PlugLoaded('coc.nvim')
   " set guioptions-=e
 
   " grep word under cursor
-  command! -nargs=+ -complete=custom,s:GrepArgs Rg exe 'CocFzfList grep '.<q-args>
+  command! -nargs=+ -complete=custom,s:GrepArgs Rg exe 'CocList grep '.<q-args>
 
   function! s:GrepArgs(...)
     let list = ['-S', '-smartcase', '-i', '-ignorecase', '-w', '-word',
@@ -162,14 +169,30 @@ if PlugLoaded('coc.nvim')
     let word = substitute(@@, '\n$', '', 'g')
     let word = escape(word, '| ')
     let @@ = saved_unnamed_register
-    execute 'CocFzfList grep '.word
+    execute 'CocList grep '.word
   endfunction
 
 endif
 
 if PlugLoaded('coc-fzf')
   " let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-  let g:coc_fzf_preview = 'up:50%'
-  let g:coc_fzf_opts = ['--layout=reverse-list']
-  let g:coc_fzf_preview_toggle_key = '?'
+  " let g:coc_fzf_preview = 'up:50%'
+  " let g:coc_fzf_opts = ['--layout=reverse-list']
+  " let g:coc_fzf_preview_toggle_key = '?'
+
+  nnoremap <silent> <localleader>f  :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
+
+  nnoremap <silent> <leader>l        :<C-u>CocFzfList<CR>
+  nnoremap <silent> <leader>cd       :<C-u>CocFzfList diagnostics<CR>
+  nnoremap <silent> <leader>cb       :<C-u>CocFzfList diagnostics --current-buf<CR>
+  nnoremap <silent> <leader>cc       :<C-u>CocFzfList commands<CR>
+  nnoremap <silent> <leader>ce       :<C-u>CocCommand explorer<CR>
+  " nnoremap <silent> <leader>l       :<C-u>CocFzfList location<CR>
+  nnoremap <silent> <leader>co       :<C-u>CocFzfList outline<CR>
+  nnoremap <silent> <leader>cs       :<C-u>CocFzfList symbols<CR>
+  nnoremap <silent> <leader>rr       :<C-u>CocListResume<CR>
+
+  " -- Keymapping for grep word under cursor with interactive mode
+  nnoremap <silent> <Leader>cf :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>
+
 endif
