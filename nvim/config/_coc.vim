@@ -185,7 +185,8 @@ if PlugLoaded('coc-fzf')
   nnoremap <silent> <leader>l        :<C-u>CocFzfList<CR>
   nnoremap <silent> <leader>cd       :<C-u>CocFzfList diagnostics<CR>
   nnoremap <silent> <leader>cb       :<C-u>CocFzfList diagnostics --current-buf<CR>
-  nnoremap <silent> <leader>cc       :<C-u>CocFzfList commands<CR>
+  nnoremap <silent> <leader>cc       :<C-u>CocFzfList vimcommands<CR>
+  nnoremap <silent> <leader>cC       :<C-u>CocFzfList commands<CR>
   nnoremap <silent> <leader>ce       :<C-u>CocCommand explorer<CR>
   " nnoremap <silent> <leader>l       :<C-u>CocFzfList location<CR>
   nnoremap <silent> <leader>co       :<C-u>CocFzfList outline<CR>

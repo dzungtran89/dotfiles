@@ -384,8 +384,12 @@ if has('autocmd')
   autocmd GUIEnter * set visualbell t_vb=
 endif
 
+" Fix for WSL
+if !has('macunix')
+  let g:loaded_clipboard_provider = 1
+endif
+
 "" Copy/Paste/Cut
-let g:loaded_clipboard_provider = 1
 if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
 endif
@@ -549,13 +553,9 @@ endif
 " More vim configs {{{1
 source $HOME/.config/nvim/config.vim
 
-source $HOME/.config/nvim/config/_telescope.vim
-source $HOME/.config/nvim/config/_nvimtree.vim
 source $HOME/.config/nvim/config/_search.vim
 source $HOME/.config/nvim/config/_find.vim
 source $HOME/.config/nvim/config/_lf.vim
-
-" lua require('_indent_blankline_nvim')
 
 source $HOME/.config/nvim/config/_coc.vim
 source $HOME/.config/nvim/config/_git.vim
@@ -568,12 +568,8 @@ source $HOME/.config/nvim/config/_linter.vim
 
 source $HOME/.config/nvim/config/_debug.vim
 source $HOME/.config/nvim/config/_statusline.vim
-lua require('org')
-lua require('treesitter')
-lua require('_tabline')
 
 " Post Config
 source $HOME/.config/nvim/config/_whichkey.vim
 
-" " And, lua as well
-" lua require('config')
+" And, lua as well, to be continued ...

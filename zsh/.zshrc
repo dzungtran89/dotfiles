@@ -111,13 +111,12 @@ plugins=(
   docker
   zsh-z
   tig
+  zsh-autosuggestions
 
   # osx
   # pass
   # python
   # docker
-  # pyenv
-  # autojump
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -225,3 +224,5 @@ case `uname` in
   ;;
 esac
 
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZ=20
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)

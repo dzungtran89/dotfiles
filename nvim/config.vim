@@ -1,6 +1,20 @@
 " ---------------------------------------------------------------
 " Options
 " ---------------------------------------------------------------
+if PlugLoaded('nord-vim')
+  let g:nord_bold_vertical_split_line = 1
+  let g:nord_uniform_diff_background = 1
+  let g:nord_uniform_status_lines = 1
+  let g:nord_style = 'hard'
+endif
+
+if PlugLoaded('gruvbox-flat.nvim')
+  let g:gruvbox_flat_style = "hard"
+endif
+
+nnoremap <silent> <leader>ui :colorscheme<space>
+colorscheme nord
+
 set nojoinspaces                    " Join sentences with single space
 set shiftround                      " Round >> to nearest shiftwidth multiple
 set nowrap
@@ -81,8 +95,8 @@ autocmd FileType markdown   setlocal conceallevel=0
 " autocmd FileType typescript setlocal expandtab shiftwidth=2 softtabstop=4 tabstop=4
 
 " Filetype: Text width
-autocmd FileType python     setlocal textwidth=79 colorcolumn=79
-autocmd FileType tex        setlocal textwidth=79 colorcolumn=79
+" autocmd FileType python     setlocal textwidth=79 colorcolumn=79
+" autocmd FileType tex        setlocal textwidth=79 colorcolumn=79
 
 " Buffer: Determine filetype based on path
 autocmd BufRead,BufNewFile *.cls setlocal filetype=tex
@@ -223,20 +237,6 @@ nnoremap <Leader>es :Filetypes<CR>
 " Wrap
 nnoremap <localleader>w :set wrap!<CR>
 
-if PlugLoaded('nord-vim')
-  let g:nord_bold_vertical_split_line = 1
-  let g:nord_uniform_diff_background = 1
-  let g:nord_uniform_status_lines = 1
-  let g:nord_style = 'hard'
-endif
-
-if PlugLoaded('gruvbox-flat.nvim')
-  let g:gruvbox_flat_style = "hard"
-endif
-
-nnoremap <silent> <leader>ui :colorscheme<space>
-colorscheme termschool
-
 if PlugLoaded('editorconfig-vim')
   let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 endif
@@ -273,7 +273,7 @@ EOF
 endif
 
 " WSL yank support
-if has("unix")
+if !has("macunix")
   let s:clip = 'clip.exe'  " change this path according to your mount point
   if executable(s:clip)
     augroup WSLYank
@@ -282,3 +282,35 @@ if has("unix")
     augroup END
   endif
 endif
+
+if PlugLoaded('vim-matchup')
+  " let g:matchup_delim_noskips = 1   " recognize symbols within comments
+  let g:matchup_delim_noskips = 2   " don't recognize anything in comments
+  " Note: cs% command might be conflicted with vim-surround
+  let g:matchup_surround_enabled = 1
+  let g:matchup_delim_stopline = 500
+endif
+
+if PlugLoaded('neorg')
+  lua require('plugins._neorg')
+endif
+
+if PlugLoaded('nvim-treesitter')
+  lua require('plugins._treesitter')
+endif
+
+if PlugLoaded('luatab')
+lua << eof
+vim.o.tabline = '%!v:lua.require\'luatab\'.tabline()'
+eof
+endif
+
+if PlugLoaded('nvim-dap')
+  lua require('plugins._dap')
+endif
+
+if PlugLoaded('telescope.nvim')
+  lua require('plugins._telescope')
+endif
+
+lua require('keybindings')

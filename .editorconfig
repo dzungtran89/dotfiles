@@ -13,10 +13,13 @@ trim_trailing_whitespace = false
 indent_size = 2
 
 [*.{xml,json,toml,html,{z,}sh,y{a,}ml}]
-indent_size = 4
+indent_size = 2
 
-[*.{py,md}]
+[*.{md}]
 indent_size = 4
 
 [*.{py,rs,go}]
 indent_size = 4
+
+[*.{lua,vim}]
+indent_size = 2
