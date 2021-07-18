@@ -7,13 +7,14 @@ let g:lightline = {
       \ 'separator': { 'left': "", 'right': "" },
       \ 'active': {
       \   'left': [
-      \       [ 'mode', 'paste' ],
-      \       [ 'gitbranch', 'readonly', 'modified', 'tagbar' ]
+      \       [ 'gitbranch', 'mode' ],
+      \       [ 'filename', 'readonly', 'modified', 'tagbar' ]
       \   ],
       \   'right': [
       \       ['percent'],
       \       ['lineinfo'],
       \       ['cocstatus', 'fileformat', 'fileencoding', 'filetype' ],
+      \       ['paste'],
       \   ]
       \ },
       \ 'component_function': {

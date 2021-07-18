@@ -29,12 +29,10 @@ if PlugLoaded('ctrlsf.vim')
   vmap     <leader>sF <Plug>CtrlSFVwordExec
   nmap     <leader>sn <Plug>CtrlSFCwordPath
   nmap     <leader>sp <Plug>CtrlSFPwordPath
-  nmap     <leader>sf <Plug>CtrlSFPrompt-G *py -W<space>
-  nmap     <leader>sj <Plug>CtrlSFPrompt-G *js -W<space>
-  nmap     <leader>sx <Plug>CtrlSFPrompt-G *xml -W<space>
-  nmap     <leader>sv <Plug>CtrlSFPrompt-G *vim -W<space>
-  nmap     <leader>sc <Plug>CtrlSFPrompt-G *css -W<space>
-  nmap     <leader>sd <Plug>CtrlSFPrompt-G *dart -W<space>
+  nmap     <leader>sf <Plug>CtrlSFPrompt-G *
+
+  " Get searching history, use :History: by <leader>sh
+
   nnoremap <leader>so :CtrlSFToggle<CR>
 
   " vmap     <leader>ff <Plug>CtrlSFVwordPath

@@ -1,33 +1,52 @@
-local packer_plugins = packer_plugins
+local fn = vim.fn
 
-if packer_plugins["nvim-dap"].loaded then
-  local dap = require('dap')
-  dap.adapters.python = {
-    type = 'executable',
-    command = os.getenv('VIRTUAL_ENV') .. '/bin/python',
-    args = {'-m', 'debugpy.adapter'}
-  }
+if fn.PlugLoaded("nvim-dap") == 1 then
+  require('plugins._dap')
 end
 
-if packer_plugins["hop.nvim"] and packer_plugins["hop.nvim"].loaded then
+if fn.PlugLoaded("hop.nvim") == 1 then
+  print(fn.PlugLoaded("hop.nvim"))
+  print('Hope is loading')
   require('hop').setup {
     keys = 'etovxqpdygfblzhckisuran',
     term_seq_bias = 0.5
   }
 end
 
-if packer_plugins["telescope.nvim"] and packer_plugins["telescope.nvim"].loaded then
+if fn.PlugLoaded("telescope.nvim") == 1 then
   require('plugins._telescope')
 end
 
-if packer_plugins["luatab.nvim"] and packer_plugins["luatab.nvim"].loaded then
-  vim.o.tabline = '%!v:lua.require\'luatab\'.tabline()'
+if fn.PlugLoaded("nvim-bufferline.lua") == 1 then
+  require("bufferline").setup{}
 end
 
-if packer_plugins["nvim-tabline"] and packer_plugins["nvim-tabline"].loaded then
+if fn.PlugLoaded("nvim-tabline") == 1 then
   require('tabline').setup{
     show_index = true,    -- show tab index
     show_modify = true,   -- show buffer modification indicator
     no_name = '[No name]' -- no name buffer name
   }
 end
+
+if fn.PlugLoaded('neorg') == 1 then
+  require('plugins._neorg')
+end
+
+if fn.PlugLoaded('nvim-treesitter') == 1 then
+  require('plugins._treesitter')
+end
+
+if fn.PlugLoaded('Navigator.nvim') == 1 then
+  print('Navigator.nvim is loaded!')
+  require('plugins._tmux')
+end
+
+if fn.PlugLoaded('lualine.nvim') == 1 then
+  require('plugins._lualine')
+end
+
+if fn.PlugLoaded('nvim-lspconfig') == 1 then
+  require('plugins._lsp')
+end
+

@@ -16,7 +16,7 @@ if PlugLoaded('coc.nvim')
 
   " Highlight the symbol and its references when holding the cursor.
   autocmd CursorHold * silent     call CocActionAsync('highlight')
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   autocmd FileType python let b:coc_root_patterns = ['.env', '.git']
 
@@ -57,8 +57,8 @@ if PlugLoaded('coc.nvim')
 
   " Make <CR> auto-select the first completion item and notify coc.nvim to
   " format on enter, <cr> could be remapped by other vim plugin
-  inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-        \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+  " inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+  "       \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
   " Use `[g` and `]g` to navigate diagnostics
   nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -83,8 +83,8 @@ if PlugLoaded('coc.nvim')
     endif
   endfunction
 
-  " Symbol renaming.
-  nmap <leader>rn <Plug>(coc-rename)
+  " " Symbol renaming.
+  " nmap <leader>rn <Plug>(coc-rename)
 
   " Formatting selected code.
   " xmap <leader>f  <Plug>(coc-format-selected)
@@ -192,6 +192,9 @@ if PlugLoaded('coc-fzf')
   nnoremap <silent> <leader>co       :<C-u>CocFzfList outline<CR>
   nnoremap <silent> <leader>cs       :<C-u>CocFzfList symbols<CR>
   nnoremap <silent> <leader>rr       :<C-u>CocListResume<CR>
+
+  nnoremap <silent> <leader>qo       :<C-u>CocFzfList sessions<CR>
+  nnoremap <silent> <leader>qw       :<C-u>CocCommand session.save<Space>
 
   " -- Keymapping for grep word under cursor with interactive mode
   nnoremap <silent> <Leader>cf :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>

@@ -35,8 +35,8 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "" Plug install packages
 "*****************************************************************************
 
-if filereadable(expand("$HOME/.config/nvim/local_bundles.vim"))
-  source $HOME/.config/nvim/local_bundles.vim
+if filereadable(expand("$HOME/.config/nvim/bundles.vim"))
+  source $HOME/.config/nvim/bundles.vim
 endif
 
 "*****************************************************************************
@@ -102,9 +102,10 @@ else
   set shell=/bin/sh
 endif
 
+let g:session_directory = "~/.config/nvim/session"
+
 " session management
 if PlugLoaded('vim-session')
-  let g:session_directory = "~/.config/nvim/session"
   let g:session_autoload = "no"
   let g:session_autosave = "no"
   let g:session_command_aliases = 1
@@ -233,10 +234,6 @@ if PlugLoaded('grep.vim')
   let Grep_Skip_Dirs = '.git node_modules'
 endif
 
-" terminal emulation
-nnoremap <silent> <leader>sh :terminal<CR>
-
-
 "*****************************************************************************
 "" Commands
 "*****************************************************************************
@@ -298,6 +295,7 @@ noremap <leader>bl :BLines<CR>
 noremap <leader>bo :BTags<CR>
 noremap <leader>i  :set ic!<CR>
 
+nnoremap <localleader>mc :setl conceallevel=0<CR>
 "" Git
 if PlugLoaded('vim-fugitive')
   noremap <leader>go :.GBrowse<CR>
@@ -316,13 +314,6 @@ if PlugLoaded('vim-fugitive')
   "" Open current line on GitHub
   let g:fugitive_gitlab_domains = ['https://gitlab.trobz.com']
 endif
-
-
-" session management
-nnoremap <leader>qo :OpenSession<Space>
-nnoremap <leader>qw :SaveSession<Space>
-nnoremap <leader>qd :DeleteSession<CR>
-nnoremap <leader>qc :CloseSession<CR>
 
 "" Tabs
 nnoremap <Tab> gt
@@ -573,3 +564,4 @@ source $HOME/.config/nvim/config/_statusline.vim
 source $HOME/.config/nvim/config/_whichkey.vim
 
 " And, lua as well, to be continued ...
+lua require('init')

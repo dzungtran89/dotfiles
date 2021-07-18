@@ -15,6 +15,10 @@ endif
 nnoremap <silent> <leader>ui :colorscheme<space>
 colorscheme nord
 
+if !has('macunix')
+  colorscheme nord
+endif
+
 set nojoinspaces                    " Join sentences with single space
 set shiftround                      " Round >> to nearest shiftwidth multiple
 set nowrap
@@ -34,6 +38,7 @@ endif
 set relativenumber
 nmap <silent> <leader>L :set invrelativenumber<CR>
 
+imap qw <esc>
 " ---------------------------------------------------------------
 " Functions
 " ---------------------------------------------------------------
@@ -79,7 +84,7 @@ endfunction
 autocmd FileType qf nnoremap <buffer> <CR> <CR>:lclose<CR>
 
 " Filetype: Conceal level
-autocmd FileType markdown   setlocal conceallevel=0
+autocmd FileType markdown setlocal conceallevel=0
 
 " " Filetype: Indenting and Tabs
 " autocmd FileType css        setlocal expandtab shiftwidth=2 softtabstop=4 tabstop=4
@@ -101,7 +106,7 @@ autocmd FileType markdown   setlocal conceallevel=0
 " Buffer: Determine filetype based on path
 autocmd BufRead,BufNewFile *.cls setlocal filetype=tex
 autocmd BufRead,BufNewFile *.nxc setlocal filetype=cpp
-autocmd BufRead,BufNewFile *rc setlocal filetype=config
+autocmd BufRead,BufNewFile *rc   setlocal filetype=config
 
 " autocmd BufRead,BufNewFile if empty(&filetype) | ~/.config/* setlocal filetype=config | endif
 " autocmd BufRead,BufNewFile if empty(&filetype) | ~/dotfiles/*/.config/* setlocal filetype=config | endif
@@ -224,7 +229,7 @@ nnoremap <Leader>ef :FZF -m<CR>
 nnoremap <Leader>ew :Windows<CR>
 nnoremap <Leader>ee :FZFMru<CR>
 nnoremap <Leader>eg :GFiles --cached --others --exclude-standard<CR>
-nnoremap <Leader>eh :History<CR>
+nnoremap <Leader>sh :History<CR>
 nnoremap <Leader>el :Lines<CR>
 nnoremap <Leader>ea :Ag!<CR>
 nnoremap <Leader>er :Rg!<CR>
@@ -291,26 +296,20 @@ if PlugLoaded('vim-matchup')
   let g:matchup_delim_stopline = 500
 endif
 
-if PlugLoaded('neorg')
-  lua require('plugins._neorg')
+if PlugLoaded('quick-scope')
+
+  " Trigger a highlight in the appropriate direction when pressing these keys:
+  let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+  let g:qs_max_chars=79
+  let g:qs_buftype_blacklist = ['terminal', 'nofile']
+  let g:qs_filetype_blacklist = ['dashboard', 'startify']
+  let g:qs_lazy_highlight = 1
+
 endif
 
-if PlugLoaded('nvim-treesitter')
-  lua require('plugins._treesitter')
+if PlugLoaded('split-term.vim')
+  nnoremap <localleader>tt :Term<SPACE>
+  nnoremap <localleader>t2 :2Term<SPACE>
+  nnoremap <localleader>tv :VTerm<SPACE>
+  nnoremap <localleader>tn :TTerm<SPACE>
 endif
-
-if PlugLoaded('luatab')
-lua << eof
-vim.o.tabline = '%!v:lua.require\'luatab\'.tabline()'
-eof
-endif
-
-if PlugLoaded('nvim-dap')
-  lua require('plugins._dap')
-endif
-
-if PlugLoaded('telescope.nvim')
-  lua require('plugins._telescope')
-endif
-
-lua require('keybindings')

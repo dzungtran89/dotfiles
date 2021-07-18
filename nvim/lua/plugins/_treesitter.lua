@@ -20,10 +20,13 @@ require('nvim-treesitter.configs').setup {
   ensure_installed ={"norg", "xml", "python", "html", "javascript"},
   highlight = {
     enable = true,
-    indent = true,
     additional_vim_regex_highlighting = false,
     -- disable = { "c", "rust" },
   },
+  indent = {
+    enable = true, 
+    disable_filetype = {"python"}
+  }, 
   matchup = {
     enable = true
   }
