@@ -25,8 +25,12 @@ set nowrap
 
 " Turn backup off, since most stuff is in SVN, git etc. anyway...
 set nobackup
-set nowb
+" Some servers have issues with backup files, see #649.
+set nowritebackup
 set noswapfile
+
+" Give more space for displaying messages.
+set cmdheight=2
 
 set undodir=$HOME/.vim/undo         " Undo history location
 set undofile                        " Undo history
@@ -83,35 +87,15 @@ endfunction
 " Filetype: Close location list
 autocmd FileType qf nnoremap <buffer> <CR> <CR>:lclose<CR>
 
-" Filetype: Conceal level
-autocmd FileType markdown setlocal conceallevel=0
-
-" " Filetype: Indenting and Tabs
-" autocmd FileType css        setlocal expandtab shiftwidth=2 softtabstop=4 tabstop=4
-" autocmd FileType fortran    setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
-" autocmd FileType haskell    setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
-" autocmd FileType html       setlocal expandtab shiftwidth=2 softtabstop=4 tabstop=4
-" autocmd FileType javascript setlocal expandtab shiftwidth=2 softtabstop=4 tabstop=4
-" autocmd FileType lisp       setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
-" autocmd FileType lua        setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
-" autocmd FileType markdown   setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=4
-" autocmd FileType python     setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=4
-" autocmd FileType tex        setlocal expandtab shiftwidth=2 softtabstop=4 tabstop=4
-" autocmd FileType typescript setlocal expandtab shiftwidth=2 softtabstop=4 tabstop=4
-
-" Filetype: Text width
-" autocmd FileType python     setlocal textwidth=79 colorcolumn=79
-" autocmd FileType tex        setlocal textwidth=79 colorcolumn=79
+autocmd FileType markdown setl conceallevel=0
+autocmd FileType xml      setl shiftwidth=2
+autocmd FileType html     setl shiftwidth=2
+autocmd FileType css      setl shiftwidth=2
 
 " Buffer: Determine filetype based on path
 autocmd BufRead,BufNewFile *.cls setlocal filetype=tex
 autocmd BufRead,BufNewFile *.nxc setlocal filetype=cpp
 autocmd BufRead,BufNewFile *rc   setlocal filetype=config
-
-" autocmd BufRead,BufNewFile if empty(&filetype) | ~/.config/* setlocal filetype=config | endif
-" autocmd BufRead,BufNewFile if empty(&filetype) | ~/dotfiles/*/.config/* setlocal filetype=config | endif
-" autocmd BufRead,BufNewFile if empty(&filetype) | ~/dotfiles/bash/* setlocal filetype=zsh | endif
-" autocmd BufRead,BufNewFile if empty(&filetype) | ~/dotfiles/zsh/* setlocal filetype=zsh | endif
 
 " Buffer: Disable continue comment on new line
 autocmd BufRead,BufNewFile * setlocal formatoptions-=cro
@@ -216,7 +200,7 @@ nnoremap <localleader>/ /\<\><left><left>
 nnoremap <leader>qq :qa!<CR>
 
 " Go to definitions
-nnoremap <silent> <leader>]  g<C-]>
+nmap <silent> gd  g<C-]>
 
 " search and replace pattern under the cursor
 nnoremap c* *Ncgn
@@ -229,15 +213,16 @@ nnoremap <Leader>ef :FZF -m<CR>
 nnoremap <Leader>ew :Windows<CR>
 nnoremap <Leader>ee :FZFMru<CR>
 nnoremap <Leader>eg :GFiles --cached --others --exclude-standard<CR>
-nnoremap <Leader>sh :History<CR>
+nnoremap <Leader>eh :History<CR>
 nnoremap <Leader>el :Lines<CR>
 nnoremap <Leader>ea :Ag!<CR>
 nnoremap <Leader>er :Rg!<CR>
 nnoremap <Leader>em :Marks<CR>
 nnoremap <Leader>et :Tags<CR>
-nnoremap <Leader>ec :History:<CR>
 nnoremap <Leader>es :Filetypes<CR>
-" nnoremap("<Leader>,"      ,  ":SmartFiles<CR>")
+
+" Command history
+nnoremap <Leader>ch :History:<CR> 
 
 " Wrap
 nnoremap <localleader>w :set wrap!<CR>
@@ -279,7 +264,7 @@ endif
 
 " WSL yank support
 if !has("macunix")
-  let s:clip = 'clip.exe'  " change this path according to your mount point
+  let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
   if executable(s:clip)
     augroup WSLYank
       autocmd!

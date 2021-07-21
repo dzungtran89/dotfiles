@@ -78,7 +78,7 @@ set backspace=indent,eol,start
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set expandtab
+set noexpandtab
 set lazyredraw
 
 let mapleader=' '
@@ -96,10 +96,10 @@ set smartcase
 set fileformats=unix,dos,mac
 set numberwidth=2
 
-if exists('$SHELL')
-  set shell=$SHELL
+if $SHELL == '/usr/bin/fish'
+  set shell=/usr/bin/zsh
 else
-  set shell=/bin/sh
+  set shell=$SHELL
 endif
 
 let g:session_directory = "~/.config/nvim/session"
@@ -382,7 +382,7 @@ endif
 
 "" Copy/Paste/Cut
 if has('unnamedplus')
-  set clipboard=unnamed,unnamedplus
+  set clipboard+=unnamedplus
 endif
 
 noremap YY "+y<CR>
@@ -558,7 +558,7 @@ source $HOME/.config/nvim/config/_floaterm.vim
 source $HOME/.config/nvim/config/_linter.vim
 
 source $HOME/.config/nvim/config/_debug.vim
-source $HOME/.config/nvim/config/_statusline.vim
+source $HOME/.config/nvim/config/lightline.vim
 
 " Post Config
 source $HOME/.config/nvim/config/_whichkey.vim

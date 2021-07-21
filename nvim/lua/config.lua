@@ -1,4 +1,7 @@
+local g = vim.g
 local fn = vim.fn
+local map = vim.api.nvim_set_keymap
+local unmap = vim.api.nvim_del_keymap
 
 if fn.PlugLoaded("nvim-dap") == 1 then
   require('plugins._dap')
@@ -15,6 +18,14 @@ end
 
 if fn.PlugLoaded("telescope.nvim") == 1 then
   require('plugins._telescope')
+
+  -- Candidates
+  map('n' , '<leader>ft' , '<cmd>Telescope <cr>'           , {noremap = true})
+  map('n' , '<leader>ff' , '<cmd>Telescope find_files<cr>' , {noremap = true})
+  map('n' , '<leader>fg' , '<cmd>Telescope live_grep<cr>'  , {noremap = true})
+  map('n' , '<leader>fb' , '<cmd>Telescope buffers<cr>'    , {noremap = true})
+  map('n' , '<leader>fh' , '<cmd>Telescope help_tags<cr>'  , {noremap = true})
+
 end
 
 if fn.PlugLoaded("nvim-bufferline.lua") == 1 then
@@ -38,7 +49,6 @@ if fn.PlugLoaded('nvim-treesitter') == 1 then
 end
 
 if fn.PlugLoaded('Navigator.nvim') == 1 then
-  print('Navigator.nvim is loaded!')
   require('plugins._tmux')
 end
 

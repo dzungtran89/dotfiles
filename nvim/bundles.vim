@@ -23,9 +23,10 @@ if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-  Plug 'junegunn/fzf.vim'
-  Plug 'pbogut/fzf-mru.vim'
 endif
+
+Plug 'junegunn/fzf.vim'
+Plug 'pbogut/fzf-mru.vim'
 
 let g:make = 'gmake'
 if exists('make')
@@ -38,14 +39,6 @@ Plug 'Shougo/vimproc.vim', {'do': g:make}
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'dzungtran89/vim-odoo-snippets'
-
-" javascript
-"" Javascript Bundle
-" Plug 'jelera/vim-javascript-syntax'
-
-" python
-"" Python Bundle
-" Plug 'davidhalter/jedi-vim'
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 
 " vuejs
@@ -71,11 +64,12 @@ Plug 'nvim-lua/plenary.nvim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf'
+Plug 'josa42/vim-lightline-coc'
 
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'itchyny/lightline.vim'
-Plug 'crispgm/nvim-tabline'
+" Plug 'crispgm/nvim-tabline'
 " Plug 'hoob3rt/lualine.nvim'
 
 Plug 'numToStr/Navigator.nvim'
@@ -87,8 +81,9 @@ Plug 'vimlab/split-term.vim'
 
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'vhyrro/neorg'
-Plug 'nvim-telescope/telescope.nvim'
 Plug 'mfussenegger/nvim-dap'
+Plug 'tweekmonster/startuptime.vim'
+" Plug 'nvim-telescope/telescope.nvim'
 
 " Plug 'L3MON4D3/LuaSnip'
 " Plug 'hrsh7th/nvim-compe'

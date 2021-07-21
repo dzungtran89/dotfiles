@@ -46,7 +46,7 @@ set -g @plugin 'tmux-plugins/tmux-cpu'
 
 # -- windows & pane creation ---------------------------------------------------
 
-set -g default-terminal "xterm-256color" # colors!
+set -g default-terminal "xterm-256color"
 
 # new window retains current path, possible values are:
 #   - true
@@ -176,8 +176,8 @@ tmux_conf_theme_terminal_title='#h ❐ #S ● #I #W'
 #     - #{hostname_ssh}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_window_status_fg='#e5e9f0'              # light gray
-tmux_conf_theme_window_status_bg='#2e3440'              # dark gray
+tmux_conf_theme_window_status_fg='#4c566a'              # light gray
+tmux_conf_theme_window_status_bg='#d8dee9'              # dark gray
 tmux_conf_theme_window_status_attr='none'
 tmux_conf_theme_window_status_format='#W'
 #
@@ -191,12 +191,12 @@ tmux_conf_theme_window_status_format='#W'
 #     - #{hostname_ssh}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_window_status_current_fg='#2e3440'      # black
-tmux_conf_theme_window_status_current_bg='#e5e9f0'      # light blue
+tmux_conf_theme_window_status_current_fg='#3b4252'      # black
+tmux_conf_theme_window_status_current_bg='#a3be8c'      # light blue
 tmux_conf_theme_window_status_current_attr='bold'
 
 # tmux_conf_theme_window_status_current_format='#{circled_window_index} #W'
-tmux_conf_theme_window_status_current_format='#W#{?window_zoomed_flag, 🔍,}'
+tmux_conf_theme_window_status_current_format='#I #W#{?window_zoomed_flag, 🔍,}'
 
 # window activity status style
 tmux_conf_theme_window_status_activity_fg='default'
@@ -209,8 +209,8 @@ tmux_conf_theme_window_status_bell_bg='default'
 tmux_conf_theme_window_status_bell_attr='blink,bold'
 
 # window last status style
-tmux_conf_theme_window_status_last_fg='#88c0d0'         # light blue
-tmux_conf_theme_window_status_last_bg='default'
+tmux_conf_theme_window_status_last_fg='#3b4252'         # light blue
+tmux_conf_theme_window_status_last_bg='#ebcb8b'
 tmux_conf_theme_window_status_last_attr='none'
 
 # status left/right sections separators
@@ -220,15 +220,10 @@ tmux_conf_theme_window_status_last_attr='none'
 # tmux_conf_theme_right_separator_main='\uE0B2' #   Powerline symbols or the standalone
 # tmux_conf_theme_right_separator_sub='\uE0B3'  #   PowerlineSymbols.otf font, see README.md
 
-tmux_conf_theme_left_separator_main=''  # /!\ you don't need to install Powerline
-tmux_conf_theme_left_separator_sub=''   #   you only need fonts patched with
+# tmux_conf_theme_left_separator_main=''  # /!\ you don't need to install Powerline
+# tmux_conf_theme_left_separator_sub=''   #   you only need fonts patched with
 # tmux_conf_theme_right_separator_main='' #   Powerline symbols or the standalone
 # tmux_conf_theme_right_separator_sub=''  #   PowerlineSymbols.otf font, see README.md
-
-# tmux_conf_theme_right_separator_main=''
-# tmux_conf_theme_left_separator_sub='|'
-# tmux_conf_theme_right_separator_sub='|'
-# tmux_conf_theme_left_separator_main=''
 
 # status left/right content:
 #   - separate main sections with '|'
@@ -257,26 +252,21 @@ tmux_conf_theme_left_separator_sub=''   #   you only need fonts patched with
 # tmux_conf_theme_status_left=' ❐ #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} '
 # tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} '
 
-tmux_conf_theme_status_left='  #S '
+tmux_conf_theme_status_left=', #S,#{tmux_mode_indicator},'
 tmux_conf_theme_status_right=\
-'#{pairing}#{synchronized}'\
-'#{tmux_mode_indicator}'\
-'#C:#{cpu_icon} #{cpu_percentage} '\
-'#R:#{ram_icon} #{ram_percentage} '\
-'| %d %b | #{username}#{root} | #{hostname} '
-# '#{prefix} #{pairing} #{synchronized}'\
-
-# '#{?battery_bar,#{battery_bar},} , %d %b | '\
-# '#{?battery_bar, #{battery_bar},} ,'\
+'#{pairing}#{synchronized}|'\
+'CPU #{cpu_percentage},'\
+'MEM #{ram_percentage},'\
+'| #{username}#{root} | #{hostname} '
 
 # status left style
-# tmux_conf_theme_status_left_fg='#000000,#e4e4e4,#e4e4e4'  # black, white , white
-tmux_conf_theme_status_left_bg='#eceff4,#ff00af,#00afff'  # yellow, pink, white blue
+tmux_conf_theme_status_left_fg='#eceff4,#e4e4e4,#e4e4e4'  # white, white, white
+tmux_conf_theme_status_left_bg='#5e81ac,#ebcb8b,#a3be8c'
 tmux_conf_theme_status_left_attr='bold,none,none'
 
 # status right style
-# tmux_conf_theme_status_right_fg='#8a8a8a,#e4e4e4,#000000' # light gray, white, black
-# tmux_conf_theme_status_right_bg='#080808,#3b4252,#e5e9f0' # dark gray, red, white
+tmux_conf_theme_status_right_fg='#000000,#2e3440,#e4e4e4' # light gray, white, black
+tmux_conf_theme_status_right_bg='#88c0d0,#81a1c1,#5e81ac' # dark gray, red, white
 tmux_conf_theme_status_right_attr='none,none,bold'
 
 # pairing indicator
@@ -400,6 +390,8 @@ set -g mouse off
 # set -g mode-keys vi
 
 set-window-option -g mode-keys vi
+set-option -g status-position bottom
+set-option -g status-justify left
 
 # replace C-b by C-a instead of using both prefixes
 set -gu prefix2

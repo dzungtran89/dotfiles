@@ -1,18 +1,19 @@
 if PlugLoaded('coc.nvim')
 
-  let g:coc_global_extensions = [
-        \"coc-explorer",
-        \"coc-lists",
-        \"coc-tsserver",
-        \"coc-snippets",
-        \"coc-pyright",
-        \"coc-emoji",
-        \]
-  let g:python3_host_prog = 'python3'
-  let g:python2_host_prog = 'python2'
-  let g:ruby_host_prog = '$(which ruby)'
+lua << EOF
+vim.g.coc_global_extensions = { 
+  "coc-explorer",
+  "coc-lists",
+  "coc-tsserver",
+  "coc-snippets",
+  "coc-pyright",
+  "coc-emoji",
+  }
 
-  set updatetime=50
+vim.g.python3_host_prog = 'python3'
+vim.g.python2_host_prog = 'python2'
+vim.g.ruby_host_prog = '$(which ruby)'
+EOF
 
   " Highlight the symbol and its references when holding the cursor.
   autocmd CursorHold * silent     call CocActionAsync('highlight')
@@ -20,16 +21,9 @@ if PlugLoaded('coc.nvim')
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   autocmd FileType python let b:coc_root_patterns = ['.env', '.git']
 
-  " Some servers have issues with backup files, see #649.
-  set nobackup
-  set nowritebackup
-
-  " Give more space for displaying messages.
-  set cmdheight=2
-
   " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
   " delays and poor user experience.
-  " set updatetime=300
+  set updatetime=300
 
   " Don't pass messages to |ins-completion-menu|.
   set shortmess+=c
@@ -65,7 +59,7 @@ if PlugLoaded('coc.nvim')
   nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
   " GoTo code navigation.
-  nmap <silent> gd <Plug>(coc-definition)
+  " nmap <silent> gd <Plug>(coc-definition)
   nmap <silent> gy <Plug>(coc-type-definition)
   nmap <silent> gi <Plug>(coc-implementation)
   nmap <silent> gr <Plug>(coc-references)
@@ -83,8 +77,8 @@ if PlugLoaded('coc.nvim')
     endif
   endfunction
 
-  " " Symbol renaming.
-  " nmap <leader>rn <Plug>(coc-rename)
+  " Symbol renaming.
+  nmap <leader>rn <Plug>(coc-rename)
 
   " Formatting selected code.
   " xmap <leader>f  <Plug>(coc-format-selected)

@@ -20,32 +20,21 @@ elseif executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 endif
 
+lua << eof
 
-" fzf cool stuff {{{
+local g = vim.g
 
-" let g:fzf_preview_window = 'up:60%'
-let g:fzf_preview_window = ''
+-- let g:fzf_preview_window = 'up:60%'
+g.fzf_preview_window = ''
+g.fzf_history_dir = '~/.local/share/fzf-history'
+g.fzf_tags_command = 'ctags -R --languages=python'
 
-" This is the default extra key bindings
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-" Enable per-command history.
-" CTRL-N and CTRL-P will be automatically bound to next-history and
-" previous-history instead of down and up. If you don't like the change,
-" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
-let g:fzf_history_dir = '~/.local/share/fzf-history'
-
-" map <C-f> :Files<CR>
-let g:fzf_tags_command = 'ctags -R --languages=python'
-
-" Border color
-" let g:fzf_layout = {'up':'~80%', 'window': { 'width': 0.8,
-"       \'height': 0.8, 'yoffset':0.5, 'xoffset': 0.5,
-"       \'highlight': 'Todo', 'border': 'sharp'
-"       \}}
+-- Border color
+g.fzf_layout = {
+  up = '~80%',
+  window = { width= 0.5, height= 0.8, yoffset=0.5, xoffset= 0.5, highlight= 'Todo', border= 'sharp' }
+  }
+eof
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =

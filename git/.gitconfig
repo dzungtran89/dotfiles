@@ -4,6 +4,21 @@
 [core]
   excludesfile = ~/.gitignore_global
   editor = /usr/bin/vi
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+[delta]
+    features = side-by-side decorations
+    whitespace-error-style = 22 reverse
+    line-numbers = true
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+[interactive]
+    diffFilter = delta --color-only
 [color]
   ui = true
 ; [color "diff-highlight"]
@@ -42,6 +57,7 @@
   c = commit
   co = checkout
   s = status
+  l = log
   lg = log --oneline
   last = log -1 HEAD
   ; cl = log -p -- ':(exclude)Cargo.lock'
