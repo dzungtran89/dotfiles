@@ -42,6 +42,7 @@
   c = commit
   co = checkout
   s = status
+  l = log
   lg = log --oneline
   last = log -1 HEAD
   ; cl = log -p -- ':(exclude)Cargo.lock'
