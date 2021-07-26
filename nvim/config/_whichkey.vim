@@ -83,6 +83,7 @@ if PlugLoaded('vim-which-key')
         \ 'K' : [':resize -5'  , 'expand-window-up']      ,
         \ '=' : ['<C-W>='      , 'balance-window']        ,
         \ '?' : ['Windows'     , 'fzf-window']            ,
+        \ 'q' : ['<C-W>q'      , 'close-window']            ,
         \ }
 
   " \ ';' : [':FloatermNew --wintype=popup --height=6' , 'terminal'] ,

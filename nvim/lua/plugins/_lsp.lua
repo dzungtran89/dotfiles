@@ -4,9 +4,9 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Enable the following language servers
-local servers = { 
-  'pyright', 
-  -- 'tsserver' 
+local servers = {
+  'pyright',
+  'tsserver'
 }
 
 for _, lsp in ipairs(servers) do
@@ -16,6 +16,8 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+
+-- vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noinsert'

@@ -5,9 +5,9 @@
 
     "xml.java.home": "/Library/Java/JavaVirtualMachines/openjdk-14.0.2.jdk/Contents/Home",
     "xml.completion.autoCloseTags": true,
-    "snippets.userSnippetsDirectory": "~/.config/nvim/plugged/vim-odoo-snippets/UltiSnips",
+    "snippets.userSnippetsDirectory": "~/.nvim/plugged/vim-odoo-snippets/UltiSnips",
     "diagnostic.displayByAle": true,
-    "session.directory": "~/.config/nvim/session",
+    "session.directory": "~/.nvim/session",
     "session.saveOnVimLeave": true,
     "list.source.tags.command": "ctags -R --languages=python",
 

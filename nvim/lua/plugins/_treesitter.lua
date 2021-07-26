@@ -17,12 +17,12 @@ parser_configs.xml = {
 }
 
 require('nvim-treesitter.configs').setup {
-  ensure_installed ={"norg", "xml", "python", "html", "javascript", "css" },
+  ensure_installed ={"norg", "xml", "python", "javascript", "html", "css"},
   highlight = {
     enable = true,
     indent = true,
     additional_vim_regex_highlighting = false,
-    -- disable = { "c", "rust" },
+    disable = { "html" },
   },
   matchup = {
     enable = true

@@ -98,21 +98,19 @@ alias tn='tmux new -s'
 alias ta='tmux attach -t'
 alias tmls='tmux ls'
 
-# powerlevel10k
-# alias hap='prompt powerlevel10k'
-
 alias lt='tree -la -L'
 
-# if command -v exa &> /dev/null; then
-#   alias ls='exa'
-#   alias la='exa -l --all --group-directories-first'
-#   alias ll='exa -l --all --all --group-directories-first'
-#   alias lg='exa -l --all --group-directories-first --git'
-#   alias llg='exa -l --all --all --group-directories-first --git'
-#   alias lt='exa -T --git-ignore --group-directories-first --level'
-#   alias llt='exa -lT --git-ignore --level=2 --group-directories-first'
-#   alias lT='exa -T --git-ignore --level=4 --group-directories-first'
-# fi
+if command -v exa &> /dev/null; then
+  alias ls='exa'
+  alias la='ls -lh'
+  # alias la='exa -l --all --group-directories-first'
+  # alias ll='exa -l --all --all --group-directories-first'
+  # alias lg='exa -l --all --group-directories-first --git'
+  # alias llg='exa -l --all --all --group-directories-first --git'
+  # alias lt='exa -T --git-ignore --group-directories-first --level'
+  # alias llt='exa -lT --git-ignore --level=2 --group-directories-first'
+  # alias lT='exa -T --git-ignore --level=4 --group-directories-first'
+fi
 
 alias lgit='lazygit'
 alias ldocker='lazydocker'

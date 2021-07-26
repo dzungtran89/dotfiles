@@ -2,14 +2,11 @@
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-" Plug 'unblevable/quick-scope'
+Plug 'rstacruz/vim-closer'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 Plug 'airblade/vim-gitgutter'
 Plug 'shumphrey/fugitive-gitlab.vim'
-" Plug 'vim-scripts/grep.vim'
-" Plug 'vim-scripts/CSApprox'
-" Plug 'Raimondi/delimitMate'
 Plug 'preservim/tagbar'
 Plug 'dense-analysis/ale'
 Plug 'editor-bootstrap/vim-bootstrap-updater'
@@ -18,13 +15,7 @@ let g:polyglot_disabled = []
 Plug 'sheerun/vim-polyglot'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-
-if isdirectory('/usr/local/opt/fzf')
-  Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-else
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-endif
-
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
 
@@ -55,6 +46,7 @@ Plug 'andymass/vim-matchup'
 
 Plug 'pechorin/any-jump.vim'
 Plug 'dyng/ctrlsf.vim'
+Plug 'brooth/far.vim'
 Plug 'godlygeek/tabular'
 Plug 'samgriesemer/wiki.vim'
 Plug 'samgriesemer/vim-roam'
@@ -64,7 +56,6 @@ Plug 'nvim-lua/plenary.nvim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf'
-Plug 'josa42/vim-lightline-coc'
 
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'norcalli/nvim-colorizer.lua'

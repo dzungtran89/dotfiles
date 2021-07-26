@@ -39,7 +39,7 @@ if has('nvim')
   set inccommand=split
 endif
 
-set relativenumber
+" set relativenumber
 nmap <silent> <leader>L :set invrelativenumber<CR>
 
 imap qw <esc>
@@ -140,8 +140,6 @@ set colorcolumn=+1
 set title
 setglobal titlestring=nvim
 
-set nonu
-
 " Highlight the current line, don't highlight the current column
 set nocursorcolumn
 
@@ -177,17 +175,10 @@ if PlugLoaded('fzf.vim')
 endif
 " }}}
 
-nnoremap <silent> <leader>ts
-      \ :if exists("syntax_on") <BAR>
-      \    syntax off <BAR>
-      \ else <BAR>
-      \    syntax enable <BAR>
-      \ endif<CR>
-
 " Mappings
 " Auto insert dash with the same length of header
 " -----------------------------------------------
-nnoremap <localleader>u YpVr-<CR>
+nnoremap <localleader>u YpVr=<CR>
 
 "" Keep cursor at the first match
 nnoremap * *N
@@ -225,7 +216,7 @@ nnoremap <Leader>es :Filetypes<CR>
 nnoremap <Leader>ch :History:<CR> 
 
 " Wrap
-nnoremap <localleader>w :set wrap!<CR>
+nnoremap <localleader>w :setl wrap!<CR>
 
 if PlugLoaded('editorconfig-vim')
   let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']

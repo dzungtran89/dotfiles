@@ -12,6 +12,9 @@ if PlugLoaded('lightline.vim')
     return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
   endfunction
 
+endif
+
+if PlugLoaded('vim-lightline-coc')
   " register ompoments:
   call lightline#coc#register()
 endif

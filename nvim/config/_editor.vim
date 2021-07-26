@@ -83,10 +83,9 @@ endif
 if PlugLoaded('nvim-colorizer.lua')
 lua << eof
   require 'colorizer'.setup({
-    'css';
-    'javascript';
-    html = { mode = 'background' };
-    }, { mode = 'foreground' })
+    'javascript'; 'conf'; 'yaml'; 'css'; 'html';
+    }
+  )
 eof
 
   noremap <leader>tc :ColorizerToggle<CR>

@@ -33,7 +33,7 @@ if PlugLoaded('ctrlsf.vim')
 
   " Get searching history, use :History: by <leader>sh
 
-  nnoremap <leader>so :CtrlSFToggle<CR>
+  nnoremap <leader>p :CtrlSFToggle<CR>
 
   " vmap     <leader>ff <Plug>CtrlSFVwordPath
   " nnoremap <leader>fo :CtrlSFOpen<CR>
@@ -48,4 +48,15 @@ else
   let Grep_Skip_Files = '*.log *.db'
   let Grep_Skip_Dirs = '.git node_modules'
 
+endif
+
+if PlugLoaded('far.vim')
+  " shortcut for far.vim find
+  nnoremap <silent> <leader>sg  :Farf<cr>
+  vnoremap <silent> <leader>sg  :Farf<cr>
+
+
+  " shortcut for far.vim replace
+  nnoremap <silent> <leader>sr  :Farr<cr>
+  vnoremap <silent> <leader>sr  :Farr<cr>
 endif

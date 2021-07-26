@@ -209,8 +209,8 @@ tmux_conf_theme_window_status_bell_bg='default'
 tmux_conf_theme_window_status_bell_attr='blink,bold'
 
 # window last status style
-tmux_conf_theme_window_status_last_fg='#3b4252'         # light blue
-tmux_conf_theme_window_status_last_bg='#ebcb8b'
+tmux_conf_theme_window_status_last_fg='#e4e4e4'         # light blue
+tmux_conf_theme_window_status_last_bg='#16161d'
 tmux_conf_theme_window_status_last_attr='none'
 
 # status left/right sections separators
@@ -252,11 +252,12 @@ tmux_conf_theme_window_status_last_attr='none'
 # tmux_conf_theme_status_left=' ❐ #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} '
 # tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} '
 
-tmux_conf_theme_status_left=', #S,#{tmux_mode_indicator},'
+tmux_conf_theme_status_left=', #S,'
 tmux_conf_theme_status_right=\
 '#{pairing}#{synchronized}|'\
-'CPU #{cpu_percentage},'\
-'MEM #{ram_percentage},'\
+'#{tmux_mode_indicator},'\
+' CPU #{cpu_percentage} ,'\
+' MEM #{ram_percentage} ,'\
 '| #{username}#{root} | #{hostname} '
 
 # status left style

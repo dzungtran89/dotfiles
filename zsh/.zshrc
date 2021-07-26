@@ -119,8 +119,6 @@ plugins=(
   # docker
 )
 
-source $ZSH/oh-my-zsh.sh
-
 ## Dir: current working directory
 
 # User configuration
@@ -136,6 +134,8 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 
 if [[ $IS_PURE == 1 ]] then;
+  source $ZSH/oh-my-zsh.sh
+
   fpath+=$HOME/.zsh/pure
   autoload -U promptinit; promptinit
 
@@ -192,6 +192,7 @@ if [[ $IS_P10K == 1 ]] then
 fi
 
 if [[ $IS_STARSHIP == 1 ]] then
+  source $HOME/.oh-my-zsh/custom/plugins/zsh-z/zsh-z.plugin.zsh
   eval "$(starship init zsh)"
 fi
 

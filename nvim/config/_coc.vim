@@ -15,11 +15,13 @@ vim.g.python2_host_prog = 'python2'
 vim.g.ruby_host_prog = '$(which ruby)'
 EOF
 
+  autocmd FileType python let b:coc_root_patterns = ['.env', '.git']
+  " autocmd FileType * let b:coc_suggest_disable = 1
+
   " Highlight the symbol and its references when holding the cursor.
   autocmd CursorHold * silent     call CocActionAsync('highlight')
   " autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-  autocmd FileType python let b:coc_root_patterns = ['.env', '.git']
 
   " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
   " delays and poor user experience.
@@ -177,14 +179,14 @@ if PlugLoaded('coc-fzf')
   nnoremap <silent> <localleader>f  :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
 
   nnoremap <silent> <leader>l        :<C-u>CocFzfList<CR>
-  nnoremap <silent> <leader>cd       :<C-u>CocFzfList diagnostics<CR>
-  nnoremap <silent> <leader>cb       :<C-u>CocFzfList diagnostics --current-buf<CR>
-  nnoremap <silent> <leader>cc       :<C-u>CocFzfList vimcommands<CR>
-  nnoremap <silent> <leader>cC       :<C-u>CocFzfList commands<CR>
-  nnoremap <silent> <leader>ce       :<C-u>CocCommand explorer<CR>
+  nnoremap <silent> <leader>ld       :<C-u>CocFzfList diagnostics<CR>
+  nnoremap <silent> <leader>lb       :<C-u>CocFzfList diagnostics --current-buf<CR>
+  nnoremap <silent> <leader>lc       :<C-u>CocFzfList vimcommands<CR>
+  nnoremap <silent> <leader>lC       :<C-u>CocFzfList commands<CR>
+  nnoremap <silent> <leader>o       :<C-u>CocCommand explorer<CR>
   " nnoremap <silent> <leader>l       :<C-u>CocFzfList location<CR>
   nnoremap <silent> <leader>co       :<C-u>CocFzfList outline<CR>
-  nnoremap <silent> <leader>cs       :<C-u>CocFzfList symbols<CR>
+  nnoremap <silent> <leader>ls       :<C-u>CocFzfList symbols<CR>
   nnoremap <silent> <leader>rr       :<C-u>CocListResume<CR>
 
   nnoremap <silent> <leader>qo       :<C-u>CocFzfList sessions<CR>

@@ -29,7 +29,7 @@ if !filereadable(vimplug_exists)
 endif
 
 " Required:
-call plug#begin(expand('~/.config/nvim/plugged'))
+call plug#begin(expand('~/.nvim/plugged'))
 
 "*****************************************************************************
 "" Plug install packages
@@ -58,6 +58,7 @@ endfunction
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
+set history=500
 set ttyfast
 
 "" Use true colors
@@ -102,14 +103,14 @@ else
   set shell=$SHELL
 endif
 
-let g:session_directory = "~/.config/nvim/session"
+let g:session_directory = "~/.nvim/session"
 
 " session management
 if PlugLoaded('vim-session')
   let g:session_autoload = "no"
   let g:session_autosave = "no"
   let g:session_command_aliases = 1
-  set sessionoptions=buffers,curdir,tabpages,winsize
+  set sessionoptions=buffers,curdir,tabpages
 endif
 
 "*****************************************************************************
@@ -117,7 +118,7 @@ endif
 "*****************************************************************************
 syntax on
 set ruler
-set number
+set nonu relativenumber
 
 let no_buffers_menu=1
 
@@ -285,17 +286,25 @@ set autoread
 "" Mappings
 "*****************************************************************************
 noremap <Leader>bb :Buffers<CR>
-noremap <leader>bd :bd!<CR>
-noremap <leader>bw :update<CR>
-noremap <leader>be :e!<CR>
 noremap <leader>bq :close<CR>
-noremap <leader>bs :split<CR>
-noremap <leader>bv :vsplit<CR>
 noremap <leader>bl :BLines<CR>
 noremap <leader>bo :BTags<CR>
 noremap <leader>i  :set ic!<CR>
 
-nnoremap <localleader>mc :setl conceallevel=0<CR>
+noremap <leader>fw :update<CR>
+noremap <leader>fe :e!<CR>
+noremap <leader>fd :bd!<CR>
+
+nnoremap <localleader>le :setl expandtab sw=2<CR>
+nnoremap <localleader>ls :setl syntax=
+nnoremap <localleader>c :b#<CR>bd#<CR>
+" nnoremap <silent> <localleader>ls
+"       \ :if exists("syntax_on") <BAR>
+"       \    setl syntax off <BAR>
+"       \ else <BAR>
+"       \    setl syntax enable <BAR>
+"       \ endif<CR>
+
 "" Git
 if PlugLoaded('vim-fugitive')
   noremap <leader>go :.GBrowse<CR>

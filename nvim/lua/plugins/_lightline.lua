@@ -3,7 +3,7 @@ vim.g.lightline = {
   -- separator = { left = "", right = "" },
   active = {
     left = {
-      { 'coc_info', 'coc_hints', 'coc_errors', 'coc_warnings', 'coc_ok' },
+      -- { 'coc_info', 'coc_hints', 'coc_errors', 'coc_warnings', 'coc_ok' },
       { 'gitbranch', 'mode' },
       { 'filename', 'readonly', 'modified', 'tagbar' }
     },
