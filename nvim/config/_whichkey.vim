@@ -101,6 +101,11 @@ if PlugLoaded('vim-which-key')
         \ 'l' : [':FloatermNew lazygit'    , 'git']      ,
         \ }
 
+  let g:which_key_map.t = {
+        \ 'name' : '+toggle'             ,
+        \ 'l' : [':set invrelativenumber'    , 'On/Off relativenumber']      ,
+        \ }
+
 endif
 
 if PlugLoaded('vim-floaterm')

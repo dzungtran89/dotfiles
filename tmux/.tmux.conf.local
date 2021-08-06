@@ -26,7 +26,7 @@ tmux_conf_update_plugins_on_reload=true
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'schasse/tmux-jump'
 set -g @plugin 'MunifTanjim/tmux-mode-indicator'
-set -g @plugin 'tmux-plugins/tmux-cpu'
+# set -g @plugin 'tmux-plugins/tmux-cpu'
 # set -g @plugin 'Determinant/tmux-colortag'
 
 # set -g @plugin 'thewtex/tmux-mem-cpu-load'
@@ -255,10 +255,10 @@ tmux_conf_theme_window_status_last_attr='none'
 tmux_conf_theme_status_left=', #S,'
 tmux_conf_theme_status_right=\
 '#{pairing}#{synchronized}|'\
-'#{tmux_mode_indicator},'\
-' CPU #{cpu_percentage} ,'\
-' MEM #{ram_percentage} ,'\
+'#{tmux_mode_indicator}'\
 '| #{username}#{root} | #{hostname} '
+# ' CPU #{cpu_percentage} ,'\
+# ' MEM #{ram_percentage} ,'\
 
 # status left style
 tmux_conf_theme_status_left_fg='#eceff4,#e4e4e4,#e4e4e4'  # white, white, white
@@ -270,12 +270,14 @@ tmux_conf_theme_status_right_fg='#000000,#2e3440,#e4e4e4' # light gray, white, b
 tmux_conf_theme_status_right_bg='#88c0d0,#81a1c1,#5e81ac' # dark gray, red, white
 tmux_conf_theme_status_right_attr='none,none,bold'
 
+set -g @mode_indicator_empty_prompt ' 🐍 '
+set -g @mode_indicator_prefix_prompt ' 🔥 '
+
 # pairing indicator
 tmux_conf_theme_pairing='👓'          # U+1F453
 tmux_conf_theme_pairing_fg='none'
 tmux_conf_theme_pairing_bg='none'
 tmux_conf_theme_pairing_attr='none'
-
 # prefix indicator
 tmux_conf_theme_prefix='⌨'            # U+2328
 tmux_conf_theme_prefix_fg='#e5e9f0'

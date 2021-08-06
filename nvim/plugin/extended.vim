@@ -35,8 +35,8 @@ set guioptions-=L
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Fast editing and reloading of vimrc configs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" map <leader>e :e! ~/.config/nvim/init.vim<cr>
-autocmd! bufwritepost ~/.config/nvim/init.vim source ~/.config/nvim/init.vim
+" " map <leader>e :e! ~/.config/nvim/init.vim<cr>
+" autocmd! bufwritepost ~/.config/nvim/init.vim source ~/.config/nvim/init.vim
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

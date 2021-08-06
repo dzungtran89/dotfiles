@@ -51,6 +51,7 @@
   line-graphics = no  # Disable graphics characters
   tab-size = 4        # Number of spaces per tab
 [alias]
+  pl = pull
   b = branch
   r = rebase
   mr = merge

@@ -60,3 +60,8 @@ if fn.PlugLoaded('nvim-lspconfig') == 1 then
   require('plugins._lsp')
 end
 
+if fn.PlugLoaded('shade.nvim') == 1 then
+  require('plugins._shade')
+end
+
+

@@ -28,7 +28,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/code/github/abc-og/org/")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -51,7 +51,7 @@
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
 
-(load-theme 'gruvbox-dark-hard t)
+(load-theme 'nord t)
 
 (global-font-lock-mode 1)
 ;; (add-hook 'org-mode-hook 'font-lock-mode)
@@ -76,32 +76,4 @@
 (setq interprogram-cut-function 'paste-to-osx)
 (setq interprogram-paste-function 'copy-from-osx)
 
-;; (org-babel-do-load-languages
-;;  'org-babel-load-languages
-;;  '((plantuml . t))) ; this line activates dot
-
-;; (setq org-plantuml-jar-path
-;;       (expand-file-name "~/org/contrib/scripts/plantuml.jar"))
-
 (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
-
-;;----------------------------------------------------------------------------
-;; Theme
-;;----------------------------------------------------------------------------
-;; (load! theme)
-;; (use-package theme
-;;   :demand
-;;   ;; :bind (("C-c y" . zp/variable-pitch-mode)
-;;   ;;        ("C-c T" . zp/switch-emacs-theme)
-;;   ;;        :map zp/toggle-map
-;;   ;;        (("t" . zp/switch-emacs-theme)
-;;   ;;         ("y" . zp/helm-select-font-dwim)))
-;;   :config
-;;   ;; ;; Fonts
-;;   ;; (zp/set-font "sarasa")
-;;   ;; (zp/set-font-variable "warung-kopi")
-
-;;   ;; Day/night cycle
-;;   (setq zp/time-of-day-sections '("05:00" "08:00" "16:00" "20:00" "00:00"))
-;;   (zp/switch-theme-auto)
-;;   )

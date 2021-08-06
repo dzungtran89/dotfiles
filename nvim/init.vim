@@ -11,7 +11,7 @@ else
 endif
 
 let g:vim_bootstrap_langs = "javascript,python"
-let g:vim_bootstrap_editor = "neovim"				" nvim or vim
+let g:vim_bootstrap_editor = "neovim"                   " nvim or vim
 let g:vim_bootstrap_theme = "pencil"
 let g:vim_bootstrap_frams = "vuejs"
 
@@ -287,7 +287,6 @@ set autoread
 "*****************************************************************************
 noremap <Leader>bb :Buffers<CR>
 noremap <leader>bq :close<CR>
-noremap <leader>bl :BLines<CR>
 noremap <leader>bo :BTags<CR>
 noremap <leader>i  :set ic!<CR>
 
@@ -394,9 +393,9 @@ if has('unnamedplus')
   set clipboard+=unnamedplus
 endif
 
-noremap YY "+y<CR>
-noremap <leader>p "+gP<CR>
-noremap XX "+x<CR>
+" noremap YY "+y<CR>
+" noremap <leader>p "+gP<CR>
+" noremap XX "+x<CR>
 
 if has('macunix')
   " pbcopy for OSX copy/paste
@@ -574,3 +573,6 @@ source $HOME/.config/nvim/config/_whichkey.vim
 
 " And, lua as well, to be continued ...
 lua require('init')
+
+" POST: reload the vim config
+nnoremap <silent> <leader>rl :source ~/.config/nvim/init.vim<CR>

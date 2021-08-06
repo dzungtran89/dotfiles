@@ -43,6 +43,7 @@ Plug 'jeetsukumaran/vim-indentwise'
 Plug 'dhruvasagar/vim-zoom'
 Plug 'easymotion/vim-easymotion'
 Plug 'andymass/vim-matchup'
+" Plug 'sunjon/shade.nvim'
 
 Plug 'pechorin/any-jump.vim'
 Plug 'dyng/ctrlsf.vim'

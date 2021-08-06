@@ -33,7 +33,7 @@
 
 ;; If you'd like to disable a package included with Doom, for whatever reason,
 ;; you can do so here with the `:disable' property:
-(package! rainbow-delimiters :disable t)
+;; (package! rainbow-delimiters :disable t)
 (package! vc-gutter :disable t)
 (package! git-gutter :disable t)
 
@@ -49,11 +49,7 @@
 ;(package! builtin-package :recipe (:branch "develop"))
 
 (package! gruvbox-theme)
+(package! nord-theme)
 (package! editorconfig)
-;; (package! org-roam)
 (package! org-superstar)
-(package! doom-modeline)
-;; (package! vimrc-mode)
-;; (package! ox-hugo)
-;; (package! org-super-agenda)
-;; (package! plantuml-mode)
+;; (package! doom-modeline)

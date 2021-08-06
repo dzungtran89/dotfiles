@@ -13,10 +13,10 @@ if PlugLoaded('gruvbox-flat.nvim')
 endif
 
 nnoremap <silent> <leader>ui :colorscheme<space>
-colorscheme nord
+colorscheme iceberg
 
 if !has('macunix')
-  colorscheme nord
+  colorscheme iceberg
 endif
 
 set nojoinspaces                    " Join sentences with single space
@@ -40,7 +40,7 @@ if has('nvim')
 endif
 
 " set relativenumber
-nmap <silent> <leader>L :set invrelativenumber<CR>
+" nmap <silent> <leader>tl :set invrelativenumber<CR>
 
 imap qw <esc>
 " ---------------------------------------------------------------
@@ -207,10 +207,14 @@ nnoremap <Leader>eg :GFiles --cached --others --exclude-standard<CR>
 nnoremap <Leader>eh :History<CR>
 nnoremap <Leader>el :Lines<CR>
 nnoremap <Leader>ea :Ag!<CR>
-nnoremap <Leader>er :Rg!<CR>
+nnoremap <Leader>er :Rg<CR>
 nnoremap <Leader>em :Marks<CR>
-nnoremap <Leader>et :Tags<CR>
+nnoremap <Leader>st :Tags<CR>
+
 nnoremap <Leader>es :Filetypes<CR>
+
+" Swipper
+nnoremap <leader>ss :BLines<CR> 
 
 " Command history
 nnoremap <Leader>ch :History:<CR> 
