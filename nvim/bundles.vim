@@ -30,7 +30,7 @@ Plug 'Shougo/vimproc.vim', {'do': g:make}
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'dzungtran89/vim-odoo-snippets'
-Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
+" Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 
 " vuejs
 Plug 'posva/vim-vue'
@@ -41,7 +41,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'Yggdroot/indentLine'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'dhruvasagar/vim-zoom'
-Plug 'easymotion/vim-easymotion'
+" Plug 'easymotion/vim-easymotion'
+Plug 'ggandor/lightspeed.nvim'
 Plug 'andymass/vim-matchup'
 " Plug 'sunjon/shade.nvim'
 
@@ -60,9 +61,8 @@ Plug 'antoinemadec/coc-fzf'
 
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'norcalli/nvim-colorizer.lua'
-Plug 'itchyny/lightline.vim'
-" Plug 'crispgm/nvim-tabline'
-" Plug 'hoob3rt/lualine.nvim'
+" Plug 'itchyny/lightline.vim'
+Plug 'hoob3rt/lualine.nvim'
 
 Plug 'numToStr/Navigator.nvim'
 Plug 'liuchengxu/vim-which-key'

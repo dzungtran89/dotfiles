@@ -54,6 +54,7 @@ end
 
 if fn.PlugLoaded('lualine.nvim') == 1 then
   require('plugins._lualine')
+  -- require'tabline'.setup {}
 end
 
 if fn.PlugLoaded('nvim-lspconfig') == 1 then

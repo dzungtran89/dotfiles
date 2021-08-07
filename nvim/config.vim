@@ -13,12 +13,13 @@ if PlugLoaded('gruvbox-flat.nvim')
 endif
 
 nnoremap <silent> <leader>ui :colorscheme<space>
-colorscheme iceberg
+colorscheme tender
 
 if !has('macunix')
-  colorscheme iceberg
+  colorscheme tender
 endif
 
+set guicursor&                      " Default cursor setting
 set nojoinspaces                    " Join sentences with single space
 set shiftround                      " Round >> to nearest shiftwidth multiple
 set nowrap
@@ -39,10 +40,8 @@ if has('nvim')
   set inccommand=split
 endif
 
-" set relativenumber
-" nmap <silent> <leader>tl :set invrelativenumber<CR>
-
 imap qw <esc>
+
 " ---------------------------------------------------------------
 " Functions
 " ---------------------------------------------------------------
@@ -153,27 +152,6 @@ command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), " ") |
 command! -register CopyMatches call CopyMatches(<q-reg>)
 
 command! CopyBuffer let @+ = expand('%:p')
-
-" fzf {{{1
-if PlugLoaded('fzf.vim')
-  command! -bang -nargs=? -complete=dir LocateFiles
-        \ call fzf#run(fzf#wrap({
-        \     'source': 'locate --database=./.locate.db <q-args>',
-        \     'options': '-m' },
-        \   <bang>0))
-
-  " command! -bang -nargs=* -complete=dir SmartFiles
-  "       \ call SmartFiles(<q-args>)
-
-  command! -bang -nargs=? -complete=dir Files
-        \ call fzf#vim#files(<q-args>, &columns > 120 ?
-        \ fzf#vim#with_preview() : {}, <bang>0)
-
-  command! -bang -nargs=? -complete=dir Buffers
-        \ call fzf#vim#buffers(<q-args>, &columns > 120 ?
-        \ fzf#vim#with_preview() : {}, <bang>0)
-endif
-" }}}
 
 " Mappings
 " Auto insert dash with the same length of header

@@ -16,18 +16,15 @@
 # by default, launching tmux will update tpm and all plugins
 #   - true (default)
 #   - false
-tmux_conf_update_plugins_on_launch=true
+tmux_conf_update_plugins_on_launch=false
 
 # by default, reloading the configuration will update tpm and all plugins
 #   - true (default)
 #   - false
-tmux_conf_update_plugins_on_reload=true
+tmux_conf_update_plugins_on_reload=false
 
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'schasse/tmux-jump'
-set -g @plugin 'MunifTanjim/tmux-mode-indicator'
-# set -g @plugin 'tmux-plugins/tmux-cpu'
-# set -g @plugin 'Determinant/tmux-colortag'
 
 # set -g @plugin 'thewtex/tmux-mem-cpu-load'
 # set -g @plugin 'tmux-plugins/tmux-continuum'
@@ -46,7 +43,7 @@ set -g @plugin 'MunifTanjim/tmux-mode-indicator'
 
 # -- windows & pane creation ---------------------------------------------------
 
-set -g default-terminal "xterm-256color"
+set -g default-terminal "screen-256color"
 
 # new window retains current path, possible values are:
 #   - true
@@ -56,7 +53,7 @@ tmux_conf_new_window_retain_current_path=false
 # new pane retains current path, possible values are:
 #   - true (default)
 #   - false
-tmux_conf_new_pane_retain_current_path=true
+tmux_conf_new_pane_retain_current_path=false
 
 # new pane tries to reconnect ssh sessions (experimental), possible values are:
 #   - true
@@ -176,11 +173,11 @@ tmux_conf_theme_terminal_title='#h ❐ #S ● #I #W'
 #     - #{hostname_ssh}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_window_status_fg='#4c566a'              # light gray
-tmux_conf_theme_window_status_bg='#d8dee9'              # dark gray
-tmux_conf_theme_window_status_attr='none'
-tmux_conf_theme_window_status_format='#W'
-#
+# tmux_conf_theme_window_status_fg='#4c566a'              # light gray
+# tmux_conf_theme_window_status_bg='#d8dee9'              # dark gray
+# tmux_conf_theme_window_status_attr='none'
+# tmux_conf_theme_window_status_format='#W'
+
 # tmux_conf_theme_window_status_format='#I #W#{?window_bell_flag,🔔,}#{?window_zoomed_flag,🔍,}'
 
 # window current status style
@@ -195,7 +192,6 @@ tmux_conf_theme_window_status_current_fg='#3b4252'      # black
 tmux_conf_theme_window_status_current_bg='#a3be8c'      # light blue
 tmux_conf_theme_window_status_current_attr='bold'
 
-# tmux_conf_theme_window_status_current_format='#{circled_window_index} #W'
 tmux_conf_theme_window_status_current_format='#I #W#{?window_zoomed_flag, 🔍,}'
 
 # window activity status style
@@ -214,16 +210,13 @@ tmux_conf_theme_window_status_last_bg='#16161d'
 tmux_conf_theme_window_status_last_attr='none'
 
 # status left/right sections separators
+# left '', right ''
+# left '', right ''
 
-# tmux_conf_theme_left_separator_main='\uE0B0'  # /!\ you don't need to install Powerline
-# tmux_conf_theme_left_separator_sub='\uE0B1'   #   you only need fonts patched with
-# tmux_conf_theme_right_separator_main='\uE0B2' #   Powerline symbols or the standalone
-# tmux_conf_theme_right_separator_sub='\uE0B3'  #   PowerlineSymbols.otf font, see README.md
-
-# tmux_conf_theme_left_separator_main=''  # /!\ you don't need to install Powerline
-# tmux_conf_theme_left_separator_sub=''   #   you only need fonts patched with
-# tmux_conf_theme_right_separator_main='' #   Powerline symbols or the standalone
-# tmux_conf_theme_right_separator_sub=''  #   PowerlineSymbols.otf font, see README.md
+tmux_conf_theme_left_separator_main=''  # /!\ you don't need to install Powerline
+tmux_conf_theme_left_separator_sub=''    # you only need fonts patched with
+# tmux_conf_theme_right_separator_main='' # Powerline symbols or the standalone
+# tmux_conf_theme_right_separator_sub=''   # PowerlineSymbols.otf font, see README.md
 
 # status left/right content:
 #   - separate main sections with '|'
@@ -252,13 +245,10 @@ tmux_conf_theme_window_status_last_attr='none'
 # tmux_conf_theme_status_left=' ❐ #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} '
 # tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} '
 
-tmux_conf_theme_status_left=', #S,'
+tmux_conf_theme_status_left=', #S '
 tmux_conf_theme_status_right=\
-'#{pairing}#{synchronized}|'\
-'#{tmux_mode_indicator}'\
-'| #{username}#{root} | #{hostname} '
-# ' CPU #{cpu_percentage} ,'\
-# ' MEM #{ram_percentage} ,'\
+'#{prefix}#{pairing}#{synchronized}'\
+'| #{username}#{root} | #{hostname} | %d %b'
 
 # status left style
 tmux_conf_theme_status_left_fg='#eceff4,#e4e4e4,#e4e4e4'  # white, white, white
@@ -266,20 +256,18 @@ tmux_conf_theme_status_left_bg='#5e81ac,#ebcb8b,#a3be8c'
 tmux_conf_theme_status_left_attr='bold,none,none'
 
 # status right style
-tmux_conf_theme_status_right_fg='#000000,#2e3440,#e4e4e4' # light gray, white, black
-tmux_conf_theme_status_right_bg='#88c0d0,#81a1c1,#5e81ac' # dark gray, red, white
-tmux_conf_theme_status_right_attr='none,none,bold'
-
-set -g @mode_indicator_empty_prompt ' 🐍 '
-set -g @mode_indicator_prefix_prompt ' 🔥 '
+# tmux_conf_theme_status_right_fg='#000000,#2e3440,#e4e4e4' # light gray, white, black
+# tmux_conf_theme_status_right_bg='#88c0d0,#81a1c1,#5e81ac' # dark gray, red, white
+# tmux_conf_theme_status_right_attr='none,none,bold'
 
 # pairing indicator
-tmux_conf_theme_pairing='👓'          # U+1F453
+tmux_conf_theme_pairing=' 👓 '          # U+1F453
 tmux_conf_theme_pairing_fg='none'
 tmux_conf_theme_pairing_bg='none'
 tmux_conf_theme_pairing_attr='none'
+
 # prefix indicator
-tmux_conf_theme_prefix='⌨'            # U+2328
+tmux_conf_theme_prefix=' ⌨ '            # U+2328
 tmux_conf_theme_prefix_fg='#e5e9f0'
 tmux_conf_theme_prefix_bg='none'
 tmux_conf_theme_prefix_attr='none'

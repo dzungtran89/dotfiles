@@ -1,5 +1,8 @@
 " nnoremap <leader>. :call fzf#vim#tags('^' . expand('<cword>'), {'options': '--exact --select-1 --exit-0 +i'})<CR>
 
+" autocmd! FileType fzf set laststatus=0 noshowmode noruler
+"   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 
@@ -34,6 +37,7 @@ g.fzf_layout = {
   up = '~80%',
   window = { width= 0.5, height= 0.8, yoffset=0.5, xoffset= 0.5, highlight= 'Todo', border= 'sharp' }
   }
+
 eof
 
 " Customize fzf colors to match your color scheme
@@ -54,7 +58,12 @@ let g:fzf_colors =
 
 " Get Files
 command! -bang -nargs=? -complete=dir Files
-    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>1)
+      \ call fzf#vim#files(<q-args>, &columns > 120 ?
+      \ fzf#vim#with_preview() : {}, <bang>0)
+
+command! -bang -nargs=? -complete=dir Buffers
+      \ call fzf#vim#buffers(<q-args>, &columns > 120 ?
+      \ fzf#vim#with_preview() : {}, <bang>0)
 
 " " Tags
 " command! -bang -nargs=? -complete=dir Tags
