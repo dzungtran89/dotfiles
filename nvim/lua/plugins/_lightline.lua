@@ -40,10 +40,7 @@ vim.g.lightline = {
     s = 'S',
     S = 'SL',
     t = 'Terminal',
-    cv = 'VB',
-    cs = 'SB',
-    -- C-s = 'SB',
-    -- C-v = 'VB',
+    ['^s'] = 'SB',
+    ['^v'] = 'VB',
   },
-
 }

@@ -1,3 +1,7 @@
+-- INFO: Heavily inspired by: Eviline config for lualine
+-- Author: shadmansaleh
+-- Credit: glepnir
+
 local lualine = require('lualine')
 
 -- Color table for highlights
@@ -17,13 +21,13 @@ local colors = {
 }
 
 local conditions = {
-  buffer_not_empty = function() return vim.fn.empty(vim.fn.expand('%:t')) ~= 1 end,
+  -- buffer_not_empty = function() return vim.fn.empty(vim.fn.expand('%:t')) ~= 1 end,
   hide_in_width = function() return vim.fn.winwidth(0) > 80 end,
-  check_git_workspace = function()
-    local filepath = vim.fn.expand('%:p:h')
-    local gitdir = vim.fn.finddir('.git', filepath .. ';')
-    return gitdir and #gitdir > 0 and #gitdir < #filepath
-  end
+  -- check_git_workspace = function()
+  --   local filepath = vim.fn.expand('%:p:h')
+  --   local gitdir = vim.fn.finddir('.git', filepath .. ';')
+  --   return gitdir and #gitdir > 0 and #gitdir < #filepath
+  -- end
 }
 
 -- Config
@@ -52,7 +56,7 @@ local config = {
   },
   inactive_sections = {
     -- these are to remove the defaults
-    lualine_a = {},
+    lualine_a = {'filename'},
     lualine_v = {},
     lualine_y = {},
     lualine_z = {},
@@ -106,7 +110,8 @@ ins_left {
     vim.api.nvim_command(
         'hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. " guibg=" ..
             colors.bg)
-    return ''
+    return ''
+    -- return ''
   end,
   color = "LualineMode",
   left_padding = 0
@@ -135,8 +140,8 @@ ins_left {
 
 ins_left {
   'filename',
-  condition = conditions.buffer_not_empty,
   color = {fg = colors.magenta, gui = 'bold'}
+  -- condition = conditions.buffer_not_empty,
 }
 
 ins_left {'location'}
@@ -191,9 +196,9 @@ ins_right {
 }
 
 ins_right {
-  'FugitiveHead',
+  'branch',
   icon = '',
-  condition = conditions.check_git_workspace,
+  condition = conditions.hide_in_width,
   color = {fg = colors.violet, gui = 'bold'}
 }
 

@@ -30,7 +30,6 @@ Plug 'Shougo/vimproc.vim', {'do': g:make}
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'dzungtran89/vim-odoo-snippets'
-" Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 
 " vuejs
 Plug 'posva/vim-vue'
@@ -41,8 +40,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'Yggdroot/indentLine'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'dhruvasagar/vim-zoom'
-" Plug 'easymotion/vim-easymotion'
-Plug 'ggandor/lightspeed.nvim'
+Plug 'easymotion/vim-easymotion'
+" Plug 'ggandor/lightspeed.nvim'
 Plug 'andymass/vim-matchup'
 " Plug 'sunjon/shade.nvim'
 
@@ -59,9 +58,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf'
 
-Plug 'kyazdani42/nvim-web-devicons'
 Plug 'norcalli/nvim-colorizer.lua'
-" Plug 'itchyny/lightline.vim'
 Plug 'hoob3rt/lualine.nvim'
 
 Plug 'numToStr/Navigator.nvim'
@@ -75,8 +72,5 @@ Plug 'rafi/awesome-vim-colorschemes'
 Plug 'vhyrro/neorg'
 Plug 'mfussenegger/nvim-dap'
 Plug 'tweekmonster/startuptime.vim'
-" Plug 'nvim-telescope/telescope.nvim'
 
-" Plug 'L3MON4D3/LuaSnip'
-" Plug 'hrsh7th/nvim-compe'
-" Plug 'neovim/nvim-lspconfig'
+" Plug 'kyazdani42/nvim-web-devicons'

@@ -2,16 +2,17 @@ if PlugLoaded('vim-easymotion')
 
   let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
-  " `s{char}{char}{label}`
-  " Need one more keystroke, but on average, it may be more comfortable.
-  nmap s <Plug>(easymotion-overwin-f2)
-
   " Turn on case-insensitive feature
   let g:EasyMotion_smartcase = 1
 
   " JK motions: Line motions
-  map <localleader>j <Plug>(easymotion-j)
-  map <localleader>k <Plug>(easymotion-k)
+  nmap <localleader>j <Plug>(easymotion-j)
+  nmap <localleader>k <Plug>(easymotion-k)
+  
+  " s{char}{char} to move to {char}{char}
+  nmap s <Plug>(easymotion-s2)
+  nmap S <Plug>(easymotion-overwin-f2)
+  omap t <Plug>(easymotion-bd-tl)
 
 endif
 

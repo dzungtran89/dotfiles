@@ -296,7 +296,7 @@ noremap <leader>fd :bd!<CR>
 
 nnoremap <localleader>le :setl expandtab sw=2<CR>
 nnoremap <localleader>ls :setl syntax=
-nnoremap <localleader>c :b#<CR>bd#<CR>
+nnoremap <localleader>c :b#\|bd#<CR>
 " nnoremap <silent> <localleader>ls
 "       \ :if exists("syntax_on") <BAR>
 "       \    setl syntax off <BAR>

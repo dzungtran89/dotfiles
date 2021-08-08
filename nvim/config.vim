@@ -12,14 +12,14 @@ if PlugLoaded('gruvbox-flat.nvim')
   let g:gruvbox_flat_style = "hard"
 endif
 
-nnoremap <silent> <leader>ui :colorscheme<space>
-colorscheme tender
+nnoremap <leader>ui :colorscheme<space>
+colorscheme iceberg
 
 if !has('macunix')
-  colorscheme tender
+  colorscheme iceberg
 endif
 
-set guicursor&                      " Default cursor setting
+set cursorcolumn
 set nojoinspaces                    " Join sentences with single space
 set shiftround                      " Round >> to nearest shiftwidth multiple
 set nowrap
@@ -138,9 +138,6 @@ set colorcolumn=+1
 " Set program title to 'nvim'
 set title
 setglobal titlestring=nvim
-
-" Highlight the current line, don't highlight the current column
-set nocursorcolumn
 
 " Remove trailing whitespaces
 command! FixWhitespace :%s/\s\+$//e

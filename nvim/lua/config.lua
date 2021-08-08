@@ -53,7 +53,7 @@ if fn.PlugLoaded('Navigator.nvim') == 1 then
 end
 
 if fn.PlugLoaded('lualine.nvim') == 1 then
-  require('plugins._lualine')
+  require('plugins._evil_line')
   -- require'tabline'.setup {}
 end
 
@@ -65,4 +65,25 @@ if fn.PlugLoaded('shade.nvim') == 1 then
   require('plugins._shade')
 end
 
+if fn.PlugLoaded('nvim-web-devicons') == 1 then
+  require'nvim-web-devicons'.setup {
+    -- your personnal icons can go here (to override)
+    -- DevIcon will be appended to `name`
+    override = {
+      zsh = {
+        icon = "",
+        color = "#428850",
+        name = "Zsh"
+      }
+    };
+    -- globally enable default icons (default to false)
+    -- will get overriden by `get_icons` option
+    default = true;
+  }
+
+  if fn.PlugLoaded('nvim-tree.lua') == 1 then
+    require('plugins._nvimtree')
+  end
+
+end
 

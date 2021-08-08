@@ -190,7 +190,7 @@ if PlugLoaded('coc-fzf')
   nnoremap <silent> <leader>rr       :<C-u>CocListResume<CR>
 
   nnoremap <silent> <leader>qo       :<C-u>CocFzfList sessions<CR>
-  nnoremap <silent> <leader>qw       :<C-u>CocCommand session.save<Space>
+  nnoremap <leader>qw       :<C-u>CocCommand session.save<Space>
 
   " -- Keymapping for grep word under cursor with interactive mode
   nnoremap <silent> <Leader>cf :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>
