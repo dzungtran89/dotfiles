@@ -1,5 +1,6 @@
+" vim: ft=vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Maintainer:
+" CREDITS:
 "       Amir Salihefendic — @amix3k
 "
 " Awesome_version:
@@ -9,20 +10,8 @@
 "
 "           https://github.com/amix/vimrc
 "
-" Sections:
-"    -> General
-"    -> VIM user interface
-"    -> Colors and Fonts
-"    -> Files and backups
-"    -> Text, tab and indent related
-"    -> Visual mode related
-"    -> Moving around, tabs and buffers
-"    -> Status line
-"    -> Editing mappings
-"    -> vimgrep searching and cope displaying
-"    -> Spell checking
-"    -> Misc
-"    -> Helper functions
+" UPDATE: 
+"       Minimal vimrc
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -33,11 +22,8 @@ call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
 
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 " Core
 Plug 'tpope/vim-commentary'
-Plug 'mhartington/oceanic-next'
-Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
 
 " Vim-Session
@@ -45,29 +31,10 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 
 " Extras
+Plug 'cocopon/iceberg.vim'
 Plug 'pechorin/any-jump.vim'
 Plug 'easymotion/vim-easymotion'
-Plug 'mcchrish/nnn.vim'
 Plug 'christoomey/vim-tmux-navigator'
-
-" " Multiple Plug commands can be written in a single line using | separators
-" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-
-" " On-demand loading
-" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-" Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-
-" " Using a non-default branch
-" Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-
-" " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-" Plug 'fatih/vim-go', { 'tag': '*' }
-
-" if filereadable(expand("~/.config/nvim/local_bundles.vim"))
-"   source ~/.config/nvim/local_bundles.vim
-" endif
-
-" Plug 'ptzz/lf.vim'
 
 " Plugin options
 call plug#end()
@@ -79,13 +46,14 @@ call plug#end()
 " Sets how many lines of history VIM has to remember
 set history=500
 set cursorline
+set cursorcolumn
+set relativenumber
 
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
 
 set signcolumn=yes
-" set relativenumber
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -94,15 +62,13 @@ au FocusGained,BufEnter * checktime
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
 let mapleader = "\<space>"
-
-" Fast saving
-nmap <leader>w :w!<cr>
+let maplocalleader = ","
 
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 
-set clipboard=unnamed
+set clipboard=unnamed,unnamedplus
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -122,9 +88,9 @@ set wildmenu
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
 if has("win16") || has("win32")
-    set wildignore+=.git\*,.hg\*,.svn\*
+  set wildignore+=.git\*,.hg\*,.svn\*
 else
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+  set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 endif
 
 "Always show current position
@@ -171,11 +137,11 @@ set tm=500
 
 " Properly disable sound on errors on MacVim
 if has("gui_macvim")
-    autocmd GUIEnter * set vb t_vb=
-    set guifont=Iosevka\ Fixed:h16
-    set guioptions+=k
-    set guicursor+=a:blinkon0
-    " set guioptions-=m
+  autocmd GUIEnter * set vb t_vb=
+  set guifont=Iosevka\ Fixed:h16
+  set guioptions+=k
+  set guicursor+=a:blinkon0
+  " set guioptions-=m
 endif
 
 command! CopyBuffer let @+ = expand('%:p')
@@ -192,18 +158,18 @@ syntax on
 
 " Enable 256 colors palette in Gnome Terminal
 if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
+  set t_Co=256
 endif
 
 set background=dark
-colorscheme OceanicNext
+colorscheme iceberg
 
 " Set extra options when running in GUI mode
 if has("gui_running")
-    set guioptions-=T
-    set guioptions-=e
-    set t_Co=256
-    set guitablabel=%M\ %t
+  set guioptions-=T
+  set guioptions-=e
+  set t_Co=256
+  set guitablabel=%M\ %t
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
@@ -232,8 +198,8 @@ set expandtab
 set smarttab
 
 " 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 
 " Linebreak on 500 characters
 set lbr
@@ -241,7 +207,6 @@ set tw=500
 
 set ai "Auto indent
 set si "Smart indent
-set wrap "Wrap lines
 
 
 """"""""""""""""""""""""""""""
@@ -256,10 +221,6 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
-map <C-space> ?
-
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 
@@ -271,6 +232,7 @@ map <C-l> <C-W>l
 
 " Close the current buffer
 map <leader>bd :Bclose<cr>:tabclose<cr>gT
+map <localleader>c :b#\|bd#<cr>
 
 " Close all the buffers
 map <leader>ba :bufdo bd<cr>
@@ -284,6 +246,9 @@ map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
 map <leader>t<leader> :tabnext
+
+" Explorer
+nmap <leader>e :Explore<cr>
 
 " Let 'tl' toggle between this and the last accessed tab
 let g:lasttab = 1
@@ -322,9 +287,6 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remap VIM 0 to first non-blank character
-map 0 ^
-
 " Move a line of text using ALT+[jk] or Command+[jk] on mac
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
@@ -340,15 +302,15 @@ endif
 
 " Delete trailing white space on save, useful for some filetypes ;)
 fun! CleanExtraSpaces()
-    let save_cursor = getpos(".")
-    let old_query = getreg('/')
-    silent! %s/\s\+$//e
-    call setpos('.', save_cursor)
-    call setreg('/', old_query)
+  let save_cursor = getpos(".")
+  let old_query = getreg('/')
+  silent! %s/\s\+$//e
+  call setpos('.', save_cursor)
+  call setreg('/', old_query)
 endfun
 
 if has("autocmd")
-    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
+  autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
 endif
 
 
@@ -371,139 +333,128 @@ map <leader>s? z=
 " Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
-" Quickly open a buffer for scribble
-map <leader>q :e ~/buffer<cr>
-
-" Quickly open a markdown buffer for scribble
-map <leader>x :e ~/buffer.md<cr>
-
 " Toggle paste mode on and off
-map <leader>pp :setlocal paste!<cr>
+map <localleader>p :setlocal paste!<cr>
 
-let g:session_autoload="no"
+let g:session_directory = "~/.vim/session"
+let g:session_autoload = "no"
+let g:session_autosave = "no"
+let g:session_command_aliases = 1
+set sessionoptions=buffers,curdir,tabpages
 
+" session management
+nnoremap <leader>qo :OpenSession<Space>
+nnoremap <leader>qw :SaveSession<Space>
+nnoremap <leader>qd :DeleteSession<CR>
+nnoremap <leader>qc :CloseSession<CR>
+nnoremap <leader>qq :qa!<CR>
+
+"" Tabs
+nnoremap <Tab> gt
+nnoremap <S-Tab> gT
+nnoremap <silent> <S-t> :tabnew<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Returns true if paste mode is enabled
 function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    endif
-    return ''
+  if &paste
+    return 'PASTE MODE  '
+  endif
+  return ''
 endfunction
 
 " Don't close window, when deleting a buffer
 command! Bclose call <SID>BufcloseCloseIt()
 function! <SID>BufcloseCloseIt()
-    let l:currentBufNum = bufnr("%")
-    let l:alternateBufNum = bufnr("#")
+  let l:currentBufNum = bufnr("%")
+  let l:alternateBufNum = bufnr("#")
 
-    if buflisted(l:alternateBufNum)
-        buffer #
-    else
-        bnext
-    endif
+  if buflisted(l:alternateBufNum)
+    buffer #
+  else
+    bnext
+  endif
 
-    if bufnr("%") == l:currentBufNum
-        new
-    endif
+  if bufnr("%") == l:currentBufNum
+    new
+  endif
 
-    if buflisted(l:currentBufNum)
-        execute("bdelete! ".l:currentBufNum)
-    endif
+  if buflisted(l:currentBufNum)
+    execute("bdelete! ".l:currentBufNum)
+  endif
 endfunction
 
 function! CmdLine(str)
-    call feedkeys(":" . a:str)
+  call feedkeys(":" . a:str)
 endfunction
 
 function! VisualSelection(direction, extra_filter) range
-    let l:saved_reg = @"
-    execute "normal! vgvy"
+  let l:saved_reg = @"
+  execute "normal! vgvy"
 
-    let l:pattern = escape(@", "\\/.*'$^~[]")
-    let l:pattern = substitute(l:pattern, "\n$", "", "")
+  let l:pattern = escape(@", "\\/.*'$^~[]")
+  let l:pattern = substitute(l:pattern, "\n$", "", "")
 
-    if a:direction == 'gv'
-        call CmdLine("Ack '" . l:pattern . "' " )
-    elseif a:direction == 'replace'
-        call CmdLine("%s" . '/'. l:pattern . '/')
-    endif
+  if a:direction == 'gv'
+    call CmdLine("Ack '" . l:pattern . "' " )
+  elseif a:direction == 'replace'
+    call CmdLine("%s" . '/'. l:pattern . '/')
+  endif
 
-    let @/ = l:pattern
-    let @" = l:saved_reg
+  let @/ = l:pattern
+  let @" = l:saved_reg
 endfunction
 
-" custom plugins
-" source $HOME/.config/nvim/plugins/scheme.vim
-
 if has_key(plugs, 'nerdcommenter')
-    " Add spaces after comment delimiters by default
-    let g:NERDSpaceDelims = 1
+  " Add spaces after comment delimiters by default
+  let g:NERDSpaceDelims = 1
 
-    " Use compact syntax for prettified multi-line comments
-    let g:NERDCompactSexyComs = 1
+  " Use compact syntax for prettified multi-line comments
+  let g:NERDCompactSexyComs = 1
 
-    " Align line-wise comment delimiters flush left instead of following code indentation
-    let g:NERDDefaultAlign = 'left'
+  " Align line-wise comment delimiters flush left instead of following code indentation
+  let g:NERDDefaultAlign = 'left'
 
-    " Set a language to use its alternate delimiters by default
-    let g:NERDAltDelims_java = 1
+  " Set a language to use its alternate delimiters by default
+  let g:NERDAltDelims_java = 1
 
-    " Add your own custom formats or override the defaults
-    let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+  " Add your own custom formats or override the defaults
+  let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 
-    " Allow commenting and inverting empty lines (useful when commenting a region)
-    " let g:NERDCommentEmptyLines = 1
+  " Allow commenting and inverting empty lines (useful when commenting a region)
+  " let g:NERDCommentEmptyLines = 1
 
-    " Enable trimming of trailing whitespace when uncommenting
-    " let g:NERDTrimTrailingWhitespace = 1
+  " Enable trimming of trailing whitespace when uncommenting
+  " let g:NERDTrimTrailingWhitespace = 1
 
-    " Enable NERDCommenterToggle to check all selected lines is commented or not
-    " let g:NERDToggleCheckAllLines = 1
+  " Enable NERDCommenterToggle to check all selected lines is commented or not
+  " let g:NERDToggleCheckAllLines = 1
 
 endif
 
-" " Python Setting {
-" set pythondll=/usr/local/Frameworks/Python.framework/Versions/3.9/Python
-" set pythonhome=/usr/local/Frameworks/Python.framework/Versions/3.9
-" set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.9/Python
-" set pythonthreehome=/usr/local/Frameworks/Python.framework/Versions/3.9
-" " }
+if has_key(plugs, 'vim-easymotion')
 
-if has_key(plugs, 'nnn.vim')
+  let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
-  let g:nnn#replace_netrw = 1
+  " Turn on case-insensitive feature
+  let g:EasyMotion_smartcase = 1
 
-  " use the same n³ session within a vim session
-  let g:nnn#session = 'local'
+  " JK motions: Line motions
+  nmap <localleader>j <Plug>(easymotion-j)
+  nmap <localleader>k <Plug>(easymotion-k)
 
-  " OR, to pass env variables
-  let g:nnn#command = 'NNN_TRASH=1 nnn -d'
+  " s{char}{char} to move to {char}{char}
+  nmap s <Plug>(easymotion-s2)
+  nmap S <Plug>(easymotion-overwin-f2)
+  omap t <Plug>(easymotion-bd-tl)
 
-  " Disable default mappings
-  let g:nnn#set_default_mappings = 0
+endif
 
-  " Opens the nnn window in a split
-  let g:nnn#layout = 'new' " or vnew, tabnew etc.
-
-  " Or pass a dictionary with window size
-  " let g:nnn#layout = { 'left': '~20%' } " or right, up, down
-
-  let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
-
-  nnoremap <leader>n :NnnPicker %:p:h<CR>
-
-  let g:nnn#action = {
-        \ '<c-t>': 'tab split',
-        \ '<c-x>': 'split',
-        \ '<c-v>': 'vsplit' }
-
-elseif has_key(plugs, 'lf.vim')
+if has_key(plugs, 'lf.vim')
 
   map <leader>cr :Lf<CR>
-  let g:NERDTreeHijackNetrw = 0 // add this line if you use NERDTree
-  
+  let g:NERDTreeHijackNetrw = 0
+
 endif

@@ -285,10 +285,13 @@ set autoread
 "*****************************************************************************
 "" Mappings
 "*****************************************************************************
-noremap <Leader>bb :Buffers<CR>
+noremap <Leader>B  :Buffers<CR>
 noremap <leader>bq :close<CR>
 noremap <leader>bo :BTags<CR>
 noremap <leader>i  :set ic!<CR>
+
+" b-prefix commands
+noremap <Leader>b  :b
 
 noremap <leader>fw :update<CR>
 noremap <leader>fe :e!<CR>
@@ -296,7 +299,7 @@ noremap <leader>fd :bd!<CR>
 
 nnoremap <localleader>le :setl expandtab sw=2<CR>
 nnoremap <localleader>ls :setl syntax=
-nnoremap <localleader>c :b#\|bd#<CR>
+nnoremap <localleader>c :b#\|bw#<CR>
 " nnoremap <silent> <localleader>ls
 "       \ :if exists("syntax_on") <BAR>
 "       \    setl syntax off <BAR>

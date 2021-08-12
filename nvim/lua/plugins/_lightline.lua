@@ -10,7 +10,7 @@ vim.g.lightline = {
     },
     right = {
       { 'lineinfo', 'percent' },
-      { 'paste', 'fileformat', 'fileencoding', 'filetype' },
+      { 'paste', 'fileformat', 'fileencoding', 'filetype', 'lsp' },
     }
   },
 
@@ -27,6 +27,7 @@ vim.g.lightline = {
   component = {
     lineinfo = '%3l:%-2v%<',
     tagbar = '%{tagbar#currenttag("%s", "", "f")}',
+    lsp = '%{StatusDiagnostic()}',
   },
 
   mode_map = {

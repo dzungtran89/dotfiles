@@ -12,7 +12,7 @@ if PlugLoaded('vim-easymotion')
   " s{char}{char} to move to {char}{char}
   nmap s <Plug>(easymotion-s2)
   nmap S <Plug>(easymotion-overwin-f2)
-  omap t <Plug>(easymotion-bd-tl)
+  omap t <Plug>(easymotion-tl)
 
 endif
 

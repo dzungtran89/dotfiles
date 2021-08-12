@@ -1,5 +1,4 @@
 if PlugLoaded('lightline.vim')
-  source $HOME/.config/nvim/config/nord.vim
   " set noshowmode
 
   luafile $HOME/.config/nvim/lua/plugins/_lightline.lua
