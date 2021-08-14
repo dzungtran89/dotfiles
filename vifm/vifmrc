@@ -1,4 +1,4 @@
-" vim: filetype=vifm :
+" vim: filetype=vim expandtab sw=2
 " My config file for the vifm terminal file manager.
 
 " ------------------------------------------------------------------------------
@@ -60,8 +60,7 @@ set vimhelp
 set norunexec
 
 " Selected color scheme
-
-" colorscheme gruvbox
+colorscheme gruvbox
 
 " Format for displaying time in file list. For example:
 " TIME_STAMP_FORMAT=%m/%d-%H:%M
@@ -89,7 +88,6 @@ set ignorecase
 set smartcase
 
 " Don't highlight search results automatically
-
 set nohlsearch
 
 " Use increment searching (search while typing)
@@ -113,6 +111,8 @@ set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
 
 mark h ~/
 mark t ~/code/projects
+mark g ~/code/github
+mark o ~/code/github/OCA
 mark d ~/Downloads
 mark D ~/Documents
 mark m ~/Movies
@@ -171,10 +171,10 @@ command! reload :write | restart
 
 " Pdf
 filetype *.pdf
-       \ {Open in Preview}
-       \ open -a Preview.app,
-       \ {Open in Skim}
-       \ open -a Skim.app,
+      \ {Open in Preview}
+      \ open -a Preview.app,
+      \ {Open in Skim}
+      \ open -a Skim.app,
 fileviewer *.pdf pdftotext -nopgbrk %c -
 
 " PostScript
@@ -185,38 +185,38 @@ filetype *.djvu open -a MacDjView.app
 
 " Audio
 filetype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus
-       \ {Open in IINA}
-       \ open -a IINA.app,
-       \ {Open in Music}
-       \ open -a Music.app,
-       \ {Open in QuickTime Player}
-       \ open -a QuickTime\ Player.app,
+      \ {Open in IINA}
+      \ open -a IINA.app,
+      \ {Open in Music}
+      \ open -a Music.app,
+      \ {Open in QuickTime Player}
+      \ open -a QuickTime\ Player.app,
 fileviewer *.mp3 mp3info
 fileviewer *.flac soxi
 
 " Video
 filetype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
-        \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
-        \*.as[fx]
-       \ {Open in IINA}
-       \ open -a IINA.app,
-       \ {Open in QuickTime Player}
-       \ open -a QuickTime\ Player.app,
+      \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
+      \*.as[fx]
+      \ {Open in IINA}
+      \ open -a IINA.app,
+      \ {Open in QuickTime Player}
+      \ open -a QuickTime\ Player.app,
 fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
-          \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
-          \*.as[fx]
-         \ ffprobe -pretty %c 2>&1
+      \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
+      \*.as[fx]
+      \ ffprobe -pretty %c 2>&1
 
 " Web
 filetype *.html,*.htm
-       \ {Open in Brave}
-       \ open -a Brave\ Browser.app,
-       \ {Open in Safari}
-       \ open -a Safari.app,
-       \ {Open in Firefox}
-       \ open -a Firefox.app,
-       \ {Open in vim}
-       \ vim,
+      \ {Open in Brave}
+      \ open -a Brave\ Browser.app,
+      \ {Open in Safari}
+      \ open -a Safari.app,
+      \ {Open in Firefox}
+      \ open -a Firefox.app,
+      \ {Open in vim}
+      \ vim,
 fileviewer *.html,*.htm w3m -dump -T text/html
 
 " Object
@@ -228,29 +228,29 @@ fileviewer *.[1-8] man ./%c | col -b
 
 " Image
 filetype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,
-       \ open -a Preview.app,
+      \ open -a Preview.app,
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-         \ identify %f
+      \ identify %f
 
 " MD5
 filetype *.md5
-       \ {Check MD5 hash sum}
-       \ md5sum -c %f %S,
+      \ {Check MD5 hash sum}
+      \ md5sum -c %f %S,
 
 " SHA1
 filetype *.sha1
-       \ {Check SHA1 hash sum}
-       \ sha1sum -c %f %S,
+      \ {Check SHA1 hash sum}
+      \ sha1sum -c %f %S,
 
 " SHA256
 filetype *.sha256
-       \ {Check SHA256 hash sum}
-       \ sha256sum -c %f %S,
+      \ {Check SHA256 hash sum}
+      \ sha256sum -c %f %S,
 
 " SHA512
 filetype *.sha512
-       \ {Check SHA512 hash sum}
-       \ sha512sum -c %f %S,
+      \ {Check SHA512 hash sum}
+      \ sha512sum -c %f %S,
 
 " Torrent
 filetype *.torrent open -a Transmission.app
@@ -316,7 +316,7 @@ fileviewer *.docx docx2txt.pl %f -
 " What should be saved automatically between vifm sessions.  Drop "savedirs"
 " value if you don't want vifm to remember last visited directories for you.
 set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
-    \phistory,fhistory,dirstack,registers,bookmarks,bmarks
+      \phistory,fhistory,dirstack,registers,bookmarks,bmarks
 
 " ------------------------------------------------------------------------------
 
@@ -333,9 +333,10 @@ set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
 " ------------------------------------------------------------------------------
 
 " Sample mappings
+map <space><space> :
 
 " Start shell in current directory
-nnoremap s :shell<cr>
+" nnoremap s :shell<cr>
 
 " Display sorting dialog
 nnoremap S :sort<cr>
@@ -345,18 +346,12 @@ nnoremap w :view<cr>
 vnoremap w :view<cr>gv
 
 " Open file in new MacVim tab
-nnoremap o :!mvim --remote-tab-silent %f<cr>
+" nnoremap o :!mvim --remote-tab-silent %f<cr>
 " Open file in new MacVim window
-nnoremap O :!mvim %f<cr>
+" nnoremap O :!mvim %f<cr>
 
 " Open file in the background using its default program
 nnoremap gb :!open -g %f<cr>
-
-" Yank current directory path into the clipboard
-nnoremap yd :!printf %d | pbcopy<cr>
-
-" Yank current file path into the clipboard
-nnoremap yf :!printf %c:p | pbcopy<cr>
 
 " View preview in Quick Look
 nnoremap q :!qlmanage -p %f > /dev/null 2>&1<cr>
@@ -393,7 +388,7 @@ nnoremap <f8> :delete<cr>
 
 " Use ag (the silver searcher) instead of grep
 "
-set grepprg='ag --line-numbers %i %a %s'
+set grepprg='rg --line-numbers %i %a %s'
 
 " Add additional place to look for executables
 "
@@ -412,7 +407,31 @@ set grepprg='ag --line-numbers %i %a %s'
 "
 " let $VIFM_SERVER_NAME = v:servername
 
+set relativenumber
+
 nnoremap <space> <nop>
 nnoremap q <nop>
 nnoremap qq :quit<CR> "
-" nnoremap ,q :quit<CR> " work around
+
+" devicons
+
+" file types
+set classify=' :dir:/, :exe:, :reg:, :link:'
+" various file names
+set classify+=' ::../::, ::*.sh::, ::*.[hc]pp::, ::*.[hc]::, ::/^copying|license$/::, ::.git/,,*.git/::, ::*.epub,,*.fb2,,*.djvu::, ::*.pdf::, ::*.htm,,*.html,,**.[sx]html,,*.xml::'
+" archives
+set classify+=' ::*.7z,,*.ace,,*.arj,,*.bz2,,*.cpio,,*.deb,,*.dz,,*.gz,,*.jar,,*.lzh,,*.lzma,,*.rar,,*.rpm,,*.rz,,*.tar,,*.taz,,*.tb2,,*.tbz,,*.tbz2,,*.tgz,,*.tlz,,*.trz,,*.txz,,*.tz,,*.tz2,,*.xz,,*.z,,*.zip,,*.zoo::'
+" images
+set classify+=' ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.ico,,*.png,,*.ppm,,*.svg,,*.svgz,,*.tga,,*.tif,,*.tiff,,*.xbm,,*.xcf,,*.xpm,,*.xspf,,*.xwd::'
+" audio
+set classify+=' ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.mid,,*.midi,,*.mp3,,*.mpc,,*.oga,,*.ogg,,*.ogx,,*.ra,,*.ram,,*.rm,,*.spx,,*.wav,,*.wma,,*.ac3::'
+" media
+set classify+=' ::*.avi,,*.ts,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mkv,,*.mov,,*.mp4,,*.flv,,*.mp4v,,*.mpeg,,*.mpg,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.wmv,,*.xvid::'
+" office files
+set classify+=' ::*.doc,,*.docx::, ::*.xls,,*.xls[mx]::, ::*.pptx,,*.ppt::'
+
+if has('unix')
+  source $VIFM/vifmrc.mac
+else
+  source $VIFM/vifmrc.linux
+endif

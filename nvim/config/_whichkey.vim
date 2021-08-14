@@ -9,6 +9,7 @@ if PlugLoaded('vim-which-key')
 
   call which_key#register('<space>', "g:which_key_map")
 
+  noremap  <silent> <leader>n     :FloatermNew vifm<cr>
   nnoremap <silent> <leader>      :<c-u>WhichKey '<space>'<CR>
   nnoremap <silent> <localleader> :<c-u>WhichKey ','<CR>
   vnoremap <silent> <leader>      :<c-u>WhichKeyVisual '<space>'<CR>
@@ -89,7 +90,6 @@ if PlugLoaded('vim-which-key')
   " \ ';' : [':FloatermNew --wintype=popup --height=6' , 'terminal'] ,
   " \ 'd' : [':FloatermNew lazydocker' , 'docker']   ,
   " \ 'N' : [':FloatermNew node'       , 'node']     ,
-  " \ 'v' : [':FloatermNew vifm'       , 'vifm']      ,
   " \ 'r' : [':FloatermNew lf'         , 'lf']       ,
   " \ 't' : [':FloatermToggle'         , 'terminal'] ,
   " \ 'f' : [':FloatermNew fzf'        , 'fzf']      ,

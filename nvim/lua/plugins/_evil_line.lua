@@ -1,23 +1,28 @@
--- INFO: Heavily inspired by: Eviline config for lualine
--- Author: shadmansaleh
--- Credit: glepnir
+-- INFO   : Heavily inspired by: Eviline config for lualine
+-- Source : https://gist.github.com/hoob3rt/b200435a765ca18f09f83580a606b878
+-- Author : shadmansaleh
+-- Credit : glepnir
+
+-- Changes:
+-- - Disable `expand` to respect the workspace's root dir
+-- - Add disabled_filetypes
 
 local lualine = require('lualine')
 
 -- Color table for highlights
 local colors = {
   -- bg       = '#202328',
-  bg       = '#32302f',
-  fg       = '#bbc2cf',
-  yellow   = '#ECBE7B',
+  fg       = '#32302f',
+  bg       = '#bbc2cf',
+  yellow   = '#c57339',
   cyan     = '#008080',
   darkblue = '#081633',
-  green    = '#98be65',
-  orange   = '#FF8800',
-  violet   = '#a9a1e1',
-  magenta  = '#c678dd',
-  blue     = '#51afef',
-  red      = '#ec5f67'
+  green    = '#598030',
+  orange   = '#c57339',
+  violet   = '#6845ad',
+  magenta  = '#cc517a',
+  blue     = '#2d539e',
+  red      = '#cc3768'
 }
 
 local conditions = {
@@ -42,7 +47,8 @@ local config = {
       -- are just setting default looks o statusline
       normal = {c = {fg = colors.fg, bg = colors.bg}},
       inactive = {c = {fg = colors.fg, bg = colors.bg}}
-    }
+    },
+    disabled_filetypes = {'fzf', 'coc-explorer', 'ctrlsf', 'tagbar'},
   },
   sections = {
     -- these are to remove the defaults
@@ -75,87 +81,78 @@ local function ins_right(component)
   table.insert(config.sections.lualine_x, component)
 end
 
-ins_left {
-  function() return '▊' end,
-  color = {fg = colors.blue}, -- Sets highlighting of component
-  left_padding = 0 -- We don't need space before this
-}
+-- ins_left {
+--   function() return '▊' end,
+--   color = {fg = colors.blue}, -- Sets highlighting of component
+--   left_padding = 0 -- We don't need space before this
+-- }
+
+local function mode_map()
+  -- auto change color according to neovims mode
+  local mode_color = {
+    n = colors.green,
+    i = colors.red,
+    v = colors.blue,
+    [''] = colors.blue,
+    V = colors.blue,
+    c = colors.magenta,
+    no = colors.green,
+    s = colors.orange,
+    S = colors.orange,
+    [''] = colors.orange,
+    ic = colors.yellow,
+    R = colors.violet,
+    Rv = colors.violet,
+    cv = colors.red,
+    ce = colors.red,
+    r = colors.cyan,
+    rm = colors.cyan,
+    ['r?'] = colors.cyan,
+    ['!'] = colors.red,
+    t = colors.red
+  }
+  vim.api.nvim_command(
+    'hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. " guibg=" ..
+    colors.bg)
+end
 
 ins_left {
-  -- mode component
   function()
-    -- auto change color according to neovims mode
-    local mode_color = {
-      n = colors.red,
-      i = colors.green,
-      v = colors.blue,
-      [''] = colors.blue,
-      V = colors.blue,
-      c = colors.magenta,
-      no = colors.red,
-      s = colors.orange,
-      S = colors.orange,
-      [''] = colors.orange,
-      ic = colors.yellow,
-      R = colors.violet,
-      Rv = colors.violet,
-      cv = colors.red,
-      ce = colors.red,
-      r = colors.cyan,
-      rm = colors.cyan,
-      ['r?'] = colors.cyan,
-      ['!'] = colors.red,
-      t = colors.red
-    }
-    vim.api.nvim_command(
-        'hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. " guibg=" ..
-            colors.bg)
-    return ''
-    -- return ''
+    mode_map()
+    return '▓▒░'          -- , 
   end,
   color = "LualineMode",
   left_padding = 0
 }
 
--- ins_left {
---   -- filesize component
---   function()
---     local function format_file_size(file)
---       local size = vim.fn.getfsize(file)
---       if size <= 0 then return '' end
---       local sufixes = {'b', 'k', 'm', 'g'}
---       local i = 1
---       while size > 1024 do
---         size = size / 1024
---         i = i + 1
---       end
---       return string.format('%.1f%s', size, sufixes[i])
---     end
---     local file = vim.fn.expand('%:p')
---     if string.len(file) == 0 then return '' end
---     return format_file_size(file)
---   end,
---   condition = conditions.buffer_not_empty
--- }
-
 ins_left {
   'filename',
-  color = {fg = colors.magenta, gui = 'bold'}
   -- condition = conditions.buffer_not_empty,
+  color = {fg = colors.violet, gui = 'bold'} -- dark
 }
 
 ins_left {'location'}
-
 ins_left {'progress', color = {fg = colors.fg, gui = 'bold'}}
 
+-- Tagbar
 ins_left {
-  'diagnostics',
-  sources = {'nvim_lsp'},
-  symbols = {error = ' ', warn = ' ', info = ' '},
-  color_error = colors.red,
-  color_warn = colors.yellow,
-  color_info = colors.cyan
+  function()
+    local _tag = "%{tagbar#currenttag('%s', '', 'f', 'scoped-stl')}"
+    if _tag == nil or _tag == '' then return 'n/a' end
+    return _tag
+  end,
+  icon = '»',
+  color = {fg = colors.green}
 }
+
+-- ins_left {
+--   'diagnostics',
+--   sources = {'nvim_lsp'},
+--   symbols = {error = ' ', warn = ' ', info = ' '},
+--   color_error = colors.red,
+--   color_warn = colors.yellow,
+--   color_info = colors.cyan
+-- }
 
 -- Insert mid section. You can make any number of sections in neovim :)
 -- for lualine it's any number greater then 2
@@ -163,25 +160,9 @@ ins_left {function() return '%=' end}
 
 ins_right {
   -- Lsp server name .
-  function()
-    local msg = 'No Active Lsp'
-    local coc = vim.fn.StatusDiagnostic()
-    if coc == nil or coc == '' then return msg end
-    return string(coc)
-
-    -- local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-    -- local clients = vim.lsp.get_active_clients()
-    -- if next(clients) == nil then return msg end
-    -- for _, client in ipairs(clients) do
-    --   local filetypes = client.config.filetypes
-    --   if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-    --     return client.name
-    --   end
-    -- end
-    -- return msg
-  end,
+  'coc#status',
   icon = ' LSP:',
-  color = {fg = '#ffffff', gui = 'bold'}
+  color = {fg = colors.white, gui = 'bold'}
 }
 
 -- Add components to right sections
@@ -201,25 +182,26 @@ ins_right {
 
 ins_right {
   'branch',
-  icon = '',
+  icon = '',
   condition = conditions.hide_in_width,
   color = {fg = colors.violet, gui = 'bold'}
 }
 
--- ins_right {
---   'diff',
---   -- Is it me or the symbol for modified us really weird
---   symbols = {added = '+ ', modified = '~ ', removed = '- '},
---   color_added = colors.green,
---   color_modified = colors.orange,
---   color_removed = colors.red,
---   condition = conditions.hide_in_width
--- }
+ins_right {
+  'diff',
+  symbols = {added = '+', modified = '~', removed = '-'},
+  color_added = colors.green,
+  color_modified = colors.orange,
+  color_removed = colors.red,
+  condition = conditions.hide_in_width
+}
 
 ins_right {
-  function() return '▊' end,
-  color = {fg = colors.blue},
+  function() return '░▒▓' end,  -- ▊
+  color = "LualineMode",
   right_padding = 0
 }
 
+
 lualine.setup(config)
+

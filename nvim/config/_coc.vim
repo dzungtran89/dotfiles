@@ -5,7 +5,8 @@ vim.g.coc_global_extensions = {
   "coc-explorer",
   "coc-lists",
   "coc-tsserver",
-  "coc-snippets",
+  "coc-ultisnips",
+  -- "coc-snippets",
   "coc-pyright",
   "coc-emoji",
   }
@@ -144,13 +145,6 @@ EOF
   " Add `:OR` command for organize imports of the current buffer.
   command! -nargs=0 OR      :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-  " Add (Neo)Vim's native statusline support.
-  " NOTE: Please see `:h coc-status` for integrations with external plugins that
-  " provide custom statusline: lightline.vim, vim-airline.
-  " set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-  " Mappings for CoCList
-
   " Don't use GUI tabline
   " set guioptions-=e
 
@@ -184,26 +178,23 @@ EOF
 endif
 
 if PlugLoaded('coc-fzf')
-  " let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+  " let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.4, 'border': 'sharp' } }
   " let g:coc_fzf_preview = 'up:50%'
   " let g:coc_fzf_opts = ['--layout=reverse-list']
   " let g:coc_fzf_preview_toggle_key = '?'
 
   nnoremap <silent> <localleader>f  :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
 
-  nnoremap <silent> <leader>l        :<C-u>CocFzfList<CR>
+  nnoremap <silent> <leader>ll       :<C-u>CocFzfList<CR>
   nnoremap <silent> <leader>ld       :<C-u>CocFzfList diagnostics<CR>
   nnoremap <silent> <leader>lb       :<C-u>CocFzfList diagnostics --current-buf<CR>
-  nnoremap <silent> <leader>lc       :<C-u>CocFzfList vimcommands<CR>
   nnoremap <silent> <leader>lC       :<C-u>CocFzfList commands<CR>
-  nnoremap <silent> <leader>o       :<C-u>CocCommand explorer<CR>
-  " nnoremap <silent> <leader>l       :<C-u>CocFzfList location<CR>
-  nnoremap <silent> <leader>co       :<C-u>CocFzfList outline<CR>
   nnoremap <silent> <leader>ls       :<C-u>CocFzfList symbols<CR>
   nnoremap <silent> <leader>rr       :<C-u>CocListResume<CR>
 
+  nnoremap <silent> <leader>o        :<C-u>CocCommand explorer<CR>
   nnoremap <silent> <leader>qo       :<C-u>CocFzfList sessions<CR>
-  nnoremap <leader>qw       :<C-u>CocCommand session.save<Space>
+  nnoremap <leader>qw                :<C-u>CocCommand session.save<Space>
 
   " -- Keymapping for grep word under cursor with interactive mode
   nnoremap <silent> <Leader>cf :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>

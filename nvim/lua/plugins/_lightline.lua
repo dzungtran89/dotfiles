@@ -1,16 +1,15 @@
 vim.g.lightline = {
   colorscheme = 'Tomorrow_Night',
   separator= { left = '▒░', right = '░▒' },
-  subseparator= { left = '▒', right = '░' },
+  -- subseparator= { left = '▒', right = '░' },
   active = {
     left = {
-      -- { 'coc_info', 'coc_hints', 'coc_errors', 'coc_warnings', 'coc_ok' },
-      { 'gitbranch', },
-      { 'filename', 'readonly', 'tagbar' }
+      { 'mode' },
+      { 'filename', 'lineinfo', 'percent', 'tagbar' }
     },
     right = {
-      { 'lineinfo', 'percent' },
-      { 'paste', 'fileformat', 'fileencoding', 'filetype', 'lsp' },
+      { 'gitbranch' },
+      { 'lsp', 'fileformat', 'fileencoding', 'filetype'},
     }
   },
 

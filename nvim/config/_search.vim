@@ -1,3 +1,5 @@
+" FZF {{{1
+
 " nnoremap <leader>. :call fzf#vim#tags('^' . expand('<cword>'), {'options': '--exact --select-1 --exit-0 +i'})<CR>
 
 " autocmd! FileType fzf set laststatus=0 noshowmode noruler
@@ -33,11 +35,14 @@ g.fzf_history_dir = '~/.local/share/fzf-history'
 g.fzf_tags_command = 'ctags -R --languages=python'
 
 -- Border color
+-- up = '~60%',
 g.fzf_layout = {
-  up = '~80%',
-  window = { width= 0.5, height= 0.8, yoffset=0.5, xoffset= 0.5, highlight= 'Todo', border= 'sharp' }
+  window = {
+    width=0.6, height=0.4, 
+    yoffset=0.5, xoffset= 0.5, 
+    highlight= 'Todo', border= 'sharp' 
+    }
   }
-
 eof
 
 " Customize fzf colors to match your color scheme

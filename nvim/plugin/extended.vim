@@ -151,27 +151,27 @@ autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 func! DeleteTillSlash()
-    let g:cmd = getcmdline()
+  let g:cmd = getcmdline()
 
+  if has("win16") || has("win32")
+    let g:cmd_edited = substitute(g:cmd, "\\(.*\[\\\\]\\).*", "\\1", "")
+  else
+    let g:cmd_edited = substitute(g:cmd, "\\(.*\[/\]\\).*", "\\1", "")
+  endif
+
+  if g:cmd == g:cmd_edited
     if has("win16") || has("win32")
-        let g:cmd_edited = substitute(g:cmd, "\\(.*\[\\\\]\\).*", "\\1", "")
+      let g:cmd_edited = substitute(g:cmd, "\\(.*\[\\\\\]\\).*\[\\\\\]", "\\1", "")
     else
-        let g:cmd_edited = substitute(g:cmd, "\\(.*\[/\]\\).*", "\\1", "")
+      let g:cmd_edited = substitute(g:cmd, "\\(.*\[/\]\\).*/", "\\1", "")
     endif
+  endif
 
-    if g:cmd == g:cmd_edited
-        if has("win16") || has("win32")
-            let g:cmd_edited = substitute(g:cmd, "\\(.*\[\\\\\]\\).*\[\\\\\]", "\\1", "")
-        else
-            let g:cmd_edited = substitute(g:cmd, "\\(.*\[/\]\\).*/", "\\1", "")
-        endif
-    endif
-
-    return g:cmd_edited
+  return g:cmd_edited
 endfunc
 
 func! CurrentFileDir(cmd)
-    return a:cmd . " " . expand("%:p:h") . "/"
+  return a:cmd . " " . expand("%:p:h") . "/"
 endfunc
 
 "=================================================================================
@@ -206,27 +206,38 @@ imap <F5> <Esc>:call CompileRun()<CR>
 vmap <F5> <Esc>:call CompileRun()<CR>
 
 func! CompileRun()
-exec "w"
-if &filetype == 'c'
+  exec "w"
+  if &filetype == 'c'
     exec "!gcc % -o %<"
     exec "!time ./%<"
-elseif &filetype == 'cpp'
+  elseif &filetype == 'cpp'
     exec "!g++ % -o %<"
     exec "!time ./%<"
-elseif &filetype == 'java'
+  elseif &filetype == 'java'
     exec "!javac %"
     exec "!time java %"
-elseif &filetype == 'sh'
+  elseif &filetype == 'sh'
     exec "!time bash %"
-elseif &filetype == 'python'
+  elseif &filetype == 'python'
     exec "!time python3 %"
-elseif &filetype == 'html'
+  elseif &filetype == 'html'
     exec "!google-chrome % &"
-elseif &filetype == 'go'
+  elseif &filetype == 'go'
     exec "!go build %<"
     exec "!time go run %"
-elseif &filetype == 'matlab'
+  elseif &filetype == 'matlab'
     exec "!time octave %"
-endif
+  endif
 endfunc
 
+func! s:save_and_exec() abort
+  if &filetype == 'vim'
+    :silent! write
+    :source %
+  elseif &filetype == 'lua'
+    :silent! write
+    :source %
+  endif
+endfunc
+
+nnoremap <leader><leader>x :call <SID>save_and_exec()<CR>

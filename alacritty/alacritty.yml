@@ -5,6 +5,7 @@ import:
   # - ~/.config/alacritty/colorschemes/Doom_one.yml
   - ~/.config/alacritty/fonts.yml
   - ~/.config/alacritty/keys.yml
+  - ~/.config/alacritty/colors.yml
 
 env:
   # TERM: alacritty
@@ -29,7 +30,6 @@ window:
 cursor:
   style:
     shape: Block
-    blinking: On
 
   unfocused_hollow: false
 
@@ -37,4 +37,3 @@ cursor:
 live_config_reload: true
 
 background_opacity: 0.9
-
