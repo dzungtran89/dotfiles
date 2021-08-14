@@ -138,11 +138,7 @@ else
   " IndentLine
   if PlugLoaded('indentLine')
     let g:indentLine_enabled = 1
-    " let g:indentLine_setColors = 0
-    " let g:indentLine_concealcursor = 'inc'
-    " let g:indentLine_char = '│'
     let g:indentLine_char_list = ['│', '¦', '┆', '┊']
-    " let g:indentLine_faster = 1
   endif
 
 
@@ -185,17 +181,6 @@ nnoremap N Nzzzv
 
 if exists("*fugitive#statusline")
   set statusline+=%{fugitive#statusline()}
-endif
-
-" vim-airline
-if PlugLoaded('vim-airline')
-  let g:airline_theme = 'powerlineish'
-  let g:airline#extensions#branch#enabled = 1
-  let g:airline#extensions#ale#enabled = 1
-  let g:airline#extensions#tabline#enabled = 1
-  let g:airline#extensions#tagbar#enabled = 1
-  let g:airline_skip_empty_sections = 1
-  let g:airline#extensions#virtualenv#enabled = 1
 endif
 
 "*****************************************************************************
@@ -285,27 +270,24 @@ set autoread
 "*****************************************************************************
 "" Mappings
 "*****************************************************************************
-noremap <Leader>B  :Buffers<CR>
-noremap <leader>bq :close<CR>
-noremap <leader>bo :BTags<CR>
-noremap <leader>i  :set ic!<CR>
+"" Tabs
+nnoremap <Tab> gt
+nnoremap <S-Tab> gT
+nnoremap <S-t> :tabnew<CR>
 
-" b-prefix commands
-noremap <Leader>b  :b
+nnoremap <Leader>bb :Buffers<CR>
+nnoremap <leader>bq :close<CR>
+nnoremap <leader>bo :BTags<CR>
+nnoremap <leader>bc :Commands<CR>
+nnoremap <leader>bd :b#\|bw#<CR>
+nnoremap <leader>i  :set ic!<CR>
 
 noremap <leader>fw :update<CR>
 noremap <leader>fe :e!<CR>
-noremap <leader>fd :bd!<CR>
+noremap <leader>fd :bw!<CR>
 
 nnoremap <localleader>le :setl expandtab sw=2<CR>
 nnoremap <localleader>ls :setl syntax=
-nnoremap <localleader>c :b#\|bw#<CR>
-" nnoremap <silent> <localleader>ls
-"       \ :if exists("syntax_on") <BAR>
-"       \    setl syntax off <BAR>
-"       \ else <BAR>
-"       \    setl syntax enable <BAR>
-"       \ endif<CR>
 
 "" Git
 if PlugLoaded('vim-fugitive')
@@ -313,23 +295,10 @@ if PlugLoaded('vim-fugitive')
   noremap <leader>gw :GBrowse<CR>
   noremap <leader>gb :Git blame<CR>
   noremap <leader>gq :gq<CR>
-  " noremap <leader>gg :Git<space>
-  " noremap <leader>ga :Gwrite<CR>
-  " noremap <leader>gc :Gcommit<CR>
-  " noremap <leader>gP :Gpush<CR>
-  " noremap <leader>gp :Gpull<CR>
-  " noremap <leader>gs :Gstatus<CR>
-  " noremap <leader>gd :Gvdiff<CR>
-  " noremap <leader>gr :Gremove<CR>
 
   "" Open current line on GitHub
   let g:fugitive_gitlab_domains = ['https://gitlab.trobz.com']
 endif
-
-"" Tabs
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
-nnoremap <silent> <S-t> :tabnew<CR>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
@@ -411,9 +380,6 @@ noremap <leader>z :bp<CR>
 " noremap <leader>q :bp<CR>
 noremap <leader>x :bn<CR>
 " noremap <leader>w :bn<CR>
-
-"" Clean search (highlight)
-nnoremap <silent> <leader><space> :noh<cr>
 
 "" Switching windows
 noremap <C-j> <C-w>j
@@ -501,20 +467,10 @@ let g:vue_disable_pre_processors=1
 " vim vue plugin
 let g:vim_vue_plugin_load_full_syntax = 1
 
-
-"*****************************************************************************
-"*****************************************************************************
-
-"" Include user's local vim config
-if filereadable(expand("~/.config/nvim/local_init.vim"))
-  source ~/.config/nvim/local_init.vim
-endif
-
 "*****************************************************************************
 "" Convenience variables
 "*****************************************************************************
 
-" vim-airline
 if PlugLoaded('vim-airline')
   if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -565,7 +521,6 @@ source $HOME/.config/nvim/config/_snips.vim
 source $HOME/.config/nvim/config/_jump.vim
 source $HOME/.config/nvim/config/_wiki.vim
 source $HOME/.config/nvim/config/_md.vim
-source $HOME/.config/nvim/config/_floaterm.vim
 source $HOME/.config/nvim/config/_linter.vim
 
 source $HOME/.config/nvim/config/_debug.vim

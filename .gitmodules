@@ -1,9 +1,15 @@
 [submodule "tmux/plugins/.tmux"]
 	path = tmux/plugins/.tmux
 	url = https://github.com/gpakosz/.tmux
-; [submodule "zsh/pure"]
-; 	path = zsh/pure
-; 	url = git@github.com:sindresorhus/pure.git
 [submodule "tmux/plugins/tony"]
 	path = tmux/plugins/tony
 	url = git@github.com:tony/tmux-config.git
+[submodule "ref/nicknisi"]
+	path = ref/nicknisi
+	url = git@github.com:nicknisi/dotfiles.git
+[submodule "ref/pyratebeard"]
+	path = ref/pyratebeard
+	url = git://git.pyratebeard.net/dotfiles.git
+[submodule "ref/YodaEmbedding"]
+	path = ref/YodaEmbedding
+	url = git@github.com:YodaEmbedding/dotfiles.git

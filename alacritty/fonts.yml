@@ -4,13 +4,16 @@ font:
   # TEST: Việt Nam, Trần, Diệp, Kiều
   normal:
     family: Iosevka Fixed
-    style: Regular
+    style: Light
   italic:
     family: Iosevka Fixed
-    style: Italic
+    style: Light Italic
   bold:
     family: Iosevka Fixed
-    style: Bold
+    style: Regular
+  bold_italic:
+    family: Iosevka Fixed
+    style: Regular Italic
 
   # Point size
   size: 16.0

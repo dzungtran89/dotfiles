@@ -454,7 +454,7 @@ endif
 
 if has_key(plugs, 'lf.vim')
 
-  map <leader>cr :Lf<CR>
+  map <leader>n :Lf<CR>
   let g:NERDTreeHijackNetrw = 0
 
 endif

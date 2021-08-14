@@ -3,6 +3,7 @@
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'rstacruz/vim-closer'
+" Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 Plug 'airblade/vim-gitgutter'
@@ -31,9 +32,9 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'dzungtran89/vim-odoo-snippets'
 
-" vuejs
-Plug 'posva/vim-vue'
-Plug 'leafOfTree/vim-vue-plugin'
+" " vuejs
+" Plug 'posva/vim-vue'
+" Plug 'leafOfTree/vim-vue-plugin'
 
 " Addons
 Plug 'editorconfig/editorconfig-vim'
@@ -57,18 +58,17 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf'
 
 Plug 'norcalli/nvim-colorizer.lua'
+" Plug 'itchyny/lightline.vim'
 Plug 'hoob3rt/lualine.nvim'
 
 Plug 'numToStr/Navigator.nvim'
 Plug 'liuchengxu/vim-which-key'
 
-Plug 'ptzz/lf.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'vimlab/split-term.vim'
 
-Plug 'rafi/awesome-vim-colorschemes'
 Plug 'vhyrro/neorg'
 Plug 'mfussenegger/nvim-dap'
-Plug 'tweekmonster/startuptime.vim'
 
-" Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'tweekmonster/startuptime.vim'

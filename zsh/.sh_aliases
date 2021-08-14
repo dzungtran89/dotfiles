@@ -144,3 +144,6 @@ alias dcu='docker-compose up'
 # fd
 alias fdd="fd --type d"
 alias fdf="fd --type f"
+
+# vifm -> lf
+alias lf='vifm'

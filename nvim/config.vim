@@ -1,6 +1,13 @@
-" ---------------------------------------------------------------
-" Options
-" ---------------------------------------------------------------
+" Options {{{
+set bg=light
+
+nnoremap <leader>ui :colorscheme<space>
+colorscheme iceberg
+
+if !has('macunix')
+  colorscheme iceberg
+endif
+
 if PlugLoaded('nord-vim')
   let g:nord_bold_vertical_split_line = 1
   let g:nord_uniform_diff_background = 1
@@ -12,14 +19,7 @@ if PlugLoaded('gruvbox-flat.nvim')
   let g:gruvbox_flat_style = "hard"
 endif
 
-nnoremap <leader>ui :colorscheme<space>
-colorscheme iceberg
-
-if !has('macunix')
-  colorscheme iceberg
-endif
-
-set cursorcolumn
+" set cursorcolumn
 set nojoinspaces                    " Join sentences with single space
 set shiftround                      " Round >> to nearest shiftwidth multiple
 set nowrap
@@ -30,17 +30,18 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+" Usefull to search all files recursively
+set path+=**
+
 " Give more space for displaying messages.
 set cmdheight=2
 
-set undodir=$HOME/.vim/undo         " Undo history location
+set undodir=$HOME/.nvim/undo         " Undo history location
 set undofile                        " Undo history
 
 if has('nvim')
   set inccommand=split
 endif
-
-imap qw <esc>
 
 " ---------------------------------------------------------------
 " Functions
@@ -130,7 +131,7 @@ set signcolumn=yes
 set synmaxcol=200
 
 set list
-set listchars=tab:▸\ ,extends:❯,precedes:❮,trail:·,nbsp:·
+set listchars=tab:→\ ,eol:¬,extends:❯,precedes:❮,trail:·,nbsp:·
 
 " Highlight the column after 'textwidth'
 set colorcolumn=+1
@@ -155,6 +156,9 @@ command! CopyBuffer let @+ = expand('%:p')
 " -----------------------------------------------
 nnoremap <localleader>u YpVr=<CR>
 
+" Remap <esc>
+imap qw <esc>
+
 "" Keep cursor at the first match
 nnoremap * *N
 nnoremap # #N
@@ -170,6 +174,8 @@ nmap <silent> gd  g<C-]>
 
 " search and replace pattern under the cursor
 nnoremap c* *Ncgn
+
+" }}}
 
 " -----------------------------------------------
 " FZF
@@ -232,7 +238,7 @@ EOF
   noremap <leader>tc :ColorizerToggle<CR>
 endif
 
-" WSL yank support
+" WSL yank support {{{
 if !has("macunix")
   let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
   if executable(s:clip)
@@ -242,6 +248,7 @@ if !has("macunix")
     augroup END
   endif
 endif
+" }}}
 
 if PlugLoaded('vim-matchup')
   " let g:matchup_delim_noskips = 1   " recognize symbols within comments
@@ -267,4 +274,19 @@ if PlugLoaded('split-term.vim')
   nnoremap <localleader>t2 :2Term<SPACE>
   nnoremap <localleader>tv :VTerm<SPACE>
   nnoremap <localleader>tn :TTerm<SPACE>
+endif
+
+if PlugLoaded('vim-floaterm')
+  let g:floaterm_keymap_toggle = '<leader>tt'
+  let g:floaterm_keymap_next   = '<leader>tn'
+  let g:floaterm_keymap_prev   = '<leader>tp'
+  " let g:floaterm_keymap_new    = '<leader>tt'
+
+  " Floaterm
+  let g:floaterm_gitcommit='floaterm'
+  let g:floaterm_autoinsert=1
+  let g:floaterm_width=0.8
+  let g:floaterm_height=0.8
+  let g:floaterm_wintitle=0
+  let g:floaterm_autoclose=1
 endif

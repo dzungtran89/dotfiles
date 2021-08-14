@@ -5,7 +5,7 @@
 
     "xml.java.home": "/Library/Java/JavaVirtualMachines/openjdk-14.0.2.jdk/Contents/Home",
     "xml.completion.autoCloseTags": true,
-    "snippets.userSnippetsDirectory": "~/.nvim/plugged/vim-odoo-snippets/UltiSnips",
+    "snippets.userSnippetsDirectory": "~/.nvim/plugged/vim-odoo-snippets/UltiSnips,~/.nvim/plugged/coq.artifacts",
     "diagnostic.displayByAle": true,
     "session.directory": "~/.nvim/session",
     "session.saveOnVimLeave": true,
