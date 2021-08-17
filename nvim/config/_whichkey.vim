@@ -9,7 +9,7 @@ if PlugLoaded('vim-which-key')
 
   call which_key#register('<space>', "g:which_key_map")
 
-  noremap  <silent> <leader>n     :FloatermNew vifm<cr>
+  noremap  <silent> <leader>n     :FloatermNew nnn<cr>
   nnoremap <silent> <leader>      :<c-u>WhichKey '<space>'<CR>
   nnoremap <silent> <localleader> :<c-u>WhichKey ','<CR>
   vnoremap <silent> <leader>      :<c-u>WhichKeyVisual '<space>'<CR>
