@@ -6,7 +6,6 @@ vim.g.coc_global_extensions = {
   "coc-lists",
   "coc-tsserver",
   "coc-ultisnips",
-  -- "coc-snippets",
   "coc-pyright",
   "coc-emoji",
   }
@@ -157,8 +156,8 @@ EOF
     return join(list, "\n")
   endfunction
 
-  vnoremap <leader>gg :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
-  nnoremap <leader>gg :<C-u>set operatorfunc=<SID>GrepFromSelected<CR>g@
+  vnoremap <leader>gs :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
+  nnoremap <leader>gs :<C-u>set operatorfunc=<SID>GrepFromSelected<CR>g@
 
   function! s:GrepFromSelected(type)
     let saved_unnamed_register = @@

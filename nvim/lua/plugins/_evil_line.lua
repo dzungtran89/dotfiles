@@ -12,8 +12,8 @@ local lualine = require('lualine')
 -- Color table for highlights
 local colors = {
   -- bg       = '#202328',
-  fg       = '#32302f',
-  bg       = '#bbc2cf',
+  bg       = '#32302f',
+  fg       = '#bbc2cf',
   yellow   = '#c57339',
   cyan     = '#008080',
   darkblue = '#081633',
@@ -127,11 +127,8 @@ ins_left {
 
 ins_left {
   'filename',
-  -- condition = conditions.buffer_not_empty,
   color = {fg = colors.violet, gui = 'bold'} -- dark
 }
-
--- ins_left {'location'}
 
 -- Tagbar
 ins_left {
@@ -157,6 +154,8 @@ ins_left {
 -- for lualine it's any number greater then 2
 ins_left {function() return '%=' end}
 
+-- Add components to right sections {{{
+
 ins_right {
   -- Lsp server name .
   'coc#status',
@@ -164,8 +163,10 @@ ins_right {
   color = {fg = colors.white, gui = 'bold'}
 }
 
-ins_right {'progress', color = {fg = colors.fg, gui = 'bold'}}
--- Add components to right sections
+ins_right {
+  'progress', 
+  color = {fg = colors.fg, gui = 'bold'}
+}
 ins_right {
   'o:encoding', -- option component same as &encoding in viml
   upper = true,
@@ -176,7 +177,7 @@ ins_right {
 ins_right {
   'filetype',
   upper = true,
-  icons_enabled = false,
+  condition = conditions.hide_in_width,
   color = {fg = colors.green, gui = 'bold'}
 }
 
@@ -202,6 +203,7 @@ ins_right {
   right_padding = 0
 }
 
+-- }}}
 
 lualine.setup(config)
 

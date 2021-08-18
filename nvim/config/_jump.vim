@@ -27,10 +27,10 @@ if PlugLoaded('any-jump.vim')
   " -------------------------------------------------
 
   " Normal mode: Jump to definition under cursore
-  nnoremap <leader>jj :AnyJump<CR>
+  nnoremap <leader>js :AnyJump<CR>
 
   " Visual mode: jump to selected text in visual mode
-  xnoremap <leader>jj :AnyJumpVisual<CR>
+  xnoremap <leader>js :AnyJumpVisual<CR>
 
   " Normal mode: open previous opened file (after jump)
   nnoremap <leader>jb :AnyJumpBack<CR>

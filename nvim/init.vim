@@ -289,17 +289,6 @@ noremap <leader>fd :bw!<CR>
 nnoremap <localleader>le :setl expandtab sw=2<CR>
 nnoremap <localleader>ls :setl syntax=
 
-"" Git
-if PlugLoaded('vim-fugitive')
-  noremap <leader>go :.GBrowse<CR>
-  noremap <leader>gw :GBrowse<CR>
-  noremap <leader>gb :Git blame<CR>
-  noremap <leader>gq :gq<CR>
-
-  "" Open current line on GitHub
-  let g:fugitive_gitlab_domains = ['https://gitlab.trobz.com']
-endif
-
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
 

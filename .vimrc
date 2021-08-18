@@ -451,10 +451,3 @@ if has_key(plugs, 'vim-easymotion')
   omap t <Plug>(easymotion-bd-tl)
 
 endif
-
-if has_key(plugs, 'lf.vim')
-
-  map <leader>n :Lf<CR>
-  let g:NERDTreeHijackNetrw = 0
-
-endif
