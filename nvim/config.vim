@@ -1,5 +1,5 @@
 " Options {{{
-set bg=light
+set bg=dark
 
 nnoremap <leader>ui :colorscheme<space>
 colorscheme iceberg
@@ -191,6 +191,8 @@ nnoremap <Leader>ea :Ag!<CR>
 nnoremap <Leader>er :Rg<CR>
 nnoremap <Leader>em :Marks<CR>
 nnoremap <Leader>st :Tags<CR>
+nnoremap <Leader>lc :Commands<CR>
+nnoremap <Leader>gt :!ctags -R --languages=python
 
 nnoremap <Leader>es :Filetypes<CR>
 

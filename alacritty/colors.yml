@@ -7,7 +7,6 @@ colors:
     text: CellBackground
     cursor: '0x32302f'
 
-
   # Search colors
   # Colors used for the search bar and match highlighting.
   search:

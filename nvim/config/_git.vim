@@ -1,5 +1,5 @@
 " Git
-if has_key(plugs, 'vim-fugitive')
+if PlugLoaded('vim-fugitive')
 
   noremap <leader>go :.GBrowse<CR>
   noremap <leader>gw :GBrowse<CR>
@@ -19,17 +19,15 @@ if has_key(plugs, 'vim-fugitive')
 
 endif
 
-if has_key(plugs, 'vim-gitgutter')
+if PlugLoaded('vim-gitgutter')
   set updatetime=250
 
   " let g:gitgutter_sign_removed          = '🔥'
   " let g:gitgutter_sign_modified_removed = '🤔'
   " let g:gitgutter_sign_added            = '🐣'
   " let g:gitgutter_sign_modified         = '🐍'
-
-elseif has_key(plugs, 'gitsigns.nvim')
-  source $HOME/.config/nvim/plugins/gitsign.lua
 endif
 
-set signcolumn=yes
-
+if PlugLoaded('gitsigns.nvim')
+  source $HOME/.config/nvim/plugins/gitsign.lua
+endif

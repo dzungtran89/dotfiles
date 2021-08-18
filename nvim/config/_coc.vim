@@ -6,7 +6,6 @@ vim.g.coc_global_extensions = {
   "coc-lists",
   "coc-tsserver",
   "coc-ultisnips",
-  -- "coc-snippets",
   "coc-pyright",
   "coc-emoji",
   }

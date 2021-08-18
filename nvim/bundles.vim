@@ -2,8 +2,8 @@
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'rstacruz/vim-closer'
-" Plug 'jiangmiao/auto-pairs'
+" Plug 'rstacruz/vim-closer'
+Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 Plug 'airblade/vim-gitgutter'
@@ -58,7 +58,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf'
 
 Plug 'norcalli/nvim-colorizer.lua'
-" Plug 'itchyny/lightline.vim'
 Plug 'hoob3rt/lualine.nvim'
 
 Plug 'numToStr/Navigator.nvim'
