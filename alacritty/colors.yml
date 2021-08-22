@@ -1,30 +1,30 @@
 colors:
   cursor:
     text: CellBackground
-    cursor: '0x32302f'
+    cursor: '0xffffff'
 
-  vi_mode_cursor:
-    text: CellBackground
-    cursor: '0x32302f'
+  # vi_mode_cursor:
+  #   text: CellBackground
+  #   cursor: '0x32302f'
 
-  # Search colors
-  # Colors used for the search bar and match highlighting.
-  search:
-    # Allowed values are CellForeground/CellBackground, which reference the
-    # affected cell, or hexadecimal colors like #ff00ff.
-    matches:
-      foreground: '#ffffff'
-      background: '#fabd2f'
-    focused_match:
-      foreground: '#ffffff'
-      background: '#000000'
-    bar:
-      background: '#c5c8c6'
-      foreground: '#1d1f21'
+  # # Search colors
+  # # Colors used for the search bar and match highlighting.
+  # search:
+  #   # Allowed values are CellForeground/CellBackground, which reference the
+  #   # affected cell, or hexadecimal colors like #ff00ff.
+  #   matches:
+  #     foreground: '#ffffff'
+  #     background: '#fabd2f'
+  #   focused_match:
+  #     foreground: '#ffffff'
+  #     background: '#000000'
+  #   bar:
+  #     background: '#c5c8c6'
+  #     foreground: '#1d1f21'
 
-  selection:
-    text: CellBackground
-    background: CellForeground
+  # selection:
+  #   text: CellBackground
+  #   background: CellForeground
 
   # # Normal colors
   # normal:

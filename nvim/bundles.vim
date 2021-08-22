@@ -11,6 +11,7 @@ Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'preservim/tagbar'
 Plug 'dense-analysis/ale'
 Plug 'editor-bootstrap/vim-bootstrap-updater'
+Plug 'Konfekt/FastFold'
 
 let g:polyglot_disabled = []
 Plug 'sheerun/vim-polyglot'

@@ -127,8 +127,16 @@ ins_left {
 
 ins_left {
   'filename',
-  left_padding = 0,
+  -- left_padding = 0,
   color = {fg = colors.violet, gui = 'bold'} -- dark
+}
+
+ins_left {
+  'filetype',
+  upper = true,
+  -- left_padding = 0,
+  condition = conditions.hide_in_width,
+  color = {fg = colors.green, gui = 'bold'}
 }
 
 -- Tagbar
@@ -140,7 +148,7 @@ ins_left {
   end,
   icon = '»',
   color = {fg = colors.green},
-  left_padding = 0
+  -- left_padding = 0
 }
 
 -- ins_left {
@@ -163,37 +171,27 @@ ins_right {
   'coc#status',
   icon = ' LSP:',
   color = {fg = colors.white, gui = 'bold'},
-  right_padding = 0
+  -- right_padding = 0
 }
 
 ins_right {
   'progress', 
   color = {fg = colors.fg, gui = 'bold'},
-  right_padding = 0,
-  left_padding = 0
+  -- right_padding = 0,
 }
 ins_right {
   'o:encoding', -- option component same as &encoding in viml
   upper = true,
   condition = conditions.hide_in_width,
   color = {fg = colors.green, gui = 'bold'},
-  right_padding = 0,
-  left_padding = 0
-}
-
-ins_right {
-  'filetype',
-  upper = true,
-  condition = conditions.hide_in_width,
-  color = {fg = colors.green, gui = 'bold'}
+  -- right_padding = 0,
 }
 
 ins_right {
   'branch',
   icon = '',
   color = {fg = colors.violet, gui = 'bold'},
-  right_padding = 0,
-  left_padding = 0
+  -- right_padding = 0,
 }
 
 ins_right {
@@ -203,22 +201,19 @@ ins_right {
   color_modified = colors.orange,
   color_removed = colors.red,
   condition = conditions.hide_in_width,
-  right_padding = 0,
-  left_padding = 0
+  -- right_padding = 0,
 }
 
 ins_right {
   "mode",
   color = "LualineMode",
   right_padding = 0,
-  left_padding = 0
 }
 
 ins_right {
   function() return '░▒▓' end,  -- ▊
   color = "LualineMode",
   right_padding = 0,
-  left_padding = 0
 }
 
 -- }}}

@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+sudo add-apt-repository ppa:git-core/ppa
 sudo apt update
 sudo apt install -y zsh git tmux gcc build-essential \
     pkg-config libevent-dev ncurses-dev byacc \
