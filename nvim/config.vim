@@ -19,7 +19,7 @@ if PlugLoaded('gruvbox-flat.nvim')
   let g:gruvbox_flat_style = "hard"
 endif
 
-set cursorcolumn
+" set cursorcolumn
 set nojoinspaces                    " Join sentences with single space
 set shiftround                      " Round >> to nearest shiftwidth multiple
 set nowrap
