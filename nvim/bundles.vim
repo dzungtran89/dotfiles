@@ -42,7 +42,6 @@ Plug 'Yggdroot/indentLine'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'easymotion/vim-easymotion'
 Plug 'andymass/vim-matchup'
-" Plug 'sunjon/shade.nvim'
 
 Plug 'pechorin/any-jump.vim'
 Plug 'dyng/ctrlsf.vim'
@@ -67,7 +66,19 @@ Plug 'voldikss/vim-floaterm'
 Plug 'vimlab/split-term.vim'
 
 Plug 'vhyrro/neorg'
+
+" Debugging {{{
 Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
+" }}}
+
+" For fun {{{
 
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'tweekmonster/startuptime.vim'
+Plug 'lukas-reineke/format.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+" Plug 'pwntester/octo.nvim'
+Plug 'alec-gibson/nvim-tetris'
+
+" }}}
