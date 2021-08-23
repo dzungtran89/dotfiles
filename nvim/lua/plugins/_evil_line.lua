@@ -12,14 +12,15 @@ local lualine = require('lualine')
 -- Color table for highlights
 local colors = {
   -- bg       = '#202328',
+  -- violet   = '#6845ad',
   bg       = '#32302f',
   fg       = '#bbc2cf',
-  yellow   = '#c57339',
+  yellow   = '#e3d18a',
   cyan     = '#008080',
   darkblue = '#081633',
   green    = '#598030',
   orange   = '#c57339',
-  violet   = '#6845ad',
+  violet   = '#c792ea',
   magenta  = '#cc517a',
   blue     = '#2d539e',
   red      = '#cc3768'
@@ -90,26 +91,26 @@ end
 local function mode_map()
   -- auto change color according to neovims mode
   local mode_color = {
-    n = colors.green,
-    i = colors.red,
-    v = colors.blue,
+    n      = colors.green,
+    i      = colors.red,
+    v      = colors.blue,
     [''] = colors.blue,
-    V = colors.blue,
-    c = colors.magenta,
-    no = colors.green,
-    s = colors.orange,
-    S = colors.orange,
+    V      = colors.blue,
+    c      = colors.magenta,
+    no     = colors.green,
+    s      = colors.orange,
+    S      = colors.orange,
     [''] = colors.orange,
-    ic = colors.yellow,
-    R = colors.violet,
-    Rv = colors.violet,
-    cv = colors.red,
-    ce = colors.red,
-    r = colors.cyan,
-    rm = colors.cyan,
+    ic     = colors.yellow,
+    R      = colors.violet,
+    Rv     = colors.violet,
+    cv     = colors.red,
+    ce     = colors.red,
+    r      = colors.cyan,
+    rm     = colors.cyan,
     ['r?'] = colors.cyan,
-    ['!'] = colors.red,
-    t = colors.red
+    ['!']  = colors.red,
+    t      = colors.red
   }
   vim.api.nvim_command(
     'hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. " guibg=" ..
@@ -127,17 +128,16 @@ ins_left {
 
 ins_left {
   'filename',
-  -- left_padding = 0,
-  color = {fg = colors.violet, gui = 'bold'} -- dark
+  left_padding = 0,
+  color = {fg = colors.violet, gui = 'bold'}
 }
 
-ins_left {
-  'filetype',
-  upper = true,
-  -- left_padding = 0,
-  condition = conditions.hide_in_width,
-  color = {fg = colors.green, gui = 'bold'}
-}
+-- ins_left {
+--   'filetype',
+--   upper = true,
+--   condition = conditions.hide_in_width,
+--   color = {fg = colors.green, gui = 'bold'}
+-- }
 
 -- Tagbar
 ins_left {
@@ -147,18 +147,23 @@ ins_left {
     return _tag
   end,
   icon = '»',
-  color = {fg = colors.green},
-  -- left_padding = 0
+  color = {fg = colors.orange, gui='bold'},
 }
 
--- ins_left {
---   'diagnostics',
---   sources = {'nvim_lsp'},
---   symbols = {error = ' ', warn = ' ', info = ' '},
---   color_error = colors.red,
---   color_warn = colors.yellow,
---   color_info = colors.cyan
--- }
+ins_left {
+  'progress', 
+  color = {fg = colors.fg, gui = 'bold'},
+}
+
+ins_left {
+  'diagnostics',
+  sources = {'coc', 'ale'},
+  sections = {'error', 'warn', 'info'},
+  symbols = {error = '▓ ', warn = '▒ ', info = '░ '},
+  color_error = colors.red,
+  color_warn = colors.yellow,
+  color_info = colors.cyan
+}
 
 -- Insert mid section. You can make any number of sections in neovim :)
 -- for lualine it's any number greater then 2
@@ -169,29 +174,21 @@ ins_left {function() return '%=' end}
 ins_right {
   -- Lsp server name .
   'coc#status',
-  icon = ' LSP:',
-  color = {fg = colors.white, gui = 'bold'},
-  -- right_padding = 0
+  icon = '∥ LSP:',
+  color = {fg = colors.yellow, gui = 'bold'},
 }
 
-ins_right {
-  'progress', 
-  color = {fg = colors.fg, gui = 'bold'},
-  -- right_padding = 0,
-}
 ins_right {
   'o:encoding', -- option component same as &encoding in viml
   upper = true,
   condition = conditions.hide_in_width,
   color = {fg = colors.green, gui = 'bold'},
-  -- right_padding = 0,
 }
 
 ins_right {
   'branch',
   icon = '',
   color = {fg = colors.violet, gui = 'bold'},
-  -- right_padding = 0,
 }
 
 ins_right {
@@ -201,7 +198,6 @@ ins_right {
   color_modified = colors.orange,
   color_removed = colors.red,
   condition = conditions.hide_in_width,
-  -- right_padding = 0,
 }
 
 ins_right {
@@ -211,7 +207,7 @@ ins_right {
 }
 
 ins_right {
-  function() return '░▒▓' end,  -- ▊
+  function() return '▊' end, -- '░▒▓'
   color = "LualineMode",
   right_padding = 0,
 }

@@ -9,7 +9,6 @@ if PlugLoaded('vim-which-key')
 
   call which_key#register('<space>', "g:which_key_map")
 
-  noremap  <silent> <leader>n     :FloatermNew nnn -d<cr>
   nnoremap <silent> <leader>      :<c-u>WhichKey '<space>'<CR>
   nnoremap <silent> <localleader> :<c-u>WhichKey ','<CR>
   vnoremap <silent> <leader>      :<c-u>WhichKeyVisual '<space>'<CR>
@@ -90,15 +89,13 @@ if PlugLoaded('vim-which-key')
   " \ ';' : [':FloatermNew --wintype=popup --height=6' , 'terminal'] ,
   " \ 'd' : [':FloatermNew lazydocker' , 'docker']   ,
   " \ 'N' : [':FloatermNew node'       , 'node']     ,
-  " \ 'r' : [':FloatermNew lf'         , 'lf']       ,
   " \ 't' : [':FloatermToggle'         , 'terminal'] ,
-  " \ 'f' : [':FloatermNew fzf'        , 'fzf']      ,
-  " \ 'g' : [':FloatermNew tig'        , 'tig']      ,
-  " \ 'y' : [':FloatermNew ytop'       , 'ytop']     ,
   " \ 'p' : [':FloatermNew python'     , 'python']   ,
   let g:which_key_map.c = {
         \ 'name' : '+floaterm'             ,
         \ 'l' : [':FloatermNew lazygit'    , 'git']      ,
+        \ 'g' : [':FloatermNew tig'        , 'tig']      ,
+        \ 'n' : [':FloatermNew nnn'        , 'nnn']      ,
         \ }
 
   let g:which_key_map.t = {

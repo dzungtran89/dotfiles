@@ -132,3 +132,14 @@ if fn.PlugLoaded('format.nvim') == 1 then
     }
   }
 end
+
+if fn.PlugLoaded('nvim-colorizer.lua') == 1 then
+  require('colorizer').setup({
+      'css';
+      'javascript';
+      'html';
+    }
+    )
+
+  map('n', '<leader>tc', ':ColorizerToggle <cr>', {noremap = true})
+end

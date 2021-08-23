@@ -1,5 +1,6 @@
 " vim:fileencoding=utf-8
 
+Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 " Plug 'rstacruz/vim-closer'
@@ -11,7 +12,7 @@ Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'preservim/tagbar'
 Plug 'dense-analysis/ale'
 Plug 'editor-bootstrap/vim-bootstrap-updater'
-Plug 'Konfekt/FastFold'
+Plug 'Jorengarenar/fauxClip'
 
 let g:polyglot_disabled = []
 Plug 'sheerun/vim-polyglot'
@@ -33,11 +34,9 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'dzungtran89/vim-odoo-snippets'
 
-" " vuejs
-" Plug 'posva/vim-vue'
-" Plug 'leafOfTree/vim-vue-plugin'
-
 " Addons
+Plug 'Konfekt/FastFold'
+Plug 'Jorengarenar/vim-syntaxMarkerFold'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'Yggdroot/indentLine'
 Plug 'jeetsukumaran/vim-indentwise'
@@ -51,7 +50,6 @@ Plug 'godlygeek/tabular'
 Plug 'samgriesemer/wiki.vim'
 Plug 'samgriesemer/vim-roam'
 
-Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -66,7 +64,7 @@ Plug 'liuchengxu/vim-which-key'
 Plug 'voldikss/vim-floaterm'
 Plug 'vimlab/split-term.vim'
 
-Plug 'vhyrro/neorg'
+Plug 'vhyrro/neorg'                               " required plenary
 
 " Debugging {{{
 Plug 'mfussenegger/nvim-dap'
@@ -75,11 +73,20 @@ Plug 'rcarriga/nvim-dap-ui'
 
 " For fun {{{
 
+Plug 'bluz71/vim-nightfly-guicolors'
+Plug 'monaqa/dial.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'tweekmonster/startuptime.vim'
 Plug 'lukas-reineke/format.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-" Plug 'pwntester/octo.nvim'
+Plug 'nvim-telescope/telescope.nvim'              " required plenary
 Plug 'alec-gibson/nvim-tetris'
 
 " }}}
+
+" Later
+" Plug 'posva/vim-vue'
+" Plug 'leafOfTree/vim-vue-plugin'
+" Plug 'mattn/emmet-vim'
+" Plug 'ggandor/lightspeed.nvim'                  " easymotion alternative
+" Plug 'pwntester/octo.nvim'                      " github actions
+" Plug 'SmiteshP/nvim-gps'                        " tagbar alternative

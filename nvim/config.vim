@@ -183,24 +183,21 @@ nnoremap c* *Ncgn
 " nnoremap("<Leader>es"     ,  ":LocateFiles .<CR>")
 nnoremap <Leader>ef :FZF -m<CR>
 nnoremap <Leader>ew :Windows<CR>
-nnoremap <Leader>ee :FZFMru<CR>
 nnoremap <Leader>eg :GFiles --cached --others --exclude-standard<CR>
 nnoremap <Leader>eh :History<CR>
 nnoremap <Leader>el :Lines<CR>
 nnoremap <Leader>ea :Ag!<CR>
 nnoremap <Leader>er :Rg<CR>
 nnoremap <Leader>em :Marks<CR>
-nnoremap <Leader>st :Tags<CR>
-nnoremap <Leader>lc :Commands<CR>
-nnoremap <Leader>gt :!ctags -R --languages=python
-
+nnoremap <Leader>et :Tags<CR>
+nnoremap <Leader>ec :History:<CR> 
+nnoremap <Leader>eC :Commands<CR>
 nnoremap <Leader>es :Filetypes<CR>
+
+nnoremap <Leader>gt :!ctags -R --languages=python
 
 " Swipper
 nnoremap <leader>ss :BLines<CR> 
-
-" Command history
-nnoremap <Leader>ch :History:<CR> 
 
 " Wrap
 nnoremap <localleader>w :setl wrap!<CR>
@@ -226,18 +223,6 @@ endif
 if has_key(plugs, 'vim-better-whitespace')
   let g:better_whitespace_enabled = 1
   let g:strip_whitespace_on_save=0
-endif
-
-if PlugLoaded('nvim-colorizer.lua')
-lua << EOF
-  require 'colorizer'.setup({
-    'css';
-    'javascript';
-    html = { mode = 'background' };
-    }, { mode = 'foreground' })
-EOF
-
-  noremap <leader>tc :ColorizerToggle<CR>
 endif
 
 " WSL yank support {{{
@@ -312,4 +297,13 @@ if PlugLoaded('FastFold')
   let g:r_syntax_folding = 1
   let g:rust_fold = 1
   let g:php_folding = 1
+endif
+
+if PlugLoaded('dial.nvim')
+  nmap <C-i> <Plug>(dial-increment)
+  nmap <C-x> <Plug>(dial-decrement)
+  vmap <C-i> <Plug>(dial-increment)
+  vmap <C-x> <Plug>(dial-decrement)
+  vmap g<C-i> <Plug>(dial-increment-additional)
+  vmap g<C-x> <Plug>(dial-decrement-additional)
 endif

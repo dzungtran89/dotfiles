@@ -139,7 +139,7 @@ iab xdate <C-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
 "   <leader>p
 "
 " map <leader>cc :botright cope<cr>
-map <leader>cn ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
+" map <leader>cn ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
 " map <leader>n :cn<cr>
 " map <leader>p :cp<cr>
 

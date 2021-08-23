@@ -102,7 +102,9 @@ return {
 
   default_prog = default_prog,
 
-  -- window_decorations = "RESIZE",
+  -- Hide title bar, but allow to resize border
+  window_decorations           = "RESIZE",
+  window_background_opacity    = 0.9,
   hide_tab_bar_if_only_one_tab = true,
 
   color_scheme = 'iceberg-dark',
@@ -129,4 +131,7 @@ return {
   font_size   = font_size,
   line_height = 1.1,
   font        = wezterm.font('Iosevka Fixed', { weight = 'Light' }),
+
+  -- MISC
+  scrollback_lines = 3500,
 }

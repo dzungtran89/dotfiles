@@ -4,16 +4,11 @@
 "" Vim-Plug core
 "*****************************************************************************
 let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
-if has('win32')&&!has('win64')
+if has('win32')&&!has('win60')
   let curl_exists=expand('C:\Windows\Sysnative\curl.exe')
 else
   let curl_exists=expand('curl')
 endif
-
-let g:vim_bootstrap_langs = "javascript,python"
-let g:vim_bootstrap_editor = "neovim"                   " nvim or vim
-let g:vim_bootstrap_theme = "pencil"
-let g:vim_bootstrap_frams = "vuejs"
 
 if !filereadable(vimplug_exists)
   if !executable(curl_exists)
@@ -113,6 +108,8 @@ if PlugLoaded('vim-session')
   set sessionoptions=buffers,curdir,tabpages
 endif
 
+let g:netrw_banner = 1
+
 "*****************************************************************************
 "" Visual Settings
 "*****************************************************************************
@@ -198,20 +195,6 @@ cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
 
-"" NERDTree configuration
-if PlugLoaded('nerdtree')
-  let g:NERDTreeChDirMode=2
-  let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
-  let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
-  let g:NERDTreeShowBookmarks=1
-  let g:nerdtree_tabs_focus_on_files=1
-  let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
-  let g:NERDTreeWinSize = 50
-  set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
-  nnoremap <silent> <F2> :NERDTreeFind<CR>
-  nnoremap <silent> <F3> :NERDTreeToggle<CR>
-endif
-
 " grep.vim
 if PlugLoaded('grep.vim')
   nnoremap <silent> <leader>f :Rgrep<CR>
@@ -275,6 +258,8 @@ nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 nnoremap <S-t> :tabnew<CR>
 
+nnoremap <leader>nl :nohlsearch<CR>
+nnoremap <Leader>ee :Explore<CR>
 nnoremap <Leader>bb :Buffers<CR>
 nnoremap <leader>bq :close<CR>
 nnoremap <leader>bo :BTags<CR>
