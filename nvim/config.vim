@@ -47,11 +47,11 @@ endif
 " Functions
 " ---------------------------------------------------------------
 " Folding
-function! CustomFold()
-  return printf('  %6-d%s', v:foldend - v:foldstart + 1, getline(v:foldstart))
-endfunction
+" function! CustomFold()
+"   return printf('  %6-d%s', v:foldend - v:foldstart + 1, getline(v:foldstart))
+" endfunction
 
-set fillchars=fold:\ | set foldtext=CustomFold() 
+" set fillchars=fold:\ | set foldtext=CustomFold() 
 
 " CheckBackspace
 function! CheckBackspace() abort
@@ -300,10 +300,10 @@ if PlugLoaded('FastFold')
 endif
 
 if PlugLoaded('dial.nvim')
-  nmap <C-i> <Plug>(dial-increment)
-  nmap <C-x> <Plug>(dial-decrement)
-  vmap <C-i> <Plug>(dial-increment)
-  vmap <C-x> <Plug>(dial-decrement)
+  nmap <C-Right> <Plug>(dial-increment)
+  nmap <C-Left> <Plug>(dial-decrement)
+  vmap <C-right> <Plug>(dial-increment)
+  vmap <C-left> <Plug>(dial-decrement)
   vmap g<C-i> <Plug>(dial-increment-additional)
   vmap g<C-x> <Plug>(dial-decrement-additional)
 endif

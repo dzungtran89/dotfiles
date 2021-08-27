@@ -50,9 +50,6 @@
   cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [merge]
   tool = vimdiff
-[tig]
-  line-graphics = no  # Disable graphics characters
-  tab-size = 4        # Number of spaces per tab
 [alias]
   p = pull
   b = branch
@@ -81,3 +78,12 @@
   insteadOf = gh:
 [receive]
   advertisePushOptions = true
+[tig]
+  line-graphics = no  # Disable graphics characters
+  tab-size = 4        # Number of spaces per tab
+  main-view-date = relative-compact
+  main-view-author = abbreviated
+  main-view-id = true
+[tig "bind"]
+  main = = !git commit --fixup=%(commit)
+  main = <ctrl-r> !git rebase --autosquash -i %(commit)

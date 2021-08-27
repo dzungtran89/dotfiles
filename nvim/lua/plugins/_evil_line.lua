@@ -155,16 +155,6 @@ ins_left {
   color = {fg = colors.fg, gui = 'bold'},
 }
 
-ins_left {
-  'diagnostics',
-  sources = {'coc', 'ale'},
-  sections = {'error', 'warn', 'info'},
-  symbols = {error = '▓ ', warn = '▒ ', info = '░ '},
-  color_error = colors.red,
-  color_warn = colors.yellow,
-  color_info = colors.cyan
-}
-
 -- Insert mid section. You can make any number of sections in neovim :)
 -- for lualine it's any number greater then 2
 ins_left {function() return '%=' end}
@@ -176,6 +166,16 @@ ins_right {
   'coc#status',
   icon = '∥ LSP:',
   color = {fg = colors.yellow, gui = 'bold'},
+}
+
+ins_right {
+  'diagnostics',
+  sources = {'coc', 'ale'},
+  sections = {'error', 'warn', 'info'},
+  symbols = {error = '▊ ', warn = '▊ ', info = '▊ '},
+  color_error = colors.red,
+  color_warn = colors.yellow,
+  color_info = colors.cyan
 }
 
 ins_right {
