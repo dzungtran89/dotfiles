@@ -132,19 +132,10 @@ ins_left {
   color = {fg = colors.violet, gui = 'bold'}
 }
 
--- ins_left {
---   'filetype',
---   upper = true,
---   condition = conditions.hide_in_width,
---   color = {fg = colors.green, gui = 'bold'}
--- }
-
 -- Tagbar
 ins_left {
   function()
-    local _tag = "%{tagbar#currenttag('%s', '', 'f', 'scoped-stl')}"
-    if _tag == nil or _tag == '' then return 'n/a' end
-    return _tag
+    return "%{tagbar#currenttag('%s', '', 'f', 'scoped-stl')}"
   end,
   icon = '»',
   color = {fg = colors.orange, gui='bold'},
@@ -172,10 +163,10 @@ ins_right {
   'diagnostics',
   sources = {'coc', 'ale'},
   sections = {'error', 'warn', 'info'},
-  symbols = {error = '▊ ', warn = '▊ ', info = '▊ '},
+  symbols = {error = '░ ', warn = '░ ', info = '░ '},
   color_error = colors.red,
   color_warn = colors.yellow,
-  color_info = colors.cyan
+  color_info = colors.cyan,
 }
 
 ins_right {
@@ -186,17 +177,18 @@ ins_right {
 }
 
 ins_right {
-  'branch',
+  function() return "%{get(b:,'gitsigns_head','')}" end,
   icon = '',
   color = {fg = colors.violet, gui = 'bold'},
 }
 
 ins_right {
-  'diff',
-  symbols = {added = '+', modified = '~', removed = '-'},
-  color_added = colors.green,
-  color_modified = colors.orange,
-  color_removed = colors.red,
+  -- 'diff',
+  -- symbols = {added = '+', modified = '~', removed = '-'},
+  -- color_added = colors.green,
+  -- color_modified = colors.orange,
+  -- color_removed = colors.red,
+  function () return "%{get(b:,'gitsigns_status','')}" end,
   condition = conditions.hide_in_width,
 }
 

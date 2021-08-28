@@ -3,31 +3,37 @@
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-" Plug 'rstacruz/vim-closer'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
-Plug 'airblade/vim-gitgutter'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'preservim/tagbar'
 Plug 'dense-analysis/ale'
 Plug 'editor-bootstrap/vim-bootstrap-updater'
 Plug 'Jorengarenar/fauxClip'
 
+" RIP {{{
+
+" Plug 'airblade/vim-gitgutter'
+" Plug 'rstacruz/vim-closer'
+" Plug 'liuchengxu/vim-which-key'
+
+" }}}
+
 let g:polyglot_disabled = []
 Plug 'sheerun/vim-polyglot'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
 
-let g:make = 'gmake'
-if exists('make')
-  let g:make = 'make'
-endif
+" let g:make = 'gmake'
+" if exists('make')
+"   let g:make = 'make'
+" endif
 
-Plug 'Shougo/vimproc.vim', {'do': g:make}
+" Plug 'Shougo/vimproc.vim', {'do': g:make}
 
 "" Snippets
 Plug 'SirVer/ultisnips'
@@ -59,12 +65,16 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'hoob3rt/lualine.nvim'
 
 Plug 'numToStr/Navigator.nvim'
-Plug 'liuchengxu/vim-which-key'
+Plug 'folke/which-key.nvim'
 
 Plug 'voldikss/vim-floaterm'
 Plug 'vimlab/split-term.vim'
 
-Plug 'vhyrro/neorg'                               " required plenary
+" required plenary
+Plug 'lewis6991/gitsigns.nvim'
+
+Plug 'kristijanhusak/orgmode.nvim'
+Plug 'akinsho/org-bullets.nvim'
 
 " Debugging {{{
 Plug 'mfussenegger/nvim-dap'
@@ -73,13 +83,15 @@ Plug 'rcarriga/nvim-dap-ui'
 
 " For fun {{{
 
-Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'monaqa/dial.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'tweekmonster/startuptime.vim'
-Plug 'lukas-reineke/format.nvim'
-Plug 'nvim-telescope/telescope.nvim'              " required plenary
-Plug 'alec-gibson/nvim-tetris'
+" Plug 'lukas-reineke/format.nvim'
+
+" Required plenary
+" Plug 'nvim-telescope/telescope.nvim'              
+
+" Plug 'alec-gibson/nvim-tetris'
 
 " }}}
 

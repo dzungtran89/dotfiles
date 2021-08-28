@@ -3,9 +3,8 @@ local fn = vim.fn
 local map = vim.api.nvim_set_keymap
 local unmap = vim.api.nvim_del_keymap
 
-if fn.PlugLoaded("nvim-dap") == 1 then
-  require('plugins._dap')
-end
+-- DEBUGGING
+require('plugins._debug')
 
 if fn.PlugLoaded("hop.nvim") == 1 then
   require('hop').setup {
@@ -38,9 +37,7 @@ if fn.PlugLoaded("nvim-tabline") == 1 then
   }
 end
 
-if fn.PlugLoaded('neorg') == 1 then
-  require('plugins._neorg')
-end
+require('plugins._neorg')
 
 if fn.PlugLoaded('nvim-treesitter') == 1 then
   require('plugins._treesitter')
@@ -143,3 +140,9 @@ if fn.PlugLoaded('nvim-colorizer.lua') == 1 then
 
   map('n', '<leader>tc', ':ColorizerToggle <cr>', {noremap = true})
 end
+
+-- GIT
+require('plugins._git')
+
+-- MAPPINGS
+require('plugins._whichkey')

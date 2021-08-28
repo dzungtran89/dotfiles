@@ -26,9 +26,8 @@ if PlugLoaded('ctrlsf.vim')
         \ "at": "start"
         \ }
 
-  vmap     <leader>sF <Plug>CtrlSFVwordExec
+  vmap     <leader>sp <Plug>CtrlSFVwordPath
   nmap     <leader>sn <Plug>CtrlSFCwordPath
-  nmap     <leader>sp <Plug>CtrlSFPwordPath
   nmap     <leader>sf <Plug>CtrlSFPrompt-G *
 
   " Get searching history, use :History: by <leader>sh

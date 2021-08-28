@@ -44,8 +44,3 @@ if PlugLoaded('lightline.vim')
   endfunction
 
 endif
-
-if PlugLoaded('vim-lightline-coc')
-  " register ompoments:
-  call lightline#coc#register()
-endif

@@ -53,12 +53,6 @@ endif
 
 " set fillchars=fold:\ | set foldtext=CustomFold() 
 
-" CheckBackspace
-function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
 " Auto resize windows
 augroup windows
   autocmd!
@@ -122,8 +116,6 @@ augroup END
 " -------------------------------------------------
 " UI
 " -------------------------------------------------
-" set redrawtime=10000
-
 " Always draw gutter for gitgutter, signify, etc.
 set signcolumn=yes
 
@@ -181,17 +173,17 @@ nnoremap c* *Ncgn
 " FZF
 " -----------------------------------------------
 " nnoremap("<Leader>es"     ,  ":LocateFiles .<CR>")
-nnoremap <Leader>ef :FZF -m<CR>
+nnoremap <Leader>ee :FZF -m<CR>
 nnoremap <Leader>ew :Windows<CR>
 nnoremap <Leader>eg :GFiles --cached --others --exclude-standard<CR>
 nnoremap <Leader>eh :History<CR>
 nnoremap <Leader>el :Lines<CR>
-nnoremap <Leader>ea :Ag!<CR>
-nnoremap <Leader>er :Rg<CR>
+nnoremap <Leader>ea :Ag!<space>
+nnoremap <Leader>er :Rg<space>
 nnoremap <Leader>em :Marks<CR>
 nnoremap <Leader>et :Tags<CR>
 nnoremap <Leader>ec :History:<CR> 
-nnoremap <Leader>eC :Commands<CR>
+nnoremap <Leader>C  :Commands<CR>
 nnoremap <Leader>es :Filetypes<CR>
 
 nnoremap <Leader>gt :!ctags -R --languages=python

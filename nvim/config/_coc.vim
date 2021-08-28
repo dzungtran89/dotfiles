@@ -39,9 +39,10 @@ EOF
         \ coc#refresh()
   inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+  " CheckBackspace
   function! s:check_back_space() abort
     let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
+    return !col || getline('.')[col - 1] =~# '\s'
   endfunction
 
   " Use <c-space> to trigger completion.
@@ -174,6 +175,14 @@ EOF
     execute 'CocList grep '.word
   endfunction
 
+  nnoremap <silent> <leader>ef       :<C-u>CocCommand explorer<CR>
+  nnoremap <silent> <leader>rr       :<C-u>CocListResume<CR>
+  nnoremap <leader>qw                :<C-u>CocCommand session.save<Space>
+
+  nnoremap <silent> <localleader>f  :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
+  " -- Keymapping for grep word under cursor with interactive mode
+  nnoremap <silent> <Leader>cf :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>
+
 endif
 
 if PlugLoaded('coc-fzf')
@@ -181,21 +190,11 @@ if PlugLoaded('coc-fzf')
   " let g:coc_fzf_preview = 'up:50%'
   " let g:coc_fzf_opts = ['--layout=reverse-list']
   " let g:coc_fzf_preview_toggle_key = '?'
-
-  nnoremap <silent> <localleader>f  :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
-
-  nnoremap <silent> <leader>ll       :<C-u>CocFzfList<CR>
-  nnoremap <silent> <leader>ld       :<C-u>CocFzfList diagnostics<CR>
-  nnoremap <silent> <leader>lb       :<C-u>CocFzfList diagnostics --current-buf<CR>
-  nnoremap <silent> <leader>lC       :<C-u>CocFzfList commands<CR>
-  nnoremap <silent> <leader>ls       :<C-u>CocFzfList symbols<CR>
-  nnoremap <silent> <leader>rr       :<C-u>CocListResume<CR>
-
-  nnoremap <silent> <leader>o        :<C-u>CocCommand explorer<CR>
-  nnoremap <silent> <leader>qo       :<C-u>CocFzfList sessions<CR>
-  nnoremap <leader>qw                :<C-u>CocCommand session.save<Space>
-
-  " -- Keymapping for grep word under cursor with interactive mode
-  nnoremap <silent> <Leader>cf :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>
+  nnoremap <silent> <leader>ll :<C-u>CocFzfList<CR>
+  nnoremap <silent> <leader>ld :<C-u>CocFzfList diagnostics<CR>
+  nnoremap <silent> <leader>lb :<C-u>CocFzfList diagnostics --current-buf<CR>
+  nnoremap <silent> <leader>lC :<C-u>CocFzfList commands<CR>
+  nnoremap <silent> <leader>ls :<C-u>CocFzfList symbols<CR>
+  nnoremap <silent> <leader>qo :<C-u>CocFzfList sessions<CR>
 
 endif

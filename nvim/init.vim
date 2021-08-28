@@ -176,6 +176,10 @@ set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
+nnoremap <F3> :grep! "^def\\\|^class\\\|^    def\\\\| = fields\\." `find . -name "*.py"`<CR><CR>
+vnoremap <F3> "zy:grep! "<C-R>z" `find . -name "*.py"`<LEFT><LEFT>
+
+"
 if exists("*fugitive#statusline")
   set statusline+=%{fugitive#statusline()}
 endif
@@ -258,18 +262,18 @@ nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 nnoremap <S-t> :tabnew<CR>
 
-nnoremap <leader>nl :nohlsearch<CR>
 nnoremap <Leader>ee :Explore<CR>
 nnoremap <Leader>bb :Buffers<CR>
 nnoremap <leader>bq :close<CR>
 nnoremap <leader>bo :BTags<CR>
-nnoremap <leader>bc :Commands<CR>
 nnoremap <leader>bd :b#\|bw#<CR>
-nnoremap <leader>i  :set ic!<CR>
 
-noremap <leader>fw :update<CR>
-noremap <leader>fe :e!<CR>
-noremap <leader>fd :bw!<CR>
+" Save the file without leaving the mode
+inoremap <C-s>      <Cmd>update<CR>
+
+nnoremap  <leader>fw :update<CR>
+nnoremap  <leader>fe :e!<CR>
+nnoremap  <leader>fd :bw!<CR>
 
 nnoremap <localleader>le :setl expandtab sw=2<CR>
 nnoremap <localleader>ls :setl syntax=
@@ -278,7 +282,7 @@ nnoremap <localleader>ls :setl syntax=
 nnoremap <leader>. :lcd %:p:h<CR>
 
 "" Opens an edit command with the path of the currently edited file filled in
-noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+noremap <Leader>ed :e <C-R>=expand("%:p:h") . "/" <CR>
 
 "" Opens a tab edit command with the path of the currently edited file filled
 noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
@@ -487,7 +491,6 @@ source $HOME/.config/nvim/config.vim
 
 source $HOME/.config/nvim/config/_search.vim
 source $HOME/.config/nvim/config/_find.vim
-source $HOME/.config/nvim/config/_lf.vim
 
 source $HOME/.config/nvim/config/_coc.vim
 source $HOME/.config/nvim/config/_git.vim
@@ -497,11 +500,9 @@ source $HOME/.config/nvim/config/_wiki.vim
 source $HOME/.config/nvim/config/_md.vim
 source $HOME/.config/nvim/config/_linter.vim
 
-source $HOME/.config/nvim/config/_debug.vim
-source $HOME/.config/nvim/config/lightline.vim
-
-" Post Config
-source $HOME/.config/nvim/config/_whichkey.vim
+if PlugLoaded('gitsigns.nvim')
+  set timeoutlen=250
+endif
 
 " And, lua as well, to be continued ...
 lua require('init')

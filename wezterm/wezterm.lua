@@ -132,6 +132,9 @@ return {
   line_height = 1.1,
   font        = wezterm.font('Iosevka Fixed', { weight = 'Light' }),
 
+  -- Disable font ligatures
+  harfbuzz_features =  {"calt=0", "clig=0", "liga=0"},
+
   -- MISC
   scrollback_lines = 3500,
 }
