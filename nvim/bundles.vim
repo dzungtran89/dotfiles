@@ -1,11 +1,12 @@
 " vim:fileencoding=utf-8
 
+" CORE {{{
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
+Plug 'tpope/vim-rhubarb'                    " required by fugitive to :Gbrowse
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'preservim/tagbar'
 Plug 'dense-analysis/ale'
@@ -18,29 +19,33 @@ Plug 'Jorengarenar/fauxClip'
 " Plug 'rstacruz/vim-closer'
 " Plug 'liuchengxu/vim-which-key'
 
-" }}}
-
 let g:polyglot_disabled = []
 Plug 'sheerun/vim-polyglot'
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
 
-" let g:make = 'gmake'
-" if exists('make')
-"   let g:make = 'make'
-" endif
-
-" Plug 'Shougo/vimproc.vim', {'do': g:make}
-
-"" Snippets
+"" SNIPPETS {{{
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'dzungtran89/vim-odoo-snippets'
 
-" Addons
+" NOTE-TAKING {{{
+Plug 'godlygeek/tabular'
+Plug 'samgriesemer/wiki.vim'
+Plug 'samgriesemer/vim-roam'
+Plug 'kristijanhusak/orgmode.nvim'
+Plug 'akinsho/org-bullets.nvim'
+
+" SEARCHING {{{
+Plug 'pechorin/any-jump.vim'
+Plug 'dyng/ctrlsf.vim'
+Plug 'brooth/far.vim'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'antoinemadec/coc-fzf'
+
+" MISC {{{
 Plug 'Konfekt/FastFold'
 Plug 'Jorengarenar/vim-syntaxMarkerFold'
 Plug 'editorconfig/editorconfig-vim'
@@ -48,54 +53,36 @@ Plug 'Yggdroot/indentLine'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'easymotion/vim-easymotion'
 Plug 'andymass/vim-matchup'
-
-Plug 'pechorin/any-jump.vim'
-Plug 'dyng/ctrlsf.vim'
-Plug 'brooth/far.vim'
-Plug 'godlygeek/tabular'
-Plug 'samgriesemer/wiki.vim'
-Plug 'samgriesemer/vim-roam'
-
-Plug 'nvim-lua/plenary.nvim'
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'antoinemadec/coc-fzf'
-
-Plug 'norcalli/nvim-colorizer.lua'
-Plug 'hoob3rt/lualine.nvim'
-
 Plug 'numToStr/Navigator.nvim'
 Plug 'folke/which-key.nvim'
-
-Plug 'voldikss/vim-floaterm'
 Plug 'vimlab/split-term.vim'
+Plug 'voldikss/vim-floaterm'
 
-" required plenary
+Plug 'nvim-lua/plenary.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 
-Plug 'kristijanhusak/orgmode.nvim'
-Plug 'akinsho/org-bullets.nvim'
-
-" Debugging {{{
+" DEBUGGING {{{
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
-" }}}
 
-" For fun {{{
+" FOR FUN {{{
 
+Plug 'hoob3rt/lualine.nvim'
+Plug 'norcalli/nvim-colorizer.lua'
 Plug 'monaqa/dial.nvim'
-Plug 'kyazdani42/nvim-web-devicons'
 Plug 'tweekmonster/startuptime.vim'
+
+" Plug 'kyazdani42/nvim-web-devicons'
 " Plug 'lukas-reineke/format.nvim'
 
 " Required plenary
 " Plug 'nvim-telescope/telescope.nvim'              
-
 " Plug 'alec-gibson/nvim-tetris'
 
-" }}}
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
-" Later
+" LATER {{{
 " Plug 'posva/vim-vue'
 " Plug 'leafOfTree/vim-vue-plugin'
 " Plug 'mattn/emmet-vim'
