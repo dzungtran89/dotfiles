@@ -1,4 +1,4 @@
-" vim-bootstrap
+" vim: ft=vim
 
 "*****************************************************************************
 "" Vim-Plug core
@@ -26,16 +26,9 @@ endif
 " Required:
 call plug#begin(expand('~/.nvim/plugged'))
 
-"*****************************************************************************
-"" Plug install packages
-"*****************************************************************************
-
 if filereadable(expand("$HOME/.config/nvim/bundles.vim"))
   source $HOME/.config/nvim/bundles.vim
 endif
-
-"*****************************************************************************
-"*****************************************************************************
 
 call plug#end()
 
@@ -84,7 +77,7 @@ let maplocalleader=','
 set hidden
 
 "" Searching
-set hlsearch
+set nohlsearch
 set incsearch
 set ignorecase
 set smartcase
@@ -137,7 +130,6 @@ else
     let g:indentLine_enabled = 1
     let g:indentLine_char_list = ['│', '¦', '┆', '┊']
   endif
-
 
   if $COLORTERM == 'gnome-terminal'
     set term=gnome-256color
@@ -262,10 +254,7 @@ nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 nnoremap <S-t> :tabnew<CR>
 
-nnoremap <Leader>ee :Explore<CR>
-nnoremap <Leader>bb :Buffers<CR>
 nnoremap <leader>bq :close<CR>
-nnoremap <leader>bo :BTags<CR>
 nnoremap <leader>bd :b#\|bw#<CR>
 
 " Save the file without leaving the mode
@@ -387,7 +376,6 @@ augroup vimrc-javascript
   autocmd FileType javascript setl tabstop=4|setl shiftwidth=4|setl expandtab softtabstop=4
 augroup END
 
-
 " python
 " vim-python
 augroup vimrc-python
@@ -396,19 +384,6 @@ augroup vimrc-python
         \ formatoptions+=croq softtabstop=4
         \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 augroup END
-
-" jedi-vim
-if PlugLoaded('jedi-vim')
-  let g:jedi#popup_on_dot = 0
-  let g:jedi#goto_assignments_command = "<leader>g"
-  let g:jedi#goto_definitions_command = "<leader>d"
-  let g:jedi#documentation_command = "K"
-  let g:jedi#usages_command = "<leader>n"
-  let g:jedi#rename_command = "<leader>r"
-  let g:jedi#show_call_signatures = "0"
-  let g:jedi#completions_command = "<C-Space>"
-  let g:jedi#smart_auto_mappings = 0
-endif
 
 " ale
 if PlugLoaded('ale')
@@ -489,7 +464,7 @@ endif
 " More vim configs {{{1
 source $HOME/.config/nvim/config.vim
 
-source $HOME/.config/nvim/config/_search.vim
+source $HOME/.config/nvim/config/_fzf.vim
 source $HOME/.config/nvim/config/_find.vim
 
 source $HOME/.config/nvim/config/_coc.vim

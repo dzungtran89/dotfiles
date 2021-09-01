@@ -21,7 +21,7 @@ alias vs='vim -S $@'
 #   nvim $@
 # }
 
-alias vno='vim --noplugin $@'
+alias vno='vim -u NORC $@'
 
 # yabai
 alias ycf='yabai -m config $@'
@@ -49,15 +49,6 @@ alias dkpsex="docker ps -q -f 'status=exited'"
 
 # icloud
 alias icloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
-
-# ctags
-# alias ctags="`brew --prefix`/bin/ctags"
-
-# brew / cask
-# alias bo='brew outdated'
-# alias bco='brew cask outdated --greedy'
-# alias bcun='brew cask uninstall'
-# alias bcu='brew cask upgrade'
 
 # emacs
 alias em='emacs'
@@ -87,11 +78,6 @@ alias sres='launchctl kickstart -k "gui/${UID}/homebrew.mxcl.skhd"'
 
 # postgres
 alias brupsql='brew postgresql-upgrade-database'
-
-# screen
-alias scls='screen -ls'
-alias scnew='screen -S'
-alias sca='screen -r'
 
 # tmux
 alias tn='tmux new -s'
@@ -127,8 +113,22 @@ alias flc='flutter clean'
 alias flbi='flutter build ios'
 alias flba='flutter build apk'
 
-# git
+# git {{{
 alias gh="open \`git remote -v | grep fetch | head -1 | cut -f2 | cut -d' ' -f1 | sed -e's/git@/http:\/\//' -e's/\.git$//' | sed -E 's/(\/\/[^:]*):/\1\//'\`"
+# git format patch
+gof() {
+  git checkout -b $2-mig-$3
+  git format-patch --keep-subject --stdout origin/$2..origin/$1 -- $3 | git am -3 --keep
+}
+# git oca black / isort / prettier
+gob() {
+  git commit -m "[IMP] $1: black, isort, prettier" --no-verify
+}
+# git oca commit
+gom() {
+  git commit -m "[MIG] $1: Migration to 14.0"
+}
+# }}}
 
 # apt
 alias sau='sudo apt update'

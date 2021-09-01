@@ -19,7 +19,7 @@ EOF
   " autocmd FileType * let b:coc_suggest_disable = 1
 
   " Highlight the symbol and its references when holding the cursor.
-  autocmd CursorHold * silent     call CocActionAsync('highlight')
+  " autocmd CursorHold * silent     call CocActionAsync('highlight')
   " autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
@@ -175,7 +175,7 @@ EOF
     execute 'CocList grep '.word
   endfunction
 
-  nnoremap <silent> <leader>ef       :<C-u>CocCommand explorer<CR>
+  nnoremap <silent> <leader>;        :<C-u>CocCommand explorer<CR>
   nnoremap <silent> <leader>rr       :<C-u>CocListResume<CR>
   nnoremap <leader>qw                :<C-u>CocCommand session.save<Space>
 

@@ -45,6 +45,7 @@ call plug#begin('~/.vim/plugged')
 
 " Core
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
 Plug 'easymotion/vim-easymotion'
 Plug 'jiangmiao/auto-pairs'
@@ -61,7 +62,7 @@ Plug 'brooth/far.vim'
 
 Plug 'Jorengarenar/fauxClip'
 Plug 'Konfekt/FastFold'
-Plug 'Jorengarenar/vim-syntaxMarkerFold'
+" Plug 'Jorengarenar/vim-syntaxMarkerFold'
 
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'itchyny/lightline.vim'
@@ -78,6 +79,7 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sets how many lines of history VIM has to remember
 set history=500
+set conceallevel=0
 set cursorline
 set cursorcolumn
 set relativenumber
@@ -119,6 +121,18 @@ command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 set clipboard=unnamed,unnamedplus
 
 set path+=**
+
+" WSL yank support {{{
+if !has("macunix")
+  let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
+  if executable(s:clip)
+    augroup WSLYank
+      autocmd!
+      autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+    augroup END
+  endif
+endif
+" }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface {{{1
@@ -530,6 +544,10 @@ if has_key(plugs, 'any-jump.vim')
 	nnoremap <leader>jb :AnyJumpBack<CR>
 	" Normal mode: open last closed search window again
 	nnoremap <leader>jl :AnyJumpLastResults<CR>
+endif
+
+if has_key(plugs, 'indentLine')
+  let g:indentLine_conceallevel = 0
 endif
 
 " lightline {{{1

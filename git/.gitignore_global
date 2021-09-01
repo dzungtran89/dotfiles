@@ -7,9 +7,12 @@ var
 *.py[co]
 __pycache__
 .prof
-setup
+
+.profile/
+.dungtd
 dev.conf
 .po
+*build
 
 .python-version
 pipfile[.lock]
@@ -20,16 +23,12 @@ pipfile[.lock]
 
 postgres-data
 .csv
-.profile/
-.dungtd
 *.pgdump
 
 *.gz
 tags
-*build
 plugged
 .tool-versions
 
 .obsidian
-
 vifminfo*

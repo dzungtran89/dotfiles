@@ -29,14 +29,7 @@ if PlugLoaded('ctrlsf.vim')
   vmap     <leader>sp <Plug>CtrlSFVwordPath
   nmap     <leader>sn <Plug>CtrlSFCwordPath
   nmap     <leader>sf <Plug>CtrlSFPrompt-G *
-
-  " Get searching history, use :History: by <leader>sh
-
   nnoremap <leader>p :CtrlSFToggle<CR>
-
-  " vmap     <leader>ff <Plug>CtrlSFVwordPath
-  " nnoremap <leader>fo :CtrlSFOpen<CR>
-  " inoremap <leader>ft <Esc>:CtrlSFToggle<CR>
 
 else
 

@@ -166,6 +166,15 @@ source ~/.sh_profile
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # [[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
 
+# pyenv
+# Set the pyenv shims to initialize
+# if command -v pyenv >/dev/null; then 
+#   eval "$(pyenv init -)"; 
+#   if which pyenv-virtualenv-init > /dev/null; then 
+#     eval "$(pyenv virtualenv-init -)"; 
+#   fi
+# fi
+
 # asdf
 . $HOME/.asdf/asdf.sh
 fpath=(${ASDF_DIR}/completions $fpath)

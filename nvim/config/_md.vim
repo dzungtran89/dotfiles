@@ -3,6 +3,7 @@ if PlugLoaded("tabular")
   " nmap <localleader>a: :Tabularize /:\zs<CR>
   " vmap <localleader>a: :Tabularize /:\zs<CR>
 
+  " Auto align as pressing |
   inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
   function! s:align()

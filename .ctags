@@ -27,6 +27,7 @@
 --exclude=node_modules
 --exclude=bin
 --exclude=venv
+--exclude=setup/*
 
 --languages=-javascript
 --langdef=js

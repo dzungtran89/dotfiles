@@ -10,7 +10,6 @@ Plug 'tpope/vim-rhubarb'                    " required by fugitive to :Gbrowse
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'preservim/tagbar'
 Plug 'dense-analysis/ale'
-Plug 'editor-bootstrap/vim-bootstrap-updater'
 Plug 'Jorengarenar/fauxClip'
 
 " RIP {{{
@@ -32,8 +31,8 @@ Plug 'dzungtran89/vim-odoo-snippets'
 
 " NOTE-TAKING {{{
 Plug 'godlygeek/tabular'
-Plug 'samgriesemer/wiki.vim'
-Plug 'samgriesemer/vim-roam'
+Plug 'samgriesemer/wiki.vim', {'commit': 'f0db9e3'}
+Plug 'samgriesemer/vim-roam', {'commit': '7688e18'}
 Plug 'kristijanhusak/orgmode.nvim'
 Plug 'akinsho/org-bullets.nvim'
 
@@ -62,27 +61,27 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 
 " DEBUGGING {{{
-Plug 'mfussenegger/nvim-dap'
-Plug 'rcarriga/nvim-dap-ui'
+" Plug 'mfussenegger/nvim-dap' | Plug 'mfussenegger/nvim-dap-python'
+" Plug 'rcarriga/nvim-dap-ui'
 
 " FOR FUN {{{
 
 Plug 'hoob3rt/lualine.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
-Plug 'monaqa/dial.nvim'
 Plug 'tweekmonster/startuptime.vim'
 
 " Plug 'kyazdani42/nvim-web-devicons'
 " Plug 'lukas-reineke/format.nvim'
 
 " Required plenary
-" Plug 'nvim-telescope/telescope.nvim'              
+" Plug 'nvim-telescope/telescope.nvim'
 " Plug 'alec-gibson/nvim-tetris'
 
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 " LATER {{{
+" Plug 'monaqa/dial.nvim'
 " Plug 'posva/vim-vue'
 " Plug 'leafOfTree/vim-vue-plugin'
 " Plug 'mattn/emmet-vim'

@@ -3,7 +3,7 @@
   email = dungtd@trobz.com
 [core]
   excludesfile = ~/.gitignore_global
-  editor = /usr/bin/vi
+  editor = vi --noplugin
   quotePath = false
   commitGraph = true
 [pager]
@@ -23,18 +23,6 @@
   diffFilter = delta --color-only
 [color]
   ui = true
-; [color "diff-highlight"]
-;   oldNormal = red bold
-;   oldHighlight = red bold 52
-;   newNormal = green bold
-;   newHighlight = green bold 22
-; [color "diff"]
-;   meta = yellow
-;   frag = magenta bold
-;   commit = yellow bold
-;   old = red bold
-;   new = green bold
-;   whitespace = red reverse
 [gc]
   autoDetach = false
   writeCommitGraph = true
@@ -53,7 +41,9 @@
 [alias]
   p = pull
   b = branch
-  r = rebase
+  bs = bisect
+  rb = rebase
+  r = remote
   c = commit
   co = checkout
   cp = cherry-pick

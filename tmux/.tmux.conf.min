@@ -5,6 +5,7 @@ set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'schasse/tmux-jump'
 set -g @plugin 'MunifTanjim/tmux-mode-indicator'
+set -g @plugin 'sainnhe/tmux-fzf'
 
 set -g @jump-key '/'
 
@@ -27,6 +28,9 @@ set -g @mode_indicator_empty_mode_style 'bg=default,fg=orange'
 set -g @mode_indicator_prefix_mode_style 'bg=default,fg=blue'
 set -g @mode_indicator_copy_mode_style 'bg=default,fg=yellow'
 set -g @mode_indicator_sync_mode_style 'bg=default,fg=red'
+
+# unbind the last-window
+unbind C-a
 
 # pane resizing
 bind -r H resize-pane -L 2

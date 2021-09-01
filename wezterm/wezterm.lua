@@ -1,6 +1,12 @@
 local wezterm = require 'wezterm';
+local launch_menu = {}
 
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
+  table.insert(launch_menu, {
+      label = "PowerShell",
+      args = {"nu.exe"},
+    })
+
   -- Configs for Windows only
   default_prog = {'wsl.exe', '~', '-d', 'Ubuntu-20.04'}
   font_size = 12
@@ -10,11 +16,13 @@ if wezterm.target_triple == 'x86_64-apple-darwin' then
   -- Configs for OSX only
   -- font_dirs    = { '$HOME/.dotfiles/.fonts' }
   font_size = 15
+  table.insert(launch_menu, {})
 end
 
 if wezterm.target_triple == 'x86_65-unknown-linux-gnu' then
   -- Configs for Linux only
   -- font_dirs    = { '$HOME/.dotfiles/.fonts' }
+  table.insert(launch_menu, {})
 end
 
 -- The filled in variant of the < symbol
@@ -100,12 +108,13 @@ end);
 
 return {
 
+  launch_menu = launch_menu,
   default_prog = default_prog,
 
   -- Hide title bar, but allow to resize border
   window_decorations           = "RESIZE",
   window_background_opacity    = 0.9,
-  hide_tab_bar_if_only_one_tab = true,
+  hide_tab_bar_if_only_one_tab = false,
 
   color_scheme = 'iceberg-dark',
 

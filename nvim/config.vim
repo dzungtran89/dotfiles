@@ -34,7 +34,7 @@ set noswapfile
 set path+=**
 
 " Give more space for displaying messages.
-set cmdheight=2
+" set cmdheight=2
 
 set undodir=$HOME/.nvim/undo         " Undo history location
 set undofile                        " Undo history
@@ -42,16 +42,6 @@ set undofile                        " Undo history
 if has('nvim')
   set inccommand=split
 endif
-
-" ---------------------------------------------------------------
-" Functions
-" ---------------------------------------------------------------
-" Folding
-" function! CustomFold()
-"   return printf('  %6-d%s', v:foldend - v:foldstart + 1, getline(v:foldstart))
-" endfunction
-
-" set fillchars=fold:\ | set foldtext=CustomFold() 
 
 " Auto resize windows
 augroup windows
@@ -62,6 +52,9 @@ augroup windows
   autocmd FileType help wincmd L
 augroup END
 
+" ---------------------------------------------------------------
+" Functions
+" ---------------------------------------------------------------
 function! CopyMatches(reg)
   let hits = []
   %s//\=len(add(hits, submatch(0))) ? submatch(0) : ''/gne
@@ -80,11 +73,7 @@ endfunction
 " ---------------------------------------------------------------
 " Filetype: Close location list
 autocmd FileType qf nnoremap <buffer> <CR> <CR>:lclose<CR>
-
 autocmd FileType markdown setl conceallevel=0
-autocmd FileType xml      setl shiftwidth=2
-autocmd FileType html     setl shiftwidth=2
-autocmd FileType css      setl shiftwidth=2
 
 " Buffer: Determine filetype based on path
 autocmd BufRead,BufNewFile *.cls setlocal filetype=tex
@@ -172,24 +161,7 @@ nnoremap c* *Ncgn
 " -----------------------------------------------
 " FZF
 " -----------------------------------------------
-" nnoremap("<Leader>es"     ,  ":LocateFiles .<CR>")
-nnoremap <Leader>ee :FZF -m<CR>
-nnoremap <Leader>ew :Windows<CR>
-nnoremap <Leader>eg :GFiles --cached --others --exclude-standard<CR>
-nnoremap <Leader>eh :History<CR>
-nnoremap <Leader>el :Lines<CR>
-nnoremap <Leader>ea :Ag!<space>
-nnoremap <Leader>er :Rg<space>
-nnoremap <Leader>em :Marks<CR>
-nnoremap <Leader>et :Tags<CR>
-nnoremap <Leader>ec :History:<CR> 
-nnoremap <Leader>C  :Commands<CR>
-nnoremap <Leader>es :Filetypes<CR>
-
 nnoremap <Leader>gt :!ctags -R --languages=python
-
-" Swipper
-nnoremap <leader>ss :BLines<CR> 
 
 " Wrap
 nnoremap <localleader>w :setl wrap!<CR>
@@ -299,3 +271,24 @@ if PlugLoaded('dial.nvim')
   vmap g<C-i> <Plug>(dial-increment-additional)
   vmap g<C-x> <Plug>(dial-decrement-additional)
 endif
+
+augroup init_colors
+  au!
+  au ColorScheme * call ApplyColorTweaks()
+augroup END
+
+" Colorscheme tweaks
+function! ApplyColorTweaks()
+  let g:colorscheme = g:colors_name
+  if g:colorscheme ==# "tokyonight"
+    hi! link ColorColumn CursorLine
+    hi! link NvimTreeRootFolder String
+    hi! link NvimTreeFolderIcon NormalFloat
+    hi! link NvimTreeFolderName Directory
+    hi DiffAdd    guibg=#283B4D guifg=NONE
+    hi DiffChange guibg=#283B4D guifg=NONE
+    hi DiffDelete guibg=#3C2C3C guifg=#4d384d
+    hi DiffText   guibg=#365069 guifg=NONE
+    hi! DiffviewNormal guifg=#a9b1d6 guibg=#1f2335
+  endif
+endfunction
