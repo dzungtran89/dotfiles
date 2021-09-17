@@ -268,7 +268,7 @@ nnoremap <localleader>le :setl expandtab sw=2<CR>
 nnoremap <localleader>ls :setl syntax=
 
 "" Set working directory
-nnoremap <leader>. :lcd %:p:h<CR>
+nnoremap cd :cd %:p:h<CR>
 
 "" Opens an edit command with the path of the currently edited file filled in
 noremap <Leader>ed :e <C-R>=expand("%:p:h") . "/" <CR>

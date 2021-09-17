@@ -1,4 +1,4 @@
-" vim:fdm=marker:fdl=0
+" vim:ft=vim:fdm=marker:fdl=0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CREDITS:
 "       Amir Salihefendic — @amix3k
@@ -321,7 +321,7 @@ map <leader>tm :tabmove
 map <leader>t<leader> :tabnext
 
 " Explorer
-nmap <leader>ee :Explore<cr>
+nmap <leader>; :Explore<cr>
 
 " Let 'tl' toggle between this and the last accessed tab
 let g:lasttab = 1
@@ -536,14 +536,14 @@ if has_key(plugs, 'FastFold')
 endif
 
 if has_key(plugs, 'any-jump.vim')
-	" Normal mode: Jump to definition under cursor
-	nnoremap <leader>js :AnyJump<CR>
-	" Visual mode: jump to selected text in visual mode
-	xnoremap <leader>js :AnyJumpVisual<CR>
-	" Normal mode: open previous opened file (after jump)
-	nnoremap <leader>jb :AnyJumpBack<CR>
-	" Normal mode: open last closed search window again
-	nnoremap <leader>jl :AnyJumpLastResults<CR>
+  " Normal mode: Jump to definition under cursor
+  nnoremap <leader>js :AnyJump<CR>
+  " Visual mode: jump to selected text in visual mode
+  xnoremap <leader>js :AnyJumpVisual<CR>
+  " Normal mode: open previous opened file (after jump)
+  nnoremap <leader>jb :AnyJumpBack<CR>
+  " Normal mode: open last closed search window again
+  nnoremap <leader>jl :AnyJumpLastResults<CR>
 endif
 
 if has_key(plugs, 'indentLine')
@@ -598,10 +598,11 @@ if has_key(plugs, 'fzf.vim')
   nn <Leader>bB :BLines<CR>
 
   nn <leader>ef :Files<CR>
+  nn <leader>ew :Windows<CR>
   nn <leader>eh :History:<CR>
   nn <Leader>em :Marks<CR>
-  nn <Leader>ec :Commands<CR>
-  nn <Leader>eh :History:<CR>
+  nn <Leader>C  :Commands<CR>
+  nn <Leader>ch :History:<CR>
   nn <Leader>es :Filetypes<CR>
 
 endif
