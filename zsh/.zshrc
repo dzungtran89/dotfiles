@@ -201,21 +201,6 @@ if [[ $IS_STARSHIP == 1 ]] then
   eval "$(starship init zsh)"
 fi
 
-# lf cd on quit
-lfcd () {
-  tmp="$(mktemp)"
-  lf -last-dir-path="$tmp" "$@"
-  if [ -f "$tmp" ]; then
-    dir="$(cat "$tmp")"
-    rm -f "$tmp"
-    if [ -d "$dir" ]; then
-      if [ "$dir" != "$(pwd)" ]; then
-        cd "$dir"
-      fi
-    fi
-  fi
-}
-
 # nnn {{{
 # export NNN_COLORS="2136"
 is_mac() {
@@ -247,8 +232,6 @@ n () {
 }
 # }}}
 
-bindkey -s '^o' 'lfcd\n'
-
 case `uname` in
   Darwin)
     alias lstat=stat
@@ -261,5 +244,8 @@ case `uname` in
   ;;
 esac
 
+# fzf {{{
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZ=20
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+FZF_CTRL_R_OPTS='--height 40%'
+# }}}

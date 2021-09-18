@@ -3,15 +3,16 @@ Keynotes
 
 ### Cli version manager [asdf](https://asdf-vm.com/)
 
-- `asdf plugin add tmux`
-- `asdf plugin add neovim`
-- `asdf plugin add python`
-- `asdf plugin add nodejs`
-- `asdf plugin add rust`
-- `asdf plugin add ruby`
-- `asdf plugin add golang`
-- `asdf plugin add postgres`
-
+```sh
+asdf plugin add tmux
+asdf plugin add neovim
+asdf plugin add python
+asdf plugin add nodejs
+asdf plugin add rust
+asdf plugin add ruby
+asdf plugin add golang
+asdf plugin add postgres
+```
 Dependencies can be found at each plugin's repo
 
 ### [zsh](./zsh/.zshrc)
@@ -29,7 +30,7 @@ Dependencies can be found at each plugin's repo
 ### neovim
 
 keymap       | note                                                                          |
----          | ---                                                                           |
+-------------|-------------------------------------------------------------------------------|
 `<SPACE>`    | mapleader                                                                     |
 `,`          | maplocalleader                                                                |
 **Session**  |
@@ -50,7 +51,7 @@ keymap       | note                                                             
 `<leader>cn` | floatterm [nnn](https://github.com/jarun/nnn)                                 |
 `<leader>cl` | floatterm [lazygit](https://github.com/jesseduffield/lazygit)                 |
 **Note**     |
-`<leader>ww` | Open index note file                                                          |
+`<leader>ww` | Open the wiki index file                                                      |
 
 ### vim
 
