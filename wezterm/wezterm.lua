@@ -9,12 +9,14 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
 
   -- Configs for Windows only
   default_prog = {'wsl.exe', '~', '-d', 'Ubuntu-20.04'}
-  font_size = 12
+  font         = wezterm.font('JetBrains Mono', { weight = 'Regular' })
+  font_size    = 10
 end
 
 if wezterm.target_triple == 'x86_64-apple-darwin' then
   -- Configs for OSX only
   -- font_dirs    = { '$HOME/.dotfiles/.fonts' }
+  font      = wezterm.font('Iosevka Fixed', { weight = 'Light' })
   font_size = 15
   table.insert(launch_menu, {})
 end
@@ -139,7 +141,7 @@ return {
   -- Fonts
   font_size   = font_size,
   line_height = 1.1,
-  font        = wezterm.font('Iosevka Fixed', { weight = 'Light' }),
+  font = font,
 
   -- Disable font ligatures
   harfbuzz_features =  {"calt=0", "clig=0", "liga=0"},

@@ -6,21 +6,21 @@
   editor = vi --noplugin
   quotePath = false
   commitGraph = true
-[pager]
-  diff = delta
-  log = delta
-  reflog = delta
-  show = delta
-[delta]
-  features = side-by-side decorations
-  whitespace-error-style = 22 reverse
-  line-numbers = true
-[delta "decorations"]
-  commit-decoration-style = bold yellow box ul
-  file-style = bold yellow ul
-  file-decoration-style = none
-[interactive]
-  diffFilter = delta --color-only
+; [pager]
+;   diff = delta
+;   log = delta
+;   reflog = delta
+;   show = delta
+; [delta]
+;   features = side-by-side decorations
+;   whitespace-error-style = 22 reverse
+;   line-numbers = true
+; [delta "decorations"]
+;   commit-decoration-style = bold yellow box ul
+;   file-style = bold yellow ul
+;   file-decoration-style = none
+; [interactive]
+;   diffFilter = delta --color-only
 [color]
   ui = true
 [gc]
@@ -76,4 +76,4 @@
   main-view-id = true
 [tig "bind"]
   main = = !git commit --fixup=%(commit)
-  main = <ctrl-r> !git rebase --autosquash -i %(commit)
+  main = <C-r> !git rebase --autosquash -i %(commit)

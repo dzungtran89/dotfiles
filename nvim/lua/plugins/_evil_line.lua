@@ -179,7 +179,7 @@ ins_right {
 ins_right {
   function() return "%{get(b:,'gitsigns_head','')}" end,
   icon = '',
-  color = {fg = colors.violet, gui = 'bold'},
+  color = {fg = colors.yellow, gui = 'bold'},
   condition = conditions.hide_in_width,
 }
 
