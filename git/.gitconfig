@@ -50,13 +50,14 @@
   s = status
   l = log
   lg = log --oneline
-  last = log -1 HEAD
+  last = log -1 HEAD --oneline
   ; cl = log -p -- ':(exclude)Cargo.lock'
   pf = push --force-with-lease
   ps = push
   mr = merge
+  mt = mergetool
   ; https://stackoverflow.com/a/11688523/472927
-  ss = "!f() { git stash show stash^{/$*} -p; }; f"
+  st = "!f() { git stash show stash^{/$*} -p; }; f"
   sa = "!f() { git stash apply stash^{/$*}; }; f"
   ss = stash save
   sp = stash pop

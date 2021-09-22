@@ -28,7 +28,8 @@ if PlugLoaded('ctrlsf.vim')
 
   vmap     <leader>sp <Plug>CtrlSFVwordPath
   nmap     <leader>sn <Plug>CtrlSFCwordPath
-  nmap     <leader>sf <Plug>CtrlSFPrompt-G *
+  nmap     <leader>sf <Plug>CtrlSFPrompt -G *
+  nmap     <leader>st <Plug>CtrlSFPrompt "#.*(TODO\|TOCHECK\|FIXME)" -G *
   nnoremap <leader>p :CtrlSFToggle<CR>
 
 else
