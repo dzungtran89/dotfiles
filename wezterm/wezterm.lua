@@ -16,8 +16,8 @@ end
 if wezterm.target_triple == 'x86_64-apple-darwin' then
   -- Configs for OSX only
   -- font_dirs    = { '$HOME/.dotfiles/.fonts' }
-  font      = wezterm.font('Iosevka Fixed', { weight = 'Light' })
-  font_size = 15
+  font      = wezterm.font('JetBrains Mono', { weight = 'Light' })
+  font_size = 14
   table.insert(launch_menu, {})
 end
 
