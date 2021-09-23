@@ -548,6 +548,8 @@ endif
 
 if has_key(plugs, 'indentLine')
   let g:indentLine_conceallevel = 0
+  let g:indentLine_enabled = 1
+  let g:indentLine_char_list = ['│', '¦', '┆', '┊']
 endif
 
 " lightline {{{1
@@ -595,7 +597,7 @@ if has_key(plugs, 'fzf.vim')
   endif
 
   nn <leader>bb :Buffers<CR>
-  nn <Leader>bB :BLines<CR>
+  nn <Leader>ss :BLines<CR>
 
   nn <leader>ef :Files<CR>
   nn <leader>ew :Windows<CR>

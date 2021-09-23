@@ -9,6 +9,7 @@ if PlugLoaded('ctrlsf.vim')
   " g:ctrlsf_regex_pattern defines CtrlSF using literal pattern or regular
   " expression pattern as default. Default value is 0, which means literal pattern.
   let g:ctrlsf_regex_pattern = 1
+  let g:ctrlsf_ignore_dir = ['setup', 'node_modules']
 
   " let g:ctrlsf_default_view_mode = 'compact'
   let g:ctrlsf_winsize = '30%'

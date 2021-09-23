@@ -45,6 +45,7 @@
   rb = rebase
   r = remote
   c = commit
+  ca = commit --amend
   co = checkout
   cp = cherry-pick
   s = status
