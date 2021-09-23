@@ -309,6 +309,8 @@ endif
 
 " ale
 let g:ale_linters = {}
+" on purpose, enabled manually
+let g:ale_enabled = 0
 
 " Tagbar
 if PlugLoaded('tagbar')
