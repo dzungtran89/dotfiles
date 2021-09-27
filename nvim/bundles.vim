@@ -43,6 +43,8 @@ Plug 'brooth/far.vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf'
+" Plug 'ms-jpq/coq_nvim'
+" Plug 'neovim/nvim-lspconfig'
 
 " MISC {{{
 Plug 'Konfekt/FastFold'

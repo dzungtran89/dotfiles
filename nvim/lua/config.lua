@@ -59,7 +59,7 @@ if fn.PlugLoaded('lualine.nvim') == 1 then
 end
 
 if fn.PlugLoaded('nvim-lspconfig') == 1 then
-  require('plugins._lsp')
+  require'lspconfig'.pyright.setup{}
 end
 
 if fn.PlugLoaded('shade.nvim') == 1 then

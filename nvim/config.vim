@@ -292,3 +292,9 @@ function! ApplyColorTweaks()
     hi! DiffviewNormal guifg=#a9b1d6 guibg=#1f2335
   endif
 endfunction
+
+if !PlugLoaded('coc.nvim')
+  " Fallback to native session if coc is not loaded
+  nnoremap <leader>qo :source ~/.nvim/session/
+  nnoremap <leader>qw :mks! ~/.nvim/session/
+endif

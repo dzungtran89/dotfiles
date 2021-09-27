@@ -143,8 +143,13 @@ ins_left {
 
 ins_left {
   'progress', 
+  condition = conditions.hide_in_width,
   color = {fg = colors.fg, gui = 'bold'},
 }
+ins_left {
+  'location', 
+}
+
 
 -- Insert mid section. You can make any number of sections in neovim :)
 -- for lualine it's any number greater then 2
@@ -159,15 +164,15 @@ ins_right {
   color = {fg = colors.yellow, gui = 'bold'},
 }
 
-ins_right {
-  'diagnostics',
-  sources = {'coc', 'ale'},
-  sections = {'error', 'warn', 'info'},
-  symbols = {error = '░ ', warn = '░ ', info = '░ '},
-  color_error = colors.red,
-  color_warn = colors.yellow,
-  color_info = colors.cyan,
-}
+-- ins_right {
+--   'diagnostics',
+--   sources = {'coc', 'ale'},
+--   sections = {'error', 'warn', 'info'},
+--   symbols = {error = '░ ', warn = '░ ', info = '░ '},
+--   color_error = colors.red,
+--   color_warn = colors.yellow,
+--   color_info = colors.cyan,
+-- }
 
 ins_right {
   'o:encoding', -- option component same as &encoding in viml
@@ -200,7 +205,7 @@ ins_right {
 }
 
 ins_right {
-  function() return '▊' end, -- '░▒▓'
+  function() return '░▒▓' end, -- '▊'
   color = "LualineMode",
   right_padding = 0,
 }

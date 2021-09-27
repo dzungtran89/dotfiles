@@ -39,10 +39,13 @@
 [merge]
   tool = vimdiff
 [alias]
+  f = fetch
   p = pull
   b = branch
   bs = bisect
   rb = rebase
+  rs = reset
+  ; rsh = reset --hard $(git rev-parse --abbrev-ref --symbolic-full-name @{u})
   r = remote
   c = commit
   ca = commit --amend
@@ -55,7 +58,7 @@
   ; cl = log -p -- ':(exclude)Cargo.lock'
   pf = push --force-with-lease
   ps = push
-  mr = merge
+  m  = merge
   mt = mergetool
   ; https://stackoverflow.com/a/11688523/472927
   st = "!f() { git stash show stash^{/$*} -p; }; f"

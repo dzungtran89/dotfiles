@@ -307,11 +307,6 @@ if PlugLoaded('ultisnips')
   let g:UltiSnipsEditSplit="vertical"
 endif
 
-" ale
-let g:ale_linters = {}
-" on purpose, enabled manually
-let g:ale_enabled = 0
-
 " Tagbar
 if PlugLoaded('tagbar')
   nmap <silent> <F4> :TagbarToggle<CR>
@@ -387,8 +382,13 @@ augroup vimrc-python
         \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 augroup END
 
-" ale
 if PlugLoaded('ale')
+
+  " on purpose, enabled manually
+  let g:ale_enabled = 0
+  nnoremap <localleader>te :ALEEnableBuffer<CR>
+  nnoremap <leader>te      :ALEEnable<CR>
+
   let g:ale_pattern_options = {'[^\.py]+$': {'ale_enabled': 0}}
   let g:ale_list_window_size = 5
 

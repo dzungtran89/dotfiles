@@ -1,19 +1,21 @@
 {
-    "python.linting.pylintPath": "pylint",
+    /* "python.linting.enabled": true, */
+    "python.linting.flake8Enabled": true,
+    "python.venvPath": "~/.virtualenvs",
     /* "git.gitlab.hosts": ["gitlab.trobz.com", "gitlab.com"], */
     /* "disableWorkspaceFolders": true, */
+
+    "session.directory": "~/.nvim/session",
+    "session.saveOnVimLeave": true,
 
     "xml.java.home": "/Library/Java/JavaVirtualMachines/openjdk-14.0.2.jdk/Contents/Home",
     "xml.completion.autoCloseTags": true,
     "snippets.userSnippetsDirectory": "~/.nvim/plugged/vim-odoo-snippets/UltiSnips,~/.nvim/plugged/coq.artifacts",
-    "diagnostic.displayByAle": true,
-    "session.directory": "~/.nvim/session",
-    "session.saveOnVimLeave": true,
-    "list.source.tags.command": "ctags -R --languages=python",
 
+    /* "diagnostic.displayByAle": true, */
+    "list.source.tags.command": "ctags -R --languages=python",
     "list.source.mru.ignoreGitIgnore": true,
     "list.source.mru.maxLength": 500,
-
     "list.source.files.args": ["--hidden", "--files"],
     "list.source.grep.args": ["-tpy", "-txml"],
     /* "coc.preferences.currentFunctionSymbolAutoUpdate": true, */

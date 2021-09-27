@@ -26,7 +26,7 @@ local mappings = {
     name = "toggle",
     l = { ":setl nu!<cr>"       , "On/Off Line number" } ,
     h = { ":setl hlsearch!<cr>" , "On/Off hlsearch" }    ,
-    i = { ":setl ic!<cr>"       , "On/Off hlsearch" }    ,
+    i = { ":setl ic!<cr>"       , "On/Off caseinsensitive" }    ,
   },
 
   c = {
