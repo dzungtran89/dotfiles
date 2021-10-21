@@ -2,3 +2,4 @@
 set main-view-date = relative-compact
 set main-view-author = abbreviated
 set main-view-id = true
+set ignore-case = yes

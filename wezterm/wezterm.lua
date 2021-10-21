@@ -9,14 +9,15 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
 
   -- Configs for Windows only
   default_prog = {'wsl.exe', '~', '-d', 'Ubuntu-20.04'}
-  font         = wezterm.font('JetBrains Mono', { weight = 'Regular' })
-  font_size    = 10
+  font_dirs    = {'$HOME/scoop/apps/Inconsolata-NF/current'}
+  font         = wezterm.font('Inconsolata NF', { weight = 'Regular'})
+  font_size    = 12
 end
 
 if wezterm.target_triple == 'x86_64-apple-darwin' then
   -- Configs for OSX only
-  -- font_dirs    = { '$HOME/.dotfiles/.fonts' }
-  font      = wezterm.font('JetBrains Mono', { weight = 'Light' })
+  font_dirs = { '$HOME/Library/Fonts' }
+  font      = wezterm.font('RobotoMono Nerd Font', { weight = 'Regular' })
   font_size = 14
   table.insert(launch_menu, {})
 end

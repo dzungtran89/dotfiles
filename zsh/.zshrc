@@ -1,3 +1,4 @@
+# vim:ft=sh:fdm=manual
 IS_PURE=1
 IS_STARSHIP=0
 IS_P10K=0
@@ -12,8 +13,6 @@ if [[ $IS_P10K == 1 ]] then
   fi
 
 fi
-
-# vim:foldmethod=manual
 
 # zmodload zsh/zprof
 
@@ -153,44 +152,6 @@ if [[ $IS_PURE == 1 ]] then;
   prompt pure
 fi
 
-# Personal config
-export FZF_BASE=$(which fzf)
-
-export HISTSIZE=4000
-export SAVEHIST=$HISTSIZE
-setopt hist_ignore_all_dups
-setopt hist_ignore_space
-
-source ~/.sh_profile
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# [[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
-
-# pyenv
-# Set the pyenv shims to initialize
-# if command -v pyenv >/dev/null; then 
-#   eval "$(pyenv init -)"; 
-#   if which pyenv-virtualenv-init > /dev/null; then 
-#     eval "$(pyenv virtualenv-init -)"; 
-#   fi
-# fi
-
-# asdf
-. $HOME/.asdf/asdf.sh
-fpath=(${ASDF_DIR}/completions $fpath)
-
-export WORKON_HOME=$HOME/.local/share/virtualenvs
-export PROJECT_HOME=$HOME/code/projects
-
-envmk(){
-  virtualenv -p $(asdf where python "$1")/bin/python "$WORKON_HOME"/"$2"
-}
-
-envon(){
-  source "$WORKON_HOME"/"$1"/bin/activate
-  [ -d "$PROJECT_HOME"/"$1" ] && cd "$PROJECT_HOME"/"$1"
-}
-
 if [[ $IS_P10K == 1 ]] then
   # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
   [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -201,51 +162,21 @@ if [[ $IS_STARSHIP == 1 ]] then
   eval "$(starship init zsh)"
 fi
 
-# nnn {{{
-# export NNN_COLORS="2136"
-is_mac() {
-  uname | grep -q "Darwin"
-}
-export NNN_BMS="h:~;d:~/Documents;c:~/code;g:~/code/github;o:~/code/github/abc-og;m:~/Movies"
-export NNN_USE_EDITOR=1
-# export NNN_OPENER="$HOME/.scripts/nnn/plugins/nuke"
-# export NNN_COPIER="$HOME/.scripts/nnn/plugins/copy"
-# export NNN_SCRIPT="$HOME/.scripts/nnn/plugins/makewall"
+# =================
+# Personal config
+# =================
+source $HOME/.d/common.sh
+source $HOME/.d/aliases.sh
 
-# preview-tabbed
-export NNN_FIFO=/tmp/nnn.fifo
-export NNN_TRASH=0
+# [[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
 
-n () {
-  if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then
-    echo "nnn is already running"
-    return
-  fi
+# asdf
+. $HOME/.asdf/asdf.sh
+fpath=(${ASDF_DIR}/completions $fpath)
 
-  export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
-  nnn "$@"
-
-  if [ -f "$NNN_TMPFILE" ]; then
-    . "$NNN_TMPFILE"
-    rm -f "$NNN_TMPFILE" > /dev/null
-  fi
-}
-# }}}
-
-case `uname` in
-  Darwin)
-    alias lstat=stat
-  ;;
-  Linux)
-    # commands for Linux go here
-  ;;
-  FreeBSD)
-    # commands for FreeBSD go here
-  ;;
-esac
-
-# fzf {{{
-ZSH_AUTOSUGGEST_BUFFER_MAX_SIZ=20
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-FZF_CTRL_R_OPTS='--height 40%'
-# }}}
+source $HOME/.d/helper.sh
+source $HOME/.d/venv.sh
+source $HOME/.d/fzf.sh
+source $HOME/.d/gopass.sh
+source $HOME/.d/googler.sh
+source $HOME/.d/n3.sh

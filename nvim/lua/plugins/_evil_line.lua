@@ -120,7 +120,7 @@ end
 ins_left {
   function()
     mode_map()
-    return '▓▒░'          -- , 
+    return '▊'          -- , 
   end,
   color = "LualineMode",
   left_padding = 0
@@ -213,4 +213,3 @@ ins_right {
 -- }}}
 
 lualine.setup(config)
-

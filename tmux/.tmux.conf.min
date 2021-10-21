@@ -9,6 +9,9 @@ set -g @plugin 'sainnhe/tmux-fzf'
 
 set -g @jump-key '/'
 
+# bindings for tmux-fzf
+TMUX_FZF_LAUNCH_KEY="C-f"
+
 set-option -g default-terminal "screen-256color"
 set -as terminal-overrides ',*:Tc'
 set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'  # undercurl support
@@ -64,11 +67,11 @@ if-shell -b '[ "$(echo "$tmux_version < 3.0" | bc)" = 1 ]' \
 if-shell -b '[ "$(echo "$tmux_version >= 3.0" | bc)" = 1 ]' \
     "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\\\'  'select-pane -l'"
 
-bind-key -T copy-mode-vi 'C-h' select-pane -L
-bind-key -T copy-mode-vi 'C-j' select-pane -D
-bind-key -T copy-mode-vi 'C-k' select-pane -U
-bind-key -T copy-mode-vi 'C-l' select-pane -R
-bind-key -T copy-mode-vi 'C-\' select-pane -l
+# bind-key -T copy-mode-vi 'C-h' select-pane -L
+# bind-key -T copy-mode-vi 'C-j' select-pane -D
+# bind-key -T copy-mode-vi 'C-k' select-pane -U
+# bind-key -T copy-mode-vi 'C-l' select-pane -R
+# bind-key -T copy-mode-vi 'C-\' select-pane -l
 
 # increase history size
 set -g status-left '#{tmux_mode_indicator} #[fg=green]#H #[fg=black]• #[fg=green,bright]#(uname -r | cut -c 1-6)#[default]'

@@ -3,7 +3,7 @@
   email = dungtd@trobz.com
 [core]
   excludesfile = ~/.gitignore_global
-  editor = vi --noplugin
+  editor = vi
   quotePath = false
   commitGraph = true
 ; [pager]
@@ -42,23 +42,24 @@
   f = fetch
   p = pull
   b = branch
+  c = clone
+  r = remote
+  s = status
+  l = log
+  m  = merge
   bs = bisect
   rb = rebase
   rs = reset
   ; rsh = reset --hard $(git rev-parse --abbrev-ref --symbolic-full-name @{u})
-  r = remote
-  c = commit
+  cm = commit
   ca = commit --amend
   co = checkout
   cp = cherry-pick
-  s = status
-  l = log
   lg = log --oneline
   last = log -1 HEAD --oneline
   ; cl = log -p -- ':(exclude)Cargo.lock'
-  pf = push --force-with-lease
+  pf = push -f
   ps = push
-  m  = merge
   mt = mergetool
   ; https://stackoverflow.com/a/11688523/472927
   st = "!f() { git stash show stash^{/$*} -p; }; f"
@@ -67,8 +68,9 @@
   sp = stash pop
   sl = stash list
   fp = format-patch
+  sm = submodule
 [url "git@gitlab.trobz.com:"]
-  insteadOf = gt:
+  insteadOf = glt:
 [url "git@github.com:"]
   insteadOf = gh:
 [receive]

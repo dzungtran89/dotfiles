@@ -50,9 +50,9 @@ Plug 'Yggdroot/indentLine'
 Plug 'easymotion/vim-easymotion'
 Plug 'jiangmiao/auto-pairs'
 
-" Vim-Session
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'
+" " Vim-Session
+" Plug 'xolox/vim-misc'
+" Plug 'xolox/vim-session'
 
 " Extras
 Plug 'tpope/vim-vinegar'
@@ -85,6 +85,11 @@ set cursorcolumn
 set relativenumber
 set foldmethod=syntax
 set undodir="~/.vim/undo-dir"
+set list
+set listchars=tab:→\ ,eol:¬,extends:❯,precedes:❮,trail:·,nbsp:·
+
+" Remove trailing whitespaces
+command! FixWhitespace :%s/\s\+$//e
 
 if has('macunix')
   " vim hardcodes background color erase even if the terminfo file does
@@ -111,7 +116,9 @@ let mapleader = "\<space>"
 let maplocalleader = ","
 
 inoremap qw <ESC>
-nnoremap <leader>.  :cd %:p:h<CR>:pwd<CR>
+nnoremap qq :bw!<cr>
+
+nnoremap cd         :cd %:p:h<CR>:pwd<CR>
 nnoremap <leader>so :copen<CR>
 
 " :W sudo saves the file
@@ -119,7 +126,6 @@ nnoremap <leader>so :copen<CR>
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 
 set clipboard=unnamed,unnamedplus
-
 set path+=**
 
 " WSL yank support {{{
@@ -167,6 +173,7 @@ set cmdheight=1
 set hid
 
 " Configure backspace so it acts as it should act
+set nowrap
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
@@ -426,18 +433,21 @@ noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 " Toggle paste mode on and off
 map <localleader>p :setlocal paste!<cr>
 
-let g:session_directory = "~/.vim/sessions"
-let g:session_autoload = "no"
-let g:session_autosave = "no"
-let g:session_command_aliases = 1
 set sessionoptions=buffers,curdir,tabpages
 
 " session management
-nnoremap <leader>qo :OpenSession<Space>
-nnoremap <leader>qw :SaveSession<Space>
-nnoremap <leader>qd :DeleteSession<CR>
-nnoremap <leader>qc :CloseSession<CR>
+nnoremap <leader>qo :source ~/.vim/sessions/
+nnoremap <leader>qw :mks! ~/.vim/sessions/
 nnoremap <leader>qq :qa!<CR>
+
+" let g:session_directory = "~/.vim/sessions"
+" let g:session_autoload = "no"
+" let g:session_autosave = "no"
+" let g:session_command_aliases = 1
+" nnoremap <leader>qo :OpenSession<Space>
+" nnoremap <leader>qw :SaveSession<Space>
+" nnoremap <leader>qd :DeleteSession<CR>
+" nnoremap <leader>qc :CloseSession<CR>
 
 "" Tabs
 nnoremap <Tab> gt

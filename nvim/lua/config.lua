@@ -147,6 +147,12 @@ if fn.PlugLoaded('nvim-colorizer.lua') == 1 then
   map('n', '<leader>tc', ':ColorizerToggle <cr>', {noremap = true})
 end
 
+if fn.PlugLoaded('tabby.nvim') == 1 then
+  require("tabby").setup({
+      tabline = require("tabby.presets").active_wins_at_end,
+    })
+end
+
 -- GIT
 require('plugins._git')
 

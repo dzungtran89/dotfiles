@@ -1,4 +1,4 @@
-# common
+# vim:ft=sh:fdm=syntax
 
 # Restart SHELL
 alias clear='clear; tmux clear-history; clear'
@@ -14,13 +14,6 @@ alias cpath='pwd|pbcopy'
 
 alias vim=nvim
 alias vs='vim -S $@'
-
-# vim
-# vim() {
-#   pyenv activate vip3
-#   nvim $@
-# }
-
 alias vno='vim -u NORC $@'
 
 # yabai
@@ -32,7 +25,7 @@ alias hs='hugo server'
 alias bu='buku'
 alias b='bu --suggest'
 alias n3='nnn'
-alias nnn="nnn -deH"
+alias nnn="nnn -eH"
 
 # docker
 alias dki='docker images'
@@ -103,9 +96,6 @@ alias ldocker='lazydocker'
 
 # alias fzf="fzf --layout=reverse --height=50% --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'"
 
-# c2c migration
-alias c2c-deploy='$HOME/code/projects/c2c-migration/deploy.sh'
-
 # flutter
 alias fl='flutter'
 alias flb='flutter build'
@@ -144,3 +134,38 @@ alias dcu='docker-compose up'
 # fd
 alias fdd="fd --type d"
 alias fdf="fd --type f"
+
+# tmux
+chu() {
+  if ! tmux has-session -t chu; then
+    tmux new -s chu -d
+
+    # 1st window
+    tmux rename-window work
+    tmux send-keys vim\ -S\ $HOME/.nvim/session/df.vim Enter
+    tmux split-window
+    tmux split-window -h
+    tmux send-keys n Enter
+    tmux split-window -h asciiquarium
+    tmux select-layout main-horizontal
+
+    # 2nd window
+    tmux new-window -t chu:2
+    tmux rename-window conf
+    tmux split-window -h htop
+    tmux split-window
+    # tmux split-window cmatrix -u 10
+
+    # post
+    tmux select-window -t chu:1
+    tmux select-pane -t 1
+  fi
+
+  tmux attach -t chu
+}
+
+# SPECIFIC ALIASES {{{
+# OCA
+alias oca='cd ~/code/oca ; pew in oca oca.sh'
+
+# }}}

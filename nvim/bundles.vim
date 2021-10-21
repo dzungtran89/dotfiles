@@ -9,16 +9,16 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'                    " required by fugitive to :Gbrowse
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'preservim/tagbar'
-Plug 'dense-analysis/ale'
 Plug 'Jorengarenar/fauxClip'
 
 " RIP {{{
 
+" Plug 'dense-analysis/ale'
 " Plug 'airblade/vim-gitgutter'
 " Plug 'rstacruz/vim-closer'
 " Plug 'liuchengxu/vim-which-key'
 
-let g:polyglot_disabled = []
+let g:polyglot_disabled = ['xml']
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
@@ -47,14 +47,16 @@ Plug 'antoinemadec/coc-fzf'
 " Plug 'neovim/nvim-lspconfig'
 
 " MISC {{{
-Plug 'Konfekt/FastFold'
+" Plug 'Konfekt/FastFold'
 Plug 'Jorengarenar/vim-syntaxMarkerFold'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'Yggdroot/indentLine'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'easymotion/vim-easymotion'
 Plug 'andymass/vim-matchup'
-Plug 'numToStr/Navigator.nvim'
+
+"" Better if exit vim by <prefix><motion>
+" Plug 'numToStr/Navigator.nvim'
 Plug 'folke/which-key.nvim'
 Plug 'vimlab/split-term.vim'
 Plug 'voldikss/vim-floaterm'
@@ -68,11 +70,14 @@ Plug 'lewis6991/gitsigns.nvim'
 
 " FOR FUN {{{
 
+" Plug 'kyazdani42/nvim-web-devicons'
 Plug 'hoob3rt/lualine.nvim'
+Plug 'nanozuki/tabby.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
+
+Plug 'lewis6991/impatient.nvim'
 Plug 'tweekmonster/startuptime.vim'
 
-" Plug 'kyazdani42/nvim-web-devicons'
 " Plug 'lukas-reineke/format.nvim'
 
 " Required plenary

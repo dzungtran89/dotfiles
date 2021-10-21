@@ -1,7 +1,7 @@
 {
     /* "python.linting.enabled": true, */
-    "python.linting.flake8Enabled": true,
-    "python.venvPath": "~/.virtualenvs",
+    /* "python.linting.flake8Enabled": true, */
+    /* "python.venvPath": "~/.virtualenvs", */
     /* "git.gitlab.hosts": ["gitlab.trobz.com", "gitlab.com"], */
     /* "disableWorkspaceFolders": true, */
 
@@ -21,4 +21,7 @@
     /* "coc.preferences.currentFunctionSymbolAutoUpdate": true, */
     /* "list.source.files.excludePatterns": [], */
     "explorer.git.enable": false,
+    "explorer.position": "left",
+    "explorer.floating.height": 30,
+    "explorer.floating.width": 70,
 }

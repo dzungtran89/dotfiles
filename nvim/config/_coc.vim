@@ -15,6 +15,19 @@ vim.g.python2_host_prog = 'python2'
 vim.g.ruby_host_prog = '$(which ruby)'
 EOF
 
+  let g:coc_disable_fts = ['coc-explorer', 'ctrlsf', 'terminal']
+
+  function! s:disable_coc_for_type()
+    if (index(g:coc_disable_fts, &filetype) == 0 || &buftype == "terminal")
+      let b:coc_enabled = 0
+    endif
+  endfunction
+
+  augroup CocGroup
+    autocmd!
+    autocmd BufNew,BufEnter * call s:disable_coc_for_type()
+  augroup end
+
   autocmd FileType python let b:coc_root_patterns = ['.env', '.git']
   " autocmd FileType * let b:coc_suggest_disable = 1
 

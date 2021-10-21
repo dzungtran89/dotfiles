@@ -1,10 +1,10 @@
 " Options {{{
-set bg=dark
-
 nnoremap <leader>ui :colorscheme<space>
-colorscheme iceberg
 
+set bg=dark
 if !has('macunix')
+  colorscheme iceberg
+else
   colorscheme iceberg
 endif
 
@@ -73,7 +73,7 @@ endfunction
 " ---------------------------------------------------------------
 " Filetype: Close location list
 autocmd FileType qf nnoremap <buffer> <CR> <CR>:lclose<CR>
-autocmd FileType markdown setl conceallevel=0
+" autocmd FileType markdown setl conceallevel=0
 
 " Buffer: Determine filetype based on path
 autocmd BufRead,BufNewFile *.cls setlocal filetype=tex
@@ -244,12 +244,13 @@ endif
 
 if PlugLoaded('FastFold')
   nmap zuz <Plug>(FastFoldUpdate)
-  let g:fastfold_savehook = 1
+
+  let g:fastfold_savehook = 0
   let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
   let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
 
   " Specific fold specific for fts
-  let g:markdown_folding = 1
+  let g:markdown_folding = 0
   let g:tex_fold_enabled = 1
   let g:vimsyn_folding = 'af'
   let g:xml_syntax_folding = 1

@@ -85,6 +85,16 @@ set smartcase
 set fileformats=unix,dos,mac
 set numberwidth=2
 
+set nofoldenable
+set foldmethod=manual
+set fml=2
+set viewoptions=folds,cursor
+augroup SaveFolds
+  autocmd!
+  autocmd BufWinLeave,BufWritePost *.* mkview
+  autocmd BufWinEnter,BufRead      *.* silent! loadview
+augroup END
+
 if $SHELL == '/usr/bin/fish'
   set shell=/usr/bin/zsh
 else
@@ -114,8 +124,6 @@ let no_buffers_menu=1
 
 set mousemodel=popup
 set t_Co=256
-" set guioptions=egmrti
-" set gfn=Monospace\ 10
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
@@ -129,6 +137,7 @@ else
   if PlugLoaded('indentLine')
     let g:indentLine_enabled = 1
     let g:indentLine_char_list = ['│', '¦', '┆', '┊']
+    let g:indentLine_fileType = ['python', 'js', 'xml']
   endif
 
   if $COLORTERM == 'gnome-terminal'
@@ -263,6 +272,7 @@ inoremap <C-s>      <Cmd>update<CR>
 nnoremap  <leader>fw :update<CR>
 nnoremap  <leader>fe :e!<CR>
 nnoremap  <leader>fd :bw!<CR>
+nnoremap  qq         :bw!<CR>
 
 nnoremap <localleader>le :setl expandtab sw=2<CR>
 nnoremap <localleader>ls :setl syntax=
@@ -423,7 +433,7 @@ let g:vue_disable_pre_processors=1
 let g:vim_vue_plugin_load_full_syntax = 1
 
 "*****************************************************************************
-"" Convenience variables
+"" Convenience variables {{{1
 "*****************************************************************************
 
 if PlugLoaded('vim-airline')
@@ -479,6 +489,11 @@ source $HOME/.config/nvim/config/_linter.vim
 
 if PlugLoaded('gitsigns.nvim')
   set timeoutlen=250
+endif
+
+" Cache lua configs
+if PlugLoaded('impatient.nvim')
+  lua require('impatient')
 endif
 
 " And, lua as well, to be continued ...

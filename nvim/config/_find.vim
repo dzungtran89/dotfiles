@@ -11,7 +11,7 @@ if PlugLoaded('ctrlsf.vim')
   let g:ctrlsf_regex_pattern = 1
   let g:ctrlsf_ignore_dir = ['setup', 'node_modules']
 
-  " let g:ctrlsf_default_view_mode = 'compact'
+  let g:ctrlsf_default_view_mode = 'compact'
   let g:ctrlsf_winsize = '30%'
 
   " let g:ctrlsf_extra_backend_args = {
