@@ -319,7 +319,7 @@ endif
 
 " Tagbar
 if PlugLoaded('tagbar')
-  nmap <silent> <F4> :TagbarToggle<CR>
+  nmap <silent> <leader>to :TagbarToggle<CR>
   let g:tagbar_autofocus = 1
 endif
 

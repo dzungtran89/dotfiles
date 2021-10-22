@@ -1,14 +1,4 @@
-case `uname` in
-  Darwin)
-    alias lstat=stat
-  ;;
-  Linux)
-    # commands for Linux go here
-  ;;
-  FreeBSD)
-    # commands for FreeBSD go here
-  ;;
-esac
+alias lstat=stat
 
 # Yank to the system clipboard
 function vi-yank-xclip {

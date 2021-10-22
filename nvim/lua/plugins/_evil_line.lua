@@ -132,15 +132,6 @@ ins_left {
   color = {fg = colors.violet, gui = 'bold'}
 }
 
--- Tagbar
-ins_left {
-  function()
-    return "%{tagbar#currenttag('%s', '', 'f', 'scoped-stl')}"
-  end,
-  icon = '»',
-  color = {fg = colors.orange, gui='bold'},
-}
-
 ins_left {
   'progress', 
   condition = conditions.hide_in_width,
@@ -150,6 +141,15 @@ ins_left {
   'location', 
 }
 
+-- Tagbar
+ins_left {
+  function()
+    return "%{tagbar#currenttag('%s', '', 'f', 'scoped-stl')}"
+  end,
+  left_padding = 0,
+  icon = '»',
+  color = {fg = colors.orange, gui='bold'},
+}
 
 -- Insert mid section. You can make any number of sections in neovim :)
 -- for lualine it's any number greater then 2

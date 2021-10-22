@@ -165,7 +165,21 @@ fi
 # =================
 # Personal config
 # =================
-source $HOME/.d/common.sh
+
+case `uname` in
+  Darwin)
+    source $HOME/.d/mac.sh
+  ;;
+  Linux)
+    source $HOME/.d/linux.sh
+  ;;
+  FreeBSD)
+    # commands for FreeBSD go here
+  ;;
+esac
+
+## Common sections for all platforms {{{
+
 source $HOME/.d/aliases.sh
 
 # [[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
@@ -180,3 +194,5 @@ source $HOME/.d/fzf.sh
 source $HOME/.d/gopass.sh
 source $HOME/.d/googler.sh
 source $HOME/.d/n3.sh
+
+## }}}
