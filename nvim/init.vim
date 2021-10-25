@@ -487,6 +487,9 @@ source $HOME/.config/nvim/config/_wiki.vim
 source $HOME/.config/nvim/config/_md.vim
 source $HOME/.config/nvim/config/_linter.vim
 
+" Special mappings
+nnoremap <silent> <leader>; :Rexplore<CR>
+
 if PlugLoaded('gitsigns.nvim')
   set timeoutlen=250
 endif

@@ -3,13 +3,14 @@
 " CORE {{{
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
+" Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'                    " required by fugitive to :Gbrowse
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'preservim/tagbar'
 Plug 'Jorengarenar/fauxClip'
+Plug 'numToStr/Comment.nvim'
 
 " RIP {{{
 
@@ -18,7 +19,7 @@ Plug 'Jorengarenar/fauxClip'
 " Plug 'rstacruz/vim-closer'
 " Plug 'liuchengxu/vim-which-key'
 
-let g:polyglot_disabled = ['xml']
+let g:polyglot_disabled = ['xml', 'js', 'python', 'markdown', 'csv', 'css', 'scss', 'coc-explorer', 'ctrlsf']
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'

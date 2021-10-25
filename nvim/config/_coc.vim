@@ -188,7 +188,7 @@ EOF
     execute 'CocList grep '.word
   endfunction
 
-  nnoremap <silent> <leader>;        :<C-u>CocCommand explorer<CR>
+  " nnoremap <silent> <leader>;        :<C-u>CocCommand explorer<CR>
   nnoremap <silent> <leader>rr       :<C-u>CocListResume<CR>
   nnoremap <leader>qw                :<C-u>CocCommand session.save<Space>
 
