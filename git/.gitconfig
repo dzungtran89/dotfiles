@@ -69,6 +69,8 @@
   sl = stash list
   fp = format-patch
   sm = submodule
+  si = status --ignore-submodules
+  di = diff --ignore-submodules
 [url "git@gitlab.trobz.com:"]
   insteadOf = glt:
 [url "git@github.com:"]

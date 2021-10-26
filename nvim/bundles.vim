@@ -3,7 +3,6 @@
 " CORE {{{
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
-" Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'                    " required by fugitive to :Gbrowse
@@ -14,6 +13,7 @@ Plug 'numToStr/Comment.nvim'
 
 " RIP {{{
 
+" Plug 'tpope/vim-commentary'
 " Plug 'dense-analysis/ale'
 " Plug 'airblade/vim-gitgutter'
 " Plug 'rstacruz/vim-closer'
@@ -72,7 +72,7 @@ Plug 'lewis6991/gitsigns.nvim'
 " FOR FUN {{{
 
 " Plug 'kyazdani42/nvim-web-devicons'
-Plug 'nvim-lualine/lualine.nvim', {'commit': '017620b847917841cdfade9cfcbfcf6407481907'}
+Plug 'nvim-lualine/lualine.nvim', {'commit': '017620b'}
 Plug 'nanozuki/tabby.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
 
