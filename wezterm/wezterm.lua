@@ -15,6 +15,7 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
     {weight='Regular'}
     )
   font_size    = 10.5
+  hide_tab_bar_if_only_one_tab = false
 end
 
 if wezterm.target_triple == 'x86_64-apple-darwin' then
@@ -23,6 +24,7 @@ if wezterm.target_triple == 'x86_64-apple-darwin' then
   font      = wezterm.font('RobotoMono Nerd Font', { weight = 'Regular' })
   font_size = 14
   table.insert(launch_menu, {})
+  hide_tab_bar_if_only_one_tab = true
 end
 
 if wezterm.target_triple == 'x86_65-unknown-linux-gnu' then
@@ -120,7 +122,7 @@ return {
   -- Hide title bar, but allow to resize border
   window_decorations           = "RESIZE",
   window_background_opacity    = 0.9,
-  hide_tab_bar_if_only_one_tab = false,
+  hide_tab_bar_if_only_one_tab = hide_tab_bar_if_only_one_tab,
 
   color_scheme = 'iceberg-dark',
 
