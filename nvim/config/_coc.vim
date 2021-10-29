@@ -109,9 +109,11 @@ EOF
   " Symbol renaming.
   nmap <leader>rn <Plug>(coc-rename)
 
+  " coc-prettier
   " Formatting selected code.
-  " xmap <leader>f  <Plug>(coc-format-selected)
-  " nmap <leader>f  <Plug>(coc-format-selected)
+  command! -nargs=0 Prettier :CocCommand prettier.formatFile
+  vmap <leader>ff  <Plug>(coc-format-selected)
+  nmap <leader>ff  <Plug>(coc-format-selected)
 
   " Applying codeAction to the selected region.
   " Example: `<leader>aap` for current paragraph

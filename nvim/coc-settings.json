@@ -1,27 +1,27 @@
 {
-    /* "python.linting.enabled": true, */
-    /* "python.linting.flake8Enabled": true, */
-    /* "python.venvPath": "~/.virtualenvs", */
-    /* "git.gitlab.hosts": ["gitlab.trobz.com", "gitlab.com"], */
-    /* "disableWorkspaceFolders": true, */
+  /* "python.linting.enabled": true, */
+  /* "python.linting.flake8Enabled": true, */
+  /* "python.venvPath": "~/.virtualenvs", */
+  /* "git.gitlab.hosts": ["gitlab.trobz.com", "gitlab.com"], */
+  /* "disableWorkspaceFolders": true, */
 
-    "session.directory": "~/.nvim/session",
-    "session.saveOnVimLeave": true,
+  "session.directory": "~/.nvim/session",
+  "session.saveOnVimLeave": true,
 
-    "xml.java.home": "/Library/Java/JavaVirtualMachines/openjdk-14.0.2.jdk/Contents/Home",
-    "xml.completion.autoCloseTags": true,
-    "snippets.userSnippetsDirectory": "~/.nvim/plugged/vim-odoo-snippets/UltiSnips,~/.nvim/plugged/coq.artifacts",
+  /* "xml.java.home": "/Library/Java/JavaVirtualMachines/openjdk-14.0.2.jdk/Contents/Home", */
+  /* "xml.completion.autoCloseTags": true, */
+  "snippets.userSnippetsDirectory": "~/.nvim/plugged/vim-odoo-snippets/UltiSnips",
 
-    /* "diagnostic.displayByAle": true, */
-    "list.source.tags.command": "ctags -R --languages=python",
-    "list.source.mru.ignoreGitIgnore": true,
-    "list.source.mru.maxLength": 500,
-    "list.source.files.args": ["--hidden", "--files"],
-    "list.source.grep.args": ["-tpy", "-txml"],
-    /* "coc.preferences.currentFunctionSymbolAutoUpdate": true, */
-    /* "list.source.files.excludePatterns": [], */
-    "explorer.git.enable": false,
-    "explorer.position": "left",
-    "explorer.floating.height": 30,
-    "explorer.floating.width": 70,
+  /* "diagnostic.displayByAle": true, */
+  "list.source.tags.command": "ctags -R --languages=python",
+  "list.source.mru.ignoreGitIgnore": true,
+  "list.source.mru.maxLength": 500,
+  "list.source.files.args": ["--hidden", "--files"],
+  "list.source.grep.args": ["-tpy", "-txml"],
+  /* "coc.preferences.currentFunctionSymbolAutoUpdate": true, */
+  /* "list.source.files.excludePatterns": [], */
+  "explorer.git.enable": false,
+  "explorer.position": "left",
+  "explorer.floating.height": 30,
+  "explorer.floating.width": 70
 }

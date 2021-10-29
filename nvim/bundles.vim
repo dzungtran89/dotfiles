@@ -10,6 +10,7 @@ Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'preservim/tagbar'
 Plug 'Jorengarenar/fauxClip'
 Plug 'numToStr/Comment.nvim'
+Plug 'nathom/filetype.nvim'
 
 " RIP {{{
 
@@ -19,8 +20,8 @@ Plug 'numToStr/Comment.nvim'
 " Plug 'rstacruz/vim-closer'
 " Plug 'liuchengxu/vim-which-key'
 
-let g:polyglot_disabled = ['xml', 'js', 'python', 'markdown', 'csv', 'css', 'scss', 'coc-explorer', 'ctrlsf']
-Plug 'sheerun/vim-polyglot'
+" let g:polyglot_disabled = ['xml', 'js', 'python', 'markdown', 'csv', 'css', 'scss', 'coc-explorer', 'ctrlsf']
+" Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'

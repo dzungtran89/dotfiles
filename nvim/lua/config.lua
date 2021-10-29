@@ -3,6 +3,12 @@ local fn = vim.fn
 local map = vim.api.nvim_set_keymap
 local unmap = vim.api.nvim_del_keymap
 
+if fn.PlugLoaded('filetype.nvim') == 1 then
+  if fn.has('nvim-0.5') == 1 then
+    g.did_load_filetypes = 1
+  end
+end
+
 if fn.PlugLoaded("fzf-lua") == 1 then
   require("plugins._fzf")
 end
