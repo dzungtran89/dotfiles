@@ -5,7 +5,7 @@ set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'schasse/tmux-jump'
 set -g @plugin 'MunifTanjim/tmux-mode-indicator'
-set -g @plugin 'sainnhe/tmux-fzf'
+set -g @plugin 'jabirali/tmux-tilish'
 
 set -g @jump-key '/'
 
@@ -67,12 +67,10 @@ if-shell -b '[ "$(echo "$tmux_version < 3.0" | bc)" = 1 ]' \
 if-shell -b '[ "$(echo "$tmux_version >= 3.0" | bc)" = 1 ]' \
     "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\\\'  'select-pane -l'"
 
-# bind-key -T copy-mode-vi 'C-h' select-pane -L
-# bind-key -T copy-mode-vi 'C-j' select-pane -D
-# bind-key -T copy-mode-vi 'C-k' select-pane -U
-# bind-key -T copy-mode-vi 'C-l' select-pane -R
-# bind-key -T copy-mode-vi 'C-\' select-pane -l
-
 # increase history size
 set -g status-left '#{tmux_mode_indicator} #[fg=green]#H #[fg=black]• #[fg=green,bright]#(uname -r | cut -c 1-6)#[default]'
 set -g status-right '#[fg=red,dim,bg=default]#(uptime | cut -f 4-5 -d " " | cut -f 1 -d ",") #[fg=white,bg=default]%a %l:%M %p#[default]'
+
+# tilish config {{{
+set -g @tilish-default 'main-horizontal'
+# }}}

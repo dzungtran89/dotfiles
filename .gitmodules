@@ -1,15 +1,31 @@
 [submodule "tmux/plugins/.tmux"]
 	path = tmux/plugins/.tmux
 	url = https://github.com/gpakosz/.tmux
+	active = false
 [submodule "tmux/plugins/tony"]
 	path = tmux/plugins/tony
 	url = git@github.com:tony/tmux-config.git
 [submodule "ref/nicknisi"]
 	path = ref/nicknisi
 	url = git@github.com:nicknisi/dotfiles.git
+	active = false
 [submodule "ref/pyratebeard"]
 	path = ref/pyratebeard
 	url = git://git.pyratebeard.net/dotfiles.git
+	active = false
 [submodule "ref/YodaEmbedding"]
 	path = ref/YodaEmbedding
 	url = git@github.com:YodaEmbedding/dotfiles.git
+	active = false
+[submodule "zsh/a/fzf-tab"]
+	path = zsh/a/fzf-tab
+	url = git@github.com:Aloxaf/fzf-tab.git
+[submodule "zsh/a/pure"]
+	path = zsh/a/pure
+	url = git@github.com:sindresorhus/pure.git
+[submodule "zsh/a/zsh-autosuggestions"]
+	path = zsh/a/zsh-autosuggestions
+	url = git@github.com:zsh-users/zsh-autosuggestions.git
+[submodule "zsh/a/zsh-z"]
+	path = zsh/a/zsh-z
+	url = git@github.com:agkozak/zsh-z.git

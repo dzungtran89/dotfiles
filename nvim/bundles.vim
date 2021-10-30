@@ -20,8 +20,8 @@ Plug 'nathom/filetype.nvim'
 " Plug 'rstacruz/vim-closer'
 " Plug 'liuchengxu/vim-which-key'
 
-" let g:polyglot_disabled = ['xml', 'js', 'python', 'markdown', 'csv', 'css', 'scss', 'coc-explorer', 'ctrlsf']
-" Plug 'sheerun/vim-polyglot'
+let g:polyglot_disabled = []
+Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'

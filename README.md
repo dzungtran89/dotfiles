@@ -1,5 +1,7 @@
 Keynotes
-===
+========
+
+TODO Install, see [INSTALL.md](./readme/INSTALL.md)
 
 ### Cli version manager [asdf](https://asdf-vm.com/)
 
@@ -57,13 +59,14 @@ keymap       | note                                                             
 
 [A minimal config](./.vimrc)
 
+🙏 Credits
+=========
+
+- (neo)vim community
+- tmux community
+- zsh community
+
 Known Issues
 ============
 
-**FAILED Installing python 3.7**
-
--   Fixed on Big Sur
-
-    ```sh
-    LDFLAGS="-L$(xcrun --show-sdk-path)/usr/lib" asdf install python 3.7.9
-    ```
+Please see [here](./readme/KNOWN_ISSUES.md)

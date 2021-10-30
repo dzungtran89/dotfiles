@@ -111,6 +111,7 @@ plugins=(
   zsh-z
   tig
   zsh-autosuggestions
+  fzf-tab
 
   # osx
   # pass

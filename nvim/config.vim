@@ -1,13 +1,6 @@
 " Options {{{
 nnoremap <leader>ui :colorscheme<space>
 
-set bg=dark
-if !has('macunix')
-  colorscheme iceberg
-else
-  colorscheme iceberg
-endif
-
 if PlugLoaded('nord-vim')
   let g:nord_bold_vertical_split_line = 1
   let g:nord_uniform_diff_background = 1
@@ -17,6 +10,13 @@ endif
 
 if PlugLoaded('gruvbox-flat.nvim')
   let g:gruvbox_flat_style = "hard"
+endif
+
+set bg=dark
+if !has('macunix')
+  colorscheme iceberg
+else
+  colorscheme iceberg
 endif
 
 " set cursorcolumn
@@ -36,8 +36,8 @@ set path+=**
 " Give more space for displaying messages.
 " set cmdheight=2
 
-set undodir=$HOME/.nvim/undo         " Undo history location
-set undofile                        " Undo history
+set undodir=$HOME/.nvim/undo          " Undo history location
+set undofile                          " Undo history
 
 if has('nvim')
   set inccommand=split
@@ -115,7 +115,7 @@ set list
 set listchars=tab:→\ ,eol:¬,extends:❯,precedes:❮,trail:·,nbsp:·
 
 " Highlight the column after 'textwidth'
-set colorcolumn=+1
+" set colorcolumn=+1
 
 " Set program title to 'nvim'
 set title
