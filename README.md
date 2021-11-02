@@ -1,7 +1,7 @@
 Keynotes
 ========
 
-TODO Install, see [INSTALL.md](./readme/INSTALL.md)
+For installation, please see [INSTALL.md](./readme/INSTALL.md)
 
 ### Cli version manager [asdf](https://asdf-vm.com/)
 
