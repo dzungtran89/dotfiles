@@ -87,7 +87,6 @@ set fileformats=unix,dos,mac
 set numberwidth=2
 
 set nofoldenable
-set foldmethod=manual
 set fml=2
 set viewoptions=folds,cursor
 augroup SaveFolds

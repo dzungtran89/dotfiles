@@ -160,7 +160,9 @@ if fn.PlugLoaded('tabby.nvim') == 1 then
 end
 
 if fn.PlugLoaded('Comment.nvim') == 1 then
-  require("Comment").setup()
+  require("Comment").setup({
+    ignore = '^$'
+  })
 end
 
 if fn.PlugLoaded('stabilize.nvim') == 1 then

@@ -1,12 +1,15 @@
 local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
 
-parser_configs.norg = {
-  install_info = {
-    url = "https://github.com/vhyrro/tree-sitter-norg",
-    files = { "src/parser.c" },
-    branch = "main"
-  },
-}
+vim.o.foldmethod = 'expr'
+vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
+
+-- parser_configs.norg = {
+--   install_info = {
+--     url = "https://github.com/vhyrro/tree-sitter-norg",
+--     files = { "src/parser.c" },
+--     branch = "main"
+--   },
+-- }
 
 parser_configs.xml = {
   install_info = {
@@ -17,10 +20,13 @@ parser_configs.xml = {
 }
 
 require('nvim-treesitter.configs').setup {
-  ensure_installed ={"norg", "xml", "python", "javascript", "html", "css"},
+  ensure_installed ={"xml", "python", "javascript", "html", "css"},
+  indent = {
+    enable = true,
+  },
   highlight = {
     enable = true,
-    indent = true,
+    -- indent = true,
     additional_vim_regex_highlighting = false,
     disable = { "html" },
   },

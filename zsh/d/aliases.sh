@@ -169,3 +169,17 @@ chu() {
 alias oca='cd ~/code/oca ; pew in oca oca.sh'
 
 # }}}
+
+# emoi: for testing only
+alias e3="pew in pv3 emoi"
+alias e2="pew in pv2 emoi"
+
+alias e3o="e3 --offline --work-dir ~/code/projects/sr-website odoo start -a \"--limit-memory-hard 0\""
+alias e3s="e3 --offline --work-dir ~/code/projects/sr-website start -a \"--limit-memory-hard 0\""
+alias e3h="e3 --offline --work-dir ~/code/projects/sr-website --help"
+
+alias e2o="e2 --offline --work-dir ~/code/projects/sr-website odoo start -a \"--limit-memory-hard 0\""
+alias e2s="e2 --offline --work-dir ~/code/projects/sr-website start -a \"--limit-memory-hard 0\""
+alias e2h="e2 --offline --work-dir ~/code/projects/sr-website --help"
+
+alias r3="pew in pv3 remoteoi"

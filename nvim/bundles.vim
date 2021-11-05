@@ -20,8 +20,8 @@ Plug 'nathom/filetype.nvim'
 " Plug 'rstacruz/vim-closer'
 " Plug 'liuchengxu/vim-which-key'
 
-let g:polyglot_disabled = []
-Plug 'sheerun/vim-polyglot'
+" let g:polyglot_disabled = []
+" Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
@@ -86,8 +86,8 @@ Plug 'tweekmonster/startuptime.vim'
 " Plug 'nvim-telescope/telescope.nvim'
 " Plug 'alec-gibson/nvim-tetris'
 
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 " LATER {{{
 " Plug 'monaqa/dial.nvim'
