@@ -73,7 +73,7 @@ Plug 'lewis6991/gitsigns.nvim'
 " FOR FUN {{{
 
 " Plug 'kyazdani42/nvim-web-devicons'
-Plug 'nvim-lualine/lualine.nvim', {'commit': '017620b'}
+Plug 'nvim-lualine/lualine.nvim'              " {'commit': '017620b'}
 Plug 'nanozuki/tabby.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
 

@@ -60,7 +60,37 @@ if fn.PlugLoaded('Navigator.nvim') == 1 then
 end
 
 if fn.PlugLoaded('lualine.nvim') == 1 then
-  require('plugins._evil_line')
+  -- require('plugins._evil_line')
+
+  require'lualine'.setup {
+    options = {
+      icons_enabled = true,
+      theme = 'iceberg',
+      section_separators = { left = '', right = ''},
+      component_separators = { left = '|', right = '|'},
+      disabled_filetypes = {'fzf', 'coc-explorer', 'ctrlsf', 'tagbar'},
+      always_divide_middle = false,
+    },
+    sections = {
+      lualine_a = {{ 'mode', separator = { left = '', right = ''}}},
+      lualine_b = {'branch', 'diff',
+      {'diagnostics', sources={'coc'}}},
+      lualine_c = {'filename'},
+      lualine_x = {'encoding', 'fileformat', 'filetype'},
+      lualine_y = {'progress'},
+      lualine_z = {{ 'location', separator = { left = '', right = ''}}},
+    },
+    inactive_sections = {
+      lualine_a = {'filename'},
+      lualine_b = {},
+      lualine_c = {},
+      lualine_x = {},
+      lualine_y = {},
+      lualine_z = {}
+    },
+    tabline = {},
+    extensions = {}
+  }
   -- require'tabline'.setup {}
 end
 
