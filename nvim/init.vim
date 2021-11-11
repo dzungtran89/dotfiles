@@ -49,6 +49,10 @@ set fileencodings=utf-8
 set history=500
 set ttyfast
 
+"" split more natural
+set splitbelow
+set splitright
+
 "" Use true colors
 " " using vim + tmux: https://github.com/vim/vim/issues/993
 " set t_8f=^[[38;2;%lu;%lu;%lum

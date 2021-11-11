@@ -65,7 +65,7 @@ if fn.PlugLoaded('lualine.nvim') == 1 then
   require'lualine'.setup {
     options = {
       icons_enabled = true,
-      theme = 'iceberg',
+      theme = 'nord',
       section_separators = { left = '', right = ''},
       component_separators = { left = '|', right = '|'},
       disabled_filetypes = {'fzf', 'coc-explorer', 'ctrlsf', 'tagbar'},
@@ -202,7 +202,8 @@ if fn.PlugLoaded('stabilize.nvim') == 1 then
     ignore = {  -- do not manage windows matching these file/buftypes
       filetype = { "help", "list", "Trouble" },
       buftype = { "terminal", "quickfix", "loclist", "ctrlsf" }
-    }
+    },
+    nested = nil
   })
 end
 

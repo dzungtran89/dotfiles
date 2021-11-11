@@ -5,7 +5,9 @@ set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'schasse/tmux-jump'
 set -g @plugin 'MunifTanjim/tmux-mode-indicator'
-set -g @plugin 'jabirali/tmux-tilish'
+
+# This plugin is really cool, but it doesn't fit me :(
+# set -g @plugin 'jabirali/tmux-tilish'
 
 set -g @jump-key '/'
 

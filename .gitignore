@@ -9,3 +9,5 @@ ref
 jesseduffield/lazygit/state.yml
 vifminfo*
 nvim/generated
+
+zsh/d/local.sh
