@@ -112,6 +112,8 @@ plugins=(
   tig
   zsh-autosuggestions
   fzf-tab
+  asdf
+  python
 
   # osx
   # pass
@@ -185,9 +187,9 @@ source $HOME/.d/aliases.sh
 
 # [[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
 
-# asdf
-. $HOME/.asdf/asdf.sh
-fpath=(${ASDF_DIR}/completions $fpath)
+# # asdf
+# . $HOME/.asdf/asdf.sh
+# fpath=(${ASDF_DIR}/completions $fpath)
 
 source $HOME/.d/helper.sh
 source $HOME/.d/venv.sh
