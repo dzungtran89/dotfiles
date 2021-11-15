@@ -20,9 +20,13 @@ Plug 'nathom/filetype.nvim'
 " Plug 'rstacruz/vim-closer'
 " Plug 'liuchengxu/vim-which-key'
 
-" let g:polyglot_disabled = []
-" Plug 'sheerun/vim-polyglot'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+let g:polyglot_disabled = []
+Plug 'sheerun/vim-polyglot'
+
+Plug '/usr/local/opt/fzf'
+" Or 
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+
 Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
 
@@ -72,7 +76,6 @@ Plug 'lewis6991/gitsigns.nvim'
 
 " FOR FUN {{{
 
-" Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-lualine/lualine.nvim'              " {'commit': '017620b'}
 Plug 'nanozuki/tabby.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
@@ -80,14 +83,12 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'lewis6991/impatient.nvim'
 Plug 'tweekmonster/startuptime.vim'
 
-" Plug 'lukas-reineke/format.nvim'
-
 " Required plenary
 " Plug 'nvim-telescope/telescope.nvim'
 " Plug 'alec-gibson/nvim-tetris'
 
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 " LATER {{{
 " Plug 'monaqa/dial.nvim'
