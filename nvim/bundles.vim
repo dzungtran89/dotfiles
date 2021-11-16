@@ -20,7 +20,13 @@ Plug 'nathom/filetype.nvim'
 " Plug 'rstacruz/vim-closer'
 " Plug 'liuchengxu/vim-which-key'
 
-let g:polyglot_disabled = []
+let g:polyglot_disabled = [
+      \'ftdetect',
+      \'python', 'go', 'c', 'vim', 'lua', 'sh',
+      \'xml', 'html', 'javascript',
+      \'markdown', 'yaml',
+      \'org', 'txt', 'rst',
+      \]
 Plug 'sheerun/vim-polyglot'
 
 Plug '/usr/local/opt/fzf'
@@ -87,8 +93,8 @@ Plug 'tweekmonster/startuptime.vim'
 " Plug 'nvim-telescope/telescope.nvim'
 " Plug 'alec-gibson/nvim-tetris'
 
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 " LATER {{{
 " Plug 'monaqa/dial.nvim'

@@ -22,8 +22,9 @@ parser_configs.xml = {
 
 require('nvim-treesitter.configs').setup {
   ensure_installed ={"xml", "python", "javascript", "html", "css"},
+  -- Respect the indent of polyglot
   indent = {
-    enable = true,
+    enable = false,
   },
   highlight = {
     enable = true,
