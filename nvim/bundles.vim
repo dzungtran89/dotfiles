@@ -8,7 +8,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'                    " required by fugitive to :Gbrowse
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'preservim/tagbar'
-Plug 'Jorengarenar/fauxClip'
 Plug 'numToStr/Comment.nvim'
 Plug 'nathom/filetype.nvim'
 

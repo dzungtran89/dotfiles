@@ -13,11 +13,7 @@ if PlugLoaded('gruvbox-flat.nvim')
 endif
 
 set bg=dark
-if !has('macunix')
-  colorscheme iceberg
-else
-  colorscheme iceberg
-endif
+colorscheme iceberg
 
 " set cursorcolumn
 set nojoinspaces                    " Join sentences with single space
@@ -188,18 +184,6 @@ if has_key(plugs, 'vim-better-whitespace')
   let g:better_whitespace_enabled = 1
   let g:strip_whitespace_on_save=0
 endif
-
-" WSL yank support {{{
-if !has("macunix")
-  let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
-  if executable(s:clip)
-    augroup WSLYank
-      autocmd!
-      autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
-    augroup END
-  endif
-endif
-" }}}
 
 if PlugLoaded('vim-matchup')
   " let g:matchup_delim_noskips = 1   " recognize symbols within comments

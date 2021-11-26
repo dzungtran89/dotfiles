@@ -65,7 +65,8 @@ if fn.PlugLoaded('lualine.nvim') == 1 then
   require'lualine'.setup {
     options = {
       icons_enabled = true,
-      theme = 'iceberg',
+      -- lualine can pick the theme based on colorscheme automatically
+      -- theme = 'iceberg',
       section_separators = { left = '', right = ''},
       component_separators = { left = '|', right = '|'},
       disabled_filetypes = {'fzf', 'coc-explorer', 'ctrlsf', 'tagbar'},
