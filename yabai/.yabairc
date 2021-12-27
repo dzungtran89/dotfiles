@@ -1,5 +1,10 @@
 #!/usr/bin/env sh
 
+# regex that matches apps that will be float
+apps='^(Docker Desktop|Steam|Font Book|Contacts|Installer|Books|Pomotroid|Be Focused|Xcode|Problem Reporter|About This Mac|Preview|Calendar|Dictionary|Messages|Keychain Access|Maps|Mail|EasyRes|Dozer|Stats|Parallels Desktop|LICEcap|DBngin|TablePlus|IINA|The Unarchiver|AppCleaner|App Store|System Preferences|System Information|Finder|Monosnap|Creative Cloud|Activity Monitor)$'
+
+yabai -m rule --add app="${apps}" manage=off
+
 # global settings
 yabai -m config mouse_follows_focus          off
 yabai -m config focus_follows_mouse          off
@@ -43,9 +48,4 @@ yabai -m config window_gap                   10
 
 # float system preferences
 #
-# regex that matches apps that will be float
-apps='^(Docker Desktop|Steam|Font Book|Contacts|Installer|Books|Pomotroid|Be Focused|Xcode|Problem Reporter|About This Mac|Preview|Calendar|Dictionary|Messages|Keychain Access|Maps|Mail|EasyRes|Dozer|Stats|Parallels Desktop|LICEcap|DBngin|TablePlus|IINA|The Unarchiver|AppCleaner|App Store|System Preferences|System Information|Finder|Monosnap|Creative Cloud|Activity Monitor)$'
-
-yabai -m rule --add app="${apps}" manage=off
-
 echo "yabai configuration loaded.."
