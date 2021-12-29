@@ -9,7 +9,7 @@ Plug 'tpope/vim-rhubarb'                    " required by fugitive to :Gbrowse
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'preservim/tagbar'
 Plug 'numToStr/Comment.nvim'
-Plug 'nathom/filetype.nvim'
+" Plug 'nathom/filetype.nvim'
 
 " RIP {{{
 
@@ -27,6 +27,8 @@ let g:polyglot_disabled = [
       \'org', 'txt', 'rst',
       \]
 Plug 'sheerun/vim-polyglot'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 Plug '/usr/local/opt/fzf'
 " Or 
@@ -82,7 +84,7 @@ Plug 'lewis6991/gitsigns.nvim'
 " FOR FUN {{{
 
 Plug 'nvim-lualine/lualine.nvim'              " {'commit': '017620b'}
-Plug 'nanozuki/tabby.nvim'
+" Plug 'nanozuki/tabby.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
 
 Plug 'lewis6991/impatient.nvim'
@@ -91,9 +93,6 @@ Plug 'tweekmonster/startuptime.vim'
 " Required plenary
 " Plug 'nvim-telescope/telescope.nvim'
 " Plug 'alec-gibson/nvim-tetris'
-
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 " LATER {{{
 " Plug 'monaqa/dial.nvim'

@@ -122,7 +122,7 @@ return {
   -- Hide title bar, but allow to resize border
   window_decorations           = "RESIZE",
   window_background_opacity    = 0.9,
-  hide_tab_bar_if_only_one_tab = hide_tab_bar_if_only_one_tab,
+  -- hide_tab_bar_if_only_one_tab = hide_tab_bar_if_only_one_tab,
 
   color_scheme = 'iceberg-dark',
 
