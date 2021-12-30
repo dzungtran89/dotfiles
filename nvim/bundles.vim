@@ -30,10 +30,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
-Plug '/usr/local/opt/fzf'
-" Or 
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
 
