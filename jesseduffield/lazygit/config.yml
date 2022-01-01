@@ -7,31 +7,9 @@ gui:
     commitLength:
         show: true
     mouseEvents: false
-    # theme:
-    #   lightTheme: false # For terminals with a light background
-    #   activeBorderColor:
-    #     - white
-    #     - bold
-    #   inactiveBorderColor:
-    #     - green
-    #   optionsTextColor:
-    #     - blue
-    #   selectedLineBgColor:
-    #     - default
-    #   selectedRangeBgColor:
-    #     - blue
-    # commitLength:
-    #   show: true
-    # mouseEvents: true
-    # skipUnstageLineWarning: false
-    # skipStashWarning: true
+    showFileTree: false
 git:
     branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium --oneline {{branchName}} --"
 
 reporting: "off"
 disableStartupPopups: true
-
-# keybinding:
-#   universal:
-#     quit: '<esc>'
-#     return: 'q'
