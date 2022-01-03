@@ -25,6 +25,7 @@ let g:polyglot_disabled = [
       \'xml', 'html', 'javascript',
       \'markdown', 'yaml',
       \'org', 'txt', 'rst',
+      \'git'
       \]
 Plug 'sheerun/vim-polyglot'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}

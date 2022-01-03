@@ -90,3 +90,4 @@ if [ -z "$SSH_AUTH_SOCK" ] ; then
     {eval `ssh-agent`; ssh-add ~/.ssh/id_ed25519;} &>/dev/null
 fi
 
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

@@ -10,7 +10,7 @@
 "
 "           https://github.com/amix/vimrc
 "
-" UPDATE: 
+" UPDATE:
 "       Minimal vimrc
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -60,8 +60,7 @@ Plug 'cocopon/iceberg.vim'
 Plug 'pechorin/any-jump.vim'
 Plug 'brooth/far.vim'
 
-Plug 'Jorengarenar/fauxClip'
-Plug 'Konfekt/FastFold'
+" Plug 'Konfekt/FastFold'
 " Plug 'Jorengarenar/vim-syntaxMarkerFold'
 
 Plug 'christoomey/vim-tmux-navigator'
@@ -81,7 +80,7 @@ call plug#end()
 set history=500
 set conceallevel=0
 set cursorline
-set cursorcolumn
+" set cursorcolumn
 set relativenumber
 set foldmethod=syntax
 set undodir="~/.vim/undo-dir"
@@ -125,20 +124,18 @@ nnoremap <leader>so :copen<CR>
 " (useful for handling the permission-denied error)
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 
-set clipboard=unnamed,unnamedplus
-set path+=**
+let s:clip = '/mnt/c/Windows/System32/clip.exe'
+if executable(s:clip)
+  augroup WSLYank
+    autocmd!
+    autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+  augroup END
 
-" WSL yank support {{{
-if !has("macunix")
-  let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
-  if executable(s:clip)
-    augroup WSLYank
-      autocmd!
-      autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
-    augroup END
-  endif
+elseif has('unnamedplus')
+  set clipboard+=unnamedplus
 endif
-" }}}
+
+set path+=**
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface {{{1

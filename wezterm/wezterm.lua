@@ -8,7 +8,7 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
     })
 
   -- Configs for Windows only
-  default_prog = {'wsl.exe', '~', '-d', 'Ubuntu-20.04'}
+  default_prog = {'nu'}
   font_dirs    = {'$HOME/scoop/apps/RobotoMono-NF/current'}
   font         = wezterm.font(
     'RobotoMono NF',

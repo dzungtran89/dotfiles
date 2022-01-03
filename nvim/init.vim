@@ -333,11 +333,6 @@ if has('autocmd')
   autocmd GUIEnter * set visualbell t_vb=
 endif
 
-" Fix for WSL
-if !has('macunix')
-  let g:loaded_clipboard_provider = 1
-endif
-
 "" Copy/Paste/Cut
 if has('unnamedplus')
   set clipboard+=unnamedplus
