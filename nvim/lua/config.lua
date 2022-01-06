@@ -208,6 +208,11 @@ if fn.PlugLoaded('stabilize.nvim') == 1 then
   })
 end
 
+if fn.PlugLoaded('neo-tree.nvim') == 1 then
+  require("neo-tree").setup()
+  vim.cmd([[nnoremap \ :NeoTreeReveal<cr>]])
+end
+
 
 -- GIT
 require('plugins._git')

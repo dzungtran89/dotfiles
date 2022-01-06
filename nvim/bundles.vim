@@ -43,7 +43,8 @@ Plug 'dzungtran89/vim-odoo-snippets'
 " NOTE-TAKING {{{
 Plug 'godlygeek/tabular'
 Plug 'samgriesemer/wiki.vim', {'commit': 'f0db9e3'}
-Plug 'samgriesemer/vim-roam', {'commit': '7688e18'}
+" Keep vim-roam simple and light, thanks to the author 🙏
+Plug 'dzungtran89/vim-roam'
 Plug 'kristijanhusak/orgmode.nvim'
 Plug 'akinsho/org-bullets.nvim'
 
