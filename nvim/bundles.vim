@@ -89,6 +89,9 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'lewis6991/impatient.nvim'
 Plug 'tweekmonster/startuptime.vim'
 
+Plug 'MunifTanjim/nui.nvim'
+Plug 'nvim-neo-tree/neo-tree.nvim'
+
 " Required plenary
 " Plug 'nvim-telescope/telescope.nvim'
 " Plug 'alec-gibson/nvim-tetris'

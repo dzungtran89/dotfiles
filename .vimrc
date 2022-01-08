@@ -245,13 +245,6 @@ if has("gui_running")
   set guitablabel=%M\ %t
 endif
 
-" use true colors in vim under tmux
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
-
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 
