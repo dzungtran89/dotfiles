@@ -30,7 +30,7 @@ parser_configs.vim = {
 
 require('nvim-treesitter.configs').setup {
   ensure_installed = {
-    "python", "vim", "lua", "dockerfile", "bash",
+    "python", "lua", "dockerfile", "bash",
     "xml", "javascript", "html", "css",
     "yaml",
     "rst", "org"
