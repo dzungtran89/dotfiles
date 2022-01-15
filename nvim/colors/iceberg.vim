@@ -155,14 +155,14 @@ if &background == 'light'
     let g:terminal_ansi_colors = ['#dcdfe7', '#cc517a', '#668e3d', '#c57339', '#2d539e', '#7759b4', '#3f83a6', '#33374c', '#8389a3', '#cc3768', '#598030', '#b6662d', '#22478e', '#6845ad', '#327698', '#262a3f']
   endif
 else
-  hi Normal ctermbg=234 ctermfg=252 guibg=#161821 guifg=#c6c8d1
+  hi Normal ctermbg=234 ctermfg=252 guibg=#161621 guifg=#c6c8d1
   hi ColorColumn cterm=NONE ctermbg=235 ctermfg=NONE guibg=#1e2132 guifg=NONE
   hi CursorColumn cterm=NONE ctermbg=235 ctermfg=NONE guibg=#1e2132 guifg=NONE
   hi CursorLine cterm=NONE ctermbg=235 ctermfg=NONE guibg=#1e2132 guifg=NONE
   hi Comment ctermfg=242 guifg=#6b7089
-  hi Conceal ctermbg=234 ctermfg=242 guibg=#161821 guifg=#6b7089
+  hi Conceal ctermbg=234 ctermfg=242 guibg=#161621 guifg=#6b7089
   hi Constant ctermfg=140 guifg=#a093c7
-  hi Cursor ctermbg=252 ctermfg=234 guibg=#c6c8d1 guifg=#161821
+  hi Cursor ctermbg=252 ctermfg=234 guibg=#c6c8d1 guifg=#161621
   hi CursorLineNr cterm=NONE ctermbg=237 ctermfg=253 guibg=#2a3158 guifg=#cdd1e6
   hi Delimiter ctermfg=252 guifg=#c6c8d1
   hi DiffAdd ctermbg=29 ctermfg=158 guibg=#45493e guifg=#c0c5b9
@@ -170,9 +170,9 @@ else
   hi DiffDelete cterm=NONE ctermbg=95 ctermfg=224 gui=NONE guibg=#53343b guifg=#ceb0b6
   hi DiffText cterm=NONE ctermbg=30 ctermfg=195 gui=NONE guibg=#5b7881 guifg=#c6c8d1
   hi Directory ctermfg=109 guifg=#89b8c2
-  hi Error ctermbg=234 ctermfg=203 guibg=#161821 guifg=#e27878
-  hi ErrorMsg ctermbg=234 ctermfg=203 guibg=#161821 guifg=#e27878
-  hi WarningMsg ctermbg=234 ctermfg=203 guibg=#161821 guifg=#e27878
+  hi Error ctermbg=234 ctermfg=203 guibg=#161621 guifg=#e27878
+  hi ErrorMsg ctermbg=234 ctermfg=203 guibg=#161621 guifg=#e27878
+  hi WarningMsg ctermbg=234 ctermfg=203 guibg=#161621 guifg=#e27878
   hi EndOfBuffer ctermfg=236 guifg=#242940
   hi NonText ctermfg=236 guifg=#242940
   hi Whitespace ctermfg=236 guifg=#242940
@@ -213,8 +213,8 @@ else
   hi Structure ctermfg=110 guifg=#84a0c6
   hi TabLine cterm=NONE ctermbg=233 ctermfg=238 gui=NONE guibg=#0f1117 guifg=#3e445e
   hi TabLineFill cterm=reverse ctermbg=238 ctermfg=233 gui=reverse guibg=#3e445e guifg=#0f1117
-  hi TabLineSel cterm=NONE ctermbg=234 ctermfg=252 gui=NONE guibg=#161821 guifg=#9a9ca5
-  hi TermCursorNC ctermbg=242 ctermfg=234 guibg=#6b7089 guifg=#161821
+  hi TabLineSel cterm=NONE ctermbg=234 ctermfg=252 gui=NONE guibg=#161621 guifg=#9a9ca5
+  hi TermCursorNC ctermbg=242 ctermfg=234 guibg=#6b7089 guifg=#161621
   hi Title ctermfg=216 gui=NONE guifg=#e2a478
   hi Todo ctermbg=234 ctermfg=150 guibg=#45493e guifg=#b4be82
   hi Type ctermfg=110 gui=NONE guifg=#84a0c6
@@ -241,7 +241,7 @@ else
   hi GitGutterDelete ctermbg=235 ctermfg=203 guibg=#1e2132 guifg=#e27878
   hi gitmessengerEndOfBuffer ctermbg=235 ctermfg=239 guibg=#1e2132 guifg=#444b71
   hi gitmessengerPopupNormal ctermbg=235 ctermfg=252 guibg=#1e2132 guifg=#c6c8d1
-  hi Sneak ctermbg=140 ctermfg=234 guibg=#a093c7 guifg=#161821
+  hi Sneak ctermbg=140 ctermfg=234 guibg=#a093c7 guifg=#161621
   hi SneakScope ctermbg=236 ctermfg=242 guibg=#272c42 guifg=#6b7089
   hi SyntasticErrorSign ctermbg=235 ctermfg=203 guibg=#1e2132 guifg=#e27878
   hi SyntasticStyleErrorSign ctermbg=235 ctermfg=203 guibg=#1e2132 guifg=#e27878

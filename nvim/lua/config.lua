@@ -118,10 +118,10 @@ if fn.PlugLoaded('nvim-web-devicons') == 1 then
     -- will get overriden by `get_icons` option
     default = true;
   }
+end
 
-  if fn.PlugLoaded('nvim-tree.lua') == 1 then
-    require('plugins._nvimtree')
-  end
+if fn.PlugLoaded('nvim-tree.lua') == 1 then
+  require('plugins._nvimtree')
 end
 
 if fn.PlugLoaded('format.nvim') == 1 then

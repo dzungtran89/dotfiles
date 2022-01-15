@@ -64,7 +64,6 @@ Plug 'Jorengarenar/vim-syntaxMarkerFold'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'Yggdroot/indentLine'
 Plug 'jeetsukumaran/vim-indentwise'
-Plug 'easymotion/vim-easymotion'
 Plug 'andymass/vim-matchup'
 
 "" Better if exit vim by <prefix><motion>
@@ -89,8 +88,9 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'lewis6991/impatient.nvim'
 Plug 'tweekmonster/startuptime.vim'
 
-Plug 'MunifTanjim/nui.nvim'
-Plug 'nvim-neo-tree/neo-tree.nvim'
+" Plug 'MunifTanjim/nui.nvim'
+" Plug 'nvim-neo-tree/neo-tree.nvim'
+Plug 'kyazdani42/nvim-tree.lua'
 
 " Required plenary
 " Plug 'nvim-telescope/telescope.nvim'
@@ -101,6 +101,8 @@ Plug 'nvim-neo-tree/neo-tree.nvim'
 " Plug 'posva/vim-vue'
 " Plug 'leafOfTree/vim-vue-plugin'
 " Plug 'mattn/emmet-vim'
-" Plug 'ggandor/lightspeed.nvim'                  " easymotion alternative
+Plug 'ggandor/lightspeed.nvim'                    " easymotion alternative
+Plug 'tpope/vim-surround'
 " Plug 'pwntester/octo.nvim'                      " github actions
 " Plug 'SmiteshP/nvim-gps'                        " tagbar alternative
+Plug 'mhartington/oceanic-next'
