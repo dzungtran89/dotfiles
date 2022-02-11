@@ -31,9 +31,10 @@ local mappings = {
 
   c = {
     name = "floaterm",
-    l = {":FloatermNew lazygit<CR>" , "lazygit"} ,
-    g = {":FloatermNew tig<CR>"     , "tig"}     ,
-    n = {":FloatermNew nnn<CR>"     , "nnn"}     ,
+    l = {":FloatermNew lazygit<CR>"   , "lazygit"} ,
+    g = {":FloatermNew tig<CR>"       , "tig"}     ,
+    n = {":FloatermNew nnn<CR>"       , "nnn"}     ,
+    v = {":FloatermNew gitui<CR>"     , "gitui"}   ,
   },
 
   -- w = {

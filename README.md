@@ -48,7 +48,7 @@ keymap       | note                                                             
 `<leader>js` | Get all refs under cursor by [jump](https://github.com/pechorin/any-jump.vim) |
 **Misc**     |
 `C-j`        | Pick snippet in `insert` mode                                                 |
-`<leader>gg` | :Git                                                                          |
+`<leader>ga` | :Git                                                                          |
 `<leader>cg` | floatterm [tig](https://github.com/jonas/tig)                                 |
 `<leader>cn` | floatterm [nnn](https://github.com/jarun/nnn)                                 |
 `<leader>cl` | floatterm [lazygit](https://github.com/jesseduffield/lazygit)                 |

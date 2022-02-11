@@ -20,24 +20,19 @@ parser_configs.xml = {
   },
 }
 
-parser_configs.vim = {
-  install_info = {
-    url = "https://github.com/vigoux/tree-sitter-viml",
-    files = { "src/parser.c" },
-    branch = "master"
-  },
-}
-
 require('nvim-treesitter.configs').setup {
   ensure_installed = {
-    "python", "lua", "dockerfile", "bash",
+    "python", "dockerfile", "bash",
     "xml", "javascript", "html", "css",
-    "yaml",
-    "rst", "org"
+    "yaml", "rst", "org",
+    "lua", "vim"
   },
   -- Respect the indent of polyglot
   indent = {
     enable = false,
+  },
+  yati = {
+    enable = true,
   },
   highlight = {
     enable = true,

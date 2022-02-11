@@ -69,15 +69,22 @@ if fn.PlugLoaded('lualine.nvim') == 1 then
       -- theme = 'iceberg',
       section_separators = { left = '', right = ''},
       component_separators = { left = '|', right = '|'},
-      disabled_filetypes = {'fzf', 'coc-explorer', 'ctrlsf', 'tagbar'},
+      disabled_filetypes = {'fzf', 'coc-explorer', 'ctrlsf', 'tagbar', 'netrw'},
       always_divide_middle = false,
     },
     sections = {
       lualine_a = {{ 'mode', separator = { left = '', right = ''}}},
-      lualine_b = {'branch', 'diff',
-      {'diagnostics', sources={'coc'}}},
+      lualine_b = {
+        'branch',
+        -- 'diff',
+      },
       lualine_c = {'filename'},
-      lualine_x = {'encoding', 'fileformat', 'filetype'},
+      lualine_x = {
+        {
+          'diagnostics', sources={'coc'}
+        },
+        'encoding', 'fileformat', 'filetype'
+      },
       lualine_y = {'progress'},
       lualine_z = {{ 'location', separator = { left = '', right = ''}}},
     },
@@ -213,6 +220,30 @@ if fn.PlugLoaded('neo-tree.nvim') == 1 then
   vim.cmd([[nnoremap \ :NeoTreeReveal<cr>]])
 end
 
+if fn.PlugLoaded('mini.nvim') == 1 then
+  require('mini.comment').setup()
+  require('mini.surround').setup({
+    mappings = {
+      add =            'gs',  -- Add surrounding
+      delete =         'gsd', -- Delete surrounding
+      find =           'gsf', -- Find surrounding (to the right)
+      find_left =      'gsF', -- Find surrounding (to the left)
+      highlight =      'gsh', -- Highlight surrounding
+      replace =        'gsr', -- Replace surrounding
+      update_n_lines = 'gsn', -- Update `n_lines`
+    },
+  })
+
+  -- require('mini.indentscope').gen_animation('none')
+  -- require('mini.indentscope').setup({
+  --     draw = {
+  --       delay = 1000,
+  --     }
+  --   }
+  -- )
+  --
+  require('mini.pairs').setup()
+end
 
 -- GIT
 require('plugins._git')

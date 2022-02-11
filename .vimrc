@@ -1,4 +1,4 @@
-" vim:ft=vim:fdm=marker:fdl=0
+" vim:ft=vim:fdm=marker:fdl=0:sw=2
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CREDITS:
 "       Amir Salihefendic — @amix3k
@@ -133,6 +133,9 @@ if executable(s:clip)
 
 elseif has('unnamedplus')
   set clipboard+=unnamedplus
+
+elseif has('macunix')
+  set clipboard=unnamed
 endif
 
 set path+=**

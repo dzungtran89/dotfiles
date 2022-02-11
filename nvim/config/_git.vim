@@ -1,6 +1,6 @@
 " Git
 if PlugLoaded('vim-fugitive')
-  noremap <leader>gg :Git<space>
+  noremap <leader>ga :Git<space>
   noremap <leader>go :.GBrowse<CR>
   noremap <leader>gw :GBrowse<CR>
   noremap <leader>gb :Git blame<CR>

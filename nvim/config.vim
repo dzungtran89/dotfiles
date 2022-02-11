@@ -108,7 +108,7 @@ set signcolumn=yes
 set synmaxcol=200
 
 set list
-set listchars=tab:→\ ,eol:¬,extends:❯,precedes:❮,trail:·,nbsp:·
+set listchars=tab:→\ ,eol:¬,extends:❯,precedes:❮,trail:·,nbsp:·,space:⋅
 
 " Highlight the column after 'textwidth'
 " set colorcolumn=+1
@@ -246,6 +246,9 @@ if PlugLoaded('FastFold')
   let g:r_syntax_folding = 1
   let g:rust_fold = 1
   let g:php_folding = 1
+
+else
+  let g:markdown_folding = 1
 endif
 
 if PlugLoaded('dial.nvim')

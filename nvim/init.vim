@@ -33,7 +33,9 @@ endif
 call plug#end()
 
 " Required:
-filetype plugin indent on
+if !has('nvim')
+  filetype plugin indent on
+endif
 
 function! PlugLoaded(name)
   return has_key(g:plugs, a:name) && isdirectory(g:plugs[a:name].dir)
@@ -183,11 +185,6 @@ nnoremap N Nzzzv
 
 nnoremap <F3> :grep! "^def\\\|^class\\\|^    def\\\\| = fields\\." `find . -name "*.py"`<CR><CR>
 vnoremap <F3> "zy:grep! "<C-R>z" `find . -name "*.py"`<LEFT><LEFT>
-
-"
-if exists("*fugitive#statusline")
-  set statusline+=%{fugitive#statusline()}
-endif
 
 "*****************************************************************************
 "" Abbreviations
