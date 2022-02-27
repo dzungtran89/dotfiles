@@ -9,6 +9,7 @@ fi
 
 # export PATH=$HOME/code/github/dotfiles/git/diff-so-fancy:$PATH
 export PATH=$HOME/.local/bin:$PATH
+export PATH="$PATH:/opt/mssql-tools/bin"
 
 # export NVM_DIR="$HOME/.config/nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
