@@ -11,23 +11,8 @@
 # Use the command 'task show' to see all defaults and overrides
 
 # Files
-data.location=~/.task
-
-# Color theme (uncomment one to use)
-#include /usr/local/Cellar/task/2.6.1/share/doc/task/rc/light-16.theme
-#include /usr/local/Cellar/task/2.6.1/share/doc/task/rc/light-256.theme
-# include /usr/local/Cellar/task/2.6.1/share/doc/task/rc/dark-16.theme
-#include /usr/local/Cellar/task/2.6.1/share/doc/task/rc/dark-256.theme
-#include /usr/local/Cellar/task/2.6.1/share/doc/task/rc/dark-red-256.theme
-#include /usr/local/Cellar/task/2.6.1/share/doc/task/rc/dark-green-256.theme
-#include /usr/local/Cellar/task/2.6.1/share/doc/task/rc/dark-blue-256.theme
-#include /usr/local/Cellar/task/2.6.1/share/doc/task/rc/dark-violets-256.theme
-#include /usr/local/Cellar/task/2.6.1/share/doc/task/rc/dark-yellow-green.theme
-#include /usr/local/Cellar/task/2.6.1/share/doc/task/rc/dark-gray-256.theme
-#include /usr/local/Cellar/task/2.6.1/share/doc/task/rc/dark-gray-blue-256.theme
-# include /usr/local/Cellar/task/2.6.1/share/doc/task/rc/solarized-dark-256.theme
-#include /usr/local/Cellar/task/2.6.1/share/doc/task/rc/solarized-light-256.theme
-#include /usr/local/Cellar/task/2.6.1/share/doc/task/rc/no-color.theme
+data.location=$HOME/.task
+include $HOME/.taskdrc
 
 news.version=2.6.0
 uda.reviewed.type=date
@@ -48,3 +33,15 @@ uda.estimate.label=Est
 
 uda.url.type=string
 uda.url.label=URL
+
+context.work.read=+tz
+context.work.write=+tz
+context.me.read=+me
+context.me.write=+me
+context.lms.read=proj:lms
+context.lms.write=proj:lms
+context=work
+context.pepi.read=proj:pepi
+context.pepi.write=proj:pepi
+context.showdoo.read=proj:showdoo
+context.showdoo.write=proj:showdoo

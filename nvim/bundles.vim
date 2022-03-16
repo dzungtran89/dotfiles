@@ -70,7 +70,7 @@ Plug 'vimlab/split-term.vim'
 Plug 'voldikss/vim-floaterm'
 
 Plug 'nvim-lua/plenary.nvim'
-Plug 'lewis6991/gitsigns.nvim'
+" Plug 'lewis6991/gitsigns.nvim'
 
 " DEBUGGING {{{
 " Plug 'mfussenegger/nvim-dap' | Plug 'mfussenegger/nvim-dap-python'
