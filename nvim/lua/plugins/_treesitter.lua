@@ -28,6 +28,9 @@ require('nvim-treesitter.configs').setup {
     "lua", "vim"
   },
   indent = {
+    enable = false,
+  },
+  yati = {
     enable = true,
   },
   highlight = {
