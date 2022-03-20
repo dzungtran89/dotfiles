@@ -33,7 +33,7 @@ Plug 'echasnovski/mini.nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-Plug 'yioneko/nvim-yati'
+" Plug 'yioneko/nvim-yati'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'

@@ -27,11 +27,7 @@ require('nvim-treesitter.configs').setup {
     "yaml", "rst", "org",
     "lua", "vim"
   },
-  -- Respect the indent of polyglot
   indent = {
-    enable = false,
-  },
-  yati = {
     enable = true,
   },
   highlight = {
