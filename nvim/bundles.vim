@@ -37,7 +37,6 @@ Plug 'yioneko/nvim-yati'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
-Plug 'pbogut/fzf-mru.vim'
 
 "" SNIPPETS {{{
 Plug 'SirVer/ultisnips'
@@ -55,7 +54,7 @@ Plug 'akinsho/org-bullets.nvim'
 " SEARCHING {{{
 Plug 'pechorin/any-jump.vim'
 Plug 'dyng/ctrlsf.vim'
-Plug 'brooth/far.vim'
+Plug 'https://github.com/tpope/vim-eunuch'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf'
@@ -70,15 +69,11 @@ Plug 'vimlab/split-term.vim'
 Plug 'voldikss/vim-floaterm'
 
 Plug 'nvim-lua/plenary.nvim'
-" Plug 'lewis6991/gitsigns.nvim'
-
-" DEBUGGING {{{
-" Plug 'mfussenegger/nvim-dap' | Plug 'mfussenegger/nvim-dap-python'
-" Plug 'rcarriga/nvim-dap-ui'
+Plug 'https://github.com/lewis6991/gitsigns.nvim'
 
 " FOR FUN {{{
 
-Plug 'nvim-lualine/lualine.nvim'              " {'commit': '017620b'}
+" Plug 'nvim-lualine/lualine.nvim'              " {'commit': '017620b'}
 Plug 'norcalli/nvim-colorizer.lua'
 
 Plug 'lewis6991/impatient.nvim'

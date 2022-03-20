@@ -1,8 +1,10 @@
 #!/usr/bin/env sh
 
 # regex that matches apps that will be float
-apps='^(Docker Desktop|Steam|Font Book|Contacts|Installer|Books|Pomotroid|Be Focused|Xcode|Problem Reporter|About This Mac|Preview|Calendar|Dictionary|Messages|Keychain Access|Maps|Mail|EasyRes|Dozer|Stats|Parallels Desktop|LICEcap|DBngin|TablePlus|IINA|The Unarchiver|AppCleaner|App Store|System Preferences|System Information|Finder|Monosnap|Creative Cloud|Activity Monitor)$'
+apps='^(Docker Desktop|Steam|Contacts|Installer|Books|Pomotroid|Be Focused|Xcode|Problem Reporter|About This Mac|Preview|Calendar|Dictionary|Messages|Keychain Access|Maps|Mail|EasyRes|Dozer|Stats|Parallels Desktop|LICEcap|DBngin|TablePlus|IINA|The Unarchiver|AppCleaner|App Store|System Preferences|System Information|Monosnap|Creative Cloud|Activity Monitor)$'
+stick_apps='^(WPS Office|Finder|Font Book)$'
 
+yabai -m rule --add app="${stick_apps}" sticky=on layer=above manage=off
 yabai -m rule --add app="${apps}" manage=off
 
 # global settings

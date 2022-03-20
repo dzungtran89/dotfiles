@@ -114,6 +114,7 @@ plugins=(
   fzf-tab
   python
   taskwarrior
+  tmuxinator
 
   # osx
   # pass

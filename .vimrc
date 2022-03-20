@@ -58,12 +58,11 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-vinegar'
 Plug 'cocopon/iceberg.vim'
 Plug 'pechorin/any-jump.vim'
-Plug 'brooth/far.vim'
+Plug 'https://github.com/godlygeek/tabular'
+Plug 'https://github.com/tpope/vim-eunuch'
 
-" Plug 'Konfekt/FastFold'
-" Plug 'Jorengarenar/vim-syntaxMarkerFold'
-
-Plug 'christoomey/vim-tmux-navigator'
+" Plug 'brooth/far.vim'
+" Plug 'christoomey/vim-tmux-navigator'
 Plug 'itchyny/lightline.vim'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
