@@ -45,3 +45,7 @@ context.pepi.read=proj:pepi
 context.pepi.write=proj:pepi
 context.showdoo.read=proj:showdoo
 context.showdoo.write=proj:showdoo
+context.avy.read=pro:avy
+context.avy.write=pro:avy
+context.guitar.read=pro:guitar
+context.guitar.write=pro:guitar
