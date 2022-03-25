@@ -86,6 +86,10 @@ set undodir="~/.vim/undo-dir"
 set list
 set listchars=tab:→\ ,eol:¬,extends:❯,precedes:❮,trail:·,nbsp:·
 
+if &term =~ '^screen'
+  set term=xterm
+endif
+
 " Remove trailing whitespaces
 command! FixWhitespace :%s/\s\+$//e
 
@@ -573,7 +577,11 @@ endif
 " SEARCHING {{{
 
 " grep.vim
-nnoremap <silent> <leader>ff :Rgrep<CR>
+if executable('rg')
+  set grepprg=rg\ --vimgrep
+endif
+
+nnoremap <leader>ff :Rg<space>
 let Grep_Default_Options = '-IR'
 let Grep_Skip_Files = '*.log *.db'
 let Grep_Skip_Dirs = '.git node_modules'
@@ -581,6 +589,8 @@ let Grep_Skip_Dirs = '.git node_modules'
 if has_key(plugs, 'fzf.vim')
 
   "" fzf.vim
+  let g:fzf_preview_window = ['right:40%:hidden', 'ctrl-/']
+
   set wildmode=list:longest,list:full
   set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
   let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
@@ -594,8 +604,12 @@ if has_key(plugs, 'fzf.vim')
   " ripgrep
   if executable('rg')
     let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
-    set grepprg=rg\ --vimgrep
-    command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+    " command! -bang -nargs=* Find 
+    "       \ call fzf#vim#grep('rg --column --line-number --no-heading --smart-case --hidden --follow --glob "!.git/*" --color "always" 
+    "       \'.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+    command! -bang -nargs=* Rg
+          \ call fzf#vim#grep('rg --column --line-number --no-heading --smart-case --hidden --follow --glob "!.git/*" --color "always" '
+          \ . <q-args>, 1, fzf#vim#with_preview(), <bang>0)
   endif
 
   nn <leader>bb :Buffers<CR>
