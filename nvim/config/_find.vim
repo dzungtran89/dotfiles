@@ -29,10 +29,15 @@ if PlugLoaded('ctrlsf.vim')
 
   vmap     <leader>sp <Plug>CtrlSFVwordPath
   nmap     <leader>sn <Plug>CtrlSFCwordPath
-  nmap     <leader>sf <Plug>CtrlSFPrompt -G *
+  nmap     <leader>1  <Plug>CtrlSFPrompt -G *py<space>
+  vmap     <leader>1  <Plug>CtrlSFPrompt -G *py<space>
+  nmap     <leader>2  <Plug>CtrlSFPrompt -G *xml<space>
+  nmap     <leader>3  <Plug>CtrlSFPrompt -G *js<space>
   nmap     <leader>st <Plug>CtrlSFPrompt "#.*(TODO\|TOCHECK\|FIXME)" -G *
   nnoremap <leader>p :CtrlSFToggle<CR>
 
+  " Get the first assign of the var undercursor"
+  nn       <localleader>1 zy[i<CR>
 else
 
   " grep.vim
