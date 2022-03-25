@@ -300,3 +300,37 @@ if PlugLoaded('vim-surround')
   xmap gs       <Plug>VSurround
   xmap gS       <Plug>VgSurround
 endif
+
+if PlugLoaded('wilder.nvim')
+  " Default keys
+  call wilder#setup({
+    \ 'modes': [':'],
+    \ 'enable_cmdline_enter': 0,
+    \ 'next_key': '<Tab>',
+    \ 'previous_key': '<S-Tab>',
+    \ 'accept_key': '<Down>',
+    \ 'reject_key': '<Up>',
+    \ })
+
+  call wilder#set_option('pipeline', [
+      \   wilder#branch(
+      \     wilder#cmdline_pipeline({
+      \       'language': has('nvim') ? 'python3' : 'vim',
+      \       'fuzzy': 1
+    \       }),
+      \     wilder#python_search_pipeline({
+      \       'pattern': wilder#python_fuzzy_pattern(),
+      \       'sorter': wilder#python_difflib_sorter(),
+      \       'engine': 're',
+      \     }),
+      \   ),
+      \ ])
+
+  call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_border_theme({
+      \ 'highlights': {
+      \   'border': 'Normal',
+      \ },
+      \ 'border': 'rounded',
+      \ 'pumblend': 20,
+      \ })))
+endif

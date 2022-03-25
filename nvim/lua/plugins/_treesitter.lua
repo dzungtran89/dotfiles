@@ -3,15 +3,6 @@ local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
 vim.o.foldmethod = 'expr'
 vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
 
-parser_configs.org = {
-  install_info = {
-    url = 'https://github.com/gagbo/tree-sitter-org',
-    files = {'src/parser.c'},
-    branch = 'develop',
-  },
-  filetype = 'org',
-}
-
 parser_configs.xml = {
   install_info = {
     url = "https://github.com/unhammer/tree-sitter-xml",

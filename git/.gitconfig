@@ -50,14 +50,13 @@
   bs = bisect
   rb = rebase
   rs = reset
-  ; rsh = reset --hard $(git rev-parse --abbrev-ref --symbolic-full-name @{u})
   cm = commit
   ca = commit --amend
+  cf = commit --fixup
   co = checkout
   cp = cherry-pick
   lg = log --oneline
   last = log -1 HEAD --oneline
-  ; cl = log -p -- ':(exclude)Cargo.lock'
   pf = push -f
   ps = push
   mt = mergetool

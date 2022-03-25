@@ -23,5 +23,8 @@
   "explorer.git.enable": false,
   "explorer.position": "left",
   "explorer.floating.height": 30,
-  "explorer.floating.width": 70
+  "explorer.floating.width": 70,
+  "suggest.floatConfig": {
+    "border": true
+  }
 }

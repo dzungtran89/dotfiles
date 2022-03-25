@@ -78,6 +78,7 @@ Plug 'norcalli/nvim-colorizer.lua'
 
 Plug 'lewis6991/impatient.nvim'
 Plug 'tweekmonster/startuptime.vim'
+Plug 'gelguy/wilder.nvim'
 
 " Required plenary
 " Plug 'nvim-telescope/telescope.nvim'
