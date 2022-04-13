@@ -51,3 +51,5 @@ context.guitar.write=pro:guitar
 context.og.read=pro:og
 context.og.write=pro:og
 context=work
+context.vi.read=+vim
+context.vi.write=+vim

@@ -6,21 +6,6 @@
   editor = vi
   quotePath = false
   commitGraph = true
-; [pager]
-;   diff = delta
-;   log = delta
-;   reflog = delta
-;   show = delta
-; [delta]
-;   features = side-by-side decorations
-;   whitespace-error-style = 22 reverse
-;   line-numbers = true
-; [delta "decorations"]
-;   commit-decoration-style = bold yellow box ul
-;   file-style = bold yellow ul
-;   file-decoration-style = none
-; [interactive]
-;   diffFilter = delta --color-only
 [color]
   ui = true
 [gc]
@@ -70,6 +55,7 @@
   sm = submodule
   si = status --ignore-submodules
   di = diff --ignore-submodules
+  dft = difftool
 [url "git@gitlab.trobz.com:"]
   insteadOf = glt:
 [url "git@github.com:"]
@@ -85,3 +71,11 @@
 [tig "bind"]
   main = = !git commit --fixup=%(commit)
   main = <C-r> !git rebase --autosquash -i %(commit)
+; [diff]
+;   external = difft
+; [difftool]
+;   prompt = false
+; [difftool "difftastic"]
+;   cmd = difft "$LOCAL" "$REMOTE"
+; [pager]
+;   difftool = true

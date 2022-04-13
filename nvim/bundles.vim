@@ -9,15 +9,7 @@ Plug 'echasnovski/mini.nvim'
 
 " RIP {{{
 
-" Plug 'jiangmiao/auto-pairs'
-" Plug 'preservim/tagbar'
-" Plug 'numToStr/Comment.nvim'
-" Plug 'nathom/filetype.nvim'
-" Plug 'tpope/vim-commentary'
-" Plug 'dense-analysis/ale'
-" Plug 'airblade/vim-gitgutter'
-" Plug 'rstacruz/vim-closer'
-" Plug 'liuchengxu/vim-which-key'
+Plug 'tpope/vim-commentary'
 
 " let g:polyglot_disabled = [
 "       \'ftdetect',
@@ -27,7 +19,6 @@ Plug 'echasnovski/mini.nvim'
 "       \'org', 'txt', 'rst',
 "       \'git'
 "       \]
-" Plug 'sheerun/vim-polyglot'
 
 " }}}
 
@@ -73,24 +64,12 @@ Plug 'https://github.com/lewis6991/gitsigns.nvim'
 
 " FOR FUN {{{
 
-" Plug 'nvim-lualine/lualine.nvim'              " {'commit': '017620b'}
 Plug 'norcalli/nvim-colorizer.lua'
 
 Plug 'lewis6991/impatient.nvim'
 Plug 'tweekmonster/startuptime.vim'
 Plug 'gelguy/wilder.nvim'
 
-" Required plenary
-" Plug 'nvim-telescope/telescope.nvim'
-" Plug 'alec-gibson/nvim-tetris'
-
 " LATER {{{
-" Plug 'monaqa/dial.nvim'
-" Plug 'posva/vim-vue'
-" Plug 'leafOfTree/vim-vue-plugin'
-" Plug 'mattn/emmet-vim'
 Plug 'ggandor/lightspeed.nvim'                    " easymotion alternative
-" Plug 'tpope/vim-surround'
-" Plug 'pwntester/octo.nvim'                      " github actions
-" Plug 'SmiteshP/nvim-gps'                        " tagbar alternative
 Plug 'rebelot/kanagawa.nvim'

@@ -12,3 +12,4 @@ nvim/generated
 
 zsh/d/local.sh
 zsh/a
+node_modules

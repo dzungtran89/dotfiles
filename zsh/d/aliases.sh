@@ -147,12 +147,12 @@ chu() {
     tmux split-window -h
     tmux send-keys n Enter
     tmux split-window -h asciiquarium
+    tmux split-window htop
     tmux select-layout main-horizontal
 
     # 2nd window
     tmux new-window -t chu:2
     tmux rename-window conf
-    tmux split-window -h htop
     tmux split-window
     # tmux split-window cmatrix -u 10
 

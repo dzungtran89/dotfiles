@@ -1,15 +1,18 @@
 gui:
-    theme:
-        selectedLineBgColor:
-            - reverse
-        selectedRangeBgColor:
-            - reverse
+  theme:
+    selectedLineBgColor:
+      - reverse
+    selectedRangeBgColor:
+      - reverse
     commitLength:
-        show: true
+      show: true
     mouseEvents: false
     showFileTree: false
 git:
-    branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium --oneline {{branchName}} --"
+  branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium --oneline {{branchName}} --"
 
 reporting: "off"
 disableStartupPopups: true
+
+services:
+  'gitlab.trobz.com': 'gitlab:gitlab.trobz.com'

@@ -221,7 +221,6 @@ if fn.PlugLoaded('neo-tree.nvim') == 1 then
 end
 
 if fn.PlugLoaded('mini.nvim') == 1 then
-  require('mini.comment').setup()
   require('mini.surround').setup({
     mappings = {
       add =            'gs',  -- Add surrounding
@@ -233,15 +232,6 @@ if fn.PlugLoaded('mini.nvim') == 1 then
       update_n_lines = 'gsn', -- Update `n_lines`
     },
   })
-
-  -- require('mini.indentscope').gen_animation('none')
-  -- require('mini.indentscope').setup({
-  --     draw = {
-  --       delay = 1000,
-  --     }
-  --   }
-  -- )
-  --
   require('mini.pairs').setup()
 end
 

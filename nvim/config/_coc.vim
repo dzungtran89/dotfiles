@@ -2,7 +2,6 @@ if PlugLoaded('coc.nvim')
 
 lua << EOF
 vim.g.coc_global_extensions = { 
-  "coc-explorer",
   "coc-lists",
   "coc-tsserver",
   "coc-ultisnips",
