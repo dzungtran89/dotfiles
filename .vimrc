@@ -87,7 +87,7 @@ set list
 set listchars=tab:→\ ,eol:¬,extends:❯,precedes:❮,trail:·,nbsp:·
 
 if &term =~ '^screen'
-  set term=xterm
+  set term=xterm-256color
 endif
 
 " Remove trailing whitespaces

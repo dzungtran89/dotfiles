@@ -166,42 +166,12 @@ if PlugLoaded('editorconfig-vim')
   let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 endif
 
-if PlugLoaded('vim-multiple-cursors')
-  let g:multi_cursor_use_default_mapping=0
-
-  " Default mapping
-  let g:multi_cursor_start_word_key      = '<C-n>'
-  let g:multi_cursor_select_all_word_key = '<A-n>'
-  let g:multi_cursor_start_key           = 'g<C-n>'
-  let g:multi_cursor_select_all_key      = 'g<A-n>'
-  let g:multi_cursor_next_key            = '<C-n>'
-  let g:multi_cursor_prev_key            = '<C-p>'
-  let g:multi_cursor_skip_key            = '<C-x>'
-  let g:multi_cursor_quit_key            = '<Esc>'
-endif
-
-if has_key(plugs, 'vim-better-whitespace')
-  let g:better_whitespace_enabled = 1
-  let g:strip_whitespace_on_save=0
-endif
-
 if PlugLoaded('vim-matchup')
   " let g:matchup_delim_noskips = 1   " recognize symbols within comments
   let g:matchup_delim_noskips = 2   " don't recognize anything in comments
   " Note: cs% command might be conflicted with vim-surround
   let g:matchup_surround_enabled = 1
   let g:matchup_delim_stopline = 500
-endif
-
-if PlugLoaded('quick-scope')
-
-  " Trigger a highlight in the appropriate direction when pressing these keys:
-  let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-  let g:qs_max_chars=79
-  let g:qs_buftype_blacklist = ['terminal', 'nofile']
-  let g:qs_filetype_blacklist = ['dashboard', 'startify']
-  let g:qs_lazy_highlight = 1
-
 endif
 
 if PlugLoaded('split-term.vim')
@@ -225,61 +195,6 @@ if PlugLoaded('vim-floaterm')
   let g:floaterm_wintitle=0
   let g:floaterm_autoclose=1
 endif
-
-if PlugLoaded('FastFold')
-  nmap zuz <Plug>(FastFoldUpdate)
-
-  let g:fastfold_savehook = 0
-  let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
-  let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
-
-  " Specific fold specific for fts
-  let g:markdown_folding = 0
-  let g:tex_fold_enabled = 1
-  let g:vimsyn_folding = 'af'
-  let g:xml_syntax_folding = 1
-  let g:javaScript_fold = 1
-  let g:sh_fold_enabled= 7
-  let g:ruby_fold = 1
-  let g:perl_fold = 1
-  let g:perl_fold_blocks = 1
-  let g:r_syntax_folding = 1
-  let g:rust_fold = 1
-  let g:php_folding = 1
-
-else
-  let g:markdown_folding = 1
-endif
-
-if PlugLoaded('dial.nvim')
-  nmap <C-Right> <Plug>(dial-increment)
-  nmap <C-Left> <Plug>(dial-decrement)
-  vmap <C-right> <Plug>(dial-increment)
-  vmap <C-left> <Plug>(dial-decrement)
-  vmap g<C-i> <Plug>(dial-increment-additional)
-  vmap g<C-x> <Plug>(dial-decrement-additional)
-endif
-
-augroup init_colors
-  au!
-  au ColorScheme * call ApplyColorTweaks()
-augroup END
-
-" Colorscheme tweaks
-function! ApplyColorTweaks()
-  let g:colorscheme = g:colors_name
-  if g:colorscheme ==# "tokyonight"
-    hi! link ColorColumn CursorLine
-    hi! link NvimTreeRootFolder String
-    hi! link NvimTreeFolderIcon NormalFloat
-    hi! link NvimTreeFolderName Directory
-    hi DiffAdd    guibg=#283B4D guifg=NONE
-    hi DiffChange guibg=#283B4D guifg=NONE
-    hi DiffDelete guibg=#3C2C3C guifg=#4d384d
-    hi DiffText   guibg=#365069 guifg=NONE
-    hi! DiffviewNormal guifg=#a9b1d6 guibg=#1f2335
-  endif
-endfunction
 
 if !PlugLoaded('coc.nvim')
   " Fallback to native session if coc is not loaded

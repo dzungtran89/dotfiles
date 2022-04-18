@@ -509,6 +509,3 @@ lua require('init')
 if has('nvim-0.6')
   unmap Y
 endif
-
-" POST: reload the vim config
-nnoremap <silent> <leader>rl :source ~/.config/nvim/init.vim<CR>
