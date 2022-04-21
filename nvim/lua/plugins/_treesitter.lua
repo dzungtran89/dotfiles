@@ -36,6 +36,10 @@ require('nvim-treesitter.configs').setup {
       node_decremental = 'grm',
     },
   },
+  auto_tag = {
+    enable = true,
+    filetyles = {"html", "xml"}
+  },
   textobjects = {
     select = {
       enable = true,
