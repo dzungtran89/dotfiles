@@ -1,13 +1,13 @@
 gui:
+  mouseEvents: false
+  showFileTree: false
   theme:
     selectedLineBgColor:
       - reverse
     selectedRangeBgColor:
       - reverse
-    commitLength:
-      show: true
-    mouseEvents: false
-    showFileTree: false
+  commitLength:
+    show: true
 git:
   branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium --oneline {{branchName}} --"
 

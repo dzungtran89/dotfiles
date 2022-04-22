@@ -143,18 +143,13 @@ chu() {
     # 1st window
     tmux rename-window work
     tmux send-keys vim\ -S\ $HOME/.nvim/session/df.vim Enter
-    tmux split-window
     tmux split-window -h
+    tmux split-window
     tmux send-keys n Enter
-    tmux split-window -h asciiquarium
-    tmux split-window htop
-    tmux select-layout main-horizontal
 
     # 2nd window
     tmux new-window -t chu:2
     tmux rename-window conf
-    tmux split-window
-    # tmux split-window cmatrix -u 10
 
     # post
     tmux select-window -t chu:1

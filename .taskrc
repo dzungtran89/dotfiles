@@ -53,3 +53,5 @@ context.og.write=pro:og
 context=work
 context.vi.read=+vim
 context.vi.write=+vim
+context.goal.read=+goal
+context.goal.write=+goal
