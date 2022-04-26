@@ -67,7 +67,7 @@ textboxes:
     border: false
 asciiboxes:
   - title: UTC time
-    position: [[5, 20], [35, 7]]
+    position: [[0, 20], [45, 7]]
     rate-ms: 1000
     sample: env TZ=UTC date +%r
     border: false

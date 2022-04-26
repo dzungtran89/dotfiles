@@ -11,7 +11,7 @@ vim.g.coc_global_extensions = {
 
 vim.g.python3_host_prog = 'python3'
 vim.g.python2_host_prog = 'python2'
-vim.g.ruby_host_prog = '$(which ruby)'
+vim.g.ruby_host_prog = 'ruby'
 EOF
 
   let g:coc_disable_fts = ['coc-explorer', 'ctrlsf', 'terminal']
