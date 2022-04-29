@@ -1,23 +1,26 @@
 if PlugLoaded('coc.nvim')
 
-lua << EOF
-vim.g.coc_global_extensions = { 
-  "coc-lists",
-  "coc-tsserver",
-  "coc-ultisnips",
-  "coc-pyright",
-  "coc-emoji",
+  lua << EOF
+  vim.g.coc_global_extensions = {
+    "coc-lists",
+    "coc-tsserver",
+    "coc-ultisnips",
+    "coc-pyright",
+    "coc-emoji",
   }
 
-vim.g.python3_host_prog = 'python3'
-vim.g.python2_host_prog = 'python2'
-vim.g.ruby_host_prog = 'ruby'
+  vim.g.python3_host_prog = 'python3'
+  vim.g.python2_host_prog = 'python2'
+  vim.g.ruby_host_prog = 'ruby'
 EOF
 
-  let g:coc_disable_fts = ['coc-explorer', 'ctrlsf', 'terminal']
+  let g:coc_disable_fts = [
+    \'coc-explorer', 'ctrlsf', 'terminal', 'netrw',
+    \'fugitive', 'fugitiveblame', 'gitcommit'
+  \]
 
   function! s:disable_coc_for_type()
-    if (index(g:coc_disable_fts, &filetype) == 0 || &buftype == "terminal")
+    if (index(g:coc_disable_fts, &filetype) != -1 || &buftype == "terminal")
       let b:coc_enabled = 0
     endif
   endfunction
@@ -27,13 +30,13 @@ EOF
     autocmd BufNew,BufEnter * call s:disable_coc_for_type()
   augroup end
 
-  autocmd FileType python let b:coc_root_patterns = ['.env', '.git']
+    autocmd FileType python let b:coc_root_patterns = ['.env', '.git']
   " autocmd FileType * let b:coc_suggest_disable = 1
 
   " Highlight the symbol and its references when holding the cursor.
   " autocmd CursorHold * silent     call CocActionAsync('highlight')
   " autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
   " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
   " delays and poor user experience.
@@ -46,9 +49,9 @@ EOF
   " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
   " other plugin before putting this into your config.
   inoremap <silent><expr> <TAB>
-        \ pumvisible() ? "\<C-n>" :
-        \ <SID>check_back_space() ? "\<TAB>" :
-        \ coc#refresh()
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
   inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
   " CheckBackspace
@@ -85,25 +88,25 @@ EOF
   function! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
       execute 'h '.expand('<cword>')
-    elseif (coc#rpc#ready())
+      elseif (coc#rpc#ready())
       call CocActionAsync('doHover')
     else
       execute '!' . &keywordprg . " " . expand('<cword>')
     endif
   endfunction
 
-	function! StatusDiagnostic() abort
-	  let info = get(b:, 'coc_diagnostic_info', {})
-	  if empty(info) | return '' | endif
-	  let msgs = []
-	  if get(info, 'error', 0)
-	    call add(msgs, 'E' . info['error'])
-	  endif
-	  if get(info, 'warning', 0)
-	    call add(msgs, 'W' . info['warning'])
-	  endif
-	  return join(msgs, ' ') . ' ' . get(g:, 'coc_status', '')
-	endfunction
+  function! StatusDiagnostic() abort
+    let info = get(b:, 'coc_diagnostic_info', {})
+    if empty(info) | return '' | endif
+    let msgs = []
+    if get(info, 'error', 0)
+      call add(msgs, 'E' . info['error'])
+    endif
+    if get(info, 'warning', 0)
+      call add(msgs, 'W' . info['warning'])
+    endif
+    return join(msgs, ' ') . ' ' . get(g:, 'coc_status', '')
+  endfunction
 
   " Symbol renaming.
   nmap <leader>rn <Plug>(coc-rename)
@@ -167,7 +170,7 @@ EOF
 
   function! s:GrepArgs(...)
     let list = ['-S', '-smartcase', '-i', '-ignorecase', '-w', '-word',
-          \ '-e', '-regex', '-u', '-skip-vcs-ignores', '-t', '-extension']
+      \ '-e', '-regex', '-u', '-skip-vcs-ignores', '-t', '-extension']
     return join(list, "\n")
   endfunction
 
@@ -178,7 +181,7 @@ EOF
     let saved_unnamed_register = @@
     if a:type ==# 'v'
       normal! `<v`>y
-    elseif a:type ==# 'char'
+      elseif a:type ==# 'char'
       normal! `[v`]y
     else
       return

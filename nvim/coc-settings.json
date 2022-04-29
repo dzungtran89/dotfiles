@@ -14,8 +14,16 @@
   "explorer.position": "left",
   "explorer.floating.height": 30,
   "explorer.floating.width": 70,
+
   "suggest.floatConfig": {
-    "border": true
+    "border": true,
+    "maxWidth": 60,
+    "maxHeight": 50
+  },
+
+  "diagnostic.floatConfig": {
+    "border": true,
+    "maxWidth": 60
   },
 
   "rome.bin": "~/.asdf/shims/rome"
