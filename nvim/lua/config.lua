@@ -60,75 +60,7 @@ if fn.PlugLoaded('Navigator.nvim') == 1 then
 end
 
 if fn.PlugLoaded('lualine.nvim') == 1 then
-  -- require('plugins._evil_line')
-
-  require'lualine'.setup {
-    options = {
-      icons_enabled = true,
-      -- lualine can pick the theme based on colorscheme automatically
-      -- theme = 'iceberg',
-      section_separators = { left = '', right = ''},
-      component_separators = { left = '|', right = '|'},
-      disabled_filetypes = {'fzf', 'coc-explorer', 'ctrlsf', 'tagbar', 'netrw'},
-      always_divide_middle = false,
-    },
-    sections = {
-      lualine_a = {{ 'mode', separator = { left = '', right = ''}}},
-      lualine_b = {
-        'branch',
-        -- 'diff',
-      },
-      lualine_c = {'filename'},
-      lualine_x = {
-        {
-          'diagnostics', sources={'coc'}
-        },
-        'encoding', 'fileformat', 'filetype'
-      },
-      lualine_y = {'progress'},
-      lualine_z = {{ 'location', separator = { left = '', right = ''}}},
-    },
-    inactive_sections = {
-      lualine_a = {'filename'},
-      lualine_b = {},
-      lualine_c = {},
-      lualine_x = {},
-      lualine_y = {},
-      lualine_z = {}
-    },
-    tabline = {},
-    extensions = {}
-  }
-  -- require'tabline'.setup {}
-end
-
-if fn.PlugLoaded('nvim-lspconfig') == 1 then
-  require'lspconfig'.pyright.setup{}
-end
-
-if fn.PlugLoaded('shade.nvim') == 1 then
-  require('plugins._shade')
-end
-
-if fn.PlugLoaded('nvim-web-devicons') == 1 then
-  require'nvim-web-devicons'.setup {
-    -- your personnal icons can go here (to override)
-    -- DevIcon will be appended to `name`
-    override = {
-      zsh = {
-        icon = "",
-        color = "#428850",
-        name = "Zsh"
-      }
-    };
-    -- globally enable default icons (default to false)
-    -- will get overriden by `get_icons` option
-    default = true;
-  }
-end
-
-if fn.PlugLoaded('nvim-tree.lua') == 1 then
-  require('plugins._nvimtree')
+  require('plugins._lualine')
 end
 
 if fn.PlugLoaded('format.nvim') == 1 then
@@ -186,7 +118,7 @@ if fn.PlugLoaded('nvim-colorizer.lua') == 1 then
       'javascript';
       'html';
     }
-    )
+  )
 
   map('n', '<leader>tc', ':ColorizerToggle <cr>', {noremap = true})
 end

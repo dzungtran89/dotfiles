@@ -1,44 +1,38 @@
 #!/usr/bin/env bash
 
-status=$(curl -s 'wttr.in?format=%C+|+%t')
-condition=$(echo $status | awk -F '|' '{print $1}' | tr '[:upper:]' '[:lower:]')
+data=$(curl -s 'wttr.in/hochiminh?format=%C+|+%t')
+
+if [[ "$data" == *"nknown"* ]]; then
+  exit
+fi
+
+condition=$(echo $data | awk -F '|' '{print $1}' | tr '[:upper:]' '[:lower:]')
 condition="${condition// /}"
-temp=$(echo $status | awk -F '|' '{print $2}')
+temp=$(echo $data | awk -F '|' '{print $2}')
 temp="${temp//\+/}"
 temp="${temp// /}"
 
 # add more conditions here as appropriate
 case "${condition}" in
+  "clear")
+    icon=""
+    ;;
   "sunny")
-    icon="􀆮"
+    icon=""
     ;;
   "partlycloudy")
-    icon="􀇕"
+    icon=""
     ;;
-  "cloudy")
-    icon="􀇃"
+  *"lightrain"*)
+    icon=""
     ;;
   "overcast")
-    icon="􀇣"
-    ;;
-  "rainy")
-    icon="􀇇"
-    ;;
-  "clear")
-    icon="􀇁"
-    ;;
-  "lightrain")
-    icon="􀇅"
-    ;;
-  "showerinvicinity")
-    icon="􀇗"
-  ;;
-  "rainshower")
-    icon="􀇉"
+    icon=""
     ;;
   *)
-    icon="Wesser Error"
+    icon="$condition"
     ;;
 esac
 
-sketchybar --set $NAME icon="$icon" label="$temp"
+sketchybar -m --set weather icon="$icon" \
+  --set weather label="$temp"

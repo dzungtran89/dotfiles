@@ -2,8 +2,8 @@
 
 sketchybar --add       item               apple.logo left                                                \
            --set       apple.logo         icon=􀣺                                                         \
-                                          icon.font="$FONT:Black:16.0"                                   \
-                                          icon.color=0xff4484b4                                          \
+                                          icon.font="$FONT:Black:15.0"                                   \
+                                          icon.color=0xff9dd274                                          \
                                           label.drawing=off                                              \
                                           click_script="sketchybar -m --set \$NAME popup.drawing=toggle" \
                                                                                                          \

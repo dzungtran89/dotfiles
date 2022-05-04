@@ -46,6 +46,7 @@ Plug 'https://github.com/lewis6991/gitsigns.nvim'
 " FOR FUN {{{
 
 Plug 'norcalli/nvim-colorizer.lua'
+Plug 'nvim-lualine/lualine.nvim'
 
 Plug 'lewis6991/impatient.nvim'
 Plug 'tweekmonster/startuptime.vim'

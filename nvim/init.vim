@@ -358,12 +358,6 @@ noremap <leader>z :bp<CR>
 noremap <leader>x :bn<CR>
 " noremap <leader>w :bn<CR>
 
-"" Switching windows
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-noremap <C-h> <C-w>h
-
 "" Vmap for maintain Visual Mode after shifting > and <
 vmap < <gv
 vmap > >gv

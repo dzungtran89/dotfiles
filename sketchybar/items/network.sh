@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
-sketchybar --clone     network.label      label_template                  \
-           --set       network.label      label=net                       \
+sketchybar --add    item network.label                  \
+           --set       network.label      icon=                       \
                                           associated_space=2,3              \
                                           position=left                   \
                                           drawing=on                      \

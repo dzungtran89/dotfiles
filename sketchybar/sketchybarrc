@@ -1,127 +1,186 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
-# CREDIT: https://github.com/FelixKratz/dotfiles/tree/master/.config/sketchybar
+BG=0xFF2a2f38
+FG=0xFFe1e3e4
 
-ITEM_DIR="$HOME/.config/sketchybar/items" # Directory where the items are configured
-PLUGIN_DIR="$HOME/.config/sketchybar/plugins" # Directory where all the plugin scripts are stored
+PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
+ITEM_DIR="$HOME/.config/sketchybar/items"
+FONT="RobotoMono Nerd Font"
 
-LOADING=􀖇 # Icon displayed while an item is still initializing
-PADDINGS=3 # All paddings use this value (icon, label, background and bar paddings)
-FONT="RobotoMono Nerd Font" # Needs to have Regular, Bold, Semibold, Heavy and Black variants
-BAR_COLOR=0xff2a2f38 # Black bar
-ICON_COLOR=0xffe1e3e4 # Color of all icons
-LABEL_COLOR=0xffe1e3e4 # Color of all labels
-CONTRAST_COLOR=$ICON_COLOR #0xff2a2f38 # The color of elements in front of a background
-SPACE_CLICK_SCRIPT="yabai -m space --focus \$SID" # The script that is run for clicking on space components
+# Bar
+sketchybar -m --bar  \
+  position=top       \
+  height=35          \
+  margin=4           \
+  y_offset=-7        \
+  corner_radius=10   \
+  border_width=0     \
+  border_color=$BG   \
+  blur_radius=0      \
+  padding_left=16    \
+  padding_right=16   \
+  color=$BG          \
+  display=all        \
+  hidden=off         \
+  topmost=off        \
+  font_smoothing=off \
+  shadow=off
 
-SEGMENT_HEIGHT=28 # The height of the segments
-SEGMENT_SPACING=13 # The spacing between the segments
-SEGMENT_BORDER_WIDTH=0 # Width of the borders for segments
-SEGMENT_BACKGROUND_COLOR=0x00000000 # The background color for segments
-SEGMENT_BACKGROUND_HIGHLIGHT_COLOR=$SEGMENT_BACKGROUND_COLOR # 0xffe1e3e4 # The background highlight color for segments (borders, etc)
-CORNER_RADIUS=4 # Roundness of the segments
+# Global defaults
+sketchybar -m --default \
+  updates=when_shown    \
+  drawing=on            \
+  cache_scripts=on
 
-POPUP_BACKGROUND_COLOR=0xdd2a2f38 #$BAR_COLOR
-POPUP_BORDER_COLOR=0xff9dd274
-POPUP_BORDER_WIDTH=2
-POPUP_CORNER_RADIUS=4
+# Label Defaults
+sketchybar -m --default                    \
+  label.font="Helvetica Neue:Bold:13.0" \
+  label.color=$FG                          \
+  label.highlight_color=$FG                \
+  label.padding_left=4                     \
+  label.padding_right=4                    \
+  label.y_offset=-2
 
-SHADOW=off
-SHADOW_COLOR=0xff1a1f28
-SHADOW_DISTANCE=3
-SHADOW_ANGLE=35
+# Icon Defaults
+sketchybar -m --default                   \
+  icon.font="$FONT:Bold:13.0" \
 
-HAS_BATTERY=$(if [ "$(pmset -g batt | grep "Battery")" = "" ]; then echo "false"; else echo "true"; fi)
+# Background Defaults
+sketchybar -m --default       \
+  background.height=32        \
+  background.border_color=$BG \
+  background.border_width=0   \
+  background.corner_radius=0  \
+  background.color=$BG        \
+  background.drawing=off
 
-sketchybar --bar                height=25                                                         \
-                                corner_radius=0                                                   \
-                                border_width=0                                                    \
-                                border_color=0xff555555                                           \
-                                margin=0                                                          \
-                                blur_radius=100                                                     \
-                                position=top                                                      \
-                                padding_left=5                                                    \
-                                padding_right=5                                                   \
-                                color=$BAR_COLOR                                                  \
-                                topmost=off                                                       \
-                                font_smoothing=off                                                \
-                                y_offset=0                                                        \
-                                shadow=$SHADOW                                                         \
-                                notch_width=0                                                     \
-                                                                                                  \
-           --default            drawing=on                                                        \
-                                lazy=off                                                          \
-                                updates=when_shown                                                \
-                                label.font="$FONT:Bold:12.0"                                  \
-                                icon.font="$FONT:Bold:12.0"                                       \
-                                icon.color=$ICON_COLOR                                            \
-                                label.color=$LABEL_COLOR                                          \
-                                icon.padding_left=$PADDINGS                                       \
-                                icon.padding_right=$PADDINGS                                      \
-                                label.padding_left=$PADDINGS                                      \
-                                label.padding_right=$PADDINGS                                     \
-                                background.padding_right=$PADDINGS                                \
-                                background.padding_left=$PADDINGS                                 \
-                                background.color=$SEGMENT_BACKGROUND_COLOR                        \
-                                background.border_color=$SEGMENT_BACKGROUND_HIGHLIGHT_COLOR       \
-                                background.border_width=$SEGMENT_BORDER_WIDTH                     \
-                                background.height=$SEGMENT_HEIGHT                                 \
-                                background.corner_radius=$CORNER_RADIUS                           \
-                                background.drawing=off                                            \
-                                icon.background.height=$SEGMENT_HEIGHT                            \
-                                icon.background.color=$SEGMENT_BACKGROUND_HIGHLIGHT_COLOR         \
-                                icon.background.corner_radius=$CORNER_RADIUS                      \
-                                icon.background.drawing=off                                       \
-                                label.background.color=$SEGMENT_BACKGROUND_HIGHLIGHT_COLOR        \
-                                label.background.border_width=$SEGMENT_BORDER_WIDTH               \
-                                label.background.border_color=$SEGMENT_BACKGROUND_HIGHLIGHT_COLOR \
-                                label.background.height=$SEGMENT_HEIGHT                           \
-                                label.background.corner_radius=$CORNER_RADIUS                     \
-                                label.background.drawing=off                                      \
-                                popup.background.border_width=$POPUP_BORDER_WIDTH                 \
-                                popup.background.corner_radius=$POPUP_CORNER_RADIUS               \
-                                popup.background.border_color=$POPUP_BORDER_COLOR                 \
-                                popup.background.color=$POPUP_BACKGROUND_COLOR                    \
-                                popup.background.shadow.drawing=$SHADOW                           \
-                                icon.shadow.drawing=$SHADOW                                       \
-                                label.shadow.drawing=$SHADOW                                      \
-                                alias.shadow.drawing=$SHADOW                                      \
-                                icon.shadow.color=$SHADOW_COLOR                                   \
-                                label.shadow.color=$SHADOW_COLOR                                  \
-                                alias.shadow.color=0xff000000                                     \
-                                icon.shadow.distance=$SHADOW_DISTANCE                             \
-                                label.shadow.distance=$SHADOW_DISTANCE                            \
-                                alias.shadow.distance=$SHADOW_DISTANCE                            \
-                                icon.shadow.angle=$SHADOW_ANGLE                                   \
-                                label.shadow.angle=$SHADOW_ANGLE                                  \
-                                alias.shadow.angle=$SHADOW_ANGLE                                  \
-                                alias.color=$ICON_COLOR                                           \
-                                                                                                  \
-           --add item           label_template left                                               \
-           --set label_template icon.drawing=off                                                  \
-                                label.font="$FONT:Black:12.0"                                     \
-                                label.background.drawing=on                                       \
-                                label.color=$CONTRAST_COLOR                                       \
-                                label.padding_right=5                                             \
-                                label.background.height=$SEGMENT_HEIGHT                           \
-                                click_script="$PLUGIN_DIR/toggle_bracket.sh"                      \
-                                background.padding_left=$SEGMENT_SPACING                          \
-                                background.padding_right=0                                        \
-                                drawing=off
+# Spaces
+# DISPLAY_1=(one two three four)
+# DISPLAY_2=(five six)
 
-source "$ITEM_DIR/apple.sh"
-source "$ITEM_DIR/spaces.sh"
+# args=()
+
+# create_display() {
+#   arr=("$@")
+#   for i in "${arr[@]}";
+#   do
+
+#       for i in "${!arr[@]}"; do
+#           if [[ "${arr[$i]}" = "" ]]; then
+#               echo "${i}";
+#           fi
+#       done
+#     echo "$i"
+#     args+=(--add space "$i" left                    \
+#            --set "$i" associated_space=1            \
+#            associated_display=1                    \
+#            icon=                                  \
+#            icon.highlight_color=0xff88c0d0         \
+#            click_script="yabai -m space --focus 1" \
+#        )
+#   done
+# }
+# create_display "${DISPLAY_1[@]}"
+# create_display "${DISPLAY_2[@]}"
+
+sketchybar -m --default                     \
+  icon.padding_left=4                       \
+  icon.padding_right=4                      \
+  icon.y_offset=-2                          \
+  --add space one left                      \
+  --set one associated_space=1              \
+    associated_display=1                    \
+    icon=                                  \
+    icon.highlight_color=0xff88c0d0         \
+    click_script="yabai -m space --focus 1" \
+  --add space two left                      \
+  --set two associated_display=1            \
+    associated_space=2                      \
+    icon=                                  \
+    icon.highlight_color=0xff88c0d0         \
+    click_script="yabai -m space --focus 2" \
+  --add space three left                    \
+  --set three associated_display=1          \
+    associated_space=3                      \
+    icon=                                  \
+    icon.highlight_color=0xff88c0d0         \
+    click_script="yabai -m space --focus 3" \
+  --add space four left                     \
+  --set four associated_display=1           \
+    associated_space=4                      \
+    icon=                                  \
+    icon.highlight_color=0xff88c0d0         \
+    click_script="yabai -m space --focus 4" \
+    \
+    --add space five left                     \
+    --set five associated_display=2           \
+    associated_space=5                      \
+    icon=                                  \
+    icon.highlight_color=0xff88c0d0         \
+    click_script="yabai -m space --focus 5" \
+    \
+    --add space six left                     \
+    --set six associated_display=2           \
+    associated_space=6                      \
+    icon=                                  \
+    icon.highlight_color=0xff88c0d0         \
+    click_script="yabai -m space --focus 6" \
+
 source "$ITEM_DIR/github.sh"
 source "$ITEM_DIR/network.sh"
-source "$ITEM_DIR/memory.sh"
 
-source "$ITEM_DIR/calendar.sh"
-source "$ITEM_DIR/cpu.sh"
-source "$ITEM_DIR/svim.sh"
-source "$ITEM_DIR/system.sh"
-# source "$ITEM_DIR/spotify.sh"
+# Right Items
+sketchybar -m --default          \
+  label.padding_left=0           \
+  label.padding_right=0          \
+  icon.padding_left=20           \
+  icon.padding_right=8           \
+  icon.y_offset=-2               \
+  --add item clock right         \
+  --set clock                    \
+    update_freq=10               \
+    script="$PLUGIN_DIR/clock.sh"   \
+    icon=                       \
+    icon.y_offset=-2             \
+    icon.color=0xff8fbcbb        \
+  --add item date right          \
+  --set date                     \
+    update_freq=100              \
+    script="$PLUGIN_DIR/date.sh"    \
+    icon=                       \
+    icon.y_offset=-2             \
+    icon.color=0xffb48ead        \
+  --add item battery right       \
+  --set battery                  \
+    update_freq=10                \
+    script="$PLUGIN_DIR/power.sh"   \
+    icon=                       \
+    icon.color=0xffbf616a        \
+  --add item sound right         \
+  --set sound                    \
+    update_freq=5                \
+    icon.color=0xff5e81ac        \
+    script="$PLUGIN_DIR/sound.sh"   \
+  --add item weather right       \
+  --set weather                  \
+    update_freq=7200             \
+    icon.color=0xffebcb8b        \
+    script="$PLUGIN_DIR/weather.sh" \
+  # --add item mailIndicator right \
+  # --set mailIndicator            \
+  #   update_freq=7200               \
+  #   icon.color=0xff5e81ac        \
+  #   script="$PLUGIN_DIR/mail.sh"    \
+  #   click_script="osascript -e 'tell application \"Mail\" to activate'"
 
-############## FINALIZING THE SETUP ##############
-sketchybar --update
+# Center Items
+sketchybar -m --add event window_focus \
+              --add event title_change
 
-echo "sketchybar configuration loaded.."
+sketchybar -m --add item title center                \
+    --set title script="$PLUGIN_DIR/window_title.sh" \
+    label.padding_right=30                           \
+    --subscribe                                      \
+    title window_focus front_app_switched space_change
+
+sketchybar -m --update && echo "sketchybar configuration loaded.."

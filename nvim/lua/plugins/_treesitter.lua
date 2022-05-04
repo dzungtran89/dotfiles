@@ -16,7 +16,7 @@ require('nvim-treesitter.configs').setup {
     "python", "dockerfile", "bash",
     "xml", "javascript", "html", "css",
     "yaml", "rst", "org",
-    "lua", "vim"
+    "lua", "vim", "markdown"
   },
   indent = {
     enable = false,

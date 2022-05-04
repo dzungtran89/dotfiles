@@ -55,3 +55,5 @@ context.vi.read=+vim
 context.vi.write=+vim
 context.goal.read=+goal
 context.goal.write=+goal
+context.sh.read=proj:sh
+context.sh.write=proj:sh

@@ -16,7 +16,7 @@ dnd_enabled=$(
 )
 
 if [ $dnd_enabled -eq 1 ]; then
-    sketchybar --set $NAME drawing=on
+    sketchybar -m --set $NAME drawing=on
 else
-    sketchybar --set $NAME drawing=off
+    sketchybar -m --set $NAME drawing=off
 fi

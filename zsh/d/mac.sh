@@ -67,3 +67,6 @@ function brew() {
     sketchybar -m --trigger brew_upgrade
   fi
 }
+
+# Aliases
+alias bo='brew outdated'

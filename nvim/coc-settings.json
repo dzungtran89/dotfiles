@@ -15,6 +15,10 @@
   "explorer.floating.height": 30,
   "explorer.floating.width": 70,
 
+  "signature.floatConfig": {
+    "border": true
+  },
+
   "suggest.floatConfig": {
     "border": true,
     "maxWidth": 60,

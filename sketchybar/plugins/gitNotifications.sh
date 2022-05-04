@@ -24,10 +24,12 @@ do
   IMPORTANT="$(echo "$title" | egrep -i "(deprecat|break|broke)")"
   COLOR=0xff72cce8
   PADDING=0
+
   if [ "${repo}" = "" ] && [ "${title}" = "" ]; then
     repo="Note"
     title="No new notifications"
   fi 
+
   case "${type}" in
     "'Issue'") COLOR=0xff9dd274; ICON=􀍷; PADDING=0; URL="$(gh api "$(echo "${url}" | sed -e "s/^'//" -e "s/'$//")" | jq .html_url)"
     ;;
@@ -42,6 +44,7 @@ do
     ICON=􀁞
     args+=(--set github.bell icon.color=$COLOR)
   fi
+
   args+=(--add item github.notification.$COUNT popup.github.bell                                      \
          --set github.notification.$COUNT background.padding_left=7                                   \
                                           background.padding_right=7                                  \
@@ -67,6 +70,7 @@ do
                                           click_script="open $URL;
                                                         sketchybar --set github.bell popup.drawing=off"
         --subscribe github.notification.$COUNT mouse.entered mouse.exited)
+
 done <<< "$(echo "$NOTIFICATIONS" | jq -r '.[] | [.repository.name, .subject.latest_comment_url, .subject.type, .subject.title] | @sh')"
 
 sketchybar -m "${args[@]}" 
