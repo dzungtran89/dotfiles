@@ -48,6 +48,8 @@ yabai -m config window_gap                   10
 # yabai -m config window_gap 3 --space 2
 # yabai -m config --space 3 layout float
 
+yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
+
 # float system preferences
 #
 echo "yabai configuration loaded.."

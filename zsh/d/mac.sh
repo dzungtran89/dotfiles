@@ -58,3 +58,12 @@ export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-14.0.2.jdk/Contents/
 # TODO: check $SHELL
 zstyle ':completion:*:(ssh|scp|ftp|sftp):*' hosts $hosts
 zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
+
+# Functions
+function brew() {
+  command brew "$@"
+
+  if [[ $* =~ "upgrade" ]]; then
+    sketchybar -m --trigger brew_upgrade
+  fi
+}

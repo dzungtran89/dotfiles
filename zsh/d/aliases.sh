@@ -68,6 +68,7 @@ alias dois='demoi start'
 # yabai, skhd
 alias yres='launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"'
 alias sres='launchctl kickstart -k "gui/${UID}/homebrew.mxcl.skhd"'
+alias bres='launchctl kickstart -k "gui/${UID}/homebrew.mxcl.sketchybar"'
 
 # postgres
 alias brupsql='brew postgresql-upgrade-database'
