@@ -100,6 +100,9 @@ if has('macunix')
   " incorrect background rendering when using a color theme with a
   " background color.
   let &t_ut=''
+  au BufNewFile,BufRead /private/**/gopass** setlocal noswapfile nobackup noundofile
+else
+  au BufNewFile,BufRead /dev/shm/gopass.* setlocal noswapfile nobackup noundofile
 endif
 
 " Enable filetype plugins

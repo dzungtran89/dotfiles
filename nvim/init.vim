@@ -483,6 +483,7 @@ source $HOME/.config/nvim/config/_jump.vim
 source $HOME/.config/nvim/config/_wiki.vim
 source $HOME/.config/nvim/config/_md.vim
 source $HOME/.config/nvim/config/_linter.vim
+source $HOME/.config/nvim/config/_gopass.vim
 
 " Special mappings
 nnoremap <silent> <leader>;  :Explore<CR>
