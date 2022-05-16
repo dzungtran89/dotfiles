@@ -198,6 +198,7 @@ source $HOME/.d/fzf.sh
 source $HOME/.d/gopass.sh
 source $HOME/.d/googler.sh
 source $HOME/.d/n3.sh
+source $HOME/.d/local.sh
 
 ## }}}
 export PATH="/usr/local/opt/libpq/bin:$PATH"

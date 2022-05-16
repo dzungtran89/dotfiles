@@ -49,24 +49,14 @@ Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
 Plug 'easymotion/vim-easymotion'
 Plug 'jiangmiao/auto-pairs'
-
-" " Vim-Session
-" Plug 'xolox/vim-misc'
-" Plug 'xolox/vim-session'
-
-" Extras
 Plug 'tpope/vim-vinegar'
 Plug 'cocopon/iceberg.vim'
 Plug 'pechorin/any-jump.vim'
-Plug 'https://github.com/godlygeek/tabular'
-Plug 'https://github.com/tpope/vim-eunuch'
-
-" Plug 'brooth/far.vim'
-" Plug 'christoomey/vim-tmux-navigator'
-Plug 'itchyny/lightline.vim'
-
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-eunuch'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 'itchyny/lightline.vim'
 
 " Plugin options
 call plug#end()
@@ -82,6 +72,7 @@ set cursorline
 " set cursorcolumn
 set relativenumber
 set foldmethod=syntax
+set foldcolumn=1
 set undodir="~/.vim/undo-dir"
 set list
 set listchars=tab:→\ ,eol:¬,extends:❯,precedes:❮,trail:·,nbsp:·
@@ -228,9 +219,6 @@ if has("gui_macvim")
 endif
 
 command! CopyBuffer let @+ = expand('%:p')
-
-" Add a bit extra margin to the left
-set foldcolumn=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts {{{1
@@ -522,26 +510,6 @@ if has_key(plugs, 'vim-easymotion')
   nmap S <Plug>(easymotion-overwin-f2)
   omap t <Plug>(easymotion-bd-tl)
 
-endif
-
-if has_key(plugs, 'FastFold')
-  nmap zuz <Plug>(FastFoldUpdate)
-  let g:fastfold_savehook = 1
-  let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
-  let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
-
-  let g:markdown_folding = 1
-  let g:tex_fold_enabled = 1
-  let g:vimsyn_folding = 'af'
-  let g:xml_syntax_folding = 1
-  let g:javaScript_fold = 1
-  let g:sh_fold_enabled= 7
-  let g:ruby_fold = 1
-  let g:perl_fold = 1
-  let g:perl_fold_blocks = 1
-  let g:r_syntax_folding = 1
-  let g:rust_fold = 1
-  let g:php_folding = 1
 endif
 
 if has_key(plugs, 'any-jump.vim')

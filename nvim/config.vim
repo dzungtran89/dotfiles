@@ -248,4 +248,20 @@ if PlugLoaded('wilder.nvim')
       \ 'border': 'rounded',
       \ 'pumblend': 20,
       \ })))
+else
+
+  "" Set wildmenu (autocompletions in command line).
+  set wildmenu
+  set wildmode=full
+  set wildoptions+=pum
+
+  "" Command prompt completion keystroke is tab (\t).
+  set wildchar=<Tab>
+
+  "" How to refer to wildchar inside of mappings (26 == ctrl-z).
+  set wildcharm=26
+
+  "" Ignore compiled files.
+  set wildignore=*.o,*~,*.pyc,*.obj
+
 endif

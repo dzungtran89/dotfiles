@@ -56,9 +56,10 @@ require'lualine'.setup {
     lualine_a = {{
         function()
           mode_map()
-          return ' ☯ '
+          return '▊ ☯ '
         end,
         color = "LualineMode",
+        padding = {left=0, right=1}
       },
       -- 'diff',
     },
@@ -73,15 +74,16 @@ require'lualine'.setup {
     lualine_x = {},
     lualine_y = {
       {
-        'diagnostics', sources={'coc'},
+        'diagnostics',
+        sources={'coc'},
         update_in_insert = false,
         always_visible = false
       },
     },
     lualine_z = {{
       'mode', color = "LualineMode",
-      padding = {left = 0, right= 1},
-      fmt = function(str) return '▊ ' .. str:sub(1,3) end,
+      padding = {left = 1, right= 0},
+      fmt = function(str) return str:sub(1,3) .. ' ▊' end,
     }},
   },
   inactive_sections = {

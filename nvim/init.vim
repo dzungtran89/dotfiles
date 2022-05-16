@@ -26,8 +26,8 @@ endif
 " Required:
 call plug#begin(expand('~/.nvim/plugged'))
 
-if filereadable(expand("$HOME/.config/nvim/bundles.vim"))
-  source $HOME/.config/nvim/bundles.vim
+if filereadable(expand("$HOME/.config/nvim/plugs.vim"))
+  source $HOME/.config/nvim/plugs.vim
 endif
 
 call plug#end()

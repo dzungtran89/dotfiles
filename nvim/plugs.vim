@@ -50,8 +50,9 @@ Plug 'nvim-lualine/lualine.nvim'
 
 Plug 'lewis6991/impatient.nvim'
 Plug 'tweekmonster/startuptime.vim'
-Plug 'gelguy/wilder.nvim'
+" Plug 'gelguy/wilder.nvim'
 
 " LATER {{{
 Plug 'ggandor/lightspeed.nvim'                    " easymotion alternative
 Plug 'rebelot/kanagawa.nvim'
+Plug 'lukas-reineke/indent-blankline.nvim'

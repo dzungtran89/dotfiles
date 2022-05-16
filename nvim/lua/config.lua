@@ -167,6 +167,15 @@ if fn.PlugLoaded('mini.nvim') == 1 then
   require('mini.pairs').setup()
 end
 
+if fn.PlugLoaded('indent-blankline.nvim') == 1 then
+  require("indent_blankline").setup {
+    enabled = false,
+    show_first_indent_level = false,
+    show_end_of_line = true,
+    space_char_blankline = " ",
+  }
+end
+
 -- GIT
 require('plugins._git')
 
