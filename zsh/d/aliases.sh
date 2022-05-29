@@ -142,19 +142,23 @@ chu() {
     tmux new -s chu -d
 
     # 1st window
-    tmux rename-window work
+    tmux rename-window dark
     tmux send-keys vim\ -S\ $HOME/.nvim/session/df.vim Enter
-    tmux split-window -h
-    tmux split-window
-    tmux send-keys n Enter
 
     # 2nd window
     tmux new-window -t chu:2
-    tmux rename-window conf
+    tmux rename-window darker
+    tmux split-window -h
+    tmux send-keys "btm -b" Enter
+    tmux split-window
+    tmux send-keys "asciiquarium" Enter
+
+    # 3nd window
+    tmux new-window -t chu:3
+    tmux rename-window darkest
 
     # post
     tmux select-window -t chu:1
-    tmux select-pane -t 1
   fi
 
   tmux attach -t chu
