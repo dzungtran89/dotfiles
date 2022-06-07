@@ -56,7 +56,7 @@ require'lualine'.setup {
     lualine_a = {{
         function()
           mode_map()
-          return '▊ ☯ '
+          return '▊ ••'
         end,
         color = "LualineMode",
         padding = {left=0, right=1}

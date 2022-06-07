@@ -138,30 +138,30 @@ alias fdf="fd --type f"
 
 # tmux
 chu() {
-  if ! tmux has-session -t chu; then
-    tmux new -s chu -d
+  if ! tmux has-session -t $1; then
+    tmux new -s $1 -d
 
     # 1st window
     tmux rename-window dark
-    tmux send-keys vim\ -S\ $HOME/.nvim/session/df.vim Enter
+    # tmux send-keys vim\ -S\ $HOME/.nvim/session/df.vim Enter
 
     # 2nd window
-    tmux new-window -t chu:2
+    tmux new-window -t $1:2
     tmux rename-window darker
     tmux split-window -h
-    tmux send-keys "btm -b" Enter
+    # tmux send-keys "btm -b" Enter
     tmux split-window
-    tmux send-keys "asciiquarium" Enter
+    # tmux send-keys "asciiquarium" Enter
 
     # 3nd window
-    tmux new-window -t chu:3
+    tmux new-window -t $1:3
     tmux rename-window darkest
 
     # post
-    tmux select-window -t chu:1
+    tmux select-window -t $1:1
   fi
 
-  tmux attach -t chu
+  tmux attach -t $1
 }
 
 # Private local configs

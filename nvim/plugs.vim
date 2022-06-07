@@ -56,3 +56,4 @@ Plug 'tweekmonster/startuptime.vim'
 Plug 'ggandor/lightspeed.nvim'                    " easymotion alternative
 Plug 'rebelot/kanagawa.nvim'
 Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'sainnhe/gruvbox-material'

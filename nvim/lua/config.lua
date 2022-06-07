@@ -3,6 +3,8 @@ local fn = vim.fn
 local map = vim.api.nvim_set_keymap
 local unmap = vim.api.nvim_del_keymap
 
+require('plugins._scheme')
+
 if fn.PlugLoaded('nvim-treesitter') == 1 then
   require('plugins._treesitter')
 end

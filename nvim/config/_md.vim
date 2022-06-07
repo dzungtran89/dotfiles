@@ -1,4 +1,9 @@
-if PlugLoaded("tabular")
+if PlugLoaded('vim-easy-align')
+
+  xmap ga <Plug>(EasyAlign)
+  nmap ga <Plug>(EasyAlign)
+
+elseif PlugLoaded("tabular")
 
   " nmap <localleader>a: :Tabularize /:\zs<CR>
   " vmap <localleader>a: :Tabularize /:\zs<CR>

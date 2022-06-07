@@ -1,20 +1,6 @@
 " Options {{{
 nnoremap <leader>ui :colorscheme<space>
 
-if PlugLoaded('nord-vim')
-  let g:nord_bold_vertical_split_line = 1
-  let g:nord_uniform_diff_background = 1
-  let g:nord_uniform_status_lines = 1
-  let g:nord_style = 'hard'
-endif
-
-if PlugLoaded('gruvbox-flat.nvim')
-  let g:gruvbox_flat_style = "hard"
-endif
-
-set bg=dark
-colorscheme iceberg
-
 " set cursorcolumn
 set nojoinspaces                    " Join sentences with single space
 set shiftround                      " Round >> to nearest shiftwidth multiple
