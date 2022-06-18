@@ -49,14 +49,17 @@ require'lualine'.setup {
     section_separators = '▒',
     component_separators = '»',
     icons_enabled = false,
-    disabled_filetypes = {'fzf', 'coc-explorer', 'ctrlsf', 'tagbar', 'netrw', 'fugitiveblame'},
+    disabled_filetypes = {
+      'fzf', 'coc-explorer', 'ctrlsf', 'tagbar', 'netrw', 'fugitiveblame',
+      'coctree'
+    },
     always_divide_middle = false,
   },
   sections = {
     lualine_a = {{
         function()
           mode_map()
-          return '▊ ••'
+          return '▊  '
         end,
         color = "LualineMode",
         padding = {left=0, right=1}

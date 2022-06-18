@@ -1,3 +1,17 @@
+" Get the first assign of the var undercursor"
+nn <localleader>1 zy[i<CR>
+
+" search engine: vimgrep + ripgrep
+nmap <leader>1  :grep -Sw -tpy -e ""<left>
+nmap <leader>2  :grep -Sw -txml -e ""<left>
+nmap <leader>3  :grep -Sw -tjs -e ""<left>
+nmap <leader>st :grep -Sw -e "\#.*(TODO\\|TOCHECK\\|FIXME)"<space>
+
+" qf results
+nnoremap <leader>p      :copen<CR>
+nnoremap <silent> <c-n> :cnext<CR>
+nnoremap <silent> <c-p> :cprevious<CR>
+
 if PlugLoaded('ctrlsf.vim')
 
   let g:ctrlsf_backend = 'rg'
@@ -27,25 +41,15 @@ if PlugLoaded('ctrlsf.vim')
         \ "at": "start"
         \ }
 
-  vmap     <leader>sp <Plug>CtrlSFVwordPath
-  nmap     <leader>sn <Plug>CtrlSFCwordPath
-  nmap     <leader>1  <Plug>CtrlSFPrompt -G *py<space>
-  vmap     <leader>1  <Plug>CtrlSFPrompt -G *py<space>
-  nmap     <leader>2  <Plug>CtrlSFPrompt -G *xml<space>
-  nmap     <leader>3  <Plug>CtrlSFPrompt -G *js<space>
-  nmap     <leader>st <Plug>CtrlSFPrompt "#.*(TODO\|TOCHECK\|FIXME)" -G *
-  nnoremap <leader>p :CtrlSFToggle<CR>
-
-  " Get the first assign of the var undercursor"
-  nn       <localleader>1 zy[i<CR>
-else
-
-  " grep.vim
-  " command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-  nnoremap \ :Rgrep<SPACE>
-  let Grep_Default_Options = '-IR'
-  let Grep_Skip_Files = '*.log *.db'
-  let Grep_Skip_Dirs = '.git node_modules'
+  nmap <leader>sf <Plug>CtrlSFPrompt -G *py<space>
+  vmap <leader>sp <Plug>CtrlSFVwordPath
+  nmap <leader>sn <Plug>CtrlSFCwordPath
+  " nmap <leader>p  :CtrlSFToggle<CR>
+  " nmap <leader>1  <Plug>CtrlSFPrompt -G *py<space>
+  " vmap <leader>1  <Plug>CtrlSFPrompt -G *py<space>
+  " nmap <leader>2  <Plug>CtrlSFPrompt -G *xml<space>
+  " nmap <leader>3  <Plug>CtrlSFPrompt -G *js<space>
+  " nmap <leader>st <Plug>CtrlSFPrompt "#.*(TODO\|TOCHECK\|FIXME)" -G *
 
 endif
 

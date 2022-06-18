@@ -18,7 +18,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'dzungtran89/vim-odoo-snippets'
 
-Plug 'godlygeek/tabular'
+Plug 'junegunn/vim-easy-align'                    " godlygeek/tabular alternative
 Plug 'samgriesemer/wiki.vim', {'commit': 'f0db9e3'}
 " Keep vim-roam simple and light, thanks to the author 🙏
 Plug 'dzungtran89/vim-roam'
@@ -26,7 +26,7 @@ Plug 'kristijanhusak/orgmode.nvim'
 Plug 'akinsho/org-bullets.nvim'
 
 Plug 'pechorin/any-jump.vim'
-Plug 'dyng/ctrlsf.vim'
+Plug 'dyng/ctrlsf.vim'                            " 2022-06-18 back to native vimgrep + rg
 Plug 'tpope/vim-eunuch'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -50,7 +50,6 @@ Plug 'nvim-lualine/lualine.nvim'
 
 Plug 'lewis6991/impatient.nvim'
 Plug 'tweekmonster/startuptime.vim'
-" Plug 'gelguy/wilder.nvim'
 
 " LATER {{{
 Plug 'ggandor/lightspeed.nvim'                    " easymotion alternative

@@ -71,7 +71,7 @@ if-shell -b '[ "$(echo "$tmux_version >= 3.0" | bc)" = 1 ]' \
 
 # increase history size
 set -g @mode_indicator_empty_prompt '#S '
-set -g status-left '#{tmux_mode_indicator} #[fg=green]#H #[fg=black]• #[fg=green,bright]#$#[default]'
+set -g status-left '#{tmux_mode_indicator} #[fg=green]#H #[fg=black]• #[fg=green,bright]#[default]'
 set -g status-right '#[fg=red,dim,bg=default]#(uptime | cut -f 4-5 -d " " | cut -f 1 -d ",") #[fg=white,bg=default]%a %l:%M %p#[default]'
 
 # tilish config {{{
