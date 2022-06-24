@@ -20,9 +20,6 @@ nnoremap <Leader>ch :History:<CR>
 " Swipper
 nnoremap <leader>ss :BLines<CR> 
 
-set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
-
 let $FZF_DEFAULT_COMMAND = "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
 let $FZF_DEFAULT_OPTS="--preview-window 'right:50%:hidden' --preview 'bat --style=numbers --line-range :300 {}'
       \ --bind ctrl-y:preview-up,ctrl-e:preview-down,ctrl-/:toggle-preview,
@@ -36,7 +33,8 @@ let $FZF_DEFAULT_OPTS="--preview-window 'right:50%:hidden' --preview 'bat --styl
 if executable('rg')
   let $FZF_DEFAULT_COMMAND='rg --files -w --hidden --follow --glob "!.git/*"'
 
-  set grepprg=rg\ --vimgrep
+  set grepprg=rg\ --vimgrep\ --smart-case
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
   command! -bang -nargs=* Find
         \call fzf#vim#grep('--column --line-number --no-heading --fixed-strings --ignore-case -w --hidden --follow --glob "!.git/*" --color=always '.shellescape(<q-args>).'| tr -d "\017"',
         \1, <bang>0)

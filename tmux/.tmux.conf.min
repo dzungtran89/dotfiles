@@ -22,7 +22,7 @@ set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{25
 setw -g monitor-activity off
 setw -g pane-base-index 1
 
-set -g mouse on
+set -g mouse off
 set -g history-limit 4096
 set -g status-interval 10
 set -g renumber-windows on

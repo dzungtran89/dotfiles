@@ -287,10 +287,22 @@ noremap <Leader>ed :e <C-R>=expand("%:p:h") . "/" <CR>
 "" Opens a tab edit command with the path of the currently edited file filled
 noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
+"" Set wildmenu (autocompletions in command line).
+set wildmenu
+set wildmode=full
+set wildoptions+=pum
+
+"" Command prompt completion keystroke is tab (\t).
+set wildchar=<Tab>
+
+"" How to refer to wildchar inside of mappings (26 == ctrl-z).
+set wildcharm=26
+
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__,node_modules
+
 "" fzf.vim
 if PlugLoaded('fzf.vim')
-  set wildmode=list:longest,list:full
-  set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__,node_modules
   let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
 
   " The Silver Searcher

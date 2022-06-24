@@ -44,9 +44,10 @@ keymap       | note                                                             
 `<leader>;`  | Sidebar explorer                                                              |
 `<leader>ew` | Get window list                                                               |
 `<leader>bb` | Get buffer list                                                               |
-`<leader>sf` | Regex search by [ctrlsf](https://github.com/dyng/ctrlsf.vim)                  |
+`<leader>/`  | Search engine by [ripgrep](https://github.com/BurntSushi/ripgrep) + [ack.vim](https://github.com/mileszs/ack.vim)|
 `<leader>js` | Get all refs under cursor by [jump](https://github.com/pechorin/any-jump.vim) |
 **Misc**     |
+`LSP`        | [coc.nvim](https://github.com/neoclide/coc.nvim) and its amazing addons       |
 `C-j`        | Pick snippet in `insert` mode                                                 |
 `<leader>ga` | :Git                                                                          |
 `<leader>cg` | floatterm [tig](https://github.com/jonas/tig)                                 |

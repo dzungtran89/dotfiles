@@ -26,7 +26,7 @@ Plug 'kristijanhusak/orgmode.nvim'
 Plug 'akinsho/org-bullets.nvim'
 
 Plug 'pechorin/any-jump.vim'
-Plug 'dyng/ctrlsf.vim'                            " 2022-06-18 back to native vimgrep + rg
+Plug 'mileszs/ack.vim'                            " 2022-06-18 back to native vimgrep + rg
 Plug 'tpope/vim-eunuch'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
