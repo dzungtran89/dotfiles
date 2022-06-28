@@ -119,9 +119,6 @@ command! CopyBuffer let @+ = expand('%:p')
 " -----------------------------------------------
 nnoremap <localleader>u YpVr=<CR>
 
-" Remap <esc>
-imap qw <esc>
-
 "" Keep cursor at the first match
 nnoremap * *N
 nnoremap # #N

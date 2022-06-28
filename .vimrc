@@ -50,13 +50,14 @@ Plug 'Yggdroot/indentLine'
 Plug 'easymotion/vim-easymotion'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-vinegar'
-Plug 'cocopon/iceberg.vim'
 Plug 'pechorin/any-jump.vim'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-eunuch'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 'mileszs/ack.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'cocopon/iceberg.vim'
 
 " Plugin options
 call plug#end()
@@ -111,11 +112,7 @@ au FocusGained,BufEnter * checktime
 let mapleader = "\<space>"
 let maplocalleader = ","
 
-inoremap qw <ESC>
-nnoremap qq :bw!<cr>
-
 nnoremap cd         :cd %:p:h<CR>:pwd<CR>
-nnoremap <leader>so :copen<CR>
 
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
@@ -154,11 +151,7 @@ set wildmenu
 
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
-if has("win16") || has("win32")
-  set wildignore+=.git\*,.hg\*,.svn\*
-else
-  set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
-endif
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 
 "Always show current position
 set ruler
@@ -291,7 +284,6 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<CR>
-map <leader>ec :edit $HOME/.vimrc<CR>
 
 " Smart way to move between windows
 map <C-j> <C-W>j
@@ -427,15 +419,6 @@ nnoremap <leader>qo :source ~/.vim/sessions/
 nnoremap <leader>qw :mks! ~/.vim/sessions/
 nnoremap <leader>qq :qa!<CR>
 
-" let g:session_directory = "~/.vim/sessions"
-" let g:session_autoload = "no"
-" let g:session_autosave = "no"
-" let g:session_command_aliases = 1
-" nnoremap <leader>qo :OpenSession<Space>
-" nnoremap <leader>qw :SaveSession<Space>
-" nnoremap <leader>qd :DeleteSession<CR>
-" nnoremap <leader>qc :CloseSession<CR>
-
 "" Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
@@ -530,7 +513,7 @@ if has_key(plugs, 'indentLine')
 endif
 
 " lightline {{{1
-if has_key(plugs, 'any-jump.vim')
+if has_key(plugs, 'lightline.vim')
   let g:lightline = {
         \ 'colorscheme': 'wombat',
         \ 'active': {
@@ -547,15 +530,32 @@ endif
 
 " SEARCHING {{{
 
-" grep.vim
-if executable('rg')
-  set grepprg=rg\ --vimgrep
+" Quickfix
+nnoremap <leader>p      :copen<CR>
+nnoremap <localleader>p :lopen<CR>
+nnoremap <silent> <c-n> :lnext<CR>
+nnoremap <silent> <c-p> :lprevious<CR>
+
+if has_key(plugs, 'ack.vim')
+  if executable('rg')
+    let g:ackprg = 'rg --vimgrep --smart-case'
+  endif
+
+  let g:ack_autoclose = 1
+  let g:ack_use_cword_for_empty_search = 1
+
+  cnoreabbrev LAck LAck!
+  nnoremap <leader>/ :LAck -t
+
+  " lazy mappings"
+  nmap <leader>1  :LAck -tpy -e<space>
+  nmap <leader>2  :LAck -txml -e<space>
+  nmap <leader>3  :LAck -tjs -e<space>
+  nmap <leader>st :LAck -e "\#.*(TODO\\|TOCHECK\\|FIXME)"<space>
 endif
 
-nnoremap <leader>ff :Rg<space>
-let Grep_Default_Options = '-IR'
-let Grep_Skip_Files = '*.log *.db'
-let Grep_Skip_Dirs = '.git node_modules'
+" Lazy mappings for editor
+nnoremap <localleader>gd :r!date "+\%Y-\%m-\%d"<CR>
 
 if has_key(plugs, 'fzf.vim')
 
@@ -565,12 +565,6 @@ if has_key(plugs, 'fzf.vim')
   set wildmode=list:longest,list:full
   set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
   let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
-
-  " The Silver Searcher
-  if executable('ag')
-    let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
-    set grepprg=ag\ --nogroup\ --nocolor
-  endif
 
   " ripgrep
   if executable('rg')

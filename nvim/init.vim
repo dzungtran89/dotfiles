@@ -401,40 +401,6 @@ let g:javascript_enable_domhtmlcss = 1
 "         \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 " augroup END
 "
-if PlugLoaded('ale')
-
-  " on purpose, enabled manually
-  let g:ale_enabled = 0
-  nnoremap <localleader>te :ALEEnableBuffer<CR>
-  nnoremap <leader>te      :ALEEnable<CR>
-
-  let g:ale_pattern_options = {'[^\.py]+$': {'ale_enabled': 0}}
-  let g:ale_list_window_size = 5
-
-  let g:ale_lint_on_text_changed = 'never'
-  let g:ale_lint_on_insert_leave = 0
-
-  " You can disable this option too
-  " if you don't want linters to run on opening a file
-  let g:ale_lint_on_enter = 0
-
-  " " keep gutter always show
-  " let g:ale_sign_column_always = 1
-
-  let g:ale_linters = {
-        \   'python': ['flake8'],
-        \}
-
-  " Disable warnings about trailing whitespace for Python files.
-  let g:ale_warn_about_trailing_whitespace = 0
-
-  nmap <silent> <C-up> <Plug>(ale_previous_wrap)
-  nmap <silent> <C-down> <Plug>(ale_next_wrap)
-endif
-
-" " Syntax highlight
-" let python_highlight_all = 1
-
 " vuejs
 " vim vue
 let g:vue_disable_pre_processors=1
@@ -444,43 +410,6 @@ let g:vim_vue_plugin_load_full_syntax = 1
 "*****************************************************************************
 "" Convenience variables {{{1
 "*****************************************************************************
-
-if PlugLoaded('vim-airline')
-  if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-  endif
-
-  if !exists('g:airline_powerline_fonts')
-    let g:airline#extensions#tabline#left_sep = ' '
-    let g:airline#extensions#tabline#left_alt_sep = '|'
-    let g:airline_left_sep          = '▶'
-    let g:airline_left_alt_sep      = '»'
-    let g:airline_right_sep         = '◀'
-    let g:airline_right_alt_sep     = '«'
-    let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
-    let g:airline#extensions#readonly#symbol   = '⊘'
-    let g:airline#extensions#linecolumn#prefix = '¶'
-    let g:airline#extensions#paste#symbol      = 'ρ'
-    let g:airline_symbols.linenr    = '␊'
-    let g:airline_symbols.branch    = '⎇'
-    let g:airline_symbols.paste     = 'ρ'
-    let g:airline_symbols.paste     = 'Þ'
-    let g:airline_symbols.paste     = '∥'
-    let g:airline_symbols.whitespace = 'Ξ'
-  else
-    let g:airline#extensions#tabline#left_sep = ''
-    let g:airline#extensions#tabline#left_alt_sep = ''
-
-    " powerline symbols
-    let g:airline_left_sep = ''
-    let g:airline_left_alt_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_right_alt_sep = ''
-    let g:airline_symbols.branch = ''
-    let g:airline_symbols.readonly = ''
-    let g:airline_symbols.linenr = ''
-  endif
-endif
 
 " More vim configs {{{1
 source $HOME/.config/nvim/config.vim
@@ -497,9 +426,13 @@ source $HOME/.config/nvim/config/_md.vim
 source $HOME/.config/nvim/config/_linter.vim
 source $HOME/.config/nvim/config/_gopass.vim
 
-" Special mappings
+" Special/lazy mappings
 nnoremap <silent> <leader>;  :Explore<CR>
 nnoremap <silent> <leader>re :Rexplore<CR>
+nnoremap <localleader>gd     :r!date "+\%Y-\%m-\%d"<CR>
+
+" Formatting py
+nnoremap <localleader>fm     :!black %
 
 if PlugLoaded('gitsigns.nvim')
   set timeoutlen=250

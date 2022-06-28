@@ -196,7 +196,7 @@ EOF
   nnoremap <silent> <leader>rr       :<C-u>CocListResume<CR>
   nnoremap <leader>qw                :<C-u>CocCommand session.save<Space>
 
-  nnoremap <silent> <localleader>f  :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
+  nnoremap <silent> <localleader>ff  :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
   " -- Keymapping for grep word under cursor with interactive mode
   nnoremap <silent> <Leader>cf :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>
 

@@ -62,7 +62,7 @@ cno $c e <C-\>eCurrentFileDir("e")<cr>
 
 " $q is super useful when browsing on the command line
 " it deletes everything until the last slash
-cno $q <C-\>eDeleteTillSlash()<cr>
+cno $q <C-\>DeleteTillSlash()<cr>
 
 " Bash like keys for the command line
 cnoremap <C-A>  <Home>

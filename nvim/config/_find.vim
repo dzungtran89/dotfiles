@@ -17,7 +17,7 @@ if PlugLoaded('ack.vim')
   let g:ack_use_cword_for_empty_search = 1
 
   cnoreabbrev LAck LAck!
-  nnoremap <leader>/ :LAck!<Space>
+  nnoremap <leader>/ :LAck -t
 
   " lazy mappings"
   nmap <leader>1  :LAck -tpy -e<space>
