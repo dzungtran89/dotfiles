@@ -2,23 +2,23 @@
 " FZF
 " -----------------------------------------------
 
-nnoremap <Leader>ef :FZF -m<CR>
-nnoremap <Leader>bb :Buffers<CR>
-nnoremap <leader>bo :BTags<CR>
-nnoremap <Leader>ew :Windows<CR>
-nnoremap <Leader>eg :GFiles --cached --others --exclude-standard<CR>
-nnoremap <Leader>el :Lines<CR>
-nnoremap <Leader>ea :Ag!<space>
-nnoremap <Leader>er :Rg<space>
-nnoremap <Leader>em :Marks<CR>
-nnoremap <Leader>et :Tags<CR>
-nnoremap <Leader>ec :History<CR>
-nnoremap <Leader>es :Filetypes<CR>
-nnoremap <Leader>C  :Commands<CR>
-nnoremap <Leader>ch :History:<CR> 
+nnoremap <silent> <Leader>ef :FZF -m<CR>
+nnoremap <silent> <Leader>bb :Buffers<CR>
+nnoremap <silent> <leader>bo :BTags<CR>
+nnoremap <silent> <Leader>ew :Windows<CR>
+nnoremap <silent> <Leader>eg :GFiles --cached --others --exclude-standard<CR>
+nnoremap <silent> <Leader>el :Lines<CR>
+nnoremap <silent> <Leader>ea :Ag!<space>
+nnoremap <silent> <Leader>er :Rg<space>
+nnoremap <silent> <Leader>em :Marks<CR>
+nnoremap <silent> <Leader>et :Tags<CR>
+nnoremap <silent> <Leader>ec :History<CR>
+nnoremap <silent> <Leader>es :Filetypes<CR>
+nnoremap <silent> <Leader>C  :Commands<CR>
+nnoremap <silent> <Leader>ch :History:<CR>
 
 " Swipper
-nnoremap <leader>ss :BLines<CR> 
+nnoremap <silent> <leader>ss :BLines<CR>
 
 let $FZF_DEFAULT_COMMAND = "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
 let $FZF_DEFAULT_OPTS="--preview-window 'right:50%:hidden' --preview 'bat --style=numbers --line-range :300 {}'
@@ -55,9 +55,9 @@ local g = vim.g
 -- up = '~60%',
 g.fzf_layout = {
   window = {
-    width=0.6, height=0.6, 
-    yoffset=0.5, xoffset= 0.5, 
-    highlight= 'Todo', border= 'sharp' 
+    width=0.6, height=0.6,
+    yoffset=0.5, xoffset= 0.5,
+    highlight= 'Todo', border= 'sharp'
     }
   }
 eof
