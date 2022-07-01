@@ -113,7 +113,7 @@ plugins=(
   zsh-autosuggestions
   fzf-tab
   python
-  taskwarrior
+  # taskwarrior
   tmuxinator
 
   # osx
@@ -198,6 +198,7 @@ source $HOME/.d/fzf.sh
 source $HOME/.d/gopass.sh
 source $HOME/.d/googler.sh
 source $HOME/.d/n3.sh
+source $HOME/.d/dstask.sh
 source $HOME/.d/local.sh
 
 ## }}}
