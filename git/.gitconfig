@@ -71,6 +71,8 @@
 [tig "bind"]
   main = = !git commit --fixup=%(commit)
   main = <C-r> !git rebase --autosquash -i %(commit)
+[diff]
+  wsErrorHighlight = all
 ; [diff]
 ;   external = difft
 ; [difftool]
