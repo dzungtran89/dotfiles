@@ -74,6 +74,7 @@ set cursorline
 set relativenumber
 set foldmethod=syntax
 set foldcolumn=1
+set colorcolumn=79
 set undodir="~/.vim/undo-dir"
 set list
 set listchars=tab:→\ ,eol:¬,extends:❯,precedes:❮,trail:·,nbsp:·

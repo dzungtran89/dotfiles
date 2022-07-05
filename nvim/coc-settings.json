@@ -30,5 +30,11 @@
     "maxWidth": 60
   },
 
-  "rome.bin": "~/.asdf/shims/rome"
+  "rome.bin": "~/.asdf/shims/rome",
+  "coc.references.rootPatterns": [".git", ".hg", ".projections.json", "pyproject.toml"],
+  "python.analysis.extraPaths": [
+    "./odoo",
+    "./addons",
+    "./project"
+  ]
 }

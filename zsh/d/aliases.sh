@@ -80,8 +80,8 @@ alias tmls='tmux ls'
 
 alias lt='tree -la -L'
 
-if command -v exa &> /dev/null; then
-  alias ls='exa'
+if command -v lsd &> /dev/null; then
+  alias ls='lsd'
   alias la='ls -lah'
   # alias la='exa -l --all --group-directories-first'
   # alias ll='exa -l --all --all --group-directories-first'
