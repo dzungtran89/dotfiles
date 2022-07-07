@@ -5,7 +5,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'                    " required by fugitive to :Gbrowse
 Plug 'shumphrey/fugitive-gitlab.vim'
-Plug 'echasnovski/mini.nvim'
+Plug 'kylechui/nvim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
@@ -53,6 +53,5 @@ Plug 'tweekmonster/startuptime.vim'
 
 " LATER {{{
 Plug 'ggandor/lightspeed.nvim'                    " easymotion alternative
-Plug 'rebelot/kanagawa.nvim'
 Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'sainnhe/gruvbox-material'
+Plug 'rebelot/kanagawa.nvim'

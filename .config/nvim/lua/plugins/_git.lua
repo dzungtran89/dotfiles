@@ -19,6 +19,8 @@ if fn.PlugLoaded('neogit') == 1 then
 end
 
 if fn.PlugLoaded('gitsigns.nvim') == 1 then
+  vim.opt.timeoutlen = 250
+
   require('gitsigns').setup {
     signs = {
       add          = {hl = 'GitSignsAdd'   , text = '+', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},

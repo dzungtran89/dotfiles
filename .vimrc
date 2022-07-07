@@ -74,7 +74,6 @@ set cursorline
 set relativenumber
 set foldmethod=syntax
 set foldcolumn=1
-set colorcolumn=79
 set undodir="~/.vim/undo-dir"
 set list
 set listchars=tab:→\ ,eol:¬,extends:❯,precedes:❮,trail:·,nbsp:·
@@ -562,6 +561,8 @@ if has_key(plugs, 'fzf.vim')
 
   "" fzf.vim
   let g:fzf_preview_window = ['right:40%:hidden', 'ctrl-/']
+
+  let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.6, 'border': 'sharp'} }
 
   set wildmode=list:longest,list:full
   set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__

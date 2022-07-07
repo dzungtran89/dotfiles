@@ -20,9 +20,10 @@ if PlugLoaded('ack.vim')
   nnoremap <leader>/ :Ack -t
 
   " lazy mappings"
-  nmap <leader>1  :Ack -tpy -e<space>
-  nmap <leader>2  :Ack -txml -e<space>
-  nmap <leader>3  :Ack -tjs -e<space>
-  nmap <leader>st :Ack -e "\#.*(TODO\\|TOCHECK\\|FIXME)"<space>
+  " wholeword, ignore !tests and l10n*
+  nmap <leader>1  :Ack --glob "!test*" --glob "!l10n*" -tpy  -we<space>
+  nmap <leader>2  :Ack --glob "!test*" --glob "!l10n*" -txml -we<space>
+  nmap <leader>3  :Ack --glob "!test*" --glob "!l10n*" -tjs  -we<space>
+  nmap <leader>st :Ack --glob "!test*" --glob "!l10n*"       -we "\#.*(TODO\\|TOCHECK\\|FIXME)"<space>
 
 endif

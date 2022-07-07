@@ -178,6 +178,10 @@ if fn.PlugLoaded('indent-blankline.nvim') == 1 then
   }
 end
 
+if fn.PlugLoaded('nvim-surround') == 1 then
+  require('plugins._surround')
+end
+
 -- GIT
 require('plugins._git')
 

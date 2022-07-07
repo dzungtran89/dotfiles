@@ -21,6 +21,7 @@ nnoremap <silent> <Leader>ch :History:<CR>
 nnoremap <silent> <leader>ss :BLines<CR>
 
 let $FZF_DEFAULT_COMMAND = "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
+
 let $FZF_DEFAULT_OPTS="--preview-window 'right:50%:hidden' --preview 'bat --style=numbers --line-range :300 {}'
       \ --bind ctrl-y:preview-up,ctrl-e:preview-down,ctrl-/:toggle-preview,
       \ctrl-b:preview-page-up,ctrl-f:preview-page-down,

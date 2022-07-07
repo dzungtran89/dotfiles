@@ -137,8 +137,6 @@ if has("gui_running")
     set transparency=7
   endif
 else
-  " let g:CSApprox_loaded = 1
-
   " IndentLine
   if PlugLoaded('indentLine')
     let g:indentLine_enabled = 1
@@ -200,14 +198,6 @@ cnoreabbrev WQ wq
 cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
-
-" grep.vim
-if PlugLoaded('grep.vim')
-  nnoremap <silent> <leader>f :Rgrep<CR>
-  let Grep_Default_Options = '-IR'
-  let Grep_Skip_Files = '*.log *.db'
-  let Grep_Skip_Dirs = '.git node_modules'
-endif
 
 "*****************************************************************************
 "" Commands
@@ -289,7 +279,6 @@ noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 "" Set wildmenu (autocompletions in command line).
 set wildmenu
-set wildmode=full
 set wildoptions+=pum
 
 "" Command prompt completion keystroke is tab (\t).
@@ -300,24 +289,6 @@ set wildcharm=26
 
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__,node_modules
-
-"" fzf.vim
-if PlugLoaded('fzf.vim')
-  let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
-
-  " The Silver Searcher
-  if executable('ag')
-    let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
-    set grepprg=ag\ --nogroup\ --nocolor
-  endif
-
-  " ripgrep
-  if executable('rg')
-    let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
-    set grepprg=rg\ --vimgrep
-    command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
-  endif
-endif
 
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 "Recovery commands from history through FZF
@@ -378,35 +349,6 @@ vmap > >gv
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-
-"*****************************************************************************
-"" Custom configs
-"*****************************************************************************
-
-" javascript
-let g:javascript_enable_domhtmlcss = 1
-
-" " vim-javascript
-" augroup vimrc-javascript
-"   autocmd!
-"   autocmd FileType javascript setl tabstop=4|setl shiftwidth=4|setl expandtab softtabstop=4
-" augroup END
-"
-" " python
-" " vim-python
-" augroup vimrc-python
-"   autocmd!
-"   autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 colorcolumn=79
-"         \ formatoptions+=croq softtabstop=4
-"         \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-" augroup END
-"
-" vuejs
-" vim vue
-let g:vue_disable_pre_processors=1
-" vim vue plugin
-let g:vim_vue_plugin_load_full_syntax = 1
-
 "*****************************************************************************
 "" Convenience variables {{{1
 "*****************************************************************************
@@ -430,18 +372,10 @@ source $HOME/.config/nvim/config/_gopass.vim
 nnoremap <silent> <leader>;  :Explore<CR>
 nnoremap <silent> <leader>re :Rexplore<CR>
 nnoremap <localleader>gd     :r!date "+\%Y-\%m-\%d"<CR>
+nnoremap <leader>w!          :w !sudo tee > /dev/null %
 
 " Formatting py
 nnoremap <localleader>fm     :!black %
-
-if PlugLoaded('gitsigns.nvim')
-  set timeoutlen=250
-endif
-
-" Cache lua configs
-if PlugLoaded('impatient.nvim')
-  lua require('impatient')
-endif
 
 " And, lua as well, to be continued ...
 lua require('init')

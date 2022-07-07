@@ -113,8 +113,6 @@ plugins=(
   zsh-autosuggestions
   fzf-tab
   python
-  # taskwarrior
-  tmuxinator
 
   # osx
   # pass
