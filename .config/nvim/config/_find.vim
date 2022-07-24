@@ -18,12 +18,13 @@ if PlugLoaded('ack.vim')
 
   cnoreabbrev Ack Ack!
   nnoremap <leader>/ :Ack -t
+  vnoremap <leader>/ y:Ack --glob "!test*" --glob "!l10n*" -we "<C-r>=fnameescape(@")<CR>" -tpy<space>
 
-  " lazy mappings"
+  " lazy mappings
   " wholeword, ignore !tests and l10n*
-  nmap <leader>1  :Ack --glob "!test*" --glob "!l10n*" -tpy  -we<space>
-  nmap <leader>2  :Ack --glob "!test*" --glob "!l10n*" -txml -we<space>
-  nmap <leader>3  :Ack --glob "!test*" --glob "!l10n*" -tjs  -we<space>
-  nmap <leader>st :Ack --glob "!test*" --glob "!l10n*"       -we "\#.*(TODO\\|TOCHECK\\|FIXME)"<space>
+  nmap <leader>1  :Ack  --glob "!test*" --glob "!l10n*" -tpy  -we<space>
+  nmap <leader>2  :Ack  --glob "!test*" --glob "!l10n*" -txml -we<space>
+  nmap <leader>3  :Ack  --glob "!test*" --glob "!l10n*" -tjs  -we<space>
+  nmap <leader>st :Ack  --glob "!test*" --glob "!l10n*" -we   "\#.*(TODO\\|TOCHECK\\|FIXME)"<space>
 
 endif

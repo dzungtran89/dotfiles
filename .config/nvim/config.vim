@@ -94,7 +94,7 @@ set signcolumn=yes
 set synmaxcol=200
 
 set list
-set listchars=tab:→\ ,eol:¬,extends:❯,precedes:❮,trail:·,nbsp:·
+set listchars=tab:▸—\ ,eol:¬,extends:❯,precedes:❮,trail:·,nbsp:·
 
 " Highlight the column after 'textwidth'
 " set colorcolumn=+1

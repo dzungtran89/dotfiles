@@ -1,3 +1,7 @@
+if vim.fn.PlugLoaded('nvim-treesitter') ~= 1 then
+  return
+end
+
 local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
 
 vim.o.foldmethod = 'expr'
@@ -16,7 +20,7 @@ require('nvim-treesitter.configs').setup {
     "python", "dockerfile", "bash",
     "xml", "javascript", "html", "css",
     "yaml", "rst", "org",
-    "lua", "vim"
+    -- "lua", "vim"
   },
   indent = {
     enable = false,

@@ -5,6 +5,7 @@
 [submodule "tmux/plugins/tony"]
 	path = tmux/plugins/tony
 	url = git@github.com:tony/tmux-config.git
+	active = false
 [submodule "ref/nicknisi"]
 	path = ref/nicknisi
 	url = git@github.com:nicknisi/dotfiles.git

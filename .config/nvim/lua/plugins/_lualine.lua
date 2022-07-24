@@ -1,4 +1,7 @@
 -- require('plugins._evil_line')
+if vim.fn.PlugLoaded('lualine.nvim') ~= 1 then
+  return
+end
 
 -- Color table for highlights
 local colors = {

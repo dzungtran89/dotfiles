@@ -190,14 +190,16 @@ source $HOME/.d/aliases.sh
 . $HOME/.asdf/asdf.sh
 fpath=(${ASDF_DIR}/completions $fpath)
 
-source $HOME/.d/helper.sh
-source $HOME/.d/venv.sh
-source $HOME/.d/fzf.sh
-source $HOME/.d/gopass.sh
-source $HOME/.d/googler.sh
-source $HOME/.d/n3.sh
-source $HOME/.d/dstask.sh
-source $HOME/.d/local.sh
+if [[ -d "$HOME/.d" ]] then
+  source $HOME/.d/helper.sh
+  source $HOME/.d/venv.sh
+  source $HOME/.d/fzf.sh
+  source $HOME/.d/gopass.sh
+  source $HOME/.d/googler.sh
+  source $HOME/.d/n3.sh
+  source $HOME/.d/dstask.sh
+  source $HOME/.d/local.sh
+fi
 
 ## }}}
 export PATH="/usr/local/opt/libpq/bin:$PATH"

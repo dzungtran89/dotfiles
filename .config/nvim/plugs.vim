@@ -1,6 +1,6 @@
 " vim:fileencoding=utf-8
 
-" CORE {{{
+" CORE <<<
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'                    " required by fugitive to :Gbrowse
@@ -42,16 +42,21 @@ Plug 'voldikss/vim-floaterm'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'https://github.com/lewis6991/gitsigns.nvim'
+" >>>
 
-" FOR FUN {{{
-
+" FOR FUN <<<
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'nvim-lualine/lualine.nvim'
 
 Plug 'lewis6991/impatient.nvim'
 Plug 'tweekmonster/startuptime.vim'
+Plug 'glepnir/dashboard-nvim'
+" >>>
 
-" LATER {{{
+" LATER <<<
 Plug 'ggandor/lightspeed.nvim'                    " easymotion alternative
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'rebelot/kanagawa.nvim'
+Plug 'ellisonleao/gruvbox.nvim'
+Plug 'navarasu/onedark.nvim'
+" >>>

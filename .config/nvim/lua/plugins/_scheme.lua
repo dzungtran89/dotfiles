@@ -15,10 +15,28 @@ if fn.PlugLoaded('nord-vim') == 1 then
   cmd[[colorscheme nord]]
 end
 
-if fn.PlugLoaded('gruvbox-material') == 1 then
-  g.gruvbox_material_background = 'hard'
-  g.gruvbox_material_foreground = 'mix'
-  g.gruvbox_material_better_performance = 1
+if fn.PlugLoaded('gruvbox.nvim') == 1 then
+  require("gruvbox").setup({
+    undercurl = true,
+    underline = true,
+    bold = false,
+    italic = true,
+    strikethrough = true,
+    invert_selection = false,
+    invert_signs = false,
+    invert_tabline = false,
+    invert_intend_guides = false,
+    inverse = true,
+    contrast = "hard", -- can be "hard", "soft" or empty string
+    overrides = {},
+  })
 end
 
+if fn.PlugLoaded('onedark.nvim') == 1 then
+  require("onedark").setup({
+    style = 'darker'
+  })
+end
+
+-- Default
 cmd[[colorscheme iceberg]]

@@ -1,4 +1,7 @@
-local fn = vim.fn
+if vim.fn.PlugLoaded("nvim-dap") ~= 1 then
+  return
+end
+
 local map = vim.api.nvim_set_keymap
 local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 local dap = require('dap')

@@ -1,3 +1,7 @@
+if vim.fn.PlugLoaded('telescope.nvim') ~= 1 then
+  return
+end
+
 require('telescope').setup{
   defaults = {
     vimgrep_arguments = {
@@ -49,3 +53,9 @@ require('telescope').setup{
     buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
   }
 }
+-- Candidates
+map('n' , '<leader>ft' , '<cmd>Telescope <cr>'           , {noremap = true})
+map('n' , '<leader>ff' , '<cmd>Telescope find_files<cr>' , {noremap = true})
+map('n' , '<leader>fg' , '<cmd>Telescope live_grep<cr>'  , {noremap = true})
+map('n' , '<leader>fb' , '<cmd>Telescope buffers<cr>'    , {noremap = true})
+map('n' , '<leader>fh' , '<cmd>Telescope help_tags<cr>'  , {noremap = true})
