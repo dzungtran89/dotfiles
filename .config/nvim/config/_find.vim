@@ -3,9 +3,11 @@ nn <localleader>1 zy[i<CR>
 
 " qf results
 nnoremap <leader>p      :copen<CR>
-nnoremap <localleader>p :lopen<CR>
 nnoremap <silent> <c-n> :cnext<CR>
 nnoremap <silent> <c-p> :cprevious<CR>
+nnoremap <localleader>p :lopen<CR>
+nnoremap <localleader>] :lnext<CR>
+nnoremap <localleader>[ :lprevious<CR>
 
 if PlugLoaded('ack.vim')
 

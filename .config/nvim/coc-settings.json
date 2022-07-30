@@ -2,10 +2,11 @@
   "session.directory": "~/.nvim/session",
   "session.saveOnVimLeave": true,
 
-  "snippets.userSnippetsDirectory": "~/.nvim/plugged/vim-odoo-snippets/UltiSnips",
+  "snippets.ultisnips.directories": [
+    "~/.nvim/plugged/vim-odoo-snippets/UltiSnips"
+  ],
 
   "list.source.tags.command": "ctags -R --languages=python",
-  "list.source.mru.ignoreGitIgnore": true,
   "list.source.mru.maxLength": 500,
   "list.source.files.args": ["--hidden", "--files"],
   "list.source.grep.args": ["-tpy", "-txml"],
@@ -30,11 +31,19 @@
     "maxWidth": 60
   },
 
+  "options.editorconfig": true,
+
   "rome.bin": "~/.asdf/shims/rome",
-  "coc.references.rootPatterns": [".git", ".hg", ".projections.json", "pyproject.toml"],
+  "coc.references.rootPatterns": [
+    ".git",
+    ".hg",
+    ".projections.json",
+    "pyproject.toml"
+  ],
   "python.analysis.extraPaths": [
     "./odoo",
     "./addons",
     "./project"
-  ]
+  ],
+  "git.enableGutters": true
 }

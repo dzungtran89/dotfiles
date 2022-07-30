@@ -232,3 +232,7 @@ if PlugLoaded('wilder.nvim')
       \ 'pumblend': 20,
       \ })))
 endif
+
+if PlugLoaded('indentLine')
+  let g:indentLine_enabled = 0
+endif

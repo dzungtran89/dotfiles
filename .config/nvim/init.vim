@@ -98,9 +98,12 @@ set fml=2
 set viewoptions=folds,cursor
 augroup SaveFolds
   autocmd!
-  autocmd BufWinLeave,BufWritePost *.* mkview
-  autocmd BufWinEnter,BufRead      *.* silent! loadview
+  autocmd BufWinLeave,BufWritePost *.{md,py,xml,html,css,scss} mkview
+  autocmd BufWinEnter,BufRead      *.{md,py,xml,html,css,scss} silent! loadview
 augroup END
+
+  " autocmd BufWinLeave,BufWritePost *.md,*.py,*.xml,*.html,*.css,*.scss mkview
+  " autocmd BufWinEnter,BufRead      *.md,*.py,*.xml,*.html,*.css,*.scss silent! loadview
 
 if $SHELL == '/usr/bin/fish'
   set shell=/usr/bin/zsh
@@ -357,10 +360,10 @@ vnoremap K :m '<-2<CR>gv=gv
 " More vim configs {{{1
 source $HOME/.config/nvim/config.vim
 
+source $HOME/.config/nvim/config/_coc.vim
 source $HOME/.config/nvim/config/_fzf.vim
 source $HOME/.config/nvim/config/_find.vim
 
-source $HOME/.config/nvim/config/_coc.vim
 source $HOME/.config/nvim/config/_git.vim
 source $HOME/.config/nvim/config/_snips.vim
 source $HOME/.config/nvim/config/_jump.vim
@@ -372,7 +375,7 @@ source $HOME/.config/nvim/config/_gopass.vim
 " Special/lazy mappings
 nnoremap <silent> <leader>;  :Explore<CR>
 nnoremap <silent> <leader>re :Rexplore<CR>
-nnoremap <localleader>gd     :r!date "+\%Y-\%m-\%d"<CR>
+nnoremap <localleader>id     :r!date "+\%Y-\%m-\%d"<CR>
 nnoremap <leader>w!          :w !sudo tee > /dev/null %
 
 " Formatting py

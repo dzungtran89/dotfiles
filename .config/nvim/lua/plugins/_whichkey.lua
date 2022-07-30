@@ -41,7 +41,7 @@ local mappings = {
 local buffer_mappings = {
   t = {
     name = "toggle",
-    i = { ":IndentBlanklineToggle!<cr>", "On/Off Indent Blankline" },
+    i = { ":IndentLinesToggle<cr>", "On/Off Indent Lines" },
   }
 }
 

@@ -8,17 +8,12 @@ nnoremap <silent> <leader>bo :BTags<CR>
 nnoremap <silent> <Leader>ew :Windows<CR>
 nnoremap <silent> <Leader>eg :GFiles --cached --others --exclude-standard<CR>
 nnoremap <silent> <Leader>el :Lines<CR>
-nnoremap <silent> <Leader>ea :Ag!<space>
-nnoremap <silent> <Leader>er :Rg<space>
 nnoremap <silent> <Leader>em :Marks<CR>
 nnoremap <silent> <Leader>et :Tags<CR>
 nnoremap <silent> <Leader>ec :History<CR>
 nnoremap <silent> <Leader>es :Filetypes<CR>
 nnoremap <silent> <Leader>C  :Commands<CR>
 nnoremap <silent> <Leader>ch :History:<CR>
-
-" Swipper
-nnoremap <silent> <leader>ss :BLines<CR>
 
 let $FZF_DEFAULT_COMMAND = "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
 
@@ -93,28 +88,29 @@ command! -bang -nargs=? -complete=dir Buffers
 command! -bang -nargs=? -complete=dir GFiles
     \ call fzf#vim#gitfiles('--modified')
 
-" Get text in files with Rg
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   '--column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview(), <bang>0)
+" REMOVED 2022-07-30 Ripgrep advanced <<<
+" Using grep + location list is better
 
-" Ripgrep advanced
+" " Get text in files with Rg
+" command! -bang -nargs=* Rg
+"   \ call fzf#vim#grep(
+"   \   '--column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+"   \   fzf#vim#with_preview(), <bang>0)
 
-function! RipgrepFzf(query, fullscreen)
-  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
-  let initial_command = printf(command_fmt, shellescape(a:query))
-  let reload_command = printf(command_fmt, '{q}')
-  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
-endfunction
+" function! RipgrepFzf(query, fullscreen)
+"   let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+"   let initial_command = printf(command_fmt, shellescape(a:query))
+"   let reload_command = printf(command_fmt, '{q}')
+"   let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+"   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+" endfunction
 
-command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+" command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 
-" Git grep
-command! -bang -nargs=* GGrep
-  \ call fzf#vim#grep(
-  \   'git grep --line-number '.shellescape(<q-args>), 0,
-  \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
+" " Git grep
+" command! -bang -nargs=* GGrep
+"   \ call fzf#vim#grep(
+"   \   'git grep --line-number '.shellescape(<q-args>), 0,
+"   \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
 
-" Reducer
+" >>>

@@ -142,12 +142,12 @@ chu() {
     tmux new -s $1 -d
 
     # 1st window
-    tmux rename-window dark
+    tmux rename-window code
     # tmux send-keys vim\ -S\ $HOME/.nvim/session/df.vim Enter
 
     # 2nd window
     tmux new-window -t $1:2
-    tmux rename-window darker
+    tmux rename-window test
     tmux split-window -h
     # tmux send-keys "btm -b" Enter
     tmux split-window
@@ -155,7 +155,7 @@ chu() {
 
     # 3nd window
     tmux new-window -t $1:3
-    tmux rename-window darkest
+    tmux rename-window monitor
 
     # post
     tmux select-window -t $1:1

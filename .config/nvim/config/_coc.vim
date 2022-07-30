@@ -1,12 +1,14 @@
 if PlugLoaded('coc.nvim')
 
-  lua << EOF
+lua << EOF
   vim.g.coc_global_extensions = {
     "coc-lists",
     "coc-tsserver",
-    "coc-ultisnips",
+    "coc-snippets",
     "coc-pyright",
-    "coc-emoji",
+    -- "coc-emoji",
+    "coc-git",
+    "https://github.com/rafamadriz/friendly-snippets@main",
   }
 
   vim.g.python3_host_prog = 'python3'
@@ -14,9 +16,21 @@ if PlugLoaded('coc.nvim')
   vim.g.ruby_host_prog = 'ruby'
 EOF
 
+  " For trigger snippet expand.
+  " imap <C-l> <Plug>(coc-snippets-expand)
+
+  " Select text for visual placeholder of snippet.
+  vmap <C-k> <Plug>(coc-snippets-select)
+
+  " Both expand and jump (make expand higher priority.)
+  imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+  " Use <leader>x for convert visual selected code to snippet
+  xmap <leader>x  <Plug>(coc-convert-snippet)
+
   let g:coc_disable_fts = [
     \'coc-explorer', 'ctrlsf', 'terminal', 'netrw',
-    \'fugitive', 'fugitiveblame', 'gitcommit'
+    \'fugitive', 'fugitiveblame', 'gitcommit', 'git'
   \]
 
   function! s:disable_coc_for_type()
@@ -166,53 +180,43 @@ EOF
   " Don't use GUI tabline
   " set guioptions-=e
 
-  " grep word under cursor
-  command! -nargs=+ -complete=custom,s:GrepArgs Rg exe 'CocList grep '.<q-args>
-
-  function! s:GrepArgs(...)
-    let list = ['-S', '-smartcase', '-i', '-ignorecase', '-w', '-word',
-      \ '-e', '-regex', '-u', '-skip-vcs-ignores', '-t', '-extension']
-    return join(list, "\n")
-  endfunction
-
-  vnoremap <leader>gs :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
-  nnoremap <leader>gs :<C-u>set operatorfunc=<SID>GrepFromSelected<CR>g@
-
-  function! s:GrepFromSelected(type)
-    let saved_unnamed_register = @@
-    if a:type ==# 'v'
-      normal! `<v`>y
-      elseif a:type ==# 'char'
-      normal! `[v`]y
-    else
-      return
-    endif
-    let word = substitute(@@, '\n$', '', 'g')
-    let word = escape(word, '| ')
-    let @@ = saved_unnamed_register
-    execute 'CocList grep '.word
-  endfunction
-
-  " nnoremap <silent> <leader>;        :<C-u>CocCommand explorer<CR>
   nnoremap <silent> <leader>rr       :<C-u>CocListResume<CR>
   nnoremap <leader>qw                :<C-u>CocCommand session.save<Space>
 
-  nnoremap <silent> <localleader>ff  :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
+  " 2022-07-30 Replace by grep + locationlist
+  " nnoremap <silent> <localleader>ff  :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
   " -- Keymapping for grep word under cursor with interactive mode
-  nnoremap <silent> <Leader>cf :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>
+  " nnoremap <silent> <Leader>cf :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>
 
 endif
 
 if PlugLoaded('coc-fzf')
-  " let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.4, 'border': 'sharp' } }
-  " let g:coc_fzf_preview = 'up:50%'
-  " let g:coc_fzf_opts = ['--layout=reverse-list']
-  " let g:coc_fzf_preview_toggle_key = '?'
+
+  let g:coc_fzf_preview = ''
+  let g:coc_fzf_opts = []
+  let g:coc_fzf_preview_toggle_key = '?'
+
   nnoremap <silent> <leader>ll :<C-u>CocFzfList<CR>
   nnoremap <silent> <leader>ld :<C-u>CocFzfList diagnostics<CR>
   nnoremap <silent> <leader>lb :<C-u>CocFzfList diagnostics --current-buf<CR>
   nnoremap <silent> <leader>lC :<C-u>CocFzfList commands<CR>
   nnoremap <silent> <leader>ls :<C-u>CocFzfList symbols<CR>
   nnoremap <silent> <leader>qo :<C-u>CocFzfList sessions<CR>
+
+  "" 2022-07-30 coc-git improves vim-fugitive
+  " faster in browse and blame
+  nmap <leader>gc      :CocCommand git.
+  nmap <localleader>gb :CocCommand git.showBlameDoc<CR>
+  nmap <localleader>go :CocCommand git.browserOpen<CR>
+  nmap <localleader>gd :CocCommand git.diffCached<CR>
+
+  nmap <localleader>g[ <Plug>(coc-git-prevchunk)
+  nmap <localleader>g] <Plug>(coc-git-nextchunk)
+  nmap <localleader>gu :CocCommand git.chunkUndo<CR>
+  nmap <localleader>gi :CocCommand git.chunkInfo<CR>
+
+  " navigate conflicts of current buffer
+  nmap <localleader>c[ <Plug>(coc-git-prevconflict)
+  nmap <localleader>c] <Plug>(coc-git-nextconflict)
 
 endif

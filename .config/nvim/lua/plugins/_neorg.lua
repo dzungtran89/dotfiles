@@ -20,7 +20,7 @@ elseif fn.PlugLoaded('orgmode.nvim') == 1 then
   require('orgmode').setup_ts_grammar()
   require('orgmode').setup({
     org_agenda_files = {'~/code/github/og-abc/org/*'},
-    org_default_notes_file = '~/code/github/og-abc/org/gtd.org',
+    org_default_notes_file = '~/code/github/og-abc/org/work.org',
   })
 
   require("org-bullets").setup {
