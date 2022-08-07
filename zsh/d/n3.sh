@@ -1,4 +1,6 @@
 export NNN_COLORS="2136"
+alias nnn="nnn -eH"
+alias n3='nnn'
 
 is_mac() {
   uname | grep -q "Darwin"
@@ -8,7 +10,7 @@ NNN_PLUG_DEFAULT='1:ipinfo;p:preview-tui;o:fzz;b:nbak'
 NNN_PLUG="$NNN_PLUG_DEFAULT"
 export NNN_PLUG
 
-export NNN_BMS="h:~;d:~/Documents;c:~/code;g:~/code/github;o:~/code/github/abc-og;m:~/Movies"
+export NNN_BMS="h:~;d:~/Documents;c:~/code;g:~/code/github;w:~/Nextcloud/vimwiki;m:~/Movies;b:${XDG_CONFIG_HOME:-$HOME/.config}/nnn/bookmarks"
 export NNN_USE_EDITOR=1
 # export NNN_OPENER="$HOME/.scripts/nnn/plugins/nuke"
 # export NNN_COPIER="$HOME/.scripts/nnn/plugins/copy"
@@ -25,7 +27,7 @@ n () {
   fi
 
   export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
-  env KITTY_LISTEN_ON=tcp:localhost:20000 nnn "$@"
+  env KITTY_LISTEN_ON=tcp:localhost:20000 nnn -eH "$@"
 
   if [ -f "$NNN_TMPFILE" ]; then
     . "$NNN_TMPFILE"

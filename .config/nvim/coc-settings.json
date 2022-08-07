@@ -45,5 +45,13 @@
     "./addons",
     "./project"
   ],
-  "git.enableGutters": true
+  "python.analysis.diagnosticSeverityOverrides": {
+      "reportGeneralTypeIssues": "none"
+  },
+  "git.enableGutters": true,
+  "snippets.extends": {
+    "vimwiki": ["markdown"],
+    "javascriptreact": ["javascript"],
+    "typescript": ["javascript"]
+  }
 }

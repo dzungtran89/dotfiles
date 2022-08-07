@@ -34,7 +34,7 @@ EOF
   \]
 
   function! s:disable_coc_for_type()
-    if (index(g:coc_disable_fts, &filetype) != -1 || &buftype == "terminal")
+    if (&buftype == "terminal" || index(g:coc_disable_fts, &filetype) != -1)
       let b:coc_enabled = 0
     endif
   endfunction
@@ -69,7 +69,11 @@ EOF
   " \ coc#refresh()
   " inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-  " CheckBackspace
+  " Make <CR> to accept selected completion item or notify coc.nvim to format
+  " <C-g>u breaks current undo, please make your own choice.
+  inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+  \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
   function! s:check_back_space() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1] =~# '\s'

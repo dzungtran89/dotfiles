@@ -20,7 +20,6 @@ require('nvim-treesitter.configs').setup {
     "python", "dockerfile", "bash",
     "xml", "javascript", "html", "css",
     "yaml", "rst", "org",
-    -- "lua", "vim"
   },
   indent = {
     enable = false,
@@ -30,6 +29,8 @@ require('nvim-treesitter.configs').setup {
   },
   highlight = {
     enable = true, -- false will disable the whole extension
+    disable = {"po", "pot", "csv"},
+    additional_vim_regex_highlighting = {'org'}, -- Required for spellcheck, some LaTex highlights and code block highlights that do not have ts grammar
   },
   incremental_selection = {
     enable = true,

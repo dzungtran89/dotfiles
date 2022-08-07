@@ -1,4 +1,5 @@
 -- require('plugins._evil_line')
+
 if vim.fn.PlugLoaded('lualine.nvim') ~= 1 then
   return
 end
@@ -50,7 +51,7 @@ end
 require'lualine'.setup {
   options = {
     section_separators = '▒',
-    component_separators = '»',
+    component_separators = '░',
     icons_enabled = false,
     disabled_filetypes = {
       'fzf', 'coc-explorer', 'ctrlsf', 'tagbar', 'netrw', 'fugitiveblame',
@@ -59,23 +60,23 @@ require'lualine'.setup {
     always_divide_middle = false,
   },
   sections = {
-    lualine_a = {{
+    lualine_a = {
+      {
         'mode',
         fmt = function(str)
-          mode_map()
-          return str:sub(1,3) .. ' ▊'
+          return str:sub(1,2)
+          -- mode_map()
+          -- return str:sub(1,3) .. ' ▊'
         end,
-        color = 'LualineMode',
-        padding = {left = 0, right=0},
+        -- color = 'LualineMode',
+        -- padding = {left = 0, right=0},
       },
-      -- 'diff',
-    },
-    lualine_b = {
-      {'filename', path = 1},
     },
     lualine_c = {
-      'progress',
-      'location',
+      'diff',
+    },
+    lualine_b = {
+      'filename',
     },
 
     lualine_x = {
@@ -87,15 +88,20 @@ require'lualine'.setup {
       },
     },
     lualine_y = {
-      {'encoding', padding = 0}
+      'encoding',
+      'progress'
+      -- {
+      --   'progress',
+      --   padding = {left = 0, right = 1}
+      -- }
     },
     lualine_z = {
-      {
-        'filetype',
-        color = 'LualineMode',
-        fmt = function(str) return str:sub(1,3) .. ' ▊' end,
-        padding = {left = 1, right=0}
-      }
+      'location',
+      -- {
+      --   'filetype',
+      --   color = 'LualineMode',
+      --   fmt = function(str) return str:sub(1,3) .. ' ▊' end,
+      -- }
     },
   },
   inactive_sections = {
@@ -111,8 +117,8 @@ require'lualine'.setup {
     lualine_y = {},
     lualine_z = {
       {
-        'filetype',
-        fmt = function(str) return str:sub(1,3) .. ' ⏾' end
+        'location',
+        fmt = function(str) return str .. ' ⏾' end
       }
     }
   },
@@ -121,7 +127,7 @@ require'lualine'.setup {
       'tabs'
     },
     lualine_b = {
-      'filename'
+      {'filename', path = 2},
     },
     lualine_c = {},
     lualine_x = {},
@@ -135,4 +141,3 @@ require'lualine'.setup {
   },
   extensions = {}
 }
--- require'tabline'.setup {}

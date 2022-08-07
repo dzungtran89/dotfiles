@@ -3,7 +3,7 @@
   email = dungtd@trobz.com
 [core]
   excludesfile = ~/.gitignore_global
-  editor = vi
+	editor = vi --noplugin
   quotePath = false
   commitGraph = true
 [color]
@@ -20,7 +20,7 @@
 [mergetool]
   keepBackup = false
 [mergetool "vimdiff"]
-  cmd = vi -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+  cmd = vi --noplugin -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [merge]
   tool = vimdiff
 [alias]

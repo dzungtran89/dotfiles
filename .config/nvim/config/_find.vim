@@ -19,8 +19,10 @@ if PlugLoaded('ack.vim')
   let g:ack_use_cword_for_empty_search = 1
 
   cnoreabbrev Ack Ack!
-  nnoremap <leader>/ :Ack -t
-  vnoremap <leader>/ y:Ack --glob "!test*" --glob "!l10n*" -we "<C-r>=fnameescape(@")<CR>" -tpy<space>
+  cnoreabbrev LAck LAck!
+  nnoremap <leader>/       :Ack -t
+  vnoremap <localleader>/ y:LAck -we "<C-r>=fnameescape(@")<CR>" -tpy %
+  vnoremap <leader>/      y:Ack --glob "!test*" --glob "!l10n*" -we "<C-r>=fnameescape(@")<CR>" -tpy<space>
 
   " lazy mappings
   " wholeword, ignore !tests and l10n*

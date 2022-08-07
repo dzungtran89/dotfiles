@@ -17,6 +17,8 @@ if PlugLoaded('vim-easymotion')
 endif
 
 if PlugLoaded('any-jump.vim')
+  " DEPRECATED 2022-08-04
+  " Using ack.vim + qf/locationlist is better
 
   " -------------------------------------------------
   "

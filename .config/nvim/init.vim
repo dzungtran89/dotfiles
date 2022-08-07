@@ -76,7 +76,6 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set lazyredraw
-set colorcolumn=79
 
 let mapleader=' '
 let maplocalleader=','
@@ -122,6 +121,7 @@ if PlugLoaded('vim-session')
 endif
 
 let g:netrw_banner = 1
+let no_buffers_menu=1
 
 "*****************************************************************************
 "" Visual Settings
@@ -129,8 +129,6 @@ let g:netrw_banner = 1
 syntax on
 set ruler
 set nonu relativenumber
-
-let no_buffers_menu=1
 
 set mousemodel=popup
 set t_Co=256
@@ -141,13 +139,6 @@ if has("gui_running")
     set transparency=7
   endif
 else
-  " IndentLine
-  if PlugLoaded('indentLine')
-    let g:indentLine_enabled = 1
-    let g:indentLine_char_list = ['│', '¦', '┆', '┊']
-    let g:indentLine_fileType = ['python', 'js', 'xml']
-  endif
-
   if $COLORTERM == 'gnome-terminal'
     set term=gnome-256color
   else
@@ -155,9 +146,7 @@ else
       set term=xterm-256color
     endif
   endif
-
 endif
-
 
 if &term =~ '256color'
   set t_ut=
@@ -241,11 +230,16 @@ augroup vimrc-wrapping
   autocmd BufRead,BufNewFile *.txt call s:setupWrapping()
 augroup END
 
-"" make/cmake
-augroup vimrc-make-cmake
+augroup vimrc-filetype
   autocmd!
-  autocmd FileType make setlocal noexpandtab
+  autocmd FileType           make           setlocal noexpandtab
+  autocmd FileType           json           setlocal cole=0
   autocmd BufNewFile,BufRead CMakeLists.txt setlocal filetype=cmake
+  autocmd BufNewFile,BufRead .env*          setlocal filetype=sh
+augroup END
+
+augroup vimrc-terminal
+  autocmd TermOpen           *              setlocal listchars= norelativenumber
 augroup END
 
 set autoread
@@ -254,20 +248,19 @@ set autoread
 "" Mappings
 "*****************************************************************************
 "" Tabs
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
-nnoremap <S-t> :tabnew<CR>
+nnoremap <Tab>           gt
+nnoremap <S-Tab>         gT
+nnoremap <S-t>           :tabnew<CR>
 
-nnoremap <leader>bq :close<CR>
-nnoremap <leader>bd :b#\|bw#<CR>
+nnoremap <leader>bd      :b#\|bw#<CR>
 
 " Save the file without leaving the mode
-inoremap <C-s>      <Cmd>update<CR>
+inoremap <C-s>           <Cmd>update<CR>
 
-nnoremap  <leader>fw :update<CR>
-nnoremap  <leader>fe :e!<CR>
-nnoremap  <leader>fd :bw!<CR>
-nnoremap  qq         :bw!<CR>
+nnoremap <leader>fw      :update<CR>
+nnoremap <leader>fe      :e!<CR>
+nnoremap <leader>fd      :bw!<CR>
+nnoremap qq              :bw!<CR>
 
 nnoremap <localleader>le :setl expandtab sw=2<CR>
 nnoremap <localleader>ls :setl syntax=
@@ -377,6 +370,14 @@ nnoremap <silent> <leader>;  :Explore<CR>
 nnoremap <silent> <leader>re :Rexplore<CR>
 nnoremap <localleader>id     :r!date "+\%Y-\%m-\%d"<CR>
 nnoremap <leader>w!          :w !sudo tee > /dev/null %
+nnoremap <leader>ts          :sp +te<CR>
+nnoremap <leader>tv          :vs +te<CR>
+nnoremap <leader>tt          :tabnew +te<CR>
+nnoremap <leader>w=          <C-w>=
+nnoremap <leader>w\|         <C-w>\|
+
+" <C-a> is already mapped to tmux, so remapping C-a in cmdline
+cmap     <C-b>               <C-a>
 
 " Formatting py
 nnoremap <localleader>fm     :!black %

@@ -24,17 +24,16 @@ local mappings = {
 
   t = {
     name = "toggle",
-    l = { ":set nu!<cr>"      , "On/Off Line number" },
+    l = { ":set nu!<cr>",       "On/Off Line number" },
     h = { ":set hlsearch!<cr>", "On/Off hlsearch" },
-    i = { ":set ic!<cr>"      , "On/Off caseinsensitive" },
+    i = { ":set ic!<cr>",       "On/Off caseinsensitive" },
   },
 
   c = {
     name = "floaterm",
-    l = {":FloatermNew lazygit<CR>"   , "lazygit"} ,
-    g = {":FloatermNew tig<CR>"       , "tig"}     ,
-    n = {":FloatermNew nnn<CR>"       , "nnn"}     ,
-    v = {":FloatermNew gitui<CR>"     , "gitui"}   ,
+    l = {":FloatermNew lazygit<CR>", "lazygit"},
+    g = {":FloatermNew tig<CR>",     "tig"},
+    n = {":FloatermNew nnn<CR>",     "nnn"},
   },
 }
 
@@ -46,5 +45,13 @@ local buffer_mappings = {
 }
 
 local wk = require("which-key")
+
+wk.setup({
+    window = {
+      border = "double"
+    }
+  }
+)
+
 wk.register( mappings, { prefix = "<leader>" } )
 wk.register( buffer_mappings, { prefix = "<localleader>" } )

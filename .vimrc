@@ -11,11 +11,11 @@
 "           https://github.com/amix/vimrc
 "
 " UPDATE:
-"       Minimal vimrc
+"       A minimal vimrc for quickly troubleshooting purpose
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
- " Plugins {{{1
+" Plugins {{{1
 let vimplug_exists=expand('~/.vim/autoload/plug.vim')
 if has('win32')&&!has('win60')
   let curl_exists=expand('C:\Windows\Sysnative\curl.exe')
@@ -46,16 +46,19 @@ call plug#begin('~/.vim/plugged')
 " Core
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'Yggdroot/indentLine'
-Plug 'easymotion/vim-easymotion'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-vinegar'
-Plug 'pechorin/any-jump.vim'
-Plug 'godlygeek/tabular'
 Plug 'tpope/vim-eunuch'
+Plug 'junegunn/vim-easy-align'
+
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
+
+Plug 'easymotion/vim-easymotion'
+Plug 'dhruvasagar/vim-zoom'
+Plug 'Yggdroot/indentLine'
+
 Plug 'itchyny/lightline.vim'
 Plug 'cocopon/iceberg.vim'
 
@@ -70,10 +73,10 @@ call plug#end()
 set history=500
 set conceallevel=0
 set cursorline
-" set cursorcolumn
+set cursorcolumn
 set relativenumber
-set foldmethod=syntax
-set foldcolumn=1
+" set foldmethod=syntax
+" set foldcolumn=1
 set undodir="~/.vim/undo-dir"
 set list
 set listchars=tab:→\ ,eol:¬,extends:❯,precedes:❮,trail:·,nbsp:·
@@ -105,7 +108,6 @@ set signcolumn=yes
 
 " Set to auto read when a file is changed from the outside
 set autoread
-au FocusGained,BufEnter * checktime
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
@@ -219,21 +221,9 @@ command! CopyBuffer let @+ = expand('%:p')
 " Enable syntax highlighting
 syntax on
 
-" Enable 256 colors palette in Gnome Terminal
-" if $COLORTERM == 'gnome-terminal'
-set t_Co=256
-" endif
-
 set background=dark
+set termguicolors
 colorscheme iceberg
-
-" Set extra options when running in GUI mode
-if has("gui_running")
-  set guioptions-=T
-  set guioptions-=e
-  set t_Co=256
-  set guitablabel=%M\ %t
-endif
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
@@ -391,23 +381,12 @@ if has("autocmd")
   autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
 endif
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Spell checking {{{1
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Pressing ,ss will toggle and untoggle spell checking
-map <leader>ss :setlocal spell!<cr>
-
-" Shortcuts using <leader>
-map <leader>sn ]s
-map <leader>sp [s
-map <leader>sa zg
-map <leader>s? z=
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remove the Windows ^M - when the encodings gets messed up
-noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+nnoremap <localleader>fm mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 " Toggle paste mode on and off
 map <localleader>p :setlocal paste!<cr>
@@ -507,24 +486,53 @@ if has_key(plugs, 'any-jump.vim')
 endif
 
 if has_key(plugs, 'indentLine')
-  let g:indentLine_conceallevel = 0
-  let g:indentLine_enabled = 1
+  " let g:indentLine_conceallevel = 0
+  let g:indentLine_enabled = 0
   let g:indentLine_char_list = ['│', '¦', '┆', '┊']
+  nnoremap <leader>ti :IndentLinesToggle<cr>
 endif
 
 " lightline {{{1
 if has_key(plugs, 'lightline.vim')
   let g:lightline = {
-        \ 'colorscheme': 'wombat',
-        \ 'active': {
-          \   'left': [ [ 'mode', 'paste' ],
-          \             [ 'readonly', 'filename', 'lineinfo', 'percent' ], ['cwd'] ],
-          \   'right': [ [ 'fileformat', 'fileencoding', 'filetype'] ]
-          \ },
-          \ 'component': {
-            \   'cwd': '%{getcwd()}'
-            \ },
-            \ }
+        \'colorscheme': 'one',
+        \'active': {
+        \  'left': [
+        \    ['mode', 'paste'],
+        \    ['readonly', 'cwd'],
+        \    ['filename', 'lineinfo', 'percent']
+        \    ],
+        \  'right': [
+        \    ['zoom'],
+        \    ['fileformat', 'fileencoding', 'filetype'],
+        \    ]
+        \  },
+        \  'component': {
+        \    'cwd': '%{getcwd()}',
+        \    'zoom': '%{zoom#statusline()}',
+        \    'lineinfo': '%3l:%-2v%<',
+        \  },
+        \'component_function': {
+        \    'fileformat': 'LightlineFileformat',
+        \    'filetype': 'LightlineFiletype',
+        \    'filename': 'LightlineFilename',
+        \}
+        \    }
+
+  function! LightlineFileformat()
+    return winwidth(0) > 70 ? &fileformat : ''
+  endfunction
+
+  function! LightlineFiletype()
+    return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+  endfunction
+
+  function! LightlineFilename()
+    let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+    let modified = &modified ? ' +' : ''
+    return filename . modified
+  endfunction
+
 endif
 " }}}
 
@@ -533,10 +541,11 @@ endif
 " Quickfix
 nnoremap <leader>p      :copen<CR>
 nnoremap <localleader>p :lopen<CR>
-nnoremap <silent> <c-n> :lnext<CR>
-nnoremap <silent> <c-p> :lprevious<CR>
+nnoremap <silent> <c-n> :cnext<CR>
+nnoremap <silent> <c-p> :cprevious<CR>
 
 if has_key(plugs, 'ack.vim')
+
   if executable('rg')
     let g:ackprg = 'rg --vimgrep --smart-case'
   endif
@@ -544,18 +553,20 @@ if has_key(plugs, 'ack.vim')
   let g:ack_autoclose = 1
   let g:ack_use_cword_for_empty_search = 1
 
+  cnoreabbrev Ack Ack!
   cnoreabbrev LAck LAck!
-  nnoremap <leader>/ :LAck -t
+  nnoremap <leader>/       :LAck -t
+  vnoremap <leader>/       y:LAck -we "<C-r>=fnameescape(@")<CR>" -tpy %
 
-  " lazy mappings"
-  nmap <leader>1  :LAck -tpy -e<space>
-  nmap <leader>2  :LAck -txml -e<space>
-  nmap <leader>3  :LAck -tjs -e<space>
-  nmap <leader>st :LAck -e "\#.*(TODO\\|TOCHECK\\|FIXME)"<space>
+  " lazy mappings
+  " wholeword, ignore !tests and l10n*
+  nmap <leader>st :LAck  --glob "!test*" --glob "!l10n*" -we "\#.*(TODO\\|TOCHECK\\|FIXME)"<space>
+
 endif
 
 " Lazy mappings for editor
 nnoremap <localleader>gd :r!date "+\%Y-\%m-\%d"<CR>
+nnoremap <C-i> <C-a>
 
 if has_key(plugs, 'fzf.vim')
 
@@ -571,8 +582,8 @@ if has_key(plugs, 'fzf.vim')
   " ripgrep
   if executable('rg')
     let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
-    " command! -bang -nargs=* Find 
-    "       \ call fzf#vim#grep('rg --column --line-number --no-heading --smart-case --hidden --follow --glob "!.git/*" --color "always" 
+    " command! -bang -nargs=* Find
+    "       \ call fzf#vim#grep('rg --column --line-number --no-heading --smart-case --hidden --follow --glob "!.git/*" --color "always"
     "       \'.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
     command! -bang -nargs=* Rg
           \ call fzf#vim#grep('rg --column --line-number --no-heading --smart-case --hidden --follow --glob "!.git/*" --color "always" '
@@ -591,3 +602,4 @@ if has_key(plugs, 'fzf.vim')
   nn <Leader>es :Filetypes<CR>
 
 endif
+" }}}

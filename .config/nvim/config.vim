@@ -1,14 +1,18 @@
 " Options {{{
 nnoremap <leader>ui :colorscheme<space>
 
-" set cursorcolumn
+if PlugLoaded('vim-hardtime')
+  let g:hardtime_default_on = 1
+  let g:hardtime_allow_different_key = 1
+  let g:hardtime_ignore_quickfix = 1
+endif
+
 set nojoinspaces                    " Join sentences with single space
 set shiftround                      " Round >> to nearest shiftwidth multiple
 set nowrap
 
 " Turn backup off, since most stuff is in SVN, git etc. anyway...
 set nobackup
-" Some servers have issues with backup files, see #649.
 set nowritebackup
 set noswapfile
 
@@ -68,9 +72,6 @@ autocmd BufRead,BufNewFile * setlocal formatoptions-=cro
 " Miscellaneous: Auto close preview
 autocmd InsertLeave * silent! pclose!
 
-" " Miscellaneous: Check up to date plugins
-" autocmd VimEnter * call CheckForUpdates()
-
 " Disable visualbell
 set noerrorbells visualbell t_vb=
 if has('autocmd')
@@ -80,8 +81,8 @@ endif
 " Disabling the cursor-line/column in unused windows/buffers.
 augroup cursorline
   autocmd!
-  autocmd WinEnter,BufEnter * setlocal cursorline
-  autocmd WinLeave,BufLeave * setlocal nocursorline
+  autocmd WinEnter,BufEnter * setlocal cursorline cursorcolumn
+  autocmd WinLeave,BufLeave * setlocal nocursorline nocursorcolumn
 augroup END
 
 " -------------------------------------------------
@@ -197,40 +198,6 @@ if PlugLoaded('vim-surround')
   nmap ySS      <Plug>YSsurround
   xmap gs       <Plug>VSurround
   xmap gS       <Plug>VgSurround
-endif
-
-if PlugLoaded('wilder.nvim')
-  " Default keys
-  call wilder#setup({
-    \ 'modes': [':'],
-    \ 'enable_cmdline_enter': 0,
-    \ 'next_key': '<Tab>',
-    \ 'previous_key': '<S-Tab>',
-    \ 'accept_key': '<Down>',
-    \ 'reject_key': '<Up>',
-    \ })
-
-  call wilder#set_option('pipeline', [
-      \   wilder#branch(
-      \     wilder#cmdline_pipeline({
-      \       'language': has('nvim') ? 'python3' : 'vim',
-      \       'fuzzy': 1
-    \       }),
-      \     wilder#python_search_pipeline({
-      \       'pattern': wilder#python_fuzzy_pattern(),
-      \       'sorter': wilder#python_difflib_sorter(),
-      \       'engine': 're',
-      \     }),
-      \   ),
-      \ ])
-
-  call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_border_theme({
-      \ 'highlights': {
-      \   'border': 'Normal',
-      \ },
-      \ 'border': 'rounded',
-      \ 'pumblend': 20,
-      \ })))
 endif
 
 if PlugLoaded('indentLine')

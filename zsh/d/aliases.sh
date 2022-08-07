@@ -13,6 +13,7 @@ alias cl='clear'
 alias cpath='pwd|pbcopy'
 
 alias vim=nvim
+alias vin='vi --noplugin'
 alias vs='vim -S $@'
 alias vno='vim -u NORC $@'
 
@@ -24,8 +25,6 @@ alias hs='hugo server'
 
 alias bu='buku'
 alias b='bu --suggest'
-alias n3='nnn'
-alias nnn="nnn -eH"
 
 # docker
 alias dki='docker images'
@@ -51,11 +50,6 @@ alias vec='ve ~/.emacs.d/init.el'
 # alias emk='emacsclient -e "(kill-emacs)"'
 # alias emc='emacsclient -c'
 
-# pyenv
-alias pv='pyenv virtualenv'
-alias pa='pyenv activate'
-alias pd='pyenv deactivate'
-
 # trobz internal tools
 alias roi='remoteoi'
 alias eoi='emoi --offline'
@@ -71,18 +65,15 @@ alias sres='launchctl kickstart -k "gui/${UID}/homebrew.mxcl.skhd"'
 alias bres='launchctl kickstart -k "gui/${UID}/homebrew.mxcl.sketchybar"'
 
 # postgres
-alias brupsql='brew postgresql-upgrade-database'
-
-# tmux
-alias tn='tmux new -s'
-alias ta='tmux attach -t'
-alias tmls='tmux ls'
+alias pgup='brew postgresql-upgrade-database'
 
 alias lt='tree -la -L'
 
-if command -v lsd &> /dev/null; then
-  alias ls='lsd'
+if command -v exa &> /dev/null; then
+  alias ls='exa'
   alias la='ls -lah'
+  unalias lt
+  alias lt='ls -T --level $@'
   # alias la='exa -l --all --group-directories-first'
   # alias ll='exa -l --all --all --group-directories-first'
   # alias lg='exa -l --all --group-directories-first --git'
@@ -168,3 +159,6 @@ chu() {
 if [[ -f "$HOME/.d/local.sh" ]]; then
   source $HOME/.d/local.sh
 fi
+
+# Magic
+alias v="fd -t f --hidden --exclude .git | fzf-tmux -p | xargs nvim --noplugin"

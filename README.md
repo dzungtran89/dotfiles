@@ -45,14 +45,10 @@ keymap       | note                                                             
 `<leader>ew` | Get window list                                                               |
 `<leader>bb` | Get buffer list                                                               |
 `<leader>/`  | Search engine by [ripgrep](https://github.com/BurntSushi/ripgrep) + [ack.vim](https://github.com/mileszs/ack.vim)|
-`<leader>js` | Get all refs under cursor by [jump](https://github.com/pechorin/any-jump.vim) |
 **Misc**     |
 `LSP`        | [coc.nvim](https://github.com/neoclide/coc.nvim) and its amazing addons       |
 `C-j`        | Pick snippet in `insert` mode                                                 |
 `<leader>ga` | :Git                                                                          |
-`<leader>cg` | floatterm [tig](https://github.com/jonas/tig)                                 |
-`<leader>cn` | floatterm [nnn](https://github.com/jarun/nnn)                                 |
-`<leader>cl` | floatterm [lazygit](https://github.com/jesseduffield/lazygit)                 |
 **Note**     |
 `<leader>ww` | Open the wiki index file                                                      |
 
